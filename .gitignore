@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Local-only generated artifacts. Canonical small indexes and schemas remain tracked.
+artifacts/local/
+backtests/baselines/tmp/
+deployments/**/generated/local/
+
+# Local credentials and environment overlays.
+.env
+.env.*
+!.env.example
