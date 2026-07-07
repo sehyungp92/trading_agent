@@ -3,16 +3,20 @@
 import json
 from pathlib import Path
 
+from click.testing import CliRunner
+
 from crypto_trader.cli import (
     _deployment_preflight_errors,
     _live_config_path_errors,
     _live_config_public_hash,
+    cli,
 )
 from crypto_trader.live.config import LiveConfig
 
 VALID_WALLET = "0x" + "1" * 40
 VALID_PRIVATE_KEY = "0x" + "2" * 64
 STRATEGY_IDS = ("momentum", "trend", "breakout")
+REPO_ROOT = Path(__file__).resolve().parents[4]
 
 
 def _valid_live_config_payload(tmp_path: Path) -> dict:
@@ -223,6 +227,51 @@ class TestLiveConfig:
         )
 
         assert "mounted live config public hash does not match generated effective config" in errors
+
+    def test_emit_deployment_metadata_writes_all_contract_artifacts(self, tmp_path):
+        effective_path = tmp_path / "live_config.effective.json"
+        _write_json(
+            effective_path,
+            {
+                "effective_config_hash": "test-effective-config",
+                "materialized_config": {},
+            },
+        )
+        contract_work_root = tmp_path / "contract_work"
+        state_dir = tmp_path / "state"
+
+        result = CliRunner().invoke(
+            cli,
+            [
+                "emit-deployment-metadata",
+                "--effective-config",
+                str(effective_path),
+                "--contract-source-root",
+                str(REPO_ROOT / "contracts" / "strategy_plugins"),
+                "--contract-work-root",
+                str(contract_work_root),
+                "--state-dir",
+                str(state_dir),
+                "--repo-root",
+                str(REPO_ROOT),
+                "--runtime-started-at-utc",
+                "2026-07-07T00:00:00Z",
+            ],
+        )
+
+        assert result.exit_code == 0, result.output
+        payload = json.loads(result.output)
+        assert set(payload["deployment_metadata_paths"]) == {
+            "crypto_breakout_v1",
+            "crypto_momentum_v1",
+            "crypto_trend_v1",
+        }
+        for bridge_id, raw_path in payload["deployment_metadata_paths"].items():
+            metadata_path = Path(raw_path)
+            assert metadata_path.is_file(), bridge_id
+            metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+            assert metadata["strategy_id"] == bridge_id
+            assert metadata["telemetry_schema_versions"]
 
     def test_base_url_testnet(self):
         cfg = LiveConfig(is_testnet=True)

@@ -708,9 +708,10 @@ def emit_deployment_metadata(
             return stable_hash({"repo": str(root), "runtime": "crypto"}, length=32)
 
         def _file_sha256(self, path: Path) -> str:
-            import hashlib
+            return LiveEngine._file_sha256(path)  # noqa: SLF001
 
-            return hashlib.sha256(path.read_bytes()).hexdigest()
+        def _required_telemetry_schema_versions(self, contract_path: Path) -> list[str]:
+            return LiveEngine._required_telemetry_schema_versions(contract_path)  # noqa: SLF001
 
         def _bridge_contract_root(self) -> Path:
             return work_root

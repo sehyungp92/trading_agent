@@ -52,3 +52,7 @@ def _emit_deployment_metadata(argv: list[str]) -> int:
 
 
 __all__ = ["main"]
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import os
 import subprocess
+import sys
 from datetime import datetime, timezone
+from pathlib import Path
 
 import pytest
 
@@ -12,6 +15,9 @@ from deployment.olr_kalcb.deployment_metadata import (
 )
 from deployment.olr_kalcb.hashing import file_sha256
 from instrumentation.src.runtime_lineage import runtime_versions_from_manifest
+
+
+REPO_ROOT = Path(__file__).resolve().parents[5]
 
 
 def test_build_deployment_metadata_matches_approval_contract(tmp_path):
@@ -112,6 +118,36 @@ def test_build_deployment_metadata_matches_approval_contract(tmp_path):
     assert metadata["dry_run"] is False
     assert metadata["strategy_artifacts"]["KALCB"]["artifact_hash"] == "kalcb-artifact"
     assert metadata["kis_resource_plan_hash"] == "plan-unit"
+
+
+def test_module_entrypoint_exposes_deployment_metadata_cli_help():
+    env = os.environ.copy()
+    path_items = [
+        str(REPO_ROOT / "bots" / "k_stock_trader" / "src"),
+        str(REPO_ROOT / "bots" / "k_stock_trader"),
+    ]
+    existing = env.get("PYTHONPATH")
+    env["PYTHONPATH"] = os.pathsep.join(path_items + ([existing] if existing else []))
+
+    completed = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "k_stock_trader.olr_kalcb_runtime",
+            "emit-deployment-metadata",
+            "--help",
+        ],
+        cwd=REPO_ROOT,
+        env=env,
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=30,
+    )
+
+    assert completed.returncode == 0
+    assert "emit-deployment-metadata" in completed.stdout
+    assert "--output" in completed.stdout
 
 
 def test_build_deployment_metadata_rejects_dirty_or_local_source(tmp_path):
