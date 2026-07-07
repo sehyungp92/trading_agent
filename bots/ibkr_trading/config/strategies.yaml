@@ -1,0 +1,339 @@
+connection_groups:
+  # Single connection group — all families share one IB Gateway connection.
+  # Multi-group was creating 3 connections but only the first was used
+  # (execution_adapter.py routes everything through session.ib).
+  default:
+    host: "${IB_HOST:127.0.0.1}"
+    port: "${IB_PORT:4002}"
+    client_id: 7
+    account_id: "${IB_ACCOUNT_ID}"
+    readonly: false
+
+strategies:
+  ATRSS:
+    strategy_id: ATRSS
+    system_id: swing_trader
+    family: swing
+    connection_group: default
+    display_name: "ATR Swing Strategy"
+    module_path: "strategies.swing.atrss.plugin"
+
+    enabled: true
+    paper_mode: false
+    asset_class: mixed
+    symbols: [QQQ, GLD]
+    risk:
+      unit_risk_dollars: 200.0
+      daily_stop_R: 2.25
+      max_working_orders: 4
+      max_heat_R: 2.15
+      priority: 0
+    allocation:
+      base_risk_pct: 0.0165
+      equity_offset: 0.0
+    dashboard_metadata:
+      system_label: "Swing Trader"
+      short_label: "SWING"
+      color_key: "blue"
+    deployment_tags: [live, paper, swing]
+
+  AKC_HELIX:
+    strategy_id: AKC_HELIX
+    system_id: swing_trader
+    family: swing
+    connection_group: default
+    display_name: "AKC Helix"
+    module_path: "strategies.swing.akc_helix.plugin"
+
+    enabled: true
+    paper_mode: false
+    asset_class: mixed
+    symbols: [QQQ, GLD]
+    risk:
+      unit_risk_dollars: 200.0
+      daily_stop_R: 2.5
+      max_working_orders: 4
+      max_heat_R: 2.10
+      priority: 2
+    allocation:
+      base_risk_pct: 0.013
+    dashboard_metadata:
+      system_label: "Swing Trader"
+      short_label: "SWING"
+      color_key: "blue"
+    deployment_tags: [live, paper, swing]
+
+  TPC:
+    strategy_id: TPC
+    system_id: swing_trader
+    family: swing
+    connection_group: default
+    display_name: "Trend Pullback Continuation"
+    module_path: "strategies.swing.tpc.plugin"
+
+    enabled: true
+    paper_mode: false
+    asset_class: equity
+    symbols: [QQQ, GLD]
+    risk:
+      unit_risk_dollars: 200.0
+      daily_stop_R: 2.0
+      max_working_orders: 3
+      max_heat_R: 4.00
+      priority: 1
+    allocation:
+      base_risk_pct: 0.005
+    dashboard_metadata:
+      system_label: "Swing Trader"
+      short_label: "SWING"
+      color_key: "blue"
+    deployment_tags: [live, paper, swing]
+
+  IARIC_v1:
+    strategy_id: IARIC_v1
+    system_id: stock_trader
+    family: stock
+    connection_group: default
+    display_name: "IARIC v1"
+    module_path: "strategies.stock.iaric.plugin"
+
+    enabled: true
+    paper_mode: false
+    asset_class: equity
+    symbols: [SPY, QQQ, IWM]
+    artifact_config:
+      type: watchlist
+      source: stock_trader/data/iaric_v1
+    engine_config:
+      universe: sp500
+    risk:
+      unit_risk_dollars: 100.0
+      daily_stop_R: 2.75
+      max_working_orders: 1
+      max_heat_R: 5.4
+      portfolio_daily_stop_R: 3.5
+    allocation:
+      base_risk_pct: 0.00864
+      continuation_half_size: false
+      continuation_size_mult: 0.50
+    dashboard_metadata:
+      system_label: "Stock Trader"
+      short_label: "STOCK"
+      color_key: "green"
+    deployment_tags: [live, paper, stock]
+
+  ALCB_v1:
+    strategy_id: ALCB_v1
+    system_id: stock_trader
+    family: stock
+    connection_group: default
+    display_name: "ALCB v1"
+    module_path: "strategies.stock.alcb.plugin"
+
+    enabled: true
+    paper_mode: false
+    asset_class: equity
+    symbols: [SPY, QQQ, IWM]
+    artifact_config:
+      type: candidate
+      source: stock_trader/data/strategy_alcb
+    engine_config:
+      universe: sp500
+    risk:
+      unit_risk_dollars: 100.0
+      daily_stop_R: 2.35
+      max_working_orders: 1
+      max_heat_R: 4.0
+      portfolio_daily_stop_R: 3.5
+    allocation:
+      base_risk_pct: 0.00702
+    dashboard_metadata:
+      system_label: "Stock Trader"
+      short_label: "STOCK"
+      color_key: "green"
+    deployment_tags: [live, paper, stock]
+
+  NQDTC_v2.1:
+    strategy_id: "NQDTC_v2.1"
+    system_id: momentum_trader
+    family: momentum
+    connection_group: default
+    display_name: "NQDTC v2.1"
+    module_path: "strategies.momentum.nqdtc.plugin"
+
+    enabled: true
+    paper_mode: false
+    asset_class: futures
+    symbols: [MNQ]
+    engine_config:
+      symbol: MNQ
+      state_dir: data/nqdtc_state
+    risk:
+      unit_risk_dollars: 50.0
+      daily_stop_R: 2.5
+      max_working_orders: 2
+      portfolio_daily_stop_R: 2.75
+      priority: 1
+    allocation:
+      base_risk_pct: 0.0045
+      continuation_half_size: true
+      continuation_size_mult: 0.70
+    dashboard_metadata:
+      system_label: "Momentum Trader"
+      short_label: "MOMO"
+      color_key: "orange"
+    deployment_tags: [live, paper, momentum]
+
+  NQ_REGIME:
+    strategy_id: NQ_REGIME
+    system_id: momentum_trader
+    family: momentum
+    connection_group: default
+    display_name: "NQ Regime Engine"
+    module_path: "strategies.momentum.nq_regime.plugin"
+
+    enabled: true
+    paper_mode: false
+    asset_class: futures
+    symbols: [MNQ]
+    engine_config:
+      analysis_symbol: NQ
+      trade_symbol: MNQ
+    risk:
+      unit_risk_dollars: 50.0
+      daily_stop_R: 3.0
+      max_working_orders: 2
+      max_heat_R: 1.50
+      portfolio_daily_stop_R: 2.75
+      priority: 0
+    allocation:
+      base_risk_pct: 0.006
+    dashboard_metadata:
+      system_label: "Momentum Trader"
+      short_label: "MOMO"
+      color_key: "orange"
+    deployment_tags: [live, paper, momentum]
+
+  VdubusNQ_v4:
+    strategy_id: VdubusNQ_v4
+    system_id: momentum_trader
+    family: momentum
+    connection_group: default
+    display_name: "Vdubus NQ v4"
+    module_path: "strategies.momentum.vdub.plugin"
+
+    enabled: true
+    paper_mode: false
+    asset_class: futures
+    symbols: [MNQ]
+    risk:
+      unit_risk_dollars: 200.0
+      daily_stop_R: 2.5
+      max_working_orders: 2
+      max_heat_R: 3.50
+      portfolio_daily_stop_R: 2.75
+      priority: 0
+    allocation:
+      base_risk_pct: 0.0065
+    dashboard_metadata:
+      system_label: "Momentum Trader"
+      short_label: "MOMO"
+      color_key: "orange"
+    deployment_tags: [live, paper, momentum]
+
+  DownturnDominator_v1:
+    strategy_id: "DownturnDominator_v1"
+    system_id: momentum_trader
+    family: momentum
+    connection_group: default
+    display_name: "Downturn Dominator v1"
+    module_path: "strategies.momentum.downturn.plugin"
+
+    enabled: true
+    paper_mode: false
+    asset_class: futures
+    symbols: [MNQ]
+    engine_config:
+      symbol: MNQ
+      state_dir: data/downturn_state
+    risk:
+      unit_risk_dollars: 50.0
+      daily_stop_R: 2.0
+      max_working_orders: 2
+      max_heat_R: 3.50
+      portfolio_daily_stop_R: 2.75
+      priority: 1
+    allocation:
+      base_risk_pct: 0.004
+    dashboard_metadata:
+      system_label: "Momentum Trader"
+      short_label: "MOMO"
+      color_key: "orange"
+    deployment_tags: [live, paper, momentum]
+
+  # RESEARCH PHASE — coordinator is a stub (strategies/scalp/coordinator.py)
+  # and is NOT registered in apps/runtime/runtime.py:_FAMILY_COORDINATORS.
+  # Must not be enabled until that coordinator is rebuilt to wire OMS, risk
+  # gate, instrumentation, and heartbeat. See the file docstring there.
+  SCALP_IVB_AUCTION:
+    strategy_id: SCALP_IVB_AUCTION
+    system_id: scalp_trader
+    family: scalp
+    connection_group: default
+    display_name: "NQ IVB Auction"
+    module_path: "strategies.scalp.ivb_auction.plugin"
+
+    enabled: false
+    paper_mode: true
+    asset_class: futures
+    symbols: [MNQ]
+    engine_config:
+      analysis_symbol: NQ
+      trade_symbol: MNQ
+    risk:
+      unit_risk_dollars: 50.0
+      daily_stop_R: 1.5
+      max_working_orders: 3
+      max_heat_R: 1.50
+      portfolio_daily_stop_R: 1.0
+      priority: 1
+    allocation:
+      base_risk_pct: 0.005
+    dashboard_metadata:
+      system_label: "Scalp Trader"
+      short_label: "SCALP"
+      color_key: "purple"
+    deployment_tags: [paper, scalp, futures]
+
+  # RESEARCH PHASE — see SCALP_IVB_AUCTION note above. Same coordinator
+  # stub applies; do not enable.
+  SCALP_PO3_REVERSAL:
+    strategy_id: SCALP_PO3_REVERSAL
+    system_id: scalp_trader
+    family: scalp
+    connection_group: default
+    display_name: "NQ PO3 Reversal"
+    module_path: "strategies.scalp.po3_reversal.plugin"
+
+    enabled: false
+    paper_mode: true
+    asset_class: futures
+    symbols: [MNQ]
+    engine_config:
+      analysis_symbol: NQ
+      trade_symbol: MNQ
+      confirmation_symbol: ES
+    risk:
+      unit_risk_dollars: 50.0
+      daily_stop_R: 1.0
+      max_working_orders: 2
+      max_heat_R: 1.25
+      portfolio_daily_stop_R: 1.0
+      priority: 0
+    allocation:
+      base_risk_pct: 0.0035
+    dashboard_metadata:
+      system_label: "Scalp Trader"
+      short_label: "SCALP"
+      color_key: "purple"
+    deployment_tags: [paper, scalp, futures]

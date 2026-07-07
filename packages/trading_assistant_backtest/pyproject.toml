@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "trading-assistant-backtest"
+version = "0.1.0"
+description = "Manifest-driven replay and monthly optimizer runner for trading_assistant."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.2",
+  "pyarrow>=15",
+  "pydantic>=2.7",
+  "pyyaml>=6",
+  "trading-contracts",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "ruff>=0.5",
+  "mypy>=1.10",
+]
+model = []
+crypto = []
+krx = []
+futures = []
+
+[project.scripts]
+trading-assistant-backtest-monthly = "trading_assistant_backtest.monthly:main"
+trading-assistant-backtest-decision-parity = "trading_assistant_backtest.validation.decision_parity_run:main"
+trading-assistant-backtest-week1-decision-parity = "trading_assistant_backtest.validation.week1_decision_parity_run:main"
+trading-assistant-backtest-bridge-readiness = "trading_assistant_backtest.validation.bridge_readiness:main"
+trading-assistant-backtest-validation-matrix = "trading_assistant_backtest.validation.validation_matrix:main"
+trading-assistant-backtest-replay-evidence = "trading_assistant_backtest.validation.replay_evidence_run:main"
+trading-assistant-backtest-data-reproduction = "trading_assistant_backtest.validation.data_reproduction_run:main"
+trading-assistant-backtest-approval-grade-audit = "trading_assistant_backtest.validation.approval_grade_audit:main"
+trading-assistant-backtest-emit-deployment-metadata = "trading_assistant_backtest.validation.deployment_metadata_emit:main"
+trading-assistant-backtest-install-deployment-metadata = "trading_assistant_backtest.validation.deployment_metadata_install:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/trading_assistant_backtest", "backtests"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "../trading_contracts/src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["UP042"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+strict = true
+packages = ["trading_assistant_backtest"]

@@ -1,0 +1,13 @@
+{
+  "prior_id": "prior-2026-06-acceptance",
+  "source_outcome_ids": [
+    "portfolio-acceptance-1",
+    "change-acceptance-1"
+  ],
+  "allocation_multiplier": 1.1,
+  "gate_strictness": "normal",
+  "rollback_priority": "none",
+  "evidence_paths": [
+    "packages/trading_assistant/memory/findings/performance_learning_acceptance/run_manifest.json"
+  ]
+}

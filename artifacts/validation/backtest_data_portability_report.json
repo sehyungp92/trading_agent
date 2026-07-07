@@ -1,0 +1,104 @@
+{
+  "bot": "all",
+  "datasets": [
+    {
+      "bot": "ibkr",
+      "dataset_id": "ibkr_stock_raw_market_data",
+      "errors": [],
+      "file_count": 611,
+      "path": "bots/ibkr_trading/backtests/stock/data/raw",
+      "required": true,
+      "size_bytes": 210748187,
+      "status": "pass",
+      "storage_class": "git_lfs",
+      "tree_sha256": "cc72cc5fe7d1bcd4f63377ab2c6699fac303a73325d4c3f533e7c020c3a47e71"
+    },
+    {
+      "bot": "ibkr",
+      "dataset_id": "ibkr_momentum_raw_market_data",
+      "errors": [],
+      "file_count": 80,
+      "path": "bots/ibkr_trading/backtests/momentum/data/raw",
+      "required": true,
+      "size_bytes": 31055203,
+      "status": "pass",
+      "storage_class": "git_lfs",
+      "tree_sha256": "4d394f534a92b323c8ba867feaf5aaf9261d3370580b6d4043b6ceae7433baf8"
+    },
+    {
+      "bot": "ibkr",
+      "dataset_id": "ibkr_swing_raw_market_data",
+      "errors": [],
+      "file_count": 62,
+      "path": "bots/ibkr_trading/backtests/swing/data/raw",
+      "required": true,
+      "size_bytes": 11150063,
+      "status": "pass",
+      "storage_class": "git_lfs",
+      "tree_sha256": "75388c326740a41138e5f1ea33ddf9421f29775a3286e07fca4b9c2f3b48a021"
+    },
+    {
+      "bot": "ibkr",
+      "dataset_id": "ibkr_regime_raw_market_data",
+      "errors": [],
+      "file_count": 4,
+      "path": "bots/ibkr_trading/backtests/regime/data/raw",
+      "required": true,
+      "size_bytes": 512012,
+      "status": "pass",
+      "storage_class": "git_lfs",
+      "tree_sha256": "ed2457e0cd901c90b48de38db0bcb6fa10ec88f5faea4a5f2b6fa033e55175dd"
+    },
+    {
+      "bot": "crypto",
+      "dataset_id": "crypto_market_data",
+      "errors": [],
+      "file_count": 26,
+      "path": "bots/crypto_trader/data",
+      "required": true,
+      "size_bytes": 15376464,
+      "status": "pass",
+      "storage_class": "git_lfs",
+      "tree_sha256": "36f11b6b0b12dbb659a2a5fea36d67f588bf808949620ac9e297090e9d8cc899"
+    },
+    {
+      "bot": "k_stock",
+      "dataset_id": "k_stock_frozen_baseline_evidence",
+      "errors": [],
+      "file_count": 38,
+      "path": "backtests/baselines/k_stock",
+      "required": true,
+      "size_bytes": 923384,
+      "status": "pass",
+      "storage_class": "source_control",
+      "tree_sha256": "14a2ce592560a4be5a7bea66e29117cc6ed5e4aa64aa3e6dcbc021a51196b266"
+    },
+    {
+      "bot": "k_stock",
+      "dataset_id": "k_stock_restored_local_output_evidence",
+      "errors": [],
+      "file_count": 274,
+      "path": "bots/k_stock_trader/data/backtests/output",
+      "required": false,
+      "size_bytes": 5925156,
+      "status": "pass",
+      "storage_class": "local_generated_excluded",
+      "tree_sha256": "5015493cc8ca1e3a9c958b41aeeee717b3865a45856642adc88f6050da0c4bee"
+    }
+  ],
+  "errors": [],
+  "generated_at_utc": "2026-07-06T21:15:15Z",
+  "manifest_path": "backtests/data_portability_manifest.json",
+  "policy_checks": {
+    "dockerignore_required": [
+      "bots/*/backtests/*/data/raw/",
+      "bots/crypto_trader/data/",
+      "bots/*/data/backtests/output/"
+    ],
+    "gitignore_required": [
+      "bots/*/data/backtests/output/"
+    ],
+    "parquet_lfs_required": true
+  },
+  "valid": true
+}

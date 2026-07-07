@@ -1,0 +1,23 @@
+{
+  "manifest_id": "manifest-2026-06-acceptance",
+  "run_id": "monthly-acceptance-run-1",
+  "run_month": "2026-06",
+  "bot_id": "bot1",
+  "strategy_id": "strat1",
+  "objective_version": "objective_weights_v1",
+  "data_bundle_checksum": "bundle-2026-06",
+  "workflow_contract_version": "approval_grade_monthly",
+  "monthly_search_brief_path": "packages/trading_assistant/memory/findings/performance_learning_acceptance/monthly_search_brief.json",
+  "monthly_search_brief_id": "brief-2026-06-acceptance",
+  "learning_sufficiency_manifest_path": "packages/trading_assistant/memory/findings/performance_learning_acceptance/learning_sufficiency_manifest.json",
+  "learning_sufficiency_status": "learning_authoritative",
+  "supported_learning_capabilities": [
+    "execution_learning"
+  ],
+  "blocked_learning_capabilities": [],
+  "source_weekly_signal_ids": [
+    "weekly-signal-breakout",
+    "weekly-signal-allocation"
+  ],
+  "outcome_prior_snapshot_path": "packages/trading_assistant/memory/findings/performance_learning_acceptance/outcome_priors_snapshot.json"
+}

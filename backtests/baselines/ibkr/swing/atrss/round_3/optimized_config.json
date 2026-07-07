@@ -1,0 +1,16 @@
+{
+  "flags.early_stall_exit": false,
+  "param_overrides.early_stall_check_hours": 12,
+  "param_overrides.early_stall_mfe_threshold": 0.2,
+  "param_overrides.max_hold_hours": 88,
+  "param_overrides.adx_on": 14,
+  "param_overrides.recovery_tolerance_atr_trend": 0.55,
+  "fixed_qty": null,
+  "flags.addon_b": false,
+  "param_overrides.base_risk_pct": 0.024,
+  "param_overrides.dynamic_risk_strong_trend_mult": 1.15,
+  "param_overrides.dynamic_risk_weak_trend_mult": 0.8,
+  "param_overrides.addon_a_r": 1.5,
+  "param_overrides.addon_a_size_mult": 0.5,
+  "param_overrides.pullback_touch_tolerance_pct": 0.005
+}

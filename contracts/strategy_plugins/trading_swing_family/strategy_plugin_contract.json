@@ -1,0 +1,29 @@
+{
+  "backtest_adapter_commit_sha": "3cf33c9a2ef5d2250cd0f43376d3dbab4bc3a3123b626bc0ede8ecc3c062545b",
+  "backtest_adapter_path": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/trading/swing.py",
+  "config_schema_version": "trading_swing_family_shadow_config_v1",
+  "contract_version": "strategy_plugin_contract_v1",
+  "decision_api_version": "trading_swing_live_shadow_decision_api_v1",
+  "generated_at": "2026-07-03T00:00:00Z",
+  "live_repo_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "live_repo_path": "bots/ibkr_trading",
+  "maturity": "shadow_validated",
+  "parity_fixture_set": [
+    "bots/ibkr_trading/tests/fixtures/parity/layer2/tpc_entry_fill.json",
+    "bots/ibkr_trading/tests/fixtures/parity/layer3/swing_family_overlay_rebalance.json"
+  ],
+  "plugin_id": "trading-swing-family",
+  "required_telemetry_schemas": [
+    "trading_live_shadow_contract_v1",
+    "trading_swing_family_state_v1"
+  ],
+  "supported_symbols": [
+    "QQQ"
+  ],
+  "supported_timeframes": [
+    "15m",
+    "1h",
+    "4h",
+    "1d"
+  ]
+}

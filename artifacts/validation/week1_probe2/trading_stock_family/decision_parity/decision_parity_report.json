@@ -1,0 +1,105 @@
+{
+  "run_id": "decision-parity-week1-shadow-trading_stock_family",
+  "candidate_id": "strategy-plugin-contract",
+  "strategy_plugin_id": "trading-stock-family",
+  "live_repo_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "backtest_adapter_commit_sha": "4ff1860668ae10df26efff7504cc1c519cf1c48ee02ae2728676f1806c38f50d",
+  "checks": [
+    {
+      "dimension": "entries",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=3; adapter_events=3",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+      ]
+    },
+    {
+      "dimension": "exits",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=3; adapter_events=3",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+      ]
+    },
+    {
+      "dimension": "filters",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=3; adapter_events=3",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+      ]
+    },
+    {
+      "dimension": "order_intent",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=3; adapter_events=3",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+      ]
+    },
+    {
+      "dimension": "risk_caps",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+      ]
+    },
+    {
+      "dimension": "signals",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=3; adapter_events=3",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+      ]
+    },
+    {
+      "dimension": "sizing",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=3; adapter_events=3",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+      ]
+    },
+    {
+      "dimension": "stops",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=3; adapter_events=3",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+      ]
+    }
+  ],
+  "status": "pass",
+  "min_required_match_rate": 1.0,
+  "evidence_paths": [
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+  ],
+  "report_version": "decision_parity_report_v1",
+  "generated_at": "2026-07-03T12:29:14.095967Z"
+}

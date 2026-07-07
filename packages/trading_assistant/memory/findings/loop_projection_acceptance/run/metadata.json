@@ -1,0 +1,10 @@
+{
+  "acceptance_evidence": true,
+  "agent_type": "monthly_validation",
+  "cost_usd": 0.37,
+  "monthly_artifact_roots": [
+    "packages/trading_assistant/memory/findings/loop_projection_acceptance"
+  ],
+  "run_id": "loop_projection_acceptance_run",
+  "workflow": "monthly_validation_projection_acceptance"
+}

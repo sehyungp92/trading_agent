@@ -1,0 +1,9 @@
+market: us_equity
+source: ibkr
+symbols: []
+intervals: [5m, 15m, 30m, 1d]
+calendar: us_equities_xnys_xnas_v1
+fee_model_version: fees_v1
+slippage_model_version: slippage_v1
+adjustment_policy: us_equity_split_adjusted_policy_v1
+

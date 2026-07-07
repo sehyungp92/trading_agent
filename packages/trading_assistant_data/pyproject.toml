@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trading-assistant-data"
+version = "0.1.0"
+description = "Canonical, versioned market-data repository for trading_assistant"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas>=2.2.0",
+    "pyarrow>=15.0.0",
+    "pydantic>=2.10.0",
+    "pyyaml>=6.0",
+    "requests>=2.31.0",
+    "tzdata>=2024.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "ruff>=0.9.0",
+]
+ibkr = [
+    "ib_async>=1.0.0",
+]
+hyperliquid = [
+    "hyperliquid-python-sdk>=0.14.0",
+]
+
+[project.scripts]
+trading-assistant-data = "trading_assistant_data.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+trading_assistant_data = ["requirements/*.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100

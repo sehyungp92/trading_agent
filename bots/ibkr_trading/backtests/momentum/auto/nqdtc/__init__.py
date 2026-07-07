@@ -1,0 +1,1 @@
+"""NQDTC phased auto-optimization."""

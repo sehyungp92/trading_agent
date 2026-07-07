@@ -1,0 +1,235 @@
+{
+  "archived_provenance": {
+    "command": [
+      "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-m",
+      "trading_assistant_backtest.validation.week1_decision_parity_run",
+      "--contract",
+      "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\strategy_plugin_contract.json",
+      "--contract",
+      "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_momentum_family\\strategy_plugin_contract.json",
+      "--contract",
+      "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_swing_family\\strategy_plugin_contract.json",
+      "--contract",
+      "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\k_stock_olr_kalcb\\strategy_plugin_contract.json",
+      "--artifact-root",
+      "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix",
+      "--run-id-prefix",
+      "archived-a10-week1"
+    ],
+    "generated_at": "2026-07-03T13:12:57Z",
+    "paths": [
+      {
+        "path": "contracts/strategy_plugins/trading_stock_family/strategy_plugin_contract.json",
+        "sha256": "e4e0bb924dc5766ab72f8e9b3a86599c98ec9391fd5939b09ff65a6bf2958739"
+      },
+      {
+        "path": "contracts/strategy_plugins/trading_momentum_family/strategy_plugin_contract.json",
+        "sha256": "03ce434f2a2c59f6df17844a554ebfe552114256ca6999e5bb9969c533025843"
+      },
+      {
+        "path": "contracts/strategy_plugins/trading_swing_family/strategy_plugin_contract.json",
+        "sha256": "48bf8103d8630911a3d00c0e1383d36f7f06b723382e4bb8cb8aedba45a3ca02"
+      },
+      {
+        "path": "contracts/strategy_plugins/k_stock_olr_kalcb/strategy_plugin_contract.json",
+        "sha256": "4c5446f351589b1d866cc5cbdb2e372e8ee06748077fe33053f65a534592ce1a"
+      },
+      {
+        "path": "contracts/strategy_plugins/trading_stock_family/strategy_plugin_contract.json",
+        "sha256": "e4e0bb924dc5766ab72f8e9b3a86599c98ec9391fd5939b09ff65a6bf2958739"
+      },
+      {
+        "path": "contracts/strategy_plugins/trading_stock_family/deployment_metadata.json",
+        "sha256": "b8aa243490b5564f0f33999e249002c306ac0e1d723c516e32114816167b16ec"
+      },
+      {
+        "path": "bots/ibkr_trading/tests/unit/test_parity_fixtures.py",
+        "sha256": "435452559341cae2fde6f373714f358566d8b63c5f7fb39b8fe64b88a3ed90a1"
+      },
+      {
+        "path": "bots/ibkr_trading/tests/unit/test_parity_normalizers.py",
+        "sha256": "6a5b762568b73bef18029eff6dc1fe6be5a39d29cd085a84b8c4a6e2b8f8e7a4"
+      },
+      {
+        "path": "bots/ibkr_trading/tests/unit/test_momentum_portfolio_synergy_live_parity.py",
+        "sha256": "214578e90eb9cac4cf9fd9a534debbdf0eb0b73339ed356e1b59bdb37b7bdb8d"
+      },
+      {
+        "path": "bots/ibkr_trading/tests/unit/test_swing_overlay_parity.py",
+        "sha256": "aad1f0e7650a344b420b614b808bd5b314d8a0d2af0b643479896e57ff6e2143"
+      },
+      {
+        "path": "bots/ibkr_trading/tests/unit/test_swing_portfolio_synergy_live_parity.py",
+        "sha256": "4e389477543909fb11af579bb1c7d5f70f6da05bce20862f0060fc1f8489852b"
+      },
+      {
+        "path": "bots/ibkr_trading/tests/integration/parity/test_live_shadow_families.py",
+        "sha256": "d81348a87a64325a8215a42cee1becae261dc1b3450bfa96f50ed9e8ab08daa1"
+      },
+      {
+        "path": "bots/ibkr_trading/tests/integration/parity/test_live_shadow_layer2.py",
+        "sha256": "457d5d3668132d981fb317faed1747f4b0c31d2578c4c39c63b5e3448b776c3a"
+      },
+      {
+        "path": "bots/ibkr_trading/tests/integration/parity/test_oms_restart_parity.py",
+        "sha256": "a2909f628f46fe3bdfaaccdbf4f4e792a33a7d6e4a8711efd8bfe6072f6e3262"
+      },
+      {
+        "path": "bots/ibkr_trading/tests/fixtures/parity/layer2/iaric_entry_fill.json",
+        "sha256": "558bd6a1dc331a0e67fba0c9301125f0d0f697a4da3f66040936b2c81d2a9e63"
+      },
+      {
+        "path": "bots/ibkr_trading/tests/fixtures/parity/layer3/stock_family_collision.json",
+        "sha256": "ede84fb522a8657ca7373b2755f6a746ba0b38deedb7faf0f2d57ad80da99d89"
+      }
+    ],
+    "returncode": 0,
+    "stderr_tail": [
+      "Strategy IARIC_v1 not in unified config, using stock portfolio NAV 100000.00",
+      "Instrumentation init failed for IARIC_v1 (non-fatal): instrumentation disabled by runtime overrides",
+      "No contract factory \u2014 market data NOT wired for IARIC_v1",
+      "Strategy ALCB_v1 not in unified config, using stock portfolio NAV 100000.00",
+      "Instrumentation init failed for ALCB_v1 (non-fatal): instrumentation disabled by runtime overrides",
+      "No contract factory \u2014 market data NOT wired for ALCB_v1",
+      "MNQ price fetch failed, using default 21000",
+      "Strategy NQDTC_v2.1 not in unified config, using momentum portfolio NAV 100000.00",
+      "Instrumentation init failed for NQDTC_v2.1 (non-fatal): instrumentation disabled by runtime overrides",
+      "Strategy NQ_REGIME not in unified config, using momentum portfolio NAV 100000.00",
+      "Instrumentation init failed for NQ_REGIME (non-fatal): instrumentation disabled by runtime overrides",
+      "Strategy VdubusNQ_v4 not in unified config, using momentum portfolio NAV 100000.00",
+      "Instrumentation init failed for VdubusNQ_v4 (non-fatal): instrumentation disabled by runtime overrides",
+      "Strategy DownturnDominator_v1 not in unified config, using momentum portfolio NAV 100000.00",
+      "Instrumentation init failed for DownturnDominator_v1 (non-fatal): instrumentation disabled by runtime overrides",
+      "Task was destroyed but it is pending!",
+      "task: <Task pending name='Task-86' coro=<TPCEngine._oms_event_loop() running at C:\\Users\\sehyu\\AppData\\Local\\Temp\\trading-swing-parity-jy_to310\\trading\\strategies\\swing\\tpc\\engine.py:638> wait_for=<Future pending cb=[Task.task_wakeup()]>>",
+      "Swing coordinator action logger NOT wired \u2014 coordination evidence will not flow. Check instrumentation bootstrap.",
+      "2026-07-03 14:12:54.054 | INFO     | kis_core.kis_client:<module>:158 - Per-process HTTP rate limiter: 2 req/sec"
+    ],
+    "stdout_tail": [
+      "          \"errors\": [],",
+      "          \"name\": \"live_and_adapter_traces_match_required_dimensions\",",
+      "          \"passed\": true",
+      "        }",
+      "      ],",
+      "      \"contract_maturity\": \"shadow_validated\",",
+      "      \"decision_parity_report_path\": \"C:\\\\Users\\\\sehyu\\\\Documents\\\\Other\\\\Projects\\\\trading_agent\\\\artifacts\\\\validation\\\\decision_parity_matrix\\\\k_stock_olr_kalcb\\\\decision_parity\\\\decision_parity_report.json\",",
+      "      \"decision_parity_status\": \"pass\",",
+      "      \"eligible_for_approval\": false,",
+      "      \"eligible_for_optimizer\": true,",
+      "      \"fixture_count\": 2,",
+      "      \"live_repo_commit_sha\": \"3c6441d81d8ab1fab379a3234399b747e847abda\",",
+      "      \"ok\": true,",
+      "      \"run_id\": \"archived-a10-week1-k_stock_olr_kalcb\",",
+      "      \"strategy_plugin_id\": \"k-stock-olr-kalcb\",",
+      "      \"summary_path\": \"C:\\\\Users\\\\sehyu\\\\Documents\\\\Other\\\\Projects\\\\trading_agent\\\\artifacts\\\\validation\\\\decision_parity_matrix\\\\k_stock_olr_kalcb\\\\decision_parity\\\\decision_parity_validation_summary.json\",",
+      "      \"validated_live_repo_path\": \"C:\\\\Users\\\\sehyu\\\\Documents\\\\Other\\\\Projects\\\\trading_agent\\\\bots\\\\k_stock_trader\"",
+      "    }",
+      "  ]",
+      "}"
+    ]
+  },
+  "backtest_adapter_commit_sha": "4ff1860668ae10df26efff7504cc1c519cf1c48ee02ae2728676f1806c38f50d",
+  "candidate_id": "strategy-plugin-contract",
+  "checks": [
+    {
+      "dimension": "entries",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+      ],
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=3; adapter_events=3",
+      "status": "pass"
+    },
+    {
+      "dimension": "exits",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+      ],
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=3; adapter_events=3",
+      "status": "pass"
+    },
+    {
+      "dimension": "filters",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+      ],
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=3; adapter_events=3",
+      "status": "pass"
+    },
+    {
+      "dimension": "order_intent",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+      ],
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=3; adapter_events=3",
+      "status": "pass"
+    },
+    {
+      "dimension": "risk_caps",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+      ],
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "status": "pass"
+    },
+    {
+      "dimension": "signals",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+      ],
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=3; adapter_events=3",
+      "status": "pass"
+    },
+    {
+      "dimension": "sizing",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+      ],
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=3; adapter_events=3",
+      "status": "pass"
+    },
+    {
+      "dimension": "stops",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+      ],
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=3; adapter_events=3",
+      "status": "pass"
+    }
+  ],
+  "evidence_paths": [
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json"
+  ],
+  "generated_at": "2026-07-03T13:10:13.117156Z",
+  "live_repo_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "min_required_match_rate": 1.0,
+  "report_version": "decision_parity_report_v1",
+  "run_id": "archived-a10-week1-trading_stock_family",
+  "status": "pass",
+  "strategy_plugin_id": "trading-stock-family"
+}

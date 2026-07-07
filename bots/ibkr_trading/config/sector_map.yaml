@@ -1,0 +1,27 @@
+# Static symbol-to-sector mapping for stock family instrumentation.
+# Used by stock TradeLogger to tag trades with sector/industry metadata,
+# enabling the Trading Assistant to detect sector concentration risk.
+#
+# Add symbols as the scanner universe expands.
+# Format: SYMBOL: {sector: ..., industry: ...}
+
+AAPL: {sector: Technology, industry: Consumer Electronics}
+MSFT: {sector: Technology, industry: Software Infrastructure}
+GOOGL: {sector: Technology, industry: Internet Content}
+AMZN: {sector: Consumer Cyclical, industry: Internet Retail}
+META: {sector: Technology, industry: Internet Content}
+NVDA: {sector: Technology, industry: Semiconductors}
+AMD: {sector: Technology, industry: Semiconductors}
+TSLA: {sector: Consumer Cyclical, industry: Auto Manufacturers}
+JPM: {sector: Financial Services, industry: Banks}
+GS: {sector: Financial Services, industry: Capital Markets}
+BAC: {sector: Financial Services, industry: Banks}
+XOM: {sector: Energy, industry: Oil & Gas Integrated}
+CVX: {sector: Energy, industry: Oil & Gas Integrated}
+UNH: {sector: Healthcare, industry: Healthcare Plans}
+JNJ: {sector: Healthcare, industry: Drug Manufacturers}
+WMT: {sector: Consumer Defensive, industry: Discount Stores}
+HD: {sector: Consumer Cyclical, industry: Home Improvement}
+DIS: {sector: Communication Services, industry: Entertainment}
+NFLX: {sector: Communication Services, industry: Entertainment}
+BA: {sector: Industrials, industry: Aerospace & Defense}

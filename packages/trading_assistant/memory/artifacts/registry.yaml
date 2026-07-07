@@ -1,0 +1,62 @@
+artifacts:
+  - artifact_type: monthly_search_brief
+    authority: advisory
+    owner_package: trading_assistant
+    schema_ref: trading_assistant.schemas.monthly_search_brief.MonthlySearchBrief
+    path_patterns:
+      - monthly_search_brief.json
+    may_satisfy_approval_gate: false
+    readers:
+      - monthly_optimizer_runner
+      - monthly_evidence_verifier
+    writers:
+      - monthly_search_brief_builder
+    notes: Search-order and prior guidance only; never proof of replay, parity, or gate passage.
+  - artifact_type: memory_policies
+    authority: human_owned
+    owner_package: trading_assistant
+    path_patterns:
+      - memory/policies/**
+    may_satisfy_approval_gate: false
+    readers:
+      - context_builder
+    notes: Human-owned policy memory. Loop contracts may not list this as an autonomous write target.
+  - artifact_type: runner_observability
+    authority: diagnostics_only
+    owner_package: trading_assistant_backtest
+    source_contract: OPTIONAL_BACKTEST_ARTIFACTS
+    path_patterns:
+      - runner_observability.json
+    may_satisfy_approval_gate: false
+    readers:
+      - monthly_validation_orchestrator
+      - loop_run_ledger
+    writers:
+      - monthly_runner
+    notes: Diagnostics-only runner state; cannot satisfy approval gates.
+  - artifact_type: approval_packet
+    authority: approval_gate
+    owner_package: trading_assistant
+    schema_ref: trading_assistant.schemas.monthly_candidates.MonthlyApprovalEvidencePacket
+    path_patterns:
+      - approval_packet_*.json
+    may_satisfy_approval_gate: true
+    readers:
+      - approval_tracker
+      - monthly_evidence_verifier
+    writers:
+      - monthly_candidate_pipeline
+    notes: Approval-facing packet; still requires deterministic gates and verifier pass.
+  - artifact_type: monthly_evidence_verification
+    authority: approval_gate
+    owner_package: trading_assistant
+    schema_ref: trading_assistant.schemas.monthly_evidence_verification.MonthlyEvidenceVerification
+    path_patterns:
+      - monthly_evidence_verification_*.json
+    may_satisfy_approval_gate: true
+    readers:
+      - approval_tracker
+      - monthly_candidate_pipeline
+    writers:
+      - monthly_evidence_verifier
+    notes: Independent verifier output required before approval-ready monthly routing.

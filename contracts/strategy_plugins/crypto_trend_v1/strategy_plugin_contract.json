@@ -1,0 +1,34 @@
+{
+  "backtest_adapter_commit_sha": "8ad44417c2752cff80c85865b579fd632c7e91c60bbf31b0d2efd999d157af8a",
+  "backtest_adapter_path": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/crypto/trend.py",
+  "config_schema_version": "crypto_trend_config_v1",
+  "contract_version": "strategy_plugin_contract_v1",
+  "decision_api_version": "crypto_trader_trend_decision_api_v1",
+  "generated_at": "2026-05-31T00:00:00Z",
+  "live_repo_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "live_repo_path": "bots/crypto_trader",
+  "maturity": "shadow_validated",
+  "parity_fixture_set": [
+    "parity_fixtures/trend_entry_market.json",
+    "parity_fixtures/trend_blocked_no_trigger.json",
+    "parity_fixtures/trend_exit_time_stop.json",
+    "parity_fixtures/trend_short_risk_cap.json"
+  ],
+  "plugin_id": "crypto-trend-v1",
+  "required_telemetry_schemas": [
+    "trade_event_v1"
+  ],
+  "supported_symbols": [
+    "BTC",
+    "ETH",
+    "SOL"
+  ],
+  "supported_timeframes": [
+    "1m",
+    "5m",
+    "15m",
+    "1h",
+    "4h",
+    "1d"
+  ]
+}

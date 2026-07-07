@@ -1,0 +1,183 @@
+{
+  "strategy": {
+    "h1_indicators": {
+      "ema_fast": 30,
+      "ema_mid": 50,
+      "ema_slow": 200,
+      "adx_period": 14,
+      "atr_period": 14,
+      "rsi_period": 14,
+      "volume_ma_period": 20,
+      "atr_avg_period": 20
+    },
+    "d1_indicators": {
+      "ema_fast": 21,
+      "ema_mid": 50,
+      "ema_slow": 50,
+      "adx_period": 14,
+      "atr_period": 14,
+      "rsi_period": 14,
+      "volume_ma_period": 20,
+      "atr_avg_period": 20
+    },
+    "m15_indicators": {
+      "ema_fast": 20,
+      "ema_mid": 50,
+      "ema_slow": 200,
+      "adx_period": 14,
+      "atr_period": 14,
+      "rsi_period": 14,
+      "volume_ma_period": 20,
+      "atr_avg_period": 20
+    },
+    "regime": {
+      "a_min_adx": 12.0,
+      "b_min_adx": 8.0,
+      "b_adx_rising_required": true,
+      "require_ema_cross": false,
+      "require_structure": false,
+      "structure_lookback": 10,
+      "no_trade_max_adx": 10.0,
+      "h1_regime_enabled": true,
+      "h1_min_adx": 20.0
+    },
+    "setup": {
+      "impulse_min_bars": 3,
+      "impulse_min_atr_move": 0.8,
+      "impulse_lookback": 30,
+      "pullback_max_retrace": 0.75,
+      "pullback_max_bars": 6,
+      "pullback_rsi_low": 30.0,
+      "pullback_rsi_high": 65.0,
+      "min_confluences": 0,
+      "require_orderly_pullback": true,
+      "strict_orderly_pullback": true,
+      "orderly_min_countertrend_bars": 2,
+      "orderly_max_body_frac": 1.08,
+      "orderly_max_countertrend_volume_ratio": 1.1,
+      "min_room_r": 1.5,
+      "min_room_r_a": 2.0,
+      "require_completed_impulse": true,
+      "use_weighted_confluence": true,
+      "min_setup_score_b": 1.35,
+      "min_setup_score_a": 2.5,
+      "weekly_room_filter_enabled": true,
+      "min_weekly_room_r": 0.0
+    },
+    "confirmation": {
+      "enable_engulfing": true,
+      "enable_hammer": true,
+      "enable_ema_reclaim": true,
+      "enable_structure_break": true,
+      "require_confirmation": false,
+      "require_confirmation_for_b": false,
+      "require_volume_confirm": true,
+      "enforce_volume_on_trigger": true,
+      "volume_threshold_mult": 1.05,
+      "hammer_wick_ratio": 2.0,
+      "max_bars_after_setup": 3
+    },
+    "entry": {
+      "entry_on_close": true,
+      "entry_on_break": false,
+      "max_bars_after_confirmation": 2,
+      "mode": "confirm_preferred"
+    },
+    "stops": {
+      "atr_mult": 1.0,
+      "use_swing": true,
+      "use_farther": true,
+      "min_stop_atr": 1.5,
+      "swing_lookback": 10,
+      "buffer_pct": 0.001
+    },
+    "exits": {
+      "tp1_r": 1.2,
+      "tp1_frac": 0.25,
+      "tp2_r": 1.8,
+      "tp2_frac": 0.6,
+      "runner_frac": 0.25,
+      "time_stop_bars": 12,
+      "time_stop_min_progress_r": 0.2,
+      "time_stop_action": "reduce",
+      "be_after_tp1": true,
+      "be_buffer_r": 0.2,
+      "be_min_bars_above": 4,
+      "ema_failsafe_enabled": true,
+      "ema_failsafe_period": 20,
+      "ema_failsafe_min_expansion_r": 1.0,
+      "quick_exit_enabled": true,
+      "quick_exit_bars": 12,
+      "quick_exit_max_mfe_r": 0.15,
+      "quick_exit_max_r": -0.2,
+      "scratch_exit_enabled": true,
+      "scratch_peak_r": 0.3,
+      "scratch_floor_r": 0.0,
+      "scratch_min_bars": 2,
+      "mfe_lock_exit_enabled": false,
+      "mfe_lock_trigger_r": 1.0,
+      "mfe_lock_floor_r": 0.2,
+      "mfe_lock_min_bars": 2
+    },
+    "trail": {
+      "trail_r_adaptive": true,
+      "trail_use_mfe_for_adaptive": false,
+      "trail_buffer_wide": 1.2,
+      "trail_buffer_tight": 0.2,
+      "trail_r_ceiling": 1.5,
+      "trail_activation_r": 0.5,
+      "trail_activation_bars": 4,
+      "structure_trail_enabled": false,
+      "structure_swing_lookback": 5,
+      "ema_trail_period": 20
+    },
+    "risk": {
+      "risk_pct_a": 0.0168,
+      "risk_pct_b": 0.028,
+      "max_risk_pct": 0.03,
+      "max_leverage_major": 15.0,
+      "max_leverage_alt": 12.0,
+      "min_leverage": 0.1,
+      "major_symbols": [
+        "BTC",
+        "ETH"
+      ]
+    },
+    "limits": {
+      "max_concurrent_positions": 5,
+      "max_daily_loss_pct": 0.04,
+      "max_consecutive_losses": 6,
+      "max_trades_per_day": 10,
+      "max_correlated_risk_pct": 0.07
+    },
+    "filters": {
+      "funding_filter_enabled": false,
+      "funding_extreme_threshold": 0.001,
+      "funding_reduce_risk_mult": 0.5,
+      "relative_strength_filter_enabled": false,
+      "relative_strength_lookback": 24,
+      "relative_strength_min_delta": 0.0
+    },
+    "reentry": {
+      "enabled": true,
+      "cooldown_bars": 1,
+      "max_loss_r": 0.5,
+      "max_reentries": 1,
+      "min_confluences_override": 2,
+      "max_wait_bars": 6,
+      "require_same_direction": true,
+      "only_after_scratch_exit": true,
+      "risk_scale": 0.75
+    },
+    "symbol_filter": {
+      "btc_direction": "long_only",
+      "eth_direction": "both",
+      "sol_direction": "both"
+    },
+    "symbols": [
+      "BTC",
+      "ETH",
+      "SOL"
+    ]
+  }
+}

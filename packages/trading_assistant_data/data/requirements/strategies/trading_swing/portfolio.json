@@ -1,0 +1,41 @@
+{
+  "schema_version": "strategy_data_requirements_v1",
+  "requirements": [
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GLD",
+      "timeframe": "15m"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GLD",
+      "timeframe": "1h"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GLD",
+      "timeframe": "1d"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "QQQ",
+      "timeframe": "15m"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "QQQ",
+      "timeframe": "1h"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "QQQ",
+      "timeframe": "1d"
+    }
+  ]
+}

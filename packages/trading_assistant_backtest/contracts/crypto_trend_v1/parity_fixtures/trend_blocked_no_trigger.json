@@ -1,0 +1,46 @@
+{
+  "fixture_id": "trend_blocked_no_trigger",
+  "symbol": "BTC",
+  "timeframe": "5m",
+  "timestamp": "2026-05-16T11:00:00+00:00",
+  "direction": "LONG",
+  "entry_price": 50100.0,
+  "atr": 260.0,
+  "bar": {
+    "open": 50100.0,
+    "high": 50120.0,
+    "low": 49980.0,
+    "close": 50010.0,
+    "volume": 70.0
+  },
+  "setup_passed": false,
+  "trigger": null,
+  "position_open": false,
+  "setup": {
+    "grade": "B",
+    "direction": "LONG",
+    "impulse_start": 49300.0,
+    "impulse_end": 50600.0,
+    "impulse_atr_move": 1.6,
+    "pullback_depth": 0.62,
+    "confluences": [],
+    "zone_price": 50100.0,
+    "room_r": 0.8,
+    "stop_level": 49750.0,
+    "setup_score": 0.6
+  },
+  "sizing": {
+    "qty": 0.03,
+    "leverage": 2.0,
+    "liquidation_price": 42000.0,
+    "risk_pct_actual": 0.002,
+    "notional": 1503.0,
+    "was_reduced": true,
+    "reduction_reason": "risk_cap"
+  },
+  "config": {
+    "entry": {
+      "mode": "break"
+    }
+  }
+}

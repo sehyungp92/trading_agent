@@ -1,0 +1,39 @@
+# instrumentation/config/simulation_policies.yaml
+# Per-strategy simulation assumptions for missed opportunity backfill.
+
+simulation_policies:
+  # ATRSS: trend-following with ATR-based TP/SL
+  ATRSS:
+    entry_fill_model: next_trade
+    slippage_model: fixed_bps
+    slippage_bps: 5
+    fees_included: true
+    fee_bps: 2                    # IBKR commissions are low (~$0.005/share)
+    tp_sl_logic: atr_based
+    tp_value: 2.0                 # 2x ATR take profit (maps to TP2_R)
+    sl_value: 1.0                 # 1x ATR stop loss
+    max_hold_bars: 200
+
+  # Helix: divergence-swing with wider stops
+  AKC_HELIX:
+    entry_fill_model: next_trade
+    slippage_model: fixed_bps
+    slippage_bps: 5
+    fees_included: true
+    fee_bps: 2
+    tp_sl_logic: atr_based
+    tp_value: 2.5
+    sl_value: 1.5
+    max_hold_bars: 150
+
+  # Fallback
+  default:
+    entry_fill_model: next_trade
+    slippage_model: fixed_bps
+    slippage_bps: 5
+    fees_included: true
+    fee_bps: 2
+    tp_sl_logic: atr_based
+    tp_value: 2.0
+    sl_value: 1.0
+    max_hold_bars: 100

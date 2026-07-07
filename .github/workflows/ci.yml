@@ -31,6 +31,288 @@ jobs:
       - name: Check workspace lock
         run: python tools/workspace_lock_check.py
 
+  workspace-imports:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        run: python -m pip install uv
+      - name: Sync workspace
+        run: uv sync --frozen --all-packages
+      - name: Import smoke
+        run: uv run --frozen python tools/workspace_import_smoke.py --all-packages --run-commands
+
+  contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        run: python -m pip install uv
+      - name: Sync workspace
+        run: uv sync --frozen --all-packages
+      - name: Validate contracts
+        run: uv run --frozen --package trading-contracts trading-contracts validate --all-known-reference-artifacts --repo-root .
+      - name: Verify dependency boundaries
+        run: uv run --frozen python tools/verify_dependency_boundaries.py
+      - name: Verify strategy plugin contracts
+        run: uv run --frozen python tools/verify_strategy_plugin_contracts.py --all
+
+  baselines:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        run: python -m pip install uv
+      - name: Sync workspace
+        run: uv sync --frozen --all-packages
+      - name: Verify baseline freeze
+        run: uv run --frozen python tools/freeze_optimization_baselines.py --check --strict
+      - name: Verify backtest data portability
+        run: uv run --frozen python tools/verify_backtest_data_portability.py --bot all
+      - name: Verify latest round no drift
+        run: uv run --frozen python tools/verify_latest_round_no_drift.py --bot all --baseline backtests/baselines/baseline_index.json --strict
+
+  live-configs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        run: python -m pip install uv
+      - name: Sync workspace
+        run: uv sync --frozen --all-packages
+      - name: Verify effective live configs
+        run: uv run --frozen python tools/verify_effective_live_configs.py
+      - name: Verify live config promotions
+        run: uv run --frozen python tools/verify_live_config_promotions.py --bot all --require-latest-round --require-effective-configs --strict
+
+  decision-parity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        run: python -m pip install uv
+      - name: Sync workspace
+        run: uv sync --frozen --all-packages
+      - name: Verify decision parity matrix
+        run: uv run --frozen python tools/run_decision_parity_matrix.py --promoted-only
+
+  optimizer-compatibility:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        run: python -m pip install uv
+      - name: Sync workspace
+        run: uv sync --frozen --all-packages
+      - name: Verify optimizer compatibility
+        run: uv run --frozen python tools/verify_optimizer_compatibility.py --bot all --fixture-set smoke
+
+  backtest-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        run: python -m pip install uv
+      - name: Sync workspace
+        run: uv sync --frozen --all-packages
+      - name: Verify backtest integrity matrix
+        run: uv run --frozen python tools/run_backtest_integrity_matrix.py --promoted-only
+
+  deployment-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        run: python -m pip install uv
+      - name: Sync workspace
+        run: uv sync --frozen --all-packages
+      - name: Run deployment gate
+        run: uv run --frozen python tools/run_workspace_checks.py deployment-gate
+
+  deployment-metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        run: python -m pip install uv
+      - name: Sync workspace
+        run: uv sync --frozen --all-packages
+      - name: Verify deployment metadata
+        run: uv run --frozen python tools/verify_deployment_metadata.py --bot all
+
+  learning-sufficiency:
+    runs-on: ubuntu-latest
+    env:
+      CLEAN_LEARNING_ROOT: ${{ runner.temp }}/learning_sufficiency_phase2
+      CLEAN_PTG3_REPORT: ${{ runner.temp }}/learning_sufficiency_ptg3.json
+      CLEAN_PTG4_REPORT: ${{ runner.temp }}/assistant_lineage_ptg4.json
+      CLEAN_LINEAGE_INVENTORY: ${{ runner.temp }}/assistant_lineage_source_inventory.json
+      CLEAN_PTG4_RUNTIME_EVIDENCE_ROOT: ${{ runner.temp }}/ptg4_runtime_lineage_evidence
+      CLEAN_PTG5_REPORT: ${{ runner.temp }}/learning_sufficiency_ptg5.json
+      CLEAN_PTG6_REPORT: ${{ runner.temp }}/strategy_discovery_ptg6.json
+      CLEAN_PTG7_REPORT: ${{ runner.temp }}/approval_ready_pilot_ptg7.json
+      CLEAN_PTG7_ROOT: ${{ runner.temp }}/approval_ready_pilot_ptg7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        run: python -m pip install uv
+      - name: Sync workspace
+        run: uv sync --frozen --all-packages
+      - name: Run focused learning-sufficiency tests
+        run: >
+          uv run --frozen pytest -q
+          packages/trading_assistant/tests/test_learning_sufficiency_schema.py
+          packages/trading_assistant/tests/test_learning_sufficiency_auditor.py
+          packages/trading_assistant/tests/test_learning_sufficiency_candidate_gates.py
+          packages/trading_assistant/tests/test_strategy_discovery_packet.py
+          packages/trading_assistant/tests/test_monthly_candidate_generation.py
+      - name: Run focused bot lineage emitter tests
+        run: >
+          uv run --frozen pytest -q -o addopts=
+          bots/ibkr_trading/tests/unit/test_assistant_lineage_runtime_emitters.py
+      - name: Verify clean phase manifest generation
+        run: >
+          uv run --frozen python tools/build_learning_sufficiency_manifests.py
+          --run-month 2026-06
+          --output-root "$CLEAN_LEARNING_ROOT"
+      - name: Inventory assistant lineage source IDs
+        run: >
+          uv run --frozen python tools/build_assistant_lineage_inventory.py
+          --output "$CLEAN_LINEAGE_INVENTORY"
+      - name: Run learning-sufficiency phase gates
+        run: |
+          set +e
+          uv run --frozen python tools/check_learning_sufficiency_ptg3.py --index "$CLEAN_LEARNING_ROOT/manifest_index.json" --output "$CLEAN_PTG3_REPORT"
+          PTG3_EXIT=$?
+          uv run --frozen python tools/check_assistant_lineage_ptg4.py --index "$CLEAN_LEARNING_ROOT/manifest_index.json" --source-inventory "$CLEAN_LINEAGE_INVENTORY" --runtime-evidence-root "$CLEAN_PTG4_RUNTIME_EVIDENCE_ROOT" --output "$CLEAN_PTG4_REPORT"
+          PTG4_EXIT=$?
+          uv run --frozen python tools/check_learning_sufficiency_ptg5.py --index "$CLEAN_LEARNING_ROOT/manifest_index.json" --output "$CLEAN_PTG5_REPORT" --ptg3-report "$CLEAN_PTG3_REPORT" --ptg4-report "$CLEAN_PTG4_REPORT"
+          PTG5_EXIT=$?
+          uv run --frozen python tools/check_strategy_discovery_ptg6.py --output "$CLEAN_PTG6_REPORT" --ptg5-report "$CLEAN_PTG5_REPORT"
+          PTG6_EXIT=$?
+          uv run --frozen python tools/check_approval_ready_pilot_ptg7.py --output "$CLEAN_PTG7_REPORT" --pilot-root "$CLEAN_PTG7_ROOT" --ptg6-report "$CLEAN_PTG6_REPORT"
+          PTG7_EXIT=$?
+          set -e
+          export PTG3_EXIT PTG4_EXIT PTG5_EXIT PTG6_EXIT PTG7_EXIT
+          uv run --frozen python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          index = json.loads((Path(os.environ["CLEAN_LEARNING_ROOT"]) / "manifest_index.json").read_text())
+          missing_expected_sources = []
+          for row in index.get("manifests", []):
+              manifest_path = Path(row["manifest_path"])
+              manifest = json.loads(manifest_path.read_text())
+              denominator = manifest["denominator_coverage"]["denominator_coverage"]
+              source_paths = denominator.get("details", {}).get("expected_session_source_paths", [])
+              expected_path_raw = str(row.get("expected_session_path") or "")
+              expected_path = Path(expected_path_raw)
+              if (
+                  not expected_path_raw
+                  or not expected_path.exists()
+                  or denominator.get("reason") == "missing_expected_active_session_source"
+                  or not source_paths
+              ):
+                  missing_expected_sources.append(row["manifest_path"])
+          assert not missing_expected_sources, missing_expected_sources
+
+          ptg3 = json.loads(Path(os.environ["CLEAN_PTG3_REPORT"]).read_text())
+          assert int(os.environ["PTG3_EXIT"]) == (0 if ptg3["status"] == "pass" else 1)
+          ptg3_failed = {check["name"] for check in ptg3.get("checks", []) if not check["passed"]}
+          assert ptg3_failed <= {"required_finite_checklist_sections_complete"}, ptg3_failed
+          assert ptg3.get("fail_closed_contract_status") == "pass"
+          if ptg3["status"] != "pass":
+              assert ptg3.get("readiness_status") == "blocked"
+              assert ptg3.get("readiness_failures")
+              readiness_text = json.dumps(ptg3.get("readiness_failures", []))
+              assert (
+                  "denominator_coverage" in readiness_text
+                  or "after_cost_coverage" in readiness_text
+              ), ptg3.get("readiness_failures")
+
+          ptg4 = json.loads(Path(os.environ["CLEAN_PTG4_REPORT"]).read_text())
+          assert int(os.environ["PTG4_EXIT"]) == (0 if ptg4["status"] == "pass" else 1)
+          ptg4_checks = {check["name"]: check["passed"] for check in ptg4.get("checks", [])}
+          assert ptg4_checks.get("assistant_lineage_source_inventory") is True
+          assert ptg4_checks.get("production_like_runtime_lineage_evidence") is True
+          assert ptg4["status"] == "pass", ptg4
+
+          ptg5 = json.loads(Path(os.environ["CLEAN_PTG5_REPORT"]).read_text())
+          assert int(os.environ["PTG5_EXIT"]) == (0 if ptg5["status"] == "pass" else 1)
+          ptg5_checks = {check["name"]: check["passed"] for check in ptg5.get("checks", [])}
+          ptg5_failed = {check["name"] for check in ptg5.get("checks", []) if not check["passed"]}
+          if ptg3["status"] == "pass" and ptg4["status"] == "pass":
+              assert ptg5["status"] == "pass", ptg5
+          else:
+              assert ptg5["status"] == "blocked", ptg5
+              assert ptg5_failed <= {
+                  "prior_phase_gate_reports_pass",
+                  "required_finite_checklist_sections_complete",
+              }, ptg5_failed
+              assert ptg5_checks.get("prior_phase_gate_reports_pass") is False
+              assert ptg5_checks.get("runtime_evidence_coverage_and_gap_records") is True
+              assert ptg5_checks.get("monthly_sufficiency_gates_fail_closed") is True
+
+          ptg6 = json.loads(Path(os.environ["CLEAN_PTG6_REPORT"]).read_text())
+          assert int(os.environ["PTG6_EXIT"]) == (0 if ptg6["status"] == "pass" else 1)
+          ptg6_checks = {check["name"]: check["passed"] for check in ptg6.get("checks", [])}
+          ptg6_failed = {check["name"] for check in ptg6.get("checks", []) if not check["passed"]}
+          if ptg5["status"] == "pass":
+              assert ptg6["status"] == "pass", ptg6
+          else:
+              assert ptg6["status"] == "blocked", ptg6
+              assert ptg6_failed == {"ptg5_report_passed"}, ptg6_failed
+              assert ptg6_checks.get("ptg5_report_passed") is False
+              assert ptg6_checks.get("strategy_discovery_packet_builder_contract") is True
+              assert ptg6_checks.get("new_strategy_discovery_gate") is True
+              assert ptg6_checks.get("external_weak_strategy_discovery_packet_rejected") is True
+
+          ptg7 = json.loads(Path(os.environ["CLEAN_PTG7_REPORT"]).read_text())
+          assert int(os.environ["PTG7_EXIT"]) == (0 if ptg7["status"] == "pass" else 1)
+          ptg7_checks = {check["name"]: check["passed"] for check in ptg7.get("checks", [])}
+          assert "required_finite_checklist_sections_complete" in ptg7_checks
+          if ptg7_checks["required_finite_checklist_sections_complete"] is False:
+              assert ptg7["status"] == "blocked"
+              checklist_check = next(
+                  check for check in ptg7.get("checks", [])
+                  if check["name"] == "required_finite_checklist_sections_complete"
+              )
+              assert any(row.get("unchecked_items") for row in checklist_check.get("details", []))
+          if ptg7["status"] != "pass":
+              assert ptg7.get("implementation_failures") or ptg7.get("production_blockers")
+          PY
+
   affected-images:
     runs-on: ubuntu-latest
     steps:
@@ -42,3 +324,33 @@ jobs:
           python-version: "3.12"
       - name: Explain affected image rules
         run: python tools/detect_affected_images.py --explain-only
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        run: python -m pip install uv
+      - name: Sync workspace
+        run: uv sync --frozen --all-packages
+      - name: Verify image definitions
+        run: uv run --frozen python tools/build_bot_image.py --bot all --emit-dependency-reports
+      - name: Verify deployment metadata inputs
+        run: uv run --frozen python tools/verify_deployment_metadata.py --bot all
+
+  strict-refactor-acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        run: python -m pip install uv
+      - name: Sync workspace
+        run: uv sync --frozen --all-packages
+      - name: Verify strict refactor acceptance
+        run: uv run --frozen python tools/verify_refactor_acceptance.py --bot all --strict

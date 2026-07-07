@@ -1,0 +1,16 @@
+{
+  "bot_id": "crypto_portfolio",
+  "config_hash": "702e9ffc2e7c5acc1917502e536cca440a5e67c406b86b1e66c30c4ee63e5fec",
+  "config_path": "config/strategies/momentum.json",
+  "config_version": "momentum_config_2026-05-31",
+  "deployed_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "deployment_id": "crypto-momentum-v1-shadow-3c6441d8",
+  "generated_at": "2026-05-31T12:10:00Z",
+  "metadata_source": "local clean live-repo checkout shadow snapshot",
+  "repo_url": "local://bots/crypto_trader",
+  "strategy_id": "crypto_momentum_v1",
+  "strategy_plugin_contract_hash": "ca8d0c9fca50a2b09300c96a8500fe6a54a3488fb99e1f01f099b093ec524316",
+  "strategy_plugin_contract_path": "strategy_plugin_contract.json",
+  "strategy_version": "crypto_momentum_v1",
+  "telemetry_schema_version": "trade_event_v1"
+}

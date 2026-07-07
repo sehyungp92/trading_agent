@@ -1,0 +1,628 @@
+{
+  "active_scope_count": 5,
+  "all_validation_tests_runnable_for_all_scopes": false,
+  "approval_grade_validation_complete": false,
+  "approval_remaining_gaps": [],
+  "artifact_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\learning_sufficiency\\phase0_probe_validation_matrix\\validation_matrix_report.json",
+  "carried_out_now_or_previously": [
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\week1\\k_stock_olr_kalcb\\decision_parity\\decision_parity_report.json"
+      ],
+      "result": "fail",
+      "scope_id": "k_stock_olr_kalcb",
+      "test": "decision_parity"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\week1\\trading_stock_family\\decision_parity\\decision_parity_report.json"
+      ],
+      "result": "fail",
+      "scope_id": "trading_stock_family",
+      "test": "decision_parity"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\week2\\trading_momentum_family\\decision_parity\\decision_parity_report.json"
+      ],
+      "result": "fail",
+      "scope_id": "trading_momentum_family",
+      "test": "decision_parity"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\week3\\trading_swing_family\\decision_parity\\decision_parity_report.json"
+      ],
+      "result": "fail",
+      "scope_id": "trading_swing_family",
+      "test": "decision_parity"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\crypto_trend_v1\\decision_parity\\decision_parity_report.json"
+      ],
+      "result": "fail",
+      "scope_id": "crypto_trader_portfolio",
+      "test": "decision_parity"
+    }
+  ],
+  "excluded_non_rotation_surfaces": [],
+  "generated_at": "2026-07-04T02:47:23Z",
+  "meaningful_remaining_gaps": [
+    {
+      "details": "A data bundle is expected, but no durable data_reproduction_report.json was found.",
+      "example_scope": "k_stock_olr_kalcb",
+      "reason": "data_reproduction_report_missing",
+      "test": "data_reproduction"
+    },
+    {
+      "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+      "example_scope": "k_stock_olr_kalcb",
+      "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+      "test": "incumbent_replay"
+    },
+    {
+      "details": "formal decision parity summary is missing or not passing; formal decision parity report is missing",
+      "example_scope": "k_stock_olr_kalcb",
+      "reason": "formal_decision_parity_report_failed",
+      "test": "decision_parity"
+    },
+    {
+      "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+      "example_scope": "k_stock_olr_kalcb",
+      "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+      "test": "round_reproduction"
+    },
+    {
+      "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+      "example_scope": "k_stock_olr_kalcb",
+      "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+      "test": "historical_walk_forward"
+    }
+  ],
+  "ok": false,
+  "runnable_validations_passed": false,
+  "scopes": [
+    {
+      "notes": "",
+      "optimizer_approval_readiness": {
+        "checks": [
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "k_stock_olr_kalcb:optimizer_p6_true_fold_scoring_complete",
+            "passed": false
+          },
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "k_stock_olr_kalcb:optimizer_p7_repair_confirmatory_round_complete",
+            "passed": false
+          }
+        ],
+        "ready": false
+      },
+      "optimizer_evidence_context": {
+        "bridge_contract_hashes": {
+          "k_stock_olr_kalcb": "05e468126e83e53291ae918433aee1bae079b221b28dc50075c0f7a4ec335e0e"
+        },
+        "bridge_ids": [
+          "k_stock_olr_kalcb"
+        ],
+        "data_bundle_checksums": [],
+        "deployment_metadata_hashes": {
+          "k_stock_olr_kalcb": "bb101c40f057db8dc0490a7654bbb9f35033d5bd7586503a51d81f1330212d69"
+        },
+        "run_month": "",
+        "scope_id": "k_stock_olr_kalcb"
+      },
+      "portfolio_id": "olr_kalcb",
+      "repo_id": "k_stock_trader",
+      "scope_id": "k_stock_olr_kalcb",
+      "source_repo_present": false,
+      "strategies": [
+        "OLR",
+        "KALCB"
+      ],
+      "tests": {
+        "data_reproduction": {
+          "artifact_paths": [],
+          "details": "A data bundle is expected, but no durable data_reproduction_report.json was found.",
+          "full_family_authority": {
+            "details": "Full-family authority must be evaluated from slice_index.json.",
+            "reason": "slice_index_missing",
+            "requirement_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\requirements\\strategies\\k_stock\\portfolio.json",
+            "run_month": "2026-05",
+            "slice_index_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\manifests\\slices\\slice_index.json",
+            "status": "blocked"
+          },
+          "ran": false,
+          "reason": "data_reproduction_report_missing",
+          "result": "blocked",
+          "runnable": false
+        },
+        "decision_parity": {
+          "approval_ready": false,
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\week1\\k_stock_olr_kalcb\\decision_parity\\decision_parity_report.json"
+          ],
+          "bridge_id": "k_stock_olr_kalcb",
+          "bridge_ids": [
+            "k_stock_olr_kalcb"
+          ],
+          "details": "formal decision parity summary is missing or not passing; formal decision parity report is missing",
+          "eligible_for_optimizer": true,
+          "maturity": "shadow_validated",
+          "ran": true,
+          "reason": "formal_decision_parity_report_failed",
+          "result": "fail",
+          "runnable": true
+        },
+        "historical_walk_forward": {
+          "artifact_paths": [],
+          "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+          "ran": false,
+          "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+          "result": "blocked",
+          "runnable": false
+        },
+        "incumbent_replay": {
+          "artifact_paths": [],
+          "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+          "ran": false,
+          "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+          "result": "blocked",
+          "runnable": false
+        },
+        "round_reproduction": {
+          "artifact_paths": [],
+          "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+          "ran": false,
+          "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+          "result": "blocked",
+          "runnable": false
+        }
+      },
+      "weekly_focus_week": 1
+    },
+    {
+      "notes": "",
+      "optimizer_approval_readiness": {
+        "checks": [
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "trading_stock_family:optimizer_p6_true_fold_scoring_complete",
+            "passed": false
+          },
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "trading_stock_family:optimizer_p7_repair_confirmatory_round_complete",
+            "passed": false
+          }
+        ],
+        "ready": false
+      },
+      "optimizer_evidence_context": {
+        "bridge_contract_hashes": {
+          "trading_stock_family": "feec4e326885ef4e3608507f76058cb7ce2ca033f72fc07b5144e12538da8a21"
+        },
+        "bridge_ids": [
+          "trading_stock_family"
+        ],
+        "data_bundle_checksums": [],
+        "deployment_metadata_hashes": {
+          "trading_stock_family": "a57af875d9a62ee6ad1ec9803b1ac2e7492b7e6ee5d0e629361dd7cd729ab628"
+        },
+        "run_month": "",
+        "scope_id": "trading_stock_family"
+      },
+      "portfolio_id": "stock",
+      "repo_id": "trading",
+      "scope_id": "trading_stock_family",
+      "source_repo_present": false,
+      "strategies": [
+        "IARIC_v1",
+        "ALCB_v1"
+      ],
+      "tests": {
+        "data_reproduction": {
+          "artifact_paths": [],
+          "details": "A data bundle is expected, but no durable data_reproduction_report.json was found.",
+          "full_family_authority": {
+            "details": "Full-family authority must be evaluated from slice_index.json.",
+            "reason": "slice_index_missing",
+            "requirement_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\requirements\\strategies\\trading_stock\\portfolio.json",
+            "run_month": "2026-05",
+            "slice_index_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\manifests\\slices\\slice_index.json",
+            "status": "blocked"
+          },
+          "ran": false,
+          "reason": "data_reproduction_report_missing",
+          "result": "blocked",
+          "runnable": false
+        },
+        "decision_parity": {
+          "approval_ready": false,
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\week1\\trading_stock_family\\decision_parity\\decision_parity_report.json"
+          ],
+          "bridge_id": "trading_stock_family",
+          "bridge_ids": [
+            "trading_stock_family"
+          ],
+          "details": "formal decision parity summary is missing or not passing; formal decision parity report is missing",
+          "eligible_for_optimizer": true,
+          "maturity": "shadow_validated",
+          "ran": true,
+          "reason": "formal_decision_parity_report_failed",
+          "result": "fail",
+          "runnable": true
+        },
+        "historical_walk_forward": {
+          "artifact_paths": [],
+          "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+          "ran": false,
+          "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+          "result": "blocked",
+          "runnable": false
+        },
+        "incumbent_replay": {
+          "artifact_paths": [],
+          "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+          "ran": false,
+          "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+          "result": "blocked",
+          "runnable": false
+        },
+        "round_reproduction": {
+          "artifact_paths": [],
+          "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+          "ran": false,
+          "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+          "result": "blocked",
+          "runnable": false
+        }
+      },
+      "weekly_focus_week": 1
+    },
+    {
+      "notes": "Only active futures portfolio in the trading repo.",
+      "optimizer_approval_readiness": {
+        "checks": [
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "trading_momentum_family:optimizer_p6_true_fold_scoring_complete",
+            "passed": false
+          },
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "trading_momentum_family:optimizer_p7_repair_confirmatory_round_complete",
+            "passed": false
+          }
+        ],
+        "ready": false
+      },
+      "optimizer_evidence_context": {
+        "bridge_contract_hashes": {
+          "trading_momentum_family": "99f86d8fcd91b9e9ca079aba1bb805a9bd95fb307c1669913b4a9148b562ae01"
+        },
+        "bridge_ids": [
+          "trading_momentum_family"
+        ],
+        "data_bundle_checksums": [],
+        "deployment_metadata_hashes": {
+          "trading_momentum_family": "319a949f39acc86531be6bbbba44232fc5895d5f43520b534cfcf53fdad546c4"
+        },
+        "run_month": "",
+        "scope_id": "trading_momentum_family"
+      },
+      "portfolio_id": "momentum",
+      "repo_id": "trading",
+      "scope_id": "trading_momentum_family",
+      "source_repo_present": false,
+      "strategies": [
+        "NQDTC_v2.1",
+        "NQ_REGIME",
+        "VdubusNQ_v4",
+        "DownturnDominator_v1"
+      ],
+      "tests": {
+        "data_reproduction": {
+          "artifact_paths": [],
+          "details": "A data bundle is expected, but no durable data_reproduction_report.json was found.",
+          "full_family_authority": {
+            "details": "Full-family authority must be evaluated from slice_index.json.",
+            "reason": "slice_index_missing",
+            "requirement_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\requirements\\strategies\\trading_momentum\\portfolio.json",
+            "run_month": "2026-05",
+            "slice_index_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\manifests\\slices\\slice_index.json",
+            "status": "blocked"
+          },
+          "ran": false,
+          "reason": "data_reproduction_report_missing",
+          "result": "blocked",
+          "runnable": false
+        },
+        "decision_parity": {
+          "approval_ready": false,
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\week2\\trading_momentum_family\\decision_parity\\decision_parity_report.json"
+          ],
+          "bridge_id": "trading_momentum_family",
+          "bridge_ids": [
+            "trading_momentum_family"
+          ],
+          "details": "formal decision parity summary is missing or not passing; formal decision parity report is missing",
+          "eligible_for_optimizer": true,
+          "maturity": "shadow_validated",
+          "ran": true,
+          "reason": "formal_decision_parity_report_failed",
+          "result": "fail",
+          "runnable": true
+        },
+        "historical_walk_forward": {
+          "artifact_paths": [],
+          "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+          "ran": false,
+          "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+          "result": "blocked",
+          "runnable": false
+        },
+        "incumbent_replay": {
+          "artifact_paths": [],
+          "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+          "ran": false,
+          "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+          "result": "blocked",
+          "runnable": false
+        },
+        "round_reproduction": {
+          "artifact_paths": [],
+          "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+          "ran": false,
+          "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+          "result": "blocked",
+          "runnable": false
+        }
+      },
+      "weekly_focus_week": 2
+    },
+    {
+      "notes": "OVERLAY is a portfolio-level swing coordination surface.",
+      "optimizer_approval_readiness": {
+        "checks": [
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "trading_swing_family:optimizer_p6_true_fold_scoring_complete",
+            "passed": false
+          },
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "trading_swing_family:optimizer_p7_repair_confirmatory_round_complete",
+            "passed": false
+          }
+        ],
+        "ready": false
+      },
+      "optimizer_evidence_context": {
+        "bridge_contract_hashes": {
+          "trading_swing_family": "601717fb4bdfb716242264d8be94f4d2cf5a774f22e67797f2c013bf74a05c6c"
+        },
+        "bridge_ids": [
+          "trading_swing_family"
+        ],
+        "data_bundle_checksums": [],
+        "deployment_metadata_hashes": {
+          "trading_swing_family": "17f295eb1f1f4e090bed0fdbedc626ed76665b6b8c77f751ec47afde0e55b9f0"
+        },
+        "run_month": "",
+        "scope_id": "trading_swing_family"
+      },
+      "portfolio_id": "swing",
+      "repo_id": "trading",
+      "scope_id": "trading_swing_family",
+      "source_repo_present": false,
+      "strategies": [
+        "ATRSS",
+        "AKC_HELIX",
+        "TPC",
+        "OVERLAY"
+      ],
+      "tests": {
+        "data_reproduction": {
+          "artifact_paths": [],
+          "details": "A data bundle is expected, but no durable data_reproduction_report.json was found.",
+          "full_family_authority": {
+            "details": "Full-family authority must be evaluated from slice_index.json.",
+            "reason": "slice_index_missing",
+            "requirement_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\requirements\\strategies\\trading_swing\\portfolio.json",
+            "run_month": "2026-05",
+            "slice_index_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\manifests\\slices\\slice_index.json",
+            "status": "blocked"
+          },
+          "ran": false,
+          "reason": "data_reproduction_report_missing",
+          "result": "blocked",
+          "runnable": false
+        },
+        "decision_parity": {
+          "approval_ready": false,
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\week3\\trading_swing_family\\decision_parity\\decision_parity_report.json"
+          ],
+          "bridge_id": "trading_swing_family",
+          "bridge_ids": [
+            "trading_swing_family"
+          ],
+          "details": "formal decision parity summary is missing or not passing; formal decision parity report is missing",
+          "eligible_for_optimizer": true,
+          "maturity": "shadow_validated",
+          "ran": true,
+          "reason": "formal_decision_parity_report_failed",
+          "result": "fail",
+          "runnable": true
+        },
+        "historical_walk_forward": {
+          "artifact_paths": [],
+          "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+          "ran": false,
+          "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+          "result": "blocked",
+          "runnable": false
+        },
+        "incumbent_replay": {
+          "artifact_paths": [],
+          "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+          "ran": false,
+          "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+          "result": "blocked",
+          "runnable": false
+        },
+        "round_reproduction": {
+          "artifact_paths": [],
+          "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+          "ran": false,
+          "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+          "result": "blocked",
+          "runnable": false
+        }
+      },
+      "weekly_focus_week": 3
+    },
+    {
+      "notes": "Formal crypto bridges are shadow_validated; phased optimizer data excludes extra 1m/5m refresh intervals.",
+      "optimizer_approval_readiness": {
+        "checks": [
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "crypto_trader_portfolio:optimizer_p6_true_fold_scoring_complete",
+            "passed": false
+          },
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "crypto_trader_portfolio:optimizer_p7_repair_confirmatory_round_complete",
+            "passed": false
+          }
+        ],
+        "ready": false
+      },
+      "optimizer_evidence_context": {
+        "bridge_contract_hashes": {
+          "crypto_breakout_v1": "546a6d77735b9aea47153dc1881c41d1b86d38a3379ecf589d6065babeec909e",
+          "crypto_momentum_v1": "ca8d0c9fca50a2b09300c96a8500fe6a54a3488fb99e1f01f099b093ec524316",
+          "crypto_trend_v1": "66aefae0de014fc8e190f67730dd0ada8c4f917a03cde21af936c41182561527"
+        },
+        "bridge_ids": [
+          "crypto_trend_v1",
+          "crypto_momentum_v1",
+          "crypto_breakout_v1"
+        ],
+        "data_bundle_checksums": [],
+        "deployment_metadata_hashes": {
+          "crypto_breakout_v1": "4b2ec3f9a8e5355c63ccf06ccbd453b24135301d7876b714debce0ec5472655f",
+          "crypto_momentum_v1": "f675424677a31a06b2a1ccbb538f372a06426e197da120ad6c0e42be69a4dd8e",
+          "crypto_trend_v1": "7ee8f4366fb81ed930c20d20ba12b1ff54554ca29d6c6653900dcf382c8a50f4"
+        },
+        "run_month": "",
+        "scope_id": "crypto_trader_portfolio"
+      },
+      "portfolio_id": "crypto_portfolio",
+      "repo_id": "crypto_trader",
+      "scope_id": "crypto_trader_portfolio",
+      "source_repo_present": false,
+      "strategies": [
+        "trend",
+        "momentum",
+        "breakout"
+      ],
+      "tests": {
+        "data_reproduction": {
+          "artifact_paths": [],
+          "details": "A data bundle is expected, but no durable data_reproduction_report.json was found.",
+          "full_family_authority": {
+            "details": "Full-family authority must be evaluated from slice_index.json.",
+            "reason": "slice_index_missing",
+            "requirement_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\requirements\\strategies\\crypto_portfolio\\phased_optimizer.json",
+            "run_month": "2026-05",
+            "slice_index_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\manifests\\slices\\slice_index.json",
+            "status": "blocked"
+          },
+          "ran": false,
+          "reason": "data_reproduction_report_missing",
+          "result": "blocked",
+          "runnable": false
+        },
+        "decision_parity": {
+          "approval_ready": false,
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\crypto_trend_v1\\decision_parity\\decision_parity_report.json"
+          ],
+          "bridge_id": "crypto_trend_v1",
+          "bridge_ids": [
+            "crypto_trend_v1",
+            "crypto_momentum_v1",
+            "crypto_breakout_v1"
+          ],
+          "details": "formal crypto decision parity summary is missing or not passing; formal crypto decision parity report is missing",
+          "eligible_for_optimizer": true,
+          "maturity": "shadow_validated",
+          "ran": true,
+          "reason": "formal_decision_parity_report_failed",
+          "result": "fail",
+          "runnable": true
+        },
+        "historical_walk_forward": {
+          "artifact_paths": [],
+          "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+          "ran": false,
+          "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+          "result": "blocked",
+          "runnable": false
+        },
+        "incumbent_replay": {
+          "artifact_paths": [],
+          "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+          "ran": false,
+          "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+          "result": "blocked",
+          "runnable": false
+        },
+        "round_reproduction": {
+          "artifact_paths": [],
+          "details": "Replay-backed validation for this scope is intentionally blocked until an authoritative monthly data bundle is available.",
+          "ran": false,
+          "reason": "authoritative_data_bundle_required_for_replay_evaluator",
+          "result": "blocked",
+          "runnable": false
+        }
+      },
+      "weekly_focus_week": 4
+    }
+  ],
+  "structural_candidates_approval_ready": false,
+  "validation_tests": [
+    "data_reproduction",
+    "incumbent_replay",
+    "decision_parity",
+    "round_reproduction",
+    "historical_walk_forward"
+  ]
+}

@@ -1,0 +1,9 @@
+policy_version: rollback_thresholds_v1
+min_confidence: 0.6
+repair_objective_delta: -0.05
+rollback_objective_delta: -0.15
+repair_drawdown_delta: 0.05
+rollback_drawdown_delta: 0.15
+repair_execution_slippage_delta: 0.03
+rollback_execution_slippage_delta: 0.08
+quarantine_negative_count: 2

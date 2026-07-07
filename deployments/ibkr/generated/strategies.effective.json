@@ -1,0 +1,2096 @@
+{
+  "bot_id": "ibkr",
+  "effective_config_hash": "ebe47c92380ca88a403ba297f8a37b804d2731d78cbfd985495556950d88f75d",
+  "generated_at": "2026-07-03T01:39:57.477454Z",
+  "materialized_config": {
+    "bot_id": "ibkr",
+    "connection_groups": {
+      "default": {
+        "account_id": "${IB_ACCOUNT_ID}",
+        "client_id": 7,
+        "host": "${IB_HOST:127.0.0.1}",
+        "port": "${IB_PORT:4002}",
+        "readonly": false
+      }
+    },
+    "merge_order": [
+      "strategy_defaults",
+      "latest_optimized_config",
+      "venue_runtime_overlay",
+      "environment_deployment_overlay",
+      "environment_secrets_uncommitted"
+    ],
+    "schema_version": "materialized_effective_config.v1",
+    "strategies": [
+      {
+        "approval_status": "phase3_alignment_passed",
+        "effective_config": {
+          "allocation": {
+            "base_risk_pct": 0.013
+          },
+          "asset_class": "mixed",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "blue",
+            "short_label": "SWING",
+            "system_label": "Swing Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "swing"
+          ],
+          "display_name": "AKC Helix",
+          "enabled": true,
+          "family": "swing",
+          "flags": {
+            "disable_circuit_breaker": true,
+            "disable_class_a": true,
+            "disable_class_c": true
+          },
+          "module_path": "strategies.swing.akc_helix.plugin",
+          "paper_mode": false,
+          "param_overrides": {
+            "ADD_1H_R": 0.7776,
+            "ADD_4H_R": 0.25,
+            "ADD_MAX_BARS": 18,
+            "ADD_MIN_BARS": 2,
+            "ADD_RISK_FRAC": 2.0592,
+            "ADX_UPPER_GATE": 60.5,
+            "BE_ATR1H_OFFSET": 0.08,
+            "CLASS_B_BAIL_BARS": 9,
+            "CLASS_B_BAIL_R_THRESH": -0.35,
+            "CLASS_B_MIN_ADX": 28.0,
+            "CLASS_B_MOM_LOOKBACK": 5,
+            "CLASS_D_MAX_DAILY_EXTENSION_ATR": 3.5,
+            "CLASS_D_MIN_PIVOT_SEP_BARS": 4,
+            "CLASS_D_REGIME_STREAK_MIN": 2,
+            "CLASS_D_SHORT_MIN_ADX": 0.0,
+            "EARLY_STALE_BARS": 24,
+            "EXTREME_VOL_PCT": 999.0,
+            "HIGH_VOL_PCT": 68,
+            "PARTIAL_2P5_FRAC": 0.968,
+            "RTS_GUARD_FLOOR_R": 0.05,
+            "RTS_GUARD_MFE_R": 0.25,
+            "RTS_GUARD_MIN_BARS": 10,
+            "RTS_GUARD_MIN_GIVEBACK_R": 0.05,
+            "R_BE_1H": 0.756,
+            "R_PARTIAL_2P5": 1.8,
+            "R_PARTIAL_5": 6.6,
+            "STALE_1H_BARS": 24,
+            "STALE_R_THRESH": 0.3,
+            "TRAIL_FADE_MIN_R": 0.5,
+            "TRAIL_FADE_PENALTY": 1.32,
+            "TRAIL_PROFIT_DELAY_BARS": 6,
+            "TRAIL_R_DIV": 8.4,
+            "TRAIL_STALL_ONSET": 5,
+            "TRAIL_STALL_RATE": 0.1584,
+            "TRAIL_TIMEDECAY_ONSET": 25,
+            "TTL_1H_HOURS": 6
+          },
+          "risk": {
+            "daily_stop_R": 2.5,
+            "max_heat_R": 2.1,
+            "max_working_orders": 4,
+            "priority": 2,
+            "unit_risk_dollars": 200.0
+          },
+          "strategy_id": "AKC_HELIX",
+          "symbols": [
+            "QQQ",
+            "GLD"
+          ],
+          "system_id": "swing_trader"
+        },
+        "effective_config_hash": "414f85ae3cf0036c5f42534ebf41abb16b5ff6f6bc24b44e811137d32539924f",
+        "latest_optimized_config": {
+          "flags": {
+            "disable_circuit_breaker": true,
+            "disable_class_a": true,
+            "disable_class_c": true
+          },
+          "param_overrides": {
+            "ADD_1H_R": 0.7776,
+            "ADD_4H_R": 0.25,
+            "ADD_MAX_BARS": 18,
+            "ADD_MIN_BARS": 2,
+            "ADD_RISK_FRAC": 2.0592,
+            "ADX_UPPER_GATE": 60.5,
+            "BE_ATR1H_OFFSET": 0.08,
+            "CLASS_B_BAIL_BARS": 9,
+            "CLASS_B_BAIL_R_THRESH": -0.35,
+            "CLASS_B_MIN_ADX": 28.0,
+            "CLASS_B_MOM_LOOKBACK": 5,
+            "CLASS_D_MAX_DAILY_EXTENSION_ATR": 3.5,
+            "CLASS_D_MIN_PIVOT_SEP_BARS": 4,
+            "CLASS_D_REGIME_STREAK_MIN": 2,
+            "CLASS_D_SHORT_MIN_ADX": 0.0,
+            "EARLY_STALE_BARS": 24,
+            "EXTREME_VOL_PCT": 999.0,
+            "HIGH_VOL_PCT": 68,
+            "PARTIAL_2P5_FRAC": 0.968,
+            "RTS_GUARD_FLOOR_R": 0.05,
+            "RTS_GUARD_MFE_R": 0.25,
+            "RTS_GUARD_MIN_BARS": 10,
+            "RTS_GUARD_MIN_GIVEBACK_R": 0.05,
+            "R_BE_1H": 0.756,
+            "R_PARTIAL_2P5": 1.8,
+            "R_PARTIAL_5": 6.6,
+            "STALE_1H_BARS": 24,
+            "STALE_R_THRESH": 0.3,
+            "TRAIL_FADE_MIN_R": 0.5,
+            "TRAIL_FADE_PENALTY": 1.32,
+            "TRAIL_PROFIT_DELAY_BARS": 6,
+            "TRAIL_R_DIV": 8.4,
+            "TRAIL_STALL_ONSET": 5,
+            "TRAIL_STALL_RATE": 0.1584,
+            "TRAIL_TIMEDECAY_ONSET": 25,
+            "TTL_1H_HOURS": 6
+          }
+        },
+        "optimized_config_path": "backtests/baselines/ibkr/swing/helix/round_5/optimized_config.json",
+        "optimizer_round": {
+          "optimized_config_path": "backtests/baselines/ibkr/swing/helix/round_5/optimized_config.json",
+          "round_id": 5,
+          "rounds_manifest_path": "backtests/baselines/ibkr/swing/helix/rounds_manifest.json"
+        },
+        "promotion_state": "approved",
+        "runtime_overlay": {
+          "allocation": {
+            "base_risk_pct": 0.013
+          },
+          "asset_class": "mixed",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "blue",
+            "short_label": "SWING",
+            "system_label": "Swing Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "swing"
+          ],
+          "display_name": "AKC Helix",
+          "enabled": true,
+          "family": "swing",
+          "module_path": "strategies.swing.akc_helix.plugin",
+          "paper_mode": false,
+          "risk": {
+            "daily_stop_R": 2.5,
+            "max_heat_R": 2.1,
+            "max_working_orders": 4,
+            "priority": 2,
+            "unit_risk_dollars": 200.0
+          },
+          "strategy_id": "AKC_HELIX",
+          "symbols": [
+            "QQQ",
+            "GLD"
+          ],
+          "system_id": "swing_trader"
+        },
+        "strategy_id": "AKC_HELIX"
+      },
+      {
+        "approval_status": "phase3_alignment_passed",
+        "effective_config": {
+          "ablation": {
+            "use_adaptive_trail": true,
+            "use_combined_quality_gate": true,
+            "use_mfe_conviction_exit": true,
+            "use_or_width_min": true,
+            "use_partial_takes": false
+          },
+          "allocation": {
+            "base_risk_pct": 0.00702
+          },
+          "artifact_config": {
+            "source": "stock_trader/data/strategy_alcb",
+            "type": "candidate"
+          },
+          "asset_class": "equity",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "green",
+            "short_label": "STOCK",
+            "system_label": "Stock Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "stock"
+          ],
+          "display_name": "ALCB v1",
+          "enabled": true,
+          "engine_config": {
+            "universe": "sp500"
+          },
+          "family": "stock",
+          "module_path": "strategies.stock.alcb.plugin",
+          "paper_mode": false,
+          "param_overrides": {
+            "adaptive_trail_late_activate_r": 0.22,
+            "adaptive_trail_late_distance_r": 0.12,
+            "adaptive_trail_start_bars": 25,
+            "adaptive_trail_tighten_bars": 25,
+            "block_combined_regime_b": true,
+            "carry_min_cpr": 0.6,
+            "carry_min_r": 0.5,
+            "combined_avwap_cap_pct": 0.003,
+            "combined_breakout_min_rvol": 2.5,
+            "combined_breakout_score_min": 5,
+            "entry_detail_size_mults": {
+              "OR_BREAKOUT:5:!bar_vol_surge": 0.55
+            },
+            "entry_score_size_mults": {
+              "COMBINED_BREAKOUT:7": 1.15,
+              "OR_BREAKOUT:5": 0.75,
+              "PDH_BREAKOUT:6": 0.5
+            },
+            "entry_window_end": "12:30:00",
+            "failure_stop_bars": 10,
+            "failure_stop_current_r_max": 0.0,
+            "failure_stop_mfe_max_r": 0.2,
+            "failure_stop_to_r": -0.25,
+            "flow_reversal_min_hold_bars": 12,
+            "fr_cpr_threshold": 0.3,
+            "fr_mfe_grace_r": 0.2,
+            "fr_trailing_activate_r": 0.0,
+            "mfe_conviction_check_bars": 16,
+            "mfe_conviction_floor_r": -0.15,
+            "mfe_conviction_min_r": 0.2,
+            "opening_range_bars": 6,
+            "or_width_min_pct": 0.0015,
+            "pdh_avwap_cap_pct": 0.005,
+            "pdh_size_mult": 0.75,
+            "regime_mult_b": 0.7,
+            "rvol_threshold": 2.0
+          },
+          "risk": {
+            "daily_stop_R": 2.35,
+            "max_heat_R": 4.0,
+            "max_working_orders": 1,
+            "portfolio_daily_stop_R": 3.5,
+            "unit_risk_dollars": 100.0
+          },
+          "strategy_id": "ALCB_v1",
+          "symbols": [
+            "SPY",
+            "QQQ",
+            "IWM"
+          ],
+          "system_id": "stock_trader"
+        },
+        "effective_config_hash": "51641fbd3a3a49a9610a6a03d9fcc3d98abf7052f4551be57351ef9281f0ce8c",
+        "latest_optimized_config": {
+          "ablation": {
+            "use_adaptive_trail": true,
+            "use_combined_quality_gate": true,
+            "use_mfe_conviction_exit": true,
+            "use_or_width_min": true,
+            "use_partial_takes": false
+          },
+          "param_overrides": {
+            "adaptive_trail_late_activate_r": 0.22,
+            "adaptive_trail_late_distance_r": 0.12,
+            "adaptive_trail_start_bars": 25,
+            "adaptive_trail_tighten_bars": 25,
+            "block_combined_regime_b": true,
+            "carry_min_cpr": 0.6,
+            "carry_min_r": 0.5,
+            "combined_avwap_cap_pct": 0.003,
+            "combined_breakout_min_rvol": 2.5,
+            "combined_breakout_score_min": 5,
+            "entry_detail_size_mults": {
+              "OR_BREAKOUT:5:!bar_vol_surge": 0.55
+            },
+            "entry_score_size_mults": {
+              "COMBINED_BREAKOUT:7": 1.15,
+              "OR_BREAKOUT:5": 0.75,
+              "PDH_BREAKOUT:6": 0.5
+            },
+            "entry_window_end": "12:30:00",
+            "failure_stop_bars": 10,
+            "failure_stop_current_r_max": 0.0,
+            "failure_stop_mfe_max_r": 0.2,
+            "failure_stop_to_r": -0.25,
+            "flow_reversal_min_hold_bars": 12,
+            "fr_cpr_threshold": 0.3,
+            "fr_mfe_grace_r": 0.2,
+            "fr_trailing_activate_r": 0.0,
+            "mfe_conviction_check_bars": 16,
+            "mfe_conviction_floor_r": -0.15,
+            "mfe_conviction_min_r": 0.2,
+            "opening_range_bars": 6,
+            "or_width_min_pct": 0.0015,
+            "pdh_avwap_cap_pct": 0.005,
+            "pdh_size_mult": 0.75,
+            "regime_mult_b": 0.7,
+            "rvol_threshold": 2.0
+          }
+        },
+        "optimized_config_path": "backtests/baselines/ibkr/stock/alcb/round_2/optimized_config.json",
+        "optimizer_round": {
+          "optimized_config_path": "backtests/baselines/ibkr/stock/alcb/round_2/optimized_config.json",
+          "round_id": 2,
+          "rounds_manifest_path": "backtests/baselines/ibkr/stock/alcb/rounds_manifest.json"
+        },
+        "promotion_state": "approved",
+        "runtime_overlay": {
+          "allocation": {
+            "base_risk_pct": 0.00702
+          },
+          "artifact_config": {
+            "source": "stock_trader/data/strategy_alcb",
+            "type": "candidate"
+          },
+          "asset_class": "equity",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "green",
+            "short_label": "STOCK",
+            "system_label": "Stock Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "stock"
+          ],
+          "display_name": "ALCB v1",
+          "enabled": true,
+          "engine_config": {
+            "universe": "sp500"
+          },
+          "family": "stock",
+          "module_path": "strategies.stock.alcb.plugin",
+          "paper_mode": false,
+          "risk": {
+            "daily_stop_R": 2.35,
+            "max_heat_R": 4.0,
+            "max_working_orders": 1,
+            "portfolio_daily_stop_R": 3.5,
+            "unit_risk_dollars": 100.0
+          },
+          "strategy_id": "ALCB_v1",
+          "symbols": [
+            "SPY",
+            "QQQ",
+            "IWM"
+          ],
+          "system_id": "stock_trader"
+        },
+        "strategy_id": "ALCB_v1"
+      },
+      {
+        "approval_status": "phase3_alignment_passed",
+        "effective_config": {
+          "allocation": {
+            "base_risk_pct": 0.0165,
+            "equity_offset": 0.0
+          },
+          "asset_class": "mixed",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "blue",
+            "short_label": "SWING",
+            "system_label": "Swing Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "swing"
+          ],
+          "display_name": "ATR Swing Strategy",
+          "enabled": true,
+          "family": "swing",
+          "fixed_qty": null,
+          "flags": {
+            "addon_b": false,
+            "early_stall_exit": false
+          },
+          "module_path": "strategies.swing.atrss.plugin",
+          "paper_mode": false,
+          "param_overrides": {
+            "addon_a_r": 1.5,
+            "addon_a_size_mult": 0.5,
+            "adx_on": 14,
+            "base_risk_pct": 0.024,
+            "dynamic_risk_strong_trend_mult": 1.15,
+            "dynamic_risk_weak_trend_mult": 0.8,
+            "early_stall_check_hours": 12,
+            "early_stall_mfe_threshold": 0.2,
+            "max_hold_hours": 88,
+            "pullback_touch_tolerance_pct": 0.005,
+            "recovery_tolerance_atr_trend": 0.55
+          },
+          "risk": {
+            "daily_stop_R": 2.25,
+            "max_heat_R": 2.15,
+            "max_working_orders": 4,
+            "priority": 0,
+            "unit_risk_dollars": 200.0
+          },
+          "strategy_id": "ATRSS",
+          "symbols": [
+            "QQQ",
+            "GLD"
+          ],
+          "system_id": "swing_trader"
+        },
+        "effective_config_hash": "4387bf84312dae1a188a3cbb1876a45ad92d51d485bc556e7600c4ffe1474888",
+        "latest_optimized_config": {
+          "fixed_qty": null,
+          "flags": {
+            "addon_b": false,
+            "early_stall_exit": false
+          },
+          "param_overrides": {
+            "addon_a_r": 1.5,
+            "addon_a_size_mult": 0.5,
+            "adx_on": 14,
+            "base_risk_pct": 0.024,
+            "dynamic_risk_strong_trend_mult": 1.15,
+            "dynamic_risk_weak_trend_mult": 0.8,
+            "early_stall_check_hours": 12,
+            "early_stall_mfe_threshold": 0.2,
+            "max_hold_hours": 88,
+            "pullback_touch_tolerance_pct": 0.005,
+            "recovery_tolerance_atr_trend": 0.55
+          }
+        },
+        "optimized_config_path": "backtests/baselines/ibkr/swing/atrss/round_3/optimized_config.json",
+        "optimizer_round": {
+          "optimized_config_path": "backtests/baselines/ibkr/swing/atrss/round_3/optimized_config.json",
+          "round_id": 3,
+          "rounds_manifest_path": "backtests/baselines/ibkr/swing/atrss/rounds_manifest.json"
+        },
+        "promotion_state": "approved",
+        "runtime_overlay": {
+          "allocation": {
+            "base_risk_pct": 0.0165,
+            "equity_offset": 0.0
+          },
+          "asset_class": "mixed",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "blue",
+            "short_label": "SWING",
+            "system_label": "Swing Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "swing"
+          ],
+          "display_name": "ATR Swing Strategy",
+          "enabled": true,
+          "family": "swing",
+          "module_path": "strategies.swing.atrss.plugin",
+          "paper_mode": false,
+          "risk": {
+            "daily_stop_R": 2.25,
+            "max_heat_R": 2.15,
+            "max_working_orders": 4,
+            "priority": 0,
+            "unit_risk_dollars": 200.0
+          },
+          "strategy_id": "ATRSS",
+          "symbols": [
+            "QQQ",
+            "GLD"
+          ],
+          "system_id": "swing_trader"
+        },
+        "strategy_id": "ATRSS"
+      },
+      {
+        "approval_status": "phase3_alignment_passed",
+        "effective_config": {
+          "allocation": {
+            "base_risk_pct": 0.004
+          },
+          "asset_class": "futures",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "orange",
+            "short_label": "MOMO",
+            "system_label": "Momentum Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "momentum"
+          ],
+          "display_name": "Downturn Dominator v1",
+          "enabled": true,
+          "engine_config": {
+            "state_dir": "data/downturn_state",
+            "symbol": "MNQ"
+          },
+          "family": "momentum",
+          "flags": {
+            "bear_structure_override": true,
+            "block_counter_regime": true,
+            "breakdown_engine": false,
+            "chandelier_trailing": true,
+            "correction_regime_override": true,
+            "drawdown_regime_override": true,
+            "min_hold_period": true,
+            "momentum_signal": true,
+            "progressive_sma": true,
+            "vol_percentile_gate": 0.0
+          },
+          "module_path": "strategies.momentum.downturn.plugin",
+          "paper_mode": false,
+          "param_overrides": {
+            "adx_range_threshold": 18,
+            "adx_trending_threshold": 22,
+            "base_risk_pct": 0.0064,
+            "be_stop_buffer_mult": 0.08,
+            "be_trigger_r": 0.9,
+            "chandelier_lookback": 24,
+            "divergence_mag_threshold": 0.1,
+            "drawdown_lookback": 10,
+            "ema_fast_period": 20,
+            "entry_buffer_ticks": 1,
+            "friction_min_atr_pctl": 0.05,
+            "min_hold_bars": 12,
+            "momentum_cooldown_bars": 24,
+            "momentum_roc_threshold": -0.003,
+            "profit_floor_r_threshold": 1.5,
+            "progressive_sma_min": 100,
+            "regime_mult_counter": 0.2,
+            "tp1_r_aligned": 2.4,
+            "tp1_r_emerging": 1.8,
+            "vwap_cap_core": 0.45,
+            "vwap_cap_extended": 0.77
+          },
+          "risk": {
+            "daily_stop_R": 2.0,
+            "max_heat_R": 3.5,
+            "max_working_orders": 2,
+            "portfolio_daily_stop_R": 2.75,
+            "priority": 1,
+            "unit_risk_dollars": 50.0
+          },
+          "strategy_id": "DownturnDominator_v1",
+          "symbols": [
+            "MNQ"
+          ],
+          "system_id": "momentum_trader"
+        },
+        "effective_config_hash": "7d111bca9ba14f680b441ee2d303d415757e4c747cf0a8b8500b15096ecbcdf6",
+        "latest_optimized_config": {
+          "flags": {
+            "bear_structure_override": true,
+            "block_counter_regime": true,
+            "breakdown_engine": false,
+            "chandelier_trailing": true,
+            "correction_regime_override": true,
+            "drawdown_regime_override": true,
+            "min_hold_period": true,
+            "momentum_signal": true,
+            "progressive_sma": true,
+            "vol_percentile_gate": 0.0
+          },
+          "param_overrides": {
+            "adx_range_threshold": 18,
+            "adx_trending_threshold": 22,
+            "base_risk_pct": 0.0064,
+            "be_stop_buffer_mult": 0.08,
+            "be_trigger_r": 0.9,
+            "chandelier_lookback": 24,
+            "divergence_mag_threshold": 0.1,
+            "drawdown_lookback": 10,
+            "ema_fast_period": 20,
+            "entry_buffer_ticks": 1,
+            "friction_min_atr_pctl": 0.05,
+            "min_hold_bars": 12,
+            "momentum_cooldown_bars": 24,
+            "momentum_roc_threshold": -0.003,
+            "profit_floor_r_threshold": 1.5,
+            "progressive_sma_min": 100,
+            "regime_mult_counter": 0.2,
+            "tp1_r_aligned": 2.4,
+            "tp1_r_emerging": 1.8,
+            "vwap_cap_core": 0.45,
+            "vwap_cap_extended": 0.77
+          }
+        },
+        "optimized_config_path": "backtests/baselines/ibkr/momentum/downturn/round_4/optimized_config.json",
+        "optimizer_round": {
+          "optimized_config_path": "backtests/baselines/ibkr/momentum/downturn/round_4/optimized_config.json",
+          "round_id": 4,
+          "rounds_manifest_path": "backtests/baselines/ibkr/momentum/downturn/rounds_manifest.json"
+        },
+        "promotion_state": "approved",
+        "runtime_overlay": {
+          "allocation": {
+            "base_risk_pct": 0.004
+          },
+          "asset_class": "futures",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "orange",
+            "short_label": "MOMO",
+            "system_label": "Momentum Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "momentum"
+          ],
+          "display_name": "Downturn Dominator v1",
+          "enabled": true,
+          "engine_config": {
+            "state_dir": "data/downturn_state",
+            "symbol": "MNQ"
+          },
+          "family": "momentum",
+          "module_path": "strategies.momentum.downturn.plugin",
+          "paper_mode": false,
+          "risk": {
+            "daily_stop_R": 2.0,
+            "max_heat_R": 3.5,
+            "max_working_orders": 2,
+            "portfolio_daily_stop_R": 2.75,
+            "priority": 1,
+            "unit_risk_dollars": 50.0
+          },
+          "strategy_id": "DownturnDominator_v1",
+          "symbols": [
+            "MNQ"
+          ],
+          "system_id": "momentum_trader"
+        },
+        "strategy_id": "DownturnDominator_v1"
+      },
+      {
+        "approval_status": "phase3_alignment_passed",
+        "effective_config": {
+          "allocation": {
+            "base_risk_pct": 0.00864,
+            "continuation_half_size": false,
+            "continuation_size_mult": 0.5
+          },
+          "artifact_config": {
+            "source": "stock_trader/data/iaric_v1",
+            "type": "watchlist"
+          },
+          "asset_class": "equity",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "green",
+            "short_label": "STOCK",
+            "system_label": "Stock Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "stock"
+          ],
+          "display_name": "IARIC v1",
+          "enabled": true,
+          "engine_config": {
+            "universe": "sp500"
+          },
+          "family": "stock",
+          "module_path": "strategies.stock.iaric.plugin",
+          "paper_mode": false,
+          "param_overrides": {
+            "max_positions_per_sector": 4,
+            "pb_atr_stop_mult": 1.0,
+            "pb_backtest_intraday_universe_only": true,
+            "pb_carry_close_pct_min": 0.0,
+            "pb_carry_mfe_gate_r": 0.0,
+            "pb_cdd_max": 6,
+            "pb_daily_rescue_min_score": 52.0,
+            "pb_daily_signal_family": "meanrev_sweetspot_v1",
+            "pb_daily_signal_min_score": 54.0,
+            "pb_delayed_confirm_after_bar": 5,
+            "pb_delayed_confirm_enabled": true,
+            "pb_delayed_confirm_score_min": 52.0,
+            "pb_execution_mode": "intraday_hybrid",
+            "pb_flow_policy": "soft_penalty_rescue",
+            "pb_max_hold_days": 2,
+            "pb_max_positions": 10,
+            "pb_min_candidates_day": 8,
+            "pb_open_scored_carry_close_pct_min": 0.0,
+            "pb_open_scored_carry_mfe_gate_r": 0.0,
+            "pb_open_scored_enabled": true,
+            "pb_open_scored_fill_timing": "next_5m_open",
+            "pb_open_scored_flow_reversal_lookback": 2,
+            "pb_open_scored_max_hold_days": 2,
+            "pb_opening_reclaim_enabled": false,
+            "pb_rescue_size_mult": 0.65,
+            "pb_signal_rank_gate_mode": "score_rank",
+            "pb_v2_afternoon_retest_enabled": false,
+            "pb_v2_allow_secular": true,
+            "pb_v2_carry_overnight_stop_atr": 1.0,
+            "pb_v2_ema_reversion_exit": true,
+            "pb_v2_ema_reversion_min_r": 0.03,
+            "pb_v2_enabled": true,
+            "pb_v2_flatten_loss_r": -0.5,
+            "pb_v2_flow_grace_days": 2,
+            "pb_v2_gap_max_pct": 2.0,
+            "pb_v2_mfe_stage1_stop_r": -0.1,
+            "pb_v2_mfe_stage1_trigger": 0.5,
+            "pb_v2_mfe_stage2_trigger": 0.6,
+            "pb_v2_mfe_stage3_trail_atr": 0.75,
+            "pb_v2_mfe_stage3_trigger": 1.25,
+            "pb_v2_open_scored_enabled": true,
+            "pb_v2_open_scored_max_slots": 4,
+            "pb_v2_open_scored_min_score": 45.0,
+            "pb_v2_open_scored_rank_pct_max": 100.0,
+            "pb_v2_partial_profit_remainder_stop_r": 0.7,
+            "pb_v2_partial_profit_trigger_r": 0.1,
+            "pb_v2_rsi_exit_open_scored": 60.0,
+            "pb_v2_secular_sizing_mult": 0.65,
+            "pb_v2_signal_floor": 66.0,
+            "pb_v2_stale_bars": 4,
+            "pb_v2_stale_mfe_thresh": 0.08,
+            "pb_v2_vwap_bounce_enabled": false
+          },
+          "risk": {
+            "daily_stop_R": 2.75,
+            "max_heat_R": 5.4,
+            "max_working_orders": 1,
+            "portfolio_daily_stop_R": 3.5,
+            "unit_risk_dollars": 100.0
+          },
+          "strategy_id": "IARIC_v1",
+          "symbols": [
+            "SPY",
+            "QQQ",
+            "IWM"
+          ],
+          "system_id": "stock_trader"
+        },
+        "effective_config_hash": "12a82c8fbed3c309313dad16afa21c7fbc0c48d410317fde84f0bd4095953466",
+        "latest_optimized_config": {
+          "param_overrides": {
+            "max_positions_per_sector": 4,
+            "pb_atr_stop_mult": 1.0,
+            "pb_backtest_intraday_universe_only": true,
+            "pb_carry_close_pct_min": 0.0,
+            "pb_carry_mfe_gate_r": 0.0,
+            "pb_cdd_max": 6,
+            "pb_daily_rescue_min_score": 52.0,
+            "pb_daily_signal_family": "meanrev_sweetspot_v1",
+            "pb_daily_signal_min_score": 54.0,
+            "pb_delayed_confirm_after_bar": 5,
+            "pb_delayed_confirm_enabled": true,
+            "pb_delayed_confirm_score_min": 52.0,
+            "pb_execution_mode": "intraday_hybrid",
+            "pb_flow_policy": "soft_penalty_rescue",
+            "pb_max_hold_days": 2,
+            "pb_max_positions": 10,
+            "pb_min_candidates_day": 8,
+            "pb_open_scored_carry_close_pct_min": 0.0,
+            "pb_open_scored_carry_mfe_gate_r": 0.0,
+            "pb_open_scored_enabled": true,
+            "pb_open_scored_fill_timing": "next_5m_open",
+            "pb_open_scored_flow_reversal_lookback": 2,
+            "pb_open_scored_max_hold_days": 2,
+            "pb_opening_reclaim_enabled": false,
+            "pb_rescue_size_mult": 0.65,
+            "pb_signal_rank_gate_mode": "score_rank",
+            "pb_v2_afternoon_retest_enabled": false,
+            "pb_v2_allow_secular": true,
+            "pb_v2_carry_overnight_stop_atr": 1.0,
+            "pb_v2_ema_reversion_exit": true,
+            "pb_v2_ema_reversion_min_r": 0.03,
+            "pb_v2_enabled": true,
+            "pb_v2_flatten_loss_r": -0.5,
+            "pb_v2_flow_grace_days": 2,
+            "pb_v2_gap_max_pct": 2.0,
+            "pb_v2_mfe_stage1_stop_r": -0.1,
+            "pb_v2_mfe_stage1_trigger": 0.5,
+            "pb_v2_mfe_stage2_trigger": 0.6,
+            "pb_v2_mfe_stage3_trail_atr": 0.75,
+            "pb_v2_mfe_stage3_trigger": 1.25,
+            "pb_v2_open_scored_enabled": true,
+            "pb_v2_open_scored_max_slots": 4,
+            "pb_v2_open_scored_min_score": 45.0,
+            "pb_v2_open_scored_rank_pct_max": 100.0,
+            "pb_v2_partial_profit_remainder_stop_r": 0.7,
+            "pb_v2_partial_profit_trigger_r": 0.1,
+            "pb_v2_rsi_exit_open_scored": 60.0,
+            "pb_v2_secular_sizing_mult": 0.65,
+            "pb_v2_signal_floor": 66.0,
+            "pb_v2_stale_bars": 4,
+            "pb_v2_stale_mfe_thresh": 0.08,
+            "pb_v2_vwap_bounce_enabled": false
+          }
+        },
+        "optimized_config_path": "backtests/baselines/ibkr/stock/iaric/round_1/optimized_config.json",
+        "optimizer_round": {
+          "optimized_config_path": "backtests/baselines/ibkr/stock/iaric/round_1/optimized_config.json",
+          "round_id": 1,
+          "rounds_manifest_path": "backtests/baselines/ibkr/stock/iaric/rounds_manifest.json"
+        },
+        "promotion_state": "approved",
+        "runtime_overlay": {
+          "allocation": {
+            "base_risk_pct": 0.00864,
+            "continuation_half_size": false,
+            "continuation_size_mult": 0.5
+          },
+          "artifact_config": {
+            "source": "stock_trader/data/iaric_v1",
+            "type": "watchlist"
+          },
+          "asset_class": "equity",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "green",
+            "short_label": "STOCK",
+            "system_label": "Stock Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "stock"
+          ],
+          "display_name": "IARIC v1",
+          "enabled": true,
+          "engine_config": {
+            "universe": "sp500"
+          },
+          "family": "stock",
+          "module_path": "strategies.stock.iaric.plugin",
+          "paper_mode": false,
+          "risk": {
+            "daily_stop_R": 2.75,
+            "max_heat_R": 5.4,
+            "max_working_orders": 1,
+            "portfolio_daily_stop_R": 3.5,
+            "unit_risk_dollars": 100.0
+          },
+          "strategy_id": "IARIC_v1",
+          "symbols": [
+            "SPY",
+            "QQQ",
+            "IWM"
+          ],
+          "system_id": "stock_trader"
+        },
+        "strategy_id": "IARIC_v1"
+      },
+      {
+        "approval_status": "phase3_alignment_passed",
+        "effective_config": {
+          "allocation": {
+            "base_risk_pct": 0.006
+          },
+          "asset_class": "futures",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "orange",
+            "short_label": "MOMO",
+            "system_label": "Momentum Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "momentum"
+          ],
+          "display_name": "NQ Regime Engine",
+          "enabled": true,
+          "engine_config": {
+            "analysis_symbol": "NQ",
+            "trade_symbol": "MNQ"
+          },
+          "family": "momentum",
+          "flags": {
+            "enable_liquidity_reversion": true,
+            "enable_second_wind": true,
+            "enable_structural_expansion": true
+          },
+          "module_path": "strategies.momentum.nq_regime.plugin",
+          "paper_mode": false,
+          "param_overrides": {
+            "ALLOW_LATE_PM_REVERSION": true,
+            "ENTRY_TTL_MOMENTUM_MINUTES": 15,
+            "ENTRY_TTL_RETEST_MINUTES": 120,
+            "MAX_DAILY_REALIZED_R_LOSS": -2.0,
+            "MAX_FULL_RISK_TRADES": 3,
+            "MAX_TRADES_PER_DAY": 4,
+            "MFE_RATCHET_ENABLED": true,
+            "MFE_RATCHET_FLOOR_PCT": 0.65,
+            "MFE_RATCHET_TRIGGER_R": 1.0,
+            "PROFIT_FLOOR_ENABLED": true,
+            "PROFIT_FLOOR_LOCK_R": 0.25,
+            "PROFIT_FLOOR_TRIGGER_R": 0.5,
+            "REGIME_MIN_CONFIDENCE": 0.65,
+            "REGIME_MIN_MARGIN": 0.15,
+            "REVERSION_A_PLUS_SCORE": 11,
+            "REVERSION_A_PLUS_STOP_CAP": 12.0,
+            "REVERSION_A_SCORE": 8,
+            "REVERSION_ENABLE_SWING_LEVELS": true,
+            "REVERSION_ENTRY_MODEL": "swept_level_retest",
+            "REVERSION_MAX_PENETRATION_PTS": 12.0,
+            "REVERSION_MIN_PENETRATION_PTS": 2.0,
+            "REVERSION_MIN_SCORE": 8,
+            "REVERSION_PROFIT_FLOOR_ENABLED": true,
+            "REVERSION_PROFIT_FLOOR_LOCK_R": 0.25,
+            "REVERSION_PROFIT_FLOOR_TRIGGER_R": 0.75,
+            "REVERSION_RETEST_OFFSET_TICKS": 0,
+            "REVERSION_STANDARD_STOP_CAP": 10.0,
+            "REVERSION_SWING_LOOKBACK_BARS": 48,
+            "REVERSION_SWING_MAX_LEVELS_PER_SIDE": 6,
+            "REVERSION_SWING_RADIUS": 1,
+            "REVERSION_VWAP_REACTION_EXIT_ENABLED": false,
+            "REVERSION_VWAP_TOUCH_EXIT_ENABLED": true,
+            "ROUTE_CANDIDATE_LED_ENABLED": true,
+            "ROUTE_CANDIDATE_LED_MIN_ROOM_R": 0.25,
+            "ROUTE_CANDIDATE_LED_MIN_SCORE": 9,
+            "SECOND_WIND_ATR_STOP_MULT": 0.75,
+            "SECOND_WIND_A_PLUS_SCORE": 10,
+            "SECOND_WIND_A_SCORE": 8,
+            "SECOND_WIND_CANDIDATE_LED_ENABLED": true,
+            "SECOND_WIND_CANDIDATE_LED_MIN_PM_SCORE": 0.55,
+            "SECOND_WIND_CANDIDATE_LED_MIN_ROOM_R": 1.5,
+            "SECOND_WIND_CANDIDATE_LED_MIN_SCORE": 8,
+            "SECOND_WIND_EMA_TRAIL_EXIT_ENABLED": true,
+            "SECOND_WIND_EMA_TRAIL_REQUIRES_PARTIAL": true,
+            "SECOND_WIND_ENTRY_MODEL": "trigger_midpoint",
+            "SECOND_WIND_ENTRY_STOP_INVALIDATION_ENABLED": true,
+            "SECOND_WIND_MAX_STOP_PTS": 30.0,
+            "SECOND_WIND_MICRO_COMPRESSION_ENABLED": true,
+            "SECOND_WIND_MIN_PM_SCORE": 0.55,
+            "SECOND_WIND_MIN_SCORE": 8,
+            "SECOND_WIND_MIN_VOLUME_MULTIPLE": 0.8,
+            "SECOND_WIND_RANGE_ACCEPTANCE_ENABLED": true,
+            "SECOND_WIND_SECOND_LEG_ENABLED": false,
+            "SECOND_WIND_STOP_CAP": 30.0,
+            "SECOND_WIND_VWAP_RECLAIM_ENABLED": true,
+            "SECOND_WIND_VWAP_RECLAIM_MIN_CLOSE_LOCATION": 0.7,
+            "SECOND_WIND_VWAP_RECLAIM_MIN_PM_SCORE": 0.6,
+            "SECOND_WIND_VWAP_RECLAIM_MIN_RECLAIM_ATR": 0.08,
+            "SECOND_WIND_VWAP_RECLAIM_MIN_SCORE": 9,
+            "SECOND_WIND_VWAP_RECLAIM_MIN_VOLUME_MULTIPLE": 1.3,
+            "SECOND_WIND_VWAP_RECLAIM_REQUIRE_EMA_ALIGNMENT": true,
+            "STRUCTURAL_ADAPTIVE_RETEST_PREFERS_FVG": true,
+            "STRUCTURAL_ALLOW_MIN_MICRO_SIZE": true,
+            "STRUCTURAL_A_PLUS_SCORE": 10,
+            "STRUCTURAL_ENTRY_MODE": "structure_shift",
+            "STRUCTURAL_HYBRID_CLOSE_MAX_STOP_PTS": 45.0,
+            "STRUCTURAL_HYBRID_CLOSE_MIN_SCORE": 8,
+            "STRUCTURAL_LONG_MIN_SCORE": 8,
+            "STRUCTURAL_MAX_STOP_PTS": 45.0,
+            "STRUCTURAL_MIDPOINT_RETEST_ENABLED": true,
+            "STRUCTURAL_MIN_BODY_PCT": 0.55,
+            "STRUCTURAL_MIN_CLOSE_LOCATION": 0.65,
+            "STRUCTURAL_MIN_MICRO_MAX_RISK_PCT": 0.01,
+            "STRUCTURAL_MIN_SCORE": 8,
+            "STRUCTURAL_MIN_STOP_PTS": 10.0,
+            "STRUCTURAL_PROFIT_FLOOR_ENABLED": true,
+            "STRUCTURAL_PROFIT_FLOOR_LOCK_R": 0.1,
+            "STRUCTURAL_PROFIT_FLOOR_TRIGGER_R": 0.5,
+            "STRUCTURAL_PULLBACK_RECLAIM_ENABLED": true,
+            "STRUCTURAL_PULLBACK_RECLAIM_ENTRY_MODE": "close",
+            "STRUCTURAL_PULLBACK_RECLAIM_MAX_AGE_MINUTES": 240,
+            "STRUCTURAL_PULLBACK_RECLAIM_MIN_ROOM_R": 1.0,
+            "STRUCTURAL_PULLBACK_RECLAIM_MIN_SCORE": 8,
+            "STRUCTURAL_PULLBACK_RECLAIM_MIN_VOLUME_MULTIPLE": 0.8,
+            "STRUCTURAL_RETEST_OFFSET_TICKS": 1,
+            "STRUCTURAL_SHORT_MIN_SCORE": 10,
+            "STRUCTURAL_STOP_MODEL": "recent_5m",
+            "TARGET_ROOM_MIN_R": 0.5,
+            "TIME_STOP_ENABLED": false
+          },
+          "risk": {
+            "daily_stop_R": 3.0,
+            "max_heat_R": 1.5,
+            "max_working_orders": 2,
+            "portfolio_daily_stop_R": 2.75,
+            "priority": 0,
+            "unit_risk_dollars": 50.0
+          },
+          "strategy_id": "NQ_REGIME",
+          "symbols": [
+            "MNQ"
+          ],
+          "system_id": "momentum_trader"
+        },
+        "effective_config_hash": "df7a1c4b47b86a7ae999942865a3cc4c65a96471d9dd518ea871a5d915a8be58",
+        "latest_optimized_config": {
+          "flags": {
+            "enable_liquidity_reversion": true,
+            "enable_second_wind": true,
+            "enable_structural_expansion": true
+          },
+          "param_overrides": {
+            "ALLOW_LATE_PM_REVERSION": true,
+            "ENTRY_TTL_MOMENTUM_MINUTES": 15,
+            "ENTRY_TTL_RETEST_MINUTES": 120,
+            "MAX_DAILY_REALIZED_R_LOSS": -2.0,
+            "MAX_FULL_RISK_TRADES": 3,
+            "MAX_TRADES_PER_DAY": 4,
+            "MFE_RATCHET_ENABLED": true,
+            "MFE_RATCHET_FLOOR_PCT": 0.65,
+            "MFE_RATCHET_TRIGGER_R": 1.0,
+            "PROFIT_FLOOR_ENABLED": true,
+            "PROFIT_FLOOR_LOCK_R": 0.25,
+            "PROFIT_FLOOR_TRIGGER_R": 0.5,
+            "REGIME_MIN_CONFIDENCE": 0.65,
+            "REGIME_MIN_MARGIN": 0.15,
+            "REVERSION_A_PLUS_SCORE": 11,
+            "REVERSION_A_PLUS_STOP_CAP": 12.0,
+            "REVERSION_A_SCORE": 8,
+            "REVERSION_ENABLE_SWING_LEVELS": true,
+            "REVERSION_ENTRY_MODEL": "swept_level_retest",
+            "REVERSION_MAX_PENETRATION_PTS": 12.0,
+            "REVERSION_MIN_PENETRATION_PTS": 2.0,
+            "REVERSION_MIN_SCORE": 8,
+            "REVERSION_PROFIT_FLOOR_ENABLED": true,
+            "REVERSION_PROFIT_FLOOR_LOCK_R": 0.25,
+            "REVERSION_PROFIT_FLOOR_TRIGGER_R": 0.75,
+            "REVERSION_RETEST_OFFSET_TICKS": 0,
+            "REVERSION_STANDARD_STOP_CAP": 10.0,
+            "REVERSION_SWING_LOOKBACK_BARS": 48,
+            "REVERSION_SWING_MAX_LEVELS_PER_SIDE": 6,
+            "REVERSION_SWING_RADIUS": 1,
+            "REVERSION_VWAP_REACTION_EXIT_ENABLED": false,
+            "REVERSION_VWAP_TOUCH_EXIT_ENABLED": true,
+            "ROUTE_CANDIDATE_LED_ENABLED": true,
+            "ROUTE_CANDIDATE_LED_MIN_ROOM_R": 0.25,
+            "ROUTE_CANDIDATE_LED_MIN_SCORE": 9,
+            "SECOND_WIND_ATR_STOP_MULT": 0.75,
+            "SECOND_WIND_A_PLUS_SCORE": 10,
+            "SECOND_WIND_A_SCORE": 8,
+            "SECOND_WIND_CANDIDATE_LED_ENABLED": true,
+            "SECOND_WIND_CANDIDATE_LED_MIN_PM_SCORE": 0.55,
+            "SECOND_WIND_CANDIDATE_LED_MIN_ROOM_R": 1.5,
+            "SECOND_WIND_CANDIDATE_LED_MIN_SCORE": 8,
+            "SECOND_WIND_EMA_TRAIL_EXIT_ENABLED": true,
+            "SECOND_WIND_EMA_TRAIL_REQUIRES_PARTIAL": true,
+            "SECOND_WIND_ENTRY_MODEL": "trigger_midpoint",
+            "SECOND_WIND_ENTRY_STOP_INVALIDATION_ENABLED": true,
+            "SECOND_WIND_MAX_STOP_PTS": 30.0,
+            "SECOND_WIND_MICRO_COMPRESSION_ENABLED": true,
+            "SECOND_WIND_MIN_PM_SCORE": 0.55,
+            "SECOND_WIND_MIN_SCORE": 8,
+            "SECOND_WIND_MIN_VOLUME_MULTIPLE": 0.8,
+            "SECOND_WIND_RANGE_ACCEPTANCE_ENABLED": true,
+            "SECOND_WIND_SECOND_LEG_ENABLED": false,
+            "SECOND_WIND_STOP_CAP": 30.0,
+            "SECOND_WIND_VWAP_RECLAIM_ENABLED": true,
+            "SECOND_WIND_VWAP_RECLAIM_MIN_CLOSE_LOCATION": 0.7,
+            "SECOND_WIND_VWAP_RECLAIM_MIN_PM_SCORE": 0.6,
+            "SECOND_WIND_VWAP_RECLAIM_MIN_RECLAIM_ATR": 0.08,
+            "SECOND_WIND_VWAP_RECLAIM_MIN_SCORE": 9,
+            "SECOND_WIND_VWAP_RECLAIM_MIN_VOLUME_MULTIPLE": 1.3,
+            "SECOND_WIND_VWAP_RECLAIM_REQUIRE_EMA_ALIGNMENT": true,
+            "STRUCTURAL_ADAPTIVE_RETEST_PREFERS_FVG": true,
+            "STRUCTURAL_ALLOW_MIN_MICRO_SIZE": true,
+            "STRUCTURAL_A_PLUS_SCORE": 10,
+            "STRUCTURAL_ENTRY_MODE": "structure_shift",
+            "STRUCTURAL_HYBRID_CLOSE_MAX_STOP_PTS": 45.0,
+            "STRUCTURAL_HYBRID_CLOSE_MIN_SCORE": 8,
+            "STRUCTURAL_LONG_MIN_SCORE": 8,
+            "STRUCTURAL_MAX_STOP_PTS": 45.0,
+            "STRUCTURAL_MIDPOINT_RETEST_ENABLED": true,
+            "STRUCTURAL_MIN_BODY_PCT": 0.55,
+            "STRUCTURAL_MIN_CLOSE_LOCATION": 0.65,
+            "STRUCTURAL_MIN_MICRO_MAX_RISK_PCT": 0.01,
+            "STRUCTURAL_MIN_SCORE": 8,
+            "STRUCTURAL_MIN_STOP_PTS": 10.0,
+            "STRUCTURAL_PROFIT_FLOOR_ENABLED": true,
+            "STRUCTURAL_PROFIT_FLOOR_LOCK_R": 0.1,
+            "STRUCTURAL_PROFIT_FLOOR_TRIGGER_R": 0.5,
+            "STRUCTURAL_PULLBACK_RECLAIM_ENABLED": true,
+            "STRUCTURAL_PULLBACK_RECLAIM_ENTRY_MODE": "close",
+            "STRUCTURAL_PULLBACK_RECLAIM_MAX_AGE_MINUTES": 240,
+            "STRUCTURAL_PULLBACK_RECLAIM_MIN_ROOM_R": 1.0,
+            "STRUCTURAL_PULLBACK_RECLAIM_MIN_SCORE": 8,
+            "STRUCTURAL_PULLBACK_RECLAIM_MIN_VOLUME_MULTIPLE": 0.8,
+            "STRUCTURAL_RETEST_OFFSET_TICKS": 1,
+            "STRUCTURAL_SHORT_MIN_SCORE": 10,
+            "STRUCTURAL_STOP_MODEL": "recent_5m",
+            "TARGET_ROOM_MIN_R": 0.5,
+            "TIME_STOP_ENABLED": false
+          }
+        },
+        "optimized_config_path": "backtests/baselines/ibkr/momentum/nq_regime/round_6/optimized_config.json",
+        "optimizer_round": {
+          "optimized_config_path": "backtests/baselines/ibkr/momentum/nq_regime/round_6/optimized_config.json",
+          "round_id": 6,
+          "rounds_manifest_path": "backtests/baselines/ibkr/momentum/nq_regime/rounds_manifest.json"
+        },
+        "promotion_state": "approved",
+        "runtime_overlay": {
+          "allocation": {
+            "base_risk_pct": 0.006
+          },
+          "asset_class": "futures",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "orange",
+            "short_label": "MOMO",
+            "system_label": "Momentum Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "momentum"
+          ],
+          "display_name": "NQ Regime Engine",
+          "enabled": true,
+          "engine_config": {
+            "analysis_symbol": "NQ",
+            "trade_symbol": "MNQ"
+          },
+          "family": "momentum",
+          "module_path": "strategies.momentum.nq_regime.plugin",
+          "paper_mode": false,
+          "risk": {
+            "daily_stop_R": 3.0,
+            "max_heat_R": 1.5,
+            "max_working_orders": 2,
+            "portfolio_daily_stop_R": 2.75,
+            "priority": 0,
+            "unit_risk_dollars": 50.0
+          },
+          "strategy_id": "NQ_REGIME",
+          "symbols": [
+            "MNQ"
+          ],
+          "system_id": "momentum_trader"
+        },
+        "strategy_id": "NQ_REGIME"
+      },
+      {
+        "approval_status": "phase3_alignment_passed",
+        "effective_config": {
+          "allocation": {
+            "base_risk_pct": 0.0045,
+            "continuation_half_size": true,
+            "continuation_size_mult": 0.7
+          },
+          "asset_class": "futures",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "orange",
+            "short_label": "MOMO",
+            "system_label": "Momentum Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "momentum"
+          ],
+          "display_name": "NQDTC v2.1",
+          "enabled": true,
+          "engine_config": {
+            "state_dir": "data/nqdtc_state",
+            "symbol": "MNQ"
+          },
+          "family": "momentum",
+          "flags": {
+            "block_eth_shorts": true,
+            "displacement_threshold": false,
+            "entry_a_latch": false,
+            "entry_a_retest": true,
+            "max_loss_cap": true,
+            "max_stop_width": true
+          },
+          "module_path": "strategies.momentum.nqdtc.plugin",
+          "paper_mode": false,
+          "param_overrides": {
+            "A_ENTRY_ENABLED": true,
+            "A_MAX_BOX_WIDTH": 225.0,
+            "A_TTL_5M_BARS": 12,
+            "BLOCK_CAUTION_REGIME": true,
+            "BLOCK_NEUTRAL_REGIME": false,
+            "C_ENTRY_OFFSET_ATR_STANDARD": 0.248,
+            "LOSS_STREAK_THRESHOLD": 2,
+            "MIN_BOX_WIDTH": 100,
+            "MIN_INTER_TRADE_GAP_MINUTES": 30,
+            "RVOL_SCORE_THRESH": 1.5,
+            "SCORE_NON_RANGE_MULT": 2.25,
+            "SCORE_NORMAL": 1.5,
+            "TP1_ONLY_CAP_MODE": "degraded_only",
+            "TP1_PARTIAL_PCT": 0.45,
+            "TP1_R": 1.6,
+            "TP2_PARTIAL_PCT": 0.2,
+            "TP2_R": 2.25
+          },
+          "risk": {
+            "daily_stop_R": 2.5,
+            "max_working_orders": 2,
+            "portfolio_daily_stop_R": 2.75,
+            "priority": 1,
+            "unit_risk_dollars": 50.0
+          },
+          "strategy_id": "NQDTC_v2.1",
+          "symbols": [
+            "MNQ"
+          ],
+          "system_id": "momentum_trader"
+        },
+        "effective_config_hash": "10869df6dece6cf20b4416270b27e66abcff71474b4baba5afd6df33a3167b9a",
+        "latest_optimized_config": {
+          "flags": {
+            "block_eth_shorts": true,
+            "displacement_threshold": false,
+            "entry_a_latch": false,
+            "entry_a_retest": true,
+            "max_loss_cap": true,
+            "max_stop_width": true
+          },
+          "param_overrides": {
+            "A_ENTRY_ENABLED": true,
+            "A_MAX_BOX_WIDTH": 225.0,
+            "A_TTL_5M_BARS": 12,
+            "BLOCK_CAUTION_REGIME": true,
+            "BLOCK_NEUTRAL_REGIME": false,
+            "C_ENTRY_OFFSET_ATR_STANDARD": 0.248,
+            "LOSS_STREAK_THRESHOLD": 2,
+            "MIN_BOX_WIDTH": 100,
+            "MIN_INTER_TRADE_GAP_MINUTES": 30,
+            "RVOL_SCORE_THRESH": 1.5,
+            "SCORE_NON_RANGE_MULT": 2.25,
+            "SCORE_NORMAL": 1.5,
+            "TP1_ONLY_CAP_MODE": "degraded_only",
+            "TP1_PARTIAL_PCT": 0.45,
+            "TP1_R": 1.6,
+            "TP2_PARTIAL_PCT": 0.2,
+            "TP2_R": 2.25
+          }
+        },
+        "optimized_config_path": "backtests/baselines/ibkr/momentum/nqdtc/round_5/optimized_config.json",
+        "optimizer_round": {
+          "optimized_config_path": "backtests/baselines/ibkr/momentum/nqdtc/round_5/optimized_config.json",
+          "round_id": 5,
+          "rounds_manifest_path": "backtests/baselines/ibkr/momentum/nqdtc/rounds_manifest.json"
+        },
+        "promotion_state": "approved",
+        "runtime_overlay": {
+          "allocation": {
+            "base_risk_pct": 0.0045,
+            "continuation_half_size": true,
+            "continuation_size_mult": 0.7
+          },
+          "asset_class": "futures",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "orange",
+            "short_label": "MOMO",
+            "system_label": "Momentum Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "momentum"
+          ],
+          "display_name": "NQDTC v2.1",
+          "enabled": true,
+          "engine_config": {
+            "state_dir": "data/nqdtc_state",
+            "symbol": "MNQ"
+          },
+          "family": "momentum",
+          "module_path": "strategies.momentum.nqdtc.plugin",
+          "paper_mode": false,
+          "risk": {
+            "daily_stop_R": 2.5,
+            "max_working_orders": 2,
+            "portfolio_daily_stop_R": 2.75,
+            "priority": 1,
+            "unit_risk_dollars": 50.0
+          },
+          "strategy_id": "NQDTC_v2.1",
+          "symbols": [
+            "MNQ"
+          ],
+          "system_id": "momentum_trader"
+        },
+        "strategy_id": "NQDTC_v2.1"
+      },
+      {
+        "approval_status": "not_required_disabled_strategy",
+        "effective_config": {
+          "allocation": {
+            "base_risk_pct": 0.005
+          },
+          "asset_class": "futures",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "purple",
+            "short_label": "SCALP",
+            "system_label": "Scalp Trader"
+          },
+          "deployment_tags": [
+            "paper",
+            "scalp",
+            "futures"
+          ],
+          "display_name": "NQ IVB Auction",
+          "enabled": false,
+          "engine_config": {
+            "analysis_symbol": "NQ",
+            "trade_symbol": "MNQ"
+          },
+          "family": "scalp",
+          "module_path": "strategies.scalp.ivb_auction.plugin",
+          "paper_mode": true,
+          "risk": {
+            "daily_stop_R": 1.5,
+            "max_heat_R": 1.5,
+            "max_working_orders": 3,
+            "portfolio_daily_stop_R": 1.0,
+            "priority": 1,
+            "unit_risk_dollars": 50.0
+          },
+          "strategy_id": "SCALP_IVB_AUCTION",
+          "symbols": [
+            "MNQ"
+          ],
+          "system_id": "scalp_trader"
+        },
+        "effective_config_hash": "63990a00552f0255286d8339cb4b4404f7c8bab0d62c501fa27f990906aac591",
+        "latest_optimized_config": {},
+        "optimizer_round": {
+          "optimized_config_path": null,
+          "round_id": null,
+          "rounds_manifest_path": null
+        },
+        "promotion_state": "disabled",
+        "runtime_overlay": {
+          "allocation": {
+            "base_risk_pct": 0.005
+          },
+          "asset_class": "futures",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "purple",
+            "short_label": "SCALP",
+            "system_label": "Scalp Trader"
+          },
+          "deployment_tags": [
+            "paper",
+            "scalp",
+            "futures"
+          ],
+          "display_name": "NQ IVB Auction",
+          "enabled": false,
+          "engine_config": {
+            "analysis_symbol": "NQ",
+            "trade_symbol": "MNQ"
+          },
+          "family": "scalp",
+          "module_path": "strategies.scalp.ivb_auction.plugin",
+          "paper_mode": true,
+          "risk": {
+            "daily_stop_R": 1.5,
+            "max_heat_R": 1.5,
+            "max_working_orders": 3,
+            "portfolio_daily_stop_R": 1.0,
+            "priority": 1,
+            "unit_risk_dollars": 50.0
+          },
+          "strategy_id": "SCALP_IVB_AUCTION",
+          "symbols": [
+            "MNQ"
+          ],
+          "system_id": "scalp_trader"
+        },
+        "strategy_id": "SCALP_IVB_AUCTION"
+      },
+      {
+        "approval_status": "not_required_disabled_strategy",
+        "effective_config": {
+          "allocation": {
+            "base_risk_pct": 0.0035
+          },
+          "asset_class": "futures",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "purple",
+            "short_label": "SCALP",
+            "system_label": "Scalp Trader"
+          },
+          "deployment_tags": [
+            "paper",
+            "scalp",
+            "futures"
+          ],
+          "display_name": "NQ PO3 Reversal",
+          "enabled": false,
+          "engine_config": {
+            "analysis_symbol": "NQ",
+            "confirmation_symbol": "ES",
+            "trade_symbol": "MNQ"
+          },
+          "family": "scalp",
+          "module_path": "strategies.scalp.po3_reversal.plugin",
+          "paper_mode": true,
+          "risk": {
+            "daily_stop_R": 1.0,
+            "max_heat_R": 1.25,
+            "max_working_orders": 2,
+            "portfolio_daily_stop_R": 1.0,
+            "priority": 0,
+            "unit_risk_dollars": 50.0
+          },
+          "strategy_id": "SCALP_PO3_REVERSAL",
+          "symbols": [
+            "MNQ"
+          ],
+          "system_id": "scalp_trader"
+        },
+        "effective_config_hash": "d9863d5eeeeb9a3afe2fa7341c721206b5eaab6a76ba9d4016e88449360fc4da",
+        "latest_optimized_config": {},
+        "optimizer_round": {
+          "optimized_config_path": null,
+          "round_id": null,
+          "rounds_manifest_path": null
+        },
+        "promotion_state": "disabled",
+        "runtime_overlay": {
+          "allocation": {
+            "base_risk_pct": 0.0035
+          },
+          "asset_class": "futures",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "purple",
+            "short_label": "SCALP",
+            "system_label": "Scalp Trader"
+          },
+          "deployment_tags": [
+            "paper",
+            "scalp",
+            "futures"
+          ],
+          "display_name": "NQ PO3 Reversal",
+          "enabled": false,
+          "engine_config": {
+            "analysis_symbol": "NQ",
+            "confirmation_symbol": "ES",
+            "trade_symbol": "MNQ"
+          },
+          "family": "scalp",
+          "module_path": "strategies.scalp.po3_reversal.plugin",
+          "paper_mode": true,
+          "risk": {
+            "daily_stop_R": 1.0,
+            "max_heat_R": 1.25,
+            "max_working_orders": 2,
+            "portfolio_daily_stop_R": 1.0,
+            "priority": 0,
+            "unit_risk_dollars": 50.0
+          },
+          "strategy_id": "SCALP_PO3_REVERSAL",
+          "symbols": [
+            "MNQ"
+          ],
+          "system_id": "scalp_trader"
+        },
+        "strategy_id": "SCALP_PO3_REVERSAL"
+      },
+      {
+        "approval_status": "phase3_alignment_passed",
+        "effective_config": {
+          "GLD": {
+            "asset_context_enabled": true,
+            "confirmation_combo_mode": "structure_or_vwap",
+            "confirmation_required": 2,
+            "daily_room_min_r": 3.0,
+            "entry_order_model": "market_next_bar",
+            "max_extension_atr_mult": 1.5,
+            "min_ma100_slope_atr_4h": 0.06,
+            "min_ma50_slope_atr_4h": 0.04,
+            "require_di_alignment": true,
+            "require_structure_confirmation": true,
+            "score_a_min": 11,
+            "score_b_min": 10,
+            "t1_r": 1.1
+          },
+          "QQQ": {
+            "addon_min_score": 12,
+            "asset_context_enabled": true,
+            "asset_context_min_score": -0.1,
+            "confirmation_required": 2,
+            "daily_room_min_r": 1.6,
+            "fib_b_high": 0.38,
+            "fib_b_low": 0.2,
+            "max_extension_atr_mult": 2.25,
+            "min_ma100_slope_atr_4h": 0.03,
+            "min_short_score": 12,
+            "primary_windows_et": [
+              [
+                9,
+                35,
+                12,
+                15
+              ],
+              [
+                13,
+                30,
+                15,
+                45
+              ]
+            ],
+            "require_di_alignment": false,
+            "score_a_min": 10,
+            "score_b_min": 9,
+            "shorts_enabled": true,
+            "shorts_require_a_plus": true,
+            "t1_partial_pct": 0.7,
+            "t1_r": 1.0,
+            "t1_stop_r": 0.35,
+            "type_b_enabled": true,
+            "type_b_requires_a_plus": false
+          },
+          "all": {
+            "addon_enabled": false,
+            "addon_max_notional_pct": 0.0,
+            "addon_max_total_risk_pct": 0.03,
+            "addon_min_score": 17,
+            "addon_require_structure_hold": true,
+            "addon_require_vwap_hold": true,
+            "addon_requires_t1": true,
+            "addon_size_mult": 0.25,
+            "addon_trigger_r": 1.75,
+            "avoid_windows_et": [
+              [
+                11,
+                0,
+                12,
+                0
+              ]
+            ],
+            "confirmation_combo_mode": "structure_or_vwap",
+            "confirmation_required": 1,
+            "entry_order_model": "structure_stop",
+            "entry_order_ttl_hours": 4.0,
+            "entry_stop_limit_atr_mult": 0.08,
+            "fib_a_high": 0.8,
+            "fib_a_low": 0.33,
+            "initial_stop_source": "signal",
+            "max_hold_bars_15m": 36,
+            "max_position_notional_pct": 8.0,
+            "max_risk_pct": 0.025,
+            "mfe_giveback_after_t1_only": false,
+            "mfe_giveback_lock_r": 0.5,
+            "mfe_giveback_retain_frac": 0.4,
+            "mfe_giveback_trigger_r": 0.0,
+            "min_ma100_slope_atr_4h": 0.06,
+            "min_stop_atr_mult": 0.15,
+            "pb30_confirmation_combo_mode": "structure_or_vwap",
+            "pb30_confirmation_required": 1,
+            "pb30_entry_order_model": "",
+            "pb30_pullback_enabled": true,
+            "pb30_pullback_max_bars_30m": 18,
+            "pb30_pullback_min_bars_30m": 5,
+            "pb30_pullback_orderly_required": true,
+            "require_di_alignment": true,
+            "risk_a_pct": 0.016,
+            "risk_a_plus_pct": 0.025,
+            "risk_b_pct": 0.01,
+            "score_a_min": 10,
+            "score_a_plus_min": 13,
+            "score_b_min": 9,
+            "score_model": "alpha7",
+            "second_entry_max_wait_bars_15m": 16,
+            "second_entry_min_source_score": 16.0,
+            "second_entry_min_wait_bars_15m": 1,
+            "second_entry_require_structure": true,
+            "second_entry_require_vwap": true,
+            "second_entry_score_min": 15,
+            "signal_stop_buffer_atr_mult": 0.12,
+            "stall_exit_bars_15m": 52,
+            "stall_exit_max_current_r": 0.2,
+            "stall_exit_min_mfe_r": 1.0,
+            "t1_stop_r": 0.4,
+            "t2_r": 2.0,
+            "time_stop_min_mfe_r": 0.5,
+            "trail_after_t1_30m_bars": 8,
+            "trail_use_vwap_after_t1": true,
+            "type_a_value_hits_min": 1,
+            "type_b_enabled": false,
+            "type_c_enabled": true,
+            "type_c_mode": "real_reentry",
+            "type_c_requires_a_plus": false
+          },
+          "allocation": {
+            "base_risk_pct": 0.005
+          },
+          "asset_class": "equity",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "blue",
+            "short_label": "SWING",
+            "system_label": "Swing Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "swing"
+          ],
+          "display_name": "Trend Pullback Continuation",
+          "enabled": true,
+          "family": "swing",
+          "module_path": "strategies.swing.tpc.plugin",
+          "paper_mode": false,
+          "risk": {
+            "daily_stop_R": 2.0,
+            "max_heat_R": 4.0,
+            "max_working_orders": 3,
+            "priority": 1,
+            "unit_risk_dollars": 200.0
+          },
+          "strategy_id": "TPC",
+          "symbols": [
+            "QQQ",
+            "GLD"
+          ],
+          "system_id": "swing_trader"
+        },
+        "effective_config_hash": "0cd778b763a8a0e68da52c21411b6f153dd2359bdebe498ba3a38119f10d8762",
+        "latest_optimized_config": {
+          "GLD": {
+            "asset_context_enabled": true,
+            "confirmation_combo_mode": "structure_or_vwap",
+            "confirmation_required": 2,
+            "daily_room_min_r": 3.0,
+            "entry_order_model": "market_next_bar",
+            "max_extension_atr_mult": 1.5,
+            "min_ma100_slope_atr_4h": 0.06,
+            "min_ma50_slope_atr_4h": 0.04,
+            "require_di_alignment": true,
+            "require_structure_confirmation": true,
+            "score_a_min": 11,
+            "score_b_min": 10,
+            "t1_r": 1.1
+          },
+          "QQQ": {
+            "addon_min_score": 12,
+            "asset_context_enabled": true,
+            "asset_context_min_score": -0.1,
+            "confirmation_required": 2,
+            "daily_room_min_r": 1.6,
+            "fib_b_high": 0.38,
+            "fib_b_low": 0.2,
+            "max_extension_atr_mult": 2.25,
+            "min_ma100_slope_atr_4h": 0.03,
+            "min_short_score": 12,
+            "primary_windows_et": [
+              [
+                9,
+                35,
+                12,
+                15
+              ],
+              [
+                13,
+                30,
+                15,
+                45
+              ]
+            ],
+            "require_di_alignment": false,
+            "score_a_min": 10,
+            "score_b_min": 9,
+            "shorts_enabled": true,
+            "shorts_require_a_plus": true,
+            "t1_partial_pct": 0.7,
+            "t1_r": 1.0,
+            "t1_stop_r": 0.35,
+            "type_b_enabled": true,
+            "type_b_requires_a_plus": false
+          },
+          "all": {
+            "addon_enabled": false,
+            "addon_max_notional_pct": 0.0,
+            "addon_max_total_risk_pct": 0.03,
+            "addon_min_score": 17,
+            "addon_require_structure_hold": true,
+            "addon_require_vwap_hold": true,
+            "addon_requires_t1": true,
+            "addon_size_mult": 0.25,
+            "addon_trigger_r": 1.75,
+            "avoid_windows_et": [
+              [
+                11,
+                0,
+                12,
+                0
+              ]
+            ],
+            "confirmation_combo_mode": "structure_or_vwap",
+            "confirmation_required": 1,
+            "entry_order_model": "structure_stop",
+            "entry_order_ttl_hours": 4.0,
+            "entry_stop_limit_atr_mult": 0.08,
+            "fib_a_high": 0.8,
+            "fib_a_low": 0.33,
+            "initial_stop_source": "signal",
+            "max_hold_bars_15m": 36,
+            "max_position_notional_pct": 8.0,
+            "max_risk_pct": 0.025,
+            "mfe_giveback_after_t1_only": false,
+            "mfe_giveback_lock_r": 0.5,
+            "mfe_giveback_retain_frac": 0.4,
+            "mfe_giveback_trigger_r": 0.0,
+            "min_ma100_slope_atr_4h": 0.06,
+            "min_stop_atr_mult": 0.15,
+            "pb30_confirmation_combo_mode": "structure_or_vwap",
+            "pb30_confirmation_required": 1,
+            "pb30_entry_order_model": "",
+            "pb30_pullback_enabled": true,
+            "pb30_pullback_max_bars_30m": 18,
+            "pb30_pullback_min_bars_30m": 5,
+            "pb30_pullback_orderly_required": true,
+            "require_di_alignment": true,
+            "risk_a_pct": 0.016,
+            "risk_a_plus_pct": 0.025,
+            "risk_b_pct": 0.01,
+            "score_a_min": 10,
+            "score_a_plus_min": 13,
+            "score_b_min": 9,
+            "score_model": "alpha7",
+            "second_entry_max_wait_bars_15m": 16,
+            "second_entry_min_source_score": 16.0,
+            "second_entry_min_wait_bars_15m": 1,
+            "second_entry_require_structure": true,
+            "second_entry_require_vwap": true,
+            "second_entry_score_min": 15,
+            "signal_stop_buffer_atr_mult": 0.12,
+            "stall_exit_bars_15m": 52,
+            "stall_exit_max_current_r": 0.2,
+            "stall_exit_min_mfe_r": 1.0,
+            "t1_stop_r": 0.4,
+            "t2_r": 2.0,
+            "time_stop_min_mfe_r": 0.5,
+            "trail_after_t1_30m_bars": 8,
+            "trail_use_vwap_after_t1": true,
+            "type_a_value_hits_min": 1,
+            "type_b_enabled": false,
+            "type_c_enabled": true,
+            "type_c_mode": "real_reentry",
+            "type_c_requires_a_plus": false
+          }
+        },
+        "optimized_config_path": "backtests/baselines/ibkr/swing/tpc/round_8/optimized_config.json",
+        "optimizer_round": {
+          "optimized_config_path": "backtests/baselines/ibkr/swing/tpc/round_8/optimized_config.json",
+          "round_id": 8,
+          "rounds_manifest_path": "backtests/baselines/ibkr/swing/tpc/rounds_manifest.json"
+        },
+        "promotion_state": "approved",
+        "runtime_overlay": {
+          "allocation": {
+            "base_risk_pct": 0.005
+          },
+          "asset_class": "equity",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "blue",
+            "short_label": "SWING",
+            "system_label": "Swing Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "swing"
+          ],
+          "display_name": "Trend Pullback Continuation",
+          "enabled": true,
+          "family": "swing",
+          "module_path": "strategies.swing.tpc.plugin",
+          "paper_mode": false,
+          "risk": {
+            "daily_stop_R": 2.0,
+            "max_heat_R": 4.0,
+            "max_working_orders": 3,
+            "priority": 1,
+            "unit_risk_dollars": 200.0
+          },
+          "strategy_id": "TPC",
+          "symbols": [
+            "QQQ",
+            "GLD"
+          ],
+          "system_id": "swing_trader"
+        },
+        "strategy_id": "TPC"
+      },
+      {
+        "approval_status": "phase3_alignment_passed",
+        "effective_config": {
+          "allocation": {
+            "base_risk_pct": 0.0065
+          },
+          "asset_class": "futures",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "orange",
+            "short_label": "MOMO",
+            "system_label": "Momentum Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "momentum"
+          ],
+          "display_name": "Vdubus NQ v4",
+          "enabled": true,
+          "family": "momentum",
+          "flags": {
+            "dow_sizing": true,
+            "evening_vwap_cap": true,
+            "hourly_bypass_quality": true,
+            "late_trail": true,
+            "mfe_rescue_stop": true,
+            "plus_1r_partial": false,
+            "slope_bypass_quality": true,
+            "stale_mfe_exempt": true,
+            "type_c_enabled": true
+          },
+          "module_path": "strategies.momentum.vdub.plugin",
+          "paper_mode": false,
+          "param_overrides": {
+            "CHOP_THRESHOLD": 28,
+            "DOW_SIZE_MULT": {
+              "0": 0.5,
+              "3": 0.65
+            },
+            "HOURLY_BYPASS_ALLOWED_WINDOWS": [
+              "OPEN",
+              "CLOSE"
+            ],
+            "HOURLY_BYPASS_EQS_MIN": 2,
+            "HOURLY_BYPASS_MAX_CHOP": 33.6,
+            "HOURLY_BYPASS_SIZE_MULT": 0.72,
+            "LATE_TRAIL_ACTIVATE_R": 1.5,
+            "MFE_RESCUE_AFTER_BARS": 8.4,
+            "MFE_RESCUE_LOCK_R": 0.05,
+            "MFE_RESCUE_MIN_R": 0.75,
+            "MFE_RESCUE_TRIGGER_R": 0.0,
+            "SLOPE_BYPASS_ALLOWED_WINDOWS": [
+              "OPEN",
+              "CORE",
+              "CLOSE"
+            ],
+            "SLOPE_BYPASS_EQS_MIN": 4,
+            "SLOPE_BYPASS_MAX_CHOP": 36.0,
+            "SLOPE_BYPASS_SIZE_MULT": 1.0,
+            "STALE_MFE_EXEMPT_R": 0.5,
+            "TYPE_C_ALLOWED_WINDOWS": [
+              "OPEN"
+            ],
+            "TYPE_C_MAX_VWAP_DIST_ATR": 2.4,
+            "USE_TYPE_C": true,
+            "VWAP_CAP_EVENING": 0.35
+          },
+          "risk": {
+            "daily_stop_R": 2.5,
+            "max_heat_R": 3.5,
+            "max_working_orders": 2,
+            "portfolio_daily_stop_R": 2.75,
+            "priority": 0,
+            "unit_risk_dollars": 200.0
+          },
+          "strategy_id": "VdubusNQ_v4",
+          "symbols": [
+            "MNQ"
+          ],
+          "system_id": "momentum_trader"
+        },
+        "effective_config_hash": "50687927f1e104d6bca7eeb18e1b78b49eb08e864bfe6790fd55b2e0a53cec6b",
+        "latest_optimized_config": {
+          "flags": {
+            "dow_sizing": true,
+            "evening_vwap_cap": true,
+            "hourly_bypass_quality": true,
+            "late_trail": true,
+            "mfe_rescue_stop": true,
+            "plus_1r_partial": false,
+            "slope_bypass_quality": true,
+            "stale_mfe_exempt": true,
+            "type_c_enabled": true
+          },
+          "param_overrides": {
+            "CHOP_THRESHOLD": 28,
+            "DOW_SIZE_MULT": {
+              "0": 0.5,
+              "3": 0.65
+            },
+            "HOURLY_BYPASS_ALLOWED_WINDOWS": [
+              "OPEN",
+              "CLOSE"
+            ],
+            "HOURLY_BYPASS_EQS_MIN": 2,
+            "HOURLY_BYPASS_MAX_CHOP": 33.6,
+            "HOURLY_BYPASS_SIZE_MULT": 0.72,
+            "LATE_TRAIL_ACTIVATE_R": 1.5,
+            "MFE_RESCUE_AFTER_BARS": 8.4,
+            "MFE_RESCUE_LOCK_R": 0.05,
+            "MFE_RESCUE_MIN_R": 0.75,
+            "MFE_RESCUE_TRIGGER_R": 0.0,
+            "SLOPE_BYPASS_ALLOWED_WINDOWS": [
+              "OPEN",
+              "CORE",
+              "CLOSE"
+            ],
+            "SLOPE_BYPASS_EQS_MIN": 4,
+            "SLOPE_BYPASS_MAX_CHOP": 36.0,
+            "SLOPE_BYPASS_SIZE_MULT": 1.0,
+            "STALE_MFE_EXEMPT_R": 0.5,
+            "TYPE_C_ALLOWED_WINDOWS": [
+              "OPEN"
+            ],
+            "TYPE_C_MAX_VWAP_DIST_ATR": 2.4,
+            "USE_TYPE_C": true,
+            "VWAP_CAP_EVENING": 0.35
+          }
+        },
+        "optimized_config_path": "backtests/baselines/ibkr/momentum/vdubus/round_3/optimized_config.json",
+        "optimizer_round": {
+          "optimized_config_path": "backtests/baselines/ibkr/momentum/vdubus/round_3/optimized_config.json",
+          "round_id": 3,
+          "rounds_manifest_path": "backtests/baselines/ibkr/momentum/vdubus/rounds_manifest.json"
+        },
+        "promotion_state": "approved",
+        "runtime_overlay": {
+          "allocation": {
+            "base_risk_pct": 0.0065
+          },
+          "asset_class": "futures",
+          "connection_group": "default",
+          "dashboard_metadata": {
+            "color_key": "orange",
+            "short_label": "MOMO",
+            "system_label": "Momentum Trader"
+          },
+          "deployment_tags": [
+            "live",
+            "paper",
+            "momentum"
+          ],
+          "display_name": "Vdubus NQ v4",
+          "enabled": true,
+          "family": "momentum",
+          "module_path": "strategies.momentum.vdub.plugin",
+          "paper_mode": false,
+          "risk": {
+            "daily_stop_R": 2.5,
+            "max_heat_R": 3.5,
+            "max_working_orders": 2,
+            "portfolio_daily_stop_R": 2.75,
+            "priority": 0,
+            "unit_risk_dollars": 200.0
+          },
+          "strategy_id": "VdubusNQ_v4",
+          "symbols": [
+            "MNQ"
+          ],
+          "system_id": "momentum_trader"
+        },
+        "strategy_id": "VdubusNQ_v4"
+      }
+    ]
+  },
+  "materialized_config_hash": "245f2d8e2717586642d3c203a38bfe3ad21099a1b2a7eb78c9422468fd9f022c",
+  "merge_order": [
+    "strategy_defaults",
+    "latest_optimized_config",
+    "venue_runtime_overlay",
+    "environment_deployment_overlay",
+    "environment_secrets_uncommitted"
+  ],
+  "notes": [],
+  "promotion_manifests": [
+    {
+      "canonical_json_sha256": "af379beebec725de976e335841f891f0a9be1b6a8581ad6bba1d6ee48d0780dd",
+      "path": "contracts/promotions/ibkr/AKC_HELIX.json",
+      "promotion_state": "approved",
+      "sha256": "39d3858d5a643f8089fe52aaefd1686b3cde8bad9b43d81166264affee72e21f",
+      "strategy_id": "AKC_HELIX"
+    },
+    {
+      "canonical_json_sha256": "7d35bb12d1d0630359dbde80e883ef1fc0854baefeff530472187b152e66ea75",
+      "path": "contracts/promotions/ibkr/ALCB_v1.json",
+      "promotion_state": "approved",
+      "sha256": "aa6b3becdc7bf5105e0d47683fa5af11a44c7569a0e668a055241803f48919f1",
+      "strategy_id": "ALCB_v1"
+    },
+    {
+      "canonical_json_sha256": "57f19083936ca65061bef0bde7019618d9c61539a063aaa74a79d1c7f4b54d57",
+      "path": "contracts/promotions/ibkr/ATRSS.json",
+      "promotion_state": "approved",
+      "sha256": "285265a202d9dd6353db200c1e658013f96769a836733e12c80abc6a5b4c6960",
+      "strategy_id": "ATRSS"
+    },
+    {
+      "canonical_json_sha256": "5cd927185d6886a3f0463b8e86159e4cba762d194e60e19b2209a69c9eda8042",
+      "path": "contracts/promotions/ibkr/DownturnDominator_v1.json",
+      "promotion_state": "approved",
+      "sha256": "31d80da289dad89fe28c3e7a00271237061ca52ddb3b2e878632f6c014a74c18",
+      "strategy_id": "DownturnDominator_v1"
+    },
+    {
+      "canonical_json_sha256": "0c0f9e6c72b1502d03acb95441d2b4615c6c46db8ebc151798244e58f0df0134",
+      "path": "contracts/promotions/ibkr/IARIC_v1.json",
+      "promotion_state": "approved",
+      "sha256": "f3dbaabd91706f6c584d1a93900d0aec1addcf684070ebe66b1a625dbe4ee8f0",
+      "strategy_id": "IARIC_v1"
+    },
+    {
+      "canonical_json_sha256": "af09f51a407c57c959513e2b8ee3c9449cd5a177b124b13aee66a00d76fcb9f6",
+      "path": "contracts/promotions/ibkr/NQ_REGIME.json",
+      "promotion_state": "approved",
+      "sha256": "7860c145d34cb38d39d6ad7e890584153fdf96724e24736d23a9ed8cf64ab025",
+      "strategy_id": "NQ_REGIME"
+    },
+    {
+      "canonical_json_sha256": "4b1e8b7e794aa4bec6f9f9443c9a37d046ebb2dd82e7c5163dfaa2bf7c6dd529",
+      "path": "contracts/promotions/ibkr/NQDTC_v2.1.json",
+      "promotion_state": "approved",
+      "sha256": "294c33d61685093368cd2f1c1dc8a0d422eb6548d433a48da991826cff6d326d",
+      "strategy_id": "NQDTC_v2.1"
+    },
+    {
+      "canonical_json_sha256": "263d82085ad1a57c52ccc1f17ab865def15ed0594f65bc62fe4df7ecf0e8bfe5",
+      "path": "contracts/promotions/ibkr/SCALP_IVB_AUCTION.json",
+      "promotion_state": "disabled",
+      "sha256": "4a896d51b74c392904698bf369ffec2c3abcc598043474a653655cade219f84c",
+      "strategy_id": "SCALP_IVB_AUCTION"
+    },
+    {
+      "canonical_json_sha256": "cf33cf5c40785187596111c2a455b831a97c16607b13c2e1b61041420a4a5bcd",
+      "path": "contracts/promotions/ibkr/SCALP_PO3_REVERSAL.json",
+      "promotion_state": "disabled",
+      "sha256": "83e5773dd24eff4365d7fae22b45833c4e9a0e29b516c4505c62d4ece2b02705",
+      "strategy_id": "SCALP_PO3_REVERSAL"
+    },
+    {
+      "canonical_json_sha256": "5178594891129416dd75414b4f7992c3000a9aa278bbeb2fbd9ff098eab76caa",
+      "path": "contracts/promotions/ibkr/TPC.json",
+      "promotion_state": "approved",
+      "sha256": "bb6642a6d0a55c203936278303ba52ab06df7b500656bf5fbe01ed502fdbdda0",
+      "strategy_id": "TPC"
+    },
+    {
+      "canonical_json_sha256": "4283d6a6737f4a6d02e3643578e270024a83beeb0c321b801a55f643d3c537d8",
+      "path": "contracts/promotions/ibkr/VdubusNQ_v4.json",
+      "promotion_state": "approved",
+      "sha256": "ae118cbf2794e08f81c89e8034c69db0da255247a58d29c09a62c91d8163951d",
+      "strategy_id": "VdubusNQ_v4"
+    }
+  ],
+  "schema_version": "effective_live_config_artifact.v1",
+  "source_files": [
+    {
+      "canonical_json_sha256": "",
+      "path": "bots/ibkr_trading/config/strategies.yaml",
+      "role": "ibkr_strategies",
+      "sha256": "12e8b04198925c6f3438f700edd0cdcdd59fd8bc5cd4a25d962a45e3f6806c2d"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "fixture_id": "momentum_exit_state",
+  "symbol": "BTC",
+  "timeframe": "15m",
+  "timestamp": "2026-05-15T13:00:00+00:00",
+  "direction": "LONG",
+  "entry_price": 50400.0,
+  "atr": 260.0,
+  "bar": {
+    "open": 50350.0,
+    "high": 50600.0,
+    "low": 50200.0,
+    "close": 50400.0,
+    "volume": 180.0
+  },
+  "exit_orders": [
+    {
+      "tag": "tp1",
+      "qty": 0.04,
+      "reason": "fixture_partial_take_profit"
+    }
+  ]
+}

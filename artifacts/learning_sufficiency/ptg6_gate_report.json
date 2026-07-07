@@ -1,0 +1,308 @@
+{
+  "checks": [
+    {
+      "details": [
+        {
+          "item_count": 11,
+          "section": "Phase 9",
+          "unchecked_count": 0,
+          "unchecked_items": []
+        }
+      ],
+      "name": "required_finite_checklist_sections_complete",
+      "passed": true
+    },
+    {
+      "details": {
+        "path": "artifacts/learning_sufficiency/ptg5_gate_report.json",
+        "status": "blocked"
+      },
+      "name": "ptg5_report_passed",
+      "passed": false
+    },
+    {
+      "details": {
+        "entry": {
+          "artifact_type": "strategy_discovery_packet",
+          "authority": "diagnostics_only",
+          "may_satisfy_approval_gate": false,
+          "notes": "Diagnostics-only discovery context until replay, bridge maturity, and sufficiency gates promote a proposal.",
+          "owner_package": "trading_assistant",
+          "path_patterns": [
+            "strategy_discovery_packet.json"
+          ],
+          "readers": [
+            "monthly_candidate_pipeline",
+            "weekly_prompt_assembler"
+          ],
+          "schema_ref": "",
+          "source_contract": "",
+          "writers": [
+            "strategy_discovery_builder"
+          ]
+        }
+      },
+      "name": "strategy_discovery_artifact_registry_diagnostics_only",
+      "passed": true
+    },
+    {
+      "details": {
+        "packet": {
+          "after_cost_estimates": [
+            {
+              "after_cost_status": "diagnostic_estimate",
+              "cluster_id": "19163a659d0efc30",
+              "estimated_after_cost_pnl": 24.0,
+              "estimated_after_cost_pnl_source": "missed_counterfactual_estimate",
+              "source": "missed_opportunity"
+            },
+            {
+              "after_cost_status": "diagnostic_estimate",
+              "cluster_id": "ac3c9189fe3a61e6",
+              "estimated_after_cost_pnl": 30.0,
+              "estimated_after_cost_pnl_source": "funnel_dropoff_x_realized_avg_net_pnl",
+              "source": "denominator_snapshot"
+            }
+          ],
+          "approval_gate_eligible": false,
+          "authority": "diagnostics_only",
+          "blocked_learning_capabilities": [],
+          "bot_id": "bot1",
+          "control_slices": [
+            {
+              "avg_net_pnl": 2.5,
+              "control_count": 2,
+              "control_type": "realized_trades_same_symbol_regime",
+              "regime": "trend_up",
+              "setup_key": "opening_breakout",
+              "symbol": "AAPL",
+              "win_rate": 1.0
+            },
+            {
+              "avg_realized_net_pnl": 2.5,
+              "control_count": 2,
+              "control_type": "realized_trade_after_cost_average",
+              "denominator_count": 20,
+              "lost_count": 12
+            }
+          ],
+          "denominator_clusters": [
+            {
+              "after_cost_status": "diagnostic_estimate",
+              "bot_id": "bot1",
+              "cluster_id": "ac3c9189fe3a61e6",
+              "control_count": 2,
+              "control_slice": {
+                "avg_realized_net_pnl": 2.5,
+                "control_count": 2,
+                "control_type": "realized_trade_after_cost_average",
+                "denominator_count": 20,
+                "lost_count": 12
+              },
+              "denominator_count": 20,
+              "estimated_after_cost_pnl": 30.0,
+              "estimated_after_cost_pnl_source": "funnel_dropoff_x_realized_avg_net_pnl",
+              "evidence": [
+                {
+                  "bot_id": "bot1",
+                  "date": "2026-05-01",
+                  "note": "dropoff=6 denominator=10",
+                  "pnl": 0.0,
+                  "regime": "",
+                  "signal_strength": 0.0,
+                  "trade_id": "setups_to_confirmations"
+                },
+                {
+                  "bot_id": "bot1",
+                  "date": "2026-05-02",
+                  "note": "dropoff=6 denominator=10",
+                  "pnl": 0.0,
+                  "regime": "",
+                  "signal_strength": 0.0,
+                  "trade_id": "setups_to_confirmations"
+                }
+              ],
+              "evidence_paths": [
+                "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp8qd5foua\\curated\\2026-05-01\\bot1\\funnel_analysis.json",
+                "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp8qd5foua\\curated\\2026-05-02\\bot1\\funnel_analysis.json"
+              ],
+              "missed_count": 0,
+              "regime": "",
+              "replay_plan": "Replay a candidate strategy that addresses the setups_to_confirmations funnel drop-off against held-out denominator snapshots.",
+              "setup_key": "setups_to_confirmations",
+              "shadow_plan": "Shadow-count would-enter events at setups_to_confirmations for one completed month before any approval routing.",
+              "source": "denominator_snapshot",
+              "strategy_id": "strat1",
+              "support_count": 2,
+              "symbol": ""
+            }
+          ],
+          "evidence_authority": "diagnostics_only",
+          "evidence_paths": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp8qd5foua\\curated\\2026-05-01\\bot1\\trades.jsonl",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp8qd5foua\\curated\\2026-05-01\\bot1\\missed.jsonl",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp8qd5foua\\curated\\2026-05-01\\bot1\\funnel_analysis.json",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp8qd5foua\\curated\\2026-05-02\\bot1\\trades.jsonl",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp8qd5foua\\curated\\2026-05-02\\bot1\\missed.jsonl",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp8qd5foua\\curated\\2026-05-02\\bot1\\funnel_analysis.json"
+          ],
+          "generated_at": "2026-07-05T16:36:06.854130Z",
+          "learning_sufficiency_manifest_path": "",
+          "missed_opportunity_clusters": [
+            {
+              "after_cost_status": "diagnostic_estimate",
+              "bot_id": "bot1",
+              "cluster_id": "19163a659d0efc30",
+              "control_count": 2,
+              "control_slice": {
+                "avg_net_pnl": 2.5,
+                "control_count": 2,
+                "control_type": "realized_trades_same_symbol_regime",
+                "regime": "trend_up",
+                "setup_key": "opening_breakout",
+                "symbol": "AAPL",
+                "win_rate": 1.0
+              },
+              "denominator_count": 0,
+              "estimated_after_cost_pnl": 24.0,
+              "estimated_after_cost_pnl_source": "missed_counterfactual_estimate",
+              "evidence": [
+                {
+                  "bot_id": "bot1",
+                  "date": "2026-05-01",
+                  "note": "no_strategy_available",
+                  "pnl": 12.0,
+                  "regime": "trend_up",
+                  "signal_strength": 0.0,
+                  "trade_id": "miss-a"
+                },
+                {
+                  "bot_id": "bot1",
+                  "date": "2026-05-02",
+                  "note": "no_strategy_available",
+                  "pnl": 12.0,
+                  "regime": "trend_up",
+                  "signal_strength": 0.0,
+                  "trade_id": "miss-b"
+                }
+              ],
+              "evidence_paths": [
+                "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp8qd5foua\\curated\\2026-05-01\\bot1\\missed.jsonl",
+                "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp8qd5foua\\curated\\2026-05-02\\bot1\\missed.jsonl"
+              ],
+              "missed_count": 2,
+              "regime": "trend_up",
+              "replay_plan": "Replay entry logic for AAPL/trend_up/opening_breakout against held-out monthly windows before promotion.",
+              "setup_key": "opening_breakout",
+              "shadow_plan": "Shadow-log hypothetical entries for AAPL/trend_up/opening_breakout for one completed month before approval routing.",
+              "source": "missed_opportunity",
+              "strategy_id": "strat1",
+              "support_count": 2,
+              "symbol": "AAPL"
+            }
+          ],
+          "new_strategy_proposal_requirements": [
+            "cite_recurring_opportunity_cluster",
+            "cite_control_slice",
+            "cite_after_cost_estimate",
+            "provide_replay_or_shadow_plan",
+            "remain_diagnostics_only_until_replay_and_approval_ready_bridge_gates_pass"
+          ],
+          "packet_id": "83bca2b0c0bb4191",
+          "packet_version": "strategy_discovery_packet_v1",
+          "replay_or_shadow_plan": "Replay recurring clusters against held-out windows, then run scheduled shadow cycles before any approval-ready bridge promotion.",
+          "run_id": "monthly-bot1-strat1-2026-05",
+          "run_month": "2026-05",
+          "strategy_id": "strat1",
+          "supported_learning_capabilities": []
+        }
+      },
+      "name": "strategy_discovery_packet_builder_contract",
+      "passed": true
+    },
+    {
+      "details": {
+        "missing_citation": {
+          "evidence_paths": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmpwe6_9dud\\artifacts\\strategy_discovery_packet.json",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmpwe6_9dud\\curated\\2026-05-01\\bot1\\trades.jsonl",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmpwe6_9dud\\curated\\2026-05-01\\bot1\\missed.jsonl",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmpwe6_9dud\\curated\\2026-05-01\\bot1\\funnel_analysis.json",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmpwe6_9dud\\curated\\2026-05-02\\bot1\\trades.jsonl",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmpwe6_9dud\\curated\\2026-05-02\\bot1\\missed.jsonl",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmpwe6_9dud\\curated\\2026-05-02\\bot1\\funnel_analysis.json"
+          ],
+          "name": "new_strategy_discovery_packet",
+          "passed": false,
+          "reason": "candidate must cite strategy_discovery_cluster_ids",
+          "severity": "hard"
+        },
+        "passing": {
+          "evidence_paths": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmpwe6_9dud\\artifacts\\strategy_discovery_packet.json",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmpwe6_9dud\\curated\\2026-05-01\\bot1\\trades.jsonl",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmpwe6_9dud\\curated\\2026-05-01\\bot1\\missed.jsonl",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmpwe6_9dud\\curated\\2026-05-01\\bot1\\funnel_analysis.json",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmpwe6_9dud\\curated\\2026-05-02\\bot1\\trades.jsonl",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmpwe6_9dud\\curated\\2026-05-02\\bot1\\missed.jsonl",
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmpwe6_9dud\\curated\\2026-05-02\\bot1\\funnel_analysis.json"
+          ],
+          "name": "new_strategy_discovery_packet",
+          "passed": true,
+          "reason": "",
+          "severity": "hard"
+        }
+      },
+      "name": "new_strategy_discovery_gate",
+      "passed": true
+    },
+    {
+      "details": {
+        "gate": {
+          "evidence_paths": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmpnbbo4tuz\\strategy_discovery_packet.json"
+          ],
+          "name": "new_strategy_discovery_packet",
+          "passed": false,
+          "reason": "strategy discovery packet has no material after-cost clusters with controls; candidate strategy_discovery_cluster_ids do not match material packet clusters",
+          "severity": "hard"
+        }
+      },
+      "name": "external_weak_strategy_discovery_packet_rejected",
+      "passed": true
+    },
+    {
+      "details": {
+        "context_files": [
+          "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmpv_q4wwlw\\runs\\monthly-bot1-strat1-2026-05\\strategy_discovery_packet.json"
+        ],
+        "packet_count": 1
+      },
+      "name": "discovery_prompt_packet_contract",
+      "passed": true
+    }
+  ],
+  "failures": [
+    {
+      "details": {
+        "path": "artifacts/learning_sufficiency/ptg5_gate_report.json",
+        "status": "blocked"
+      },
+      "name": "ptg5_report_passed",
+      "passed": false
+    }
+  ],
+  "gate": "PTG-6",
+  "generated_at": "2026-07-05T16:36:08Z",
+  "promotion_criteria": "Strategy discovery packets are diagnostics-only, and new-strategy proposals must cite recurring clusters, control slices, after-cost estimates, and a replay or shadow plan.",
+  "required_acceptance_rows": [
+    "AM-21",
+    "AM-22",
+    "AM-25"
+  ],
+  "required_finite_checklist_sections": [
+    "Phase 9"
+  ],
+  "schema_version": "strategy_discovery_ptg6_gate_report_v1",
+  "status": "blocked"
+}

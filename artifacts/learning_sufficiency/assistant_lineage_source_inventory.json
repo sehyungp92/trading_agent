@@ -1,0 +1,354 @@
+{
+  "canonical_runtime_lineage_source": {
+    "assistant_lineage_block": "assistant_lineage",
+    "kind": "runtime_deployment_metadata",
+    "path_patterns": [
+      "deployments/*/generated/runtime_deployment_metadata/*/deployment_metadata.json"
+    ],
+    "source": "deployment metadata generated from the bot LineageContext or active config lineage block"
+  },
+  "generated_at": "2026-07-04T14:35:40Z",
+  "missing_requirements": [],
+  "required_id_locations": {
+    "candidate_ids": {
+      "found": true,
+      "locations": [
+        {
+          "category": "monthly_candidates",
+          "path": "packages/trading_assistant/memory/findings/loop_projection_acceptance/candidate_gate_report.json",
+          "sample_values": [
+            "acceptance-candidate"
+          ]
+        },
+        {
+          "category": "monthly_candidates",
+          "path": "packages/trading_assistant/memory/findings/loop_projection_acceptance/approval_packet_acceptance.json",
+          "sample_values": [
+            "acceptance-candidate"
+          ]
+        }
+      ],
+      "values": [
+        "acceptance-candidate"
+      ]
+    },
+    "proposal_ids": {
+      "found": true,
+      "locations": [
+        {
+          "category": "monthly_candidates",
+          "path": "packages/trading_assistant/memory/findings/loop_projection_acceptance/candidate_generation_summary.json",
+          "sample_values": [
+            "loop_acceptance_proposal"
+          ]
+        },
+        {
+          "category": "monthly_candidates",
+          "path": "packages/trading_assistant/memory/findings/loop_projection_acceptance/approval_packet_acceptance.json",
+          "sample_values": [
+            "loop_acceptance_proposal"
+          ]
+        },
+        {
+          "category": "proposal_ledgers",
+          "path": "packages/trading_assistant/memory/findings/proposal_ledger.jsonl",
+          "sample_values": [
+            "proposal-acceptance-1"
+          ]
+        },
+        {
+          "category": "strategy_change_ledgers",
+          "path": "packages/trading_assistant/memory/findings/strategy_change_ledger.jsonl",
+          "sample_values": [
+            "proposal-acceptance-1"
+          ]
+        },
+        {
+          "category": "monthly_manifests",
+          "path": "packages/trading_assistant/memory/findings/loop_projection_acceptance/run_manifest.json",
+          "sample_values": [
+            "loop_acceptance_proposal"
+          ]
+        }
+      ],
+      "values": [
+        "loop_acceptance_proposal",
+        "proposal-acceptance-1"
+      ]
+    },
+    "source_weekly_signal_ids": {
+      "found": true,
+      "locations": [
+        {
+          "category": "monthly_briefs",
+          "path": "packages/trading_assistant/memory/findings/performance_learning_acceptance/monthly_search_brief.json",
+          "sample_values": [
+            "weekly-signal-breakout",
+            "weekly-signal-allocation"
+          ]
+        },
+        {
+          "category": "strategy_change_ledgers",
+          "path": "packages/trading_assistant/memory/findings/strategy_change_ledger.jsonl",
+          "sample_values": [
+            "weekly-signal-breakout"
+          ]
+        },
+        {
+          "category": "monthly_manifests",
+          "path": "packages/trading_assistant/memory/findings/performance_learning_acceptance/run_manifest.json",
+          "sample_values": [
+            "weekly-signal-breakout",
+            "weekly-signal-allocation"
+          ]
+        }
+      ],
+      "values": [
+        "weekly-signal-breakout",
+        "weekly-signal-allocation"
+      ]
+    },
+    "strategy_change_record_ids": {
+      "found": true,
+      "locations": [
+        {
+          "category": "proposal_ledgers",
+          "path": "packages/trading_assistant/memory/findings/proposal_ledger.jsonl",
+          "sample_values": [
+            "change-acceptance-1"
+          ]
+        },
+        {
+          "category": "strategy_change_ledgers",
+          "path": "packages/trading_assistant/memory/findings/strategy_change_ledger.jsonl",
+          "sample_values": [
+            "change-acceptance-1"
+          ]
+        }
+      ],
+      "values": [
+        "change-acceptance-1"
+      ]
+    }
+  },
+  "runtime_lineage_seed": {
+    "bot_id": "bot1",
+    "candidate_ids": [
+      "acceptance-candidate"
+    ],
+    "deployment_id": "deploy-acceptance-1",
+    "proposal_ids": [
+      "proposal-acceptance-1"
+    ],
+    "source_path": "packages/trading_assistant/memory/findings/strategy_change_ledger.jsonl",
+    "source_weekly_signal_ids": [
+      "weekly-signal-breakout"
+    ],
+    "strategy_change_record_ids": [
+      "change-acceptance-1"
+    ],
+    "strategy_id": "strat1"
+  },
+  "schema_version": "assistant_lineage_source_inventory_v1",
+  "source_categories": {
+    "deployment_metadata": {
+      "path_count": 7,
+      "paths": [
+        {
+          "assistant_lineage_present": true,
+          "ids": {
+            "candidate_ids": [],
+            "proposal_ids": [],
+            "source_weekly_signal_ids": [],
+            "strategy_change_record_ids": []
+          },
+          "path": "deployments/crypto/generated/runtime_deployment_metadata/crypto_breakout_v1/deployment_metadata.json"
+        },
+        {
+          "assistant_lineage_present": true,
+          "ids": {
+            "candidate_ids": [],
+            "proposal_ids": [],
+            "source_weekly_signal_ids": [],
+            "strategy_change_record_ids": []
+          },
+          "path": "deployments/crypto/generated/runtime_deployment_metadata/crypto_momentum_v1/deployment_metadata.json"
+        },
+        {
+          "assistant_lineage_present": true,
+          "ids": {
+            "candidate_ids": [],
+            "proposal_ids": [],
+            "source_weekly_signal_ids": [],
+            "strategy_change_record_ids": []
+          },
+          "path": "deployments/crypto/generated/runtime_deployment_metadata/crypto_trend_v1/deployment_metadata.json"
+        },
+        {
+          "assistant_lineage_present": true,
+          "ids": {
+            "candidate_ids": [],
+            "proposal_ids": [],
+            "source_weekly_signal_ids": [],
+            "strategy_change_record_ids": []
+          },
+          "path": "deployments/ibkr/generated/runtime_deployment_metadata/trading_momentum_family/deployment_metadata.json"
+        },
+        {
+          "assistant_lineage_present": true,
+          "ids": {
+            "candidate_ids": [],
+            "proposal_ids": [],
+            "source_weekly_signal_ids": [],
+            "strategy_change_record_ids": []
+          },
+          "path": "deployments/ibkr/generated/runtime_deployment_metadata/trading_stock_family/deployment_metadata.json"
+        },
+        {
+          "assistant_lineage_present": true,
+          "ids": {
+            "candidate_ids": [],
+            "proposal_ids": [],
+            "source_weekly_signal_ids": [],
+            "strategy_change_record_ids": []
+          },
+          "path": "deployments/ibkr/generated/runtime_deployment_metadata/trading_swing_family/deployment_metadata.json"
+        },
+        {
+          "assistant_lineage_present": true,
+          "ids": {
+            "candidate_ids": [],
+            "proposal_ids": [],
+            "source_weekly_signal_ids": [],
+            "strategy_change_record_ids": []
+          },
+          "path": "deployments/k_stock/generated/runtime_deployment_metadata/k_stock_olr_kalcb/deployment_metadata.json"
+        }
+      ]
+    },
+    "monthly_briefs": {
+      "path_count": 1,
+      "paths": [
+        {
+          "ids": {
+            "candidate_ids": [],
+            "proposal_ids": [],
+            "source_weekly_signal_ids": [
+              "weekly-signal-breakout",
+              "weekly-signal-allocation"
+            ],
+            "strategy_change_record_ids": []
+          },
+          "path": "packages/trading_assistant/memory/findings/performance_learning_acceptance/monthly_search_brief.json"
+        }
+      ]
+    },
+    "monthly_candidates": {
+      "path_count": 3,
+      "paths": [
+        {
+          "ids": {
+            "candidate_ids": [
+              "acceptance-candidate"
+            ],
+            "proposal_ids": [],
+            "source_weekly_signal_ids": [],
+            "strategy_change_record_ids": []
+          },
+          "path": "packages/trading_assistant/memory/findings/loop_projection_acceptance/candidate_gate_report.json"
+        },
+        {
+          "ids": {
+            "candidate_ids": [],
+            "proposal_ids": [
+              "loop_acceptance_proposal"
+            ],
+            "source_weekly_signal_ids": [],
+            "strategy_change_record_ids": []
+          },
+          "path": "packages/trading_assistant/memory/findings/loop_projection_acceptance/candidate_generation_summary.json"
+        },
+        {
+          "ids": {
+            "candidate_ids": [
+              "acceptance-candidate"
+            ],
+            "proposal_ids": [
+              "loop_acceptance_proposal"
+            ],
+            "source_weekly_signal_ids": [],
+            "strategy_change_record_ids": []
+          },
+          "path": "packages/trading_assistant/memory/findings/loop_projection_acceptance/approval_packet_acceptance.json"
+        }
+      ]
+    },
+    "monthly_manifests": {
+      "path_count": 2,
+      "paths": [
+        {
+          "ids": {
+            "candidate_ids": [],
+            "proposal_ids": [
+              "loop_acceptance_proposal"
+            ],
+            "source_weekly_signal_ids": [],
+            "strategy_change_record_ids": []
+          },
+          "path": "packages/trading_assistant/memory/findings/loop_projection_acceptance/run_manifest.json"
+        },
+        {
+          "ids": {
+            "candidate_ids": [],
+            "proposal_ids": [],
+            "source_weekly_signal_ids": [
+              "weekly-signal-breakout",
+              "weekly-signal-allocation"
+            ],
+            "strategy_change_record_ids": []
+          },
+          "path": "packages/trading_assistant/memory/findings/performance_learning_acceptance/run_manifest.json"
+        }
+      ]
+    },
+    "proposal_ledgers": {
+      "path_count": 1,
+      "paths": [
+        {
+          "ids": {
+            "candidate_ids": [],
+            "proposal_ids": [
+              "proposal-acceptance-1"
+            ],
+            "source_weekly_signal_ids": [],
+            "strategy_change_record_ids": [
+              "change-acceptance-1"
+            ]
+          },
+          "path": "packages/trading_assistant/memory/findings/proposal_ledger.jsonl"
+        }
+      ]
+    },
+    "strategy_change_ledgers": {
+      "path_count": 1,
+      "paths": [
+        {
+          "ids": {
+            "candidate_ids": [],
+            "proposal_ids": [
+              "proposal-acceptance-1"
+            ],
+            "source_weekly_signal_ids": [
+              "weekly-signal-breakout"
+            ],
+            "strategy_change_record_ids": [
+              "change-acceptance-1"
+            ]
+          },
+          "path": "packages/trading_assistant/memory/findings/strategy_change_ledger.jsonl"
+        }
+      ]
+    }
+  },
+  "status": "pass"
+}

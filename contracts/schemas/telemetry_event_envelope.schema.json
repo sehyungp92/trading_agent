@@ -1,0 +1,62 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "bot_id": {
+      "title": "Bot Id",
+      "type": "string"
+    },
+    "event_id": {
+      "title": "Event Id",
+      "type": "string"
+    },
+    "event_type": {
+      "title": "Event Type",
+      "type": "string"
+    },
+    "exchange_timestamp": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Exchange Timestamp"
+    },
+    "payload": {
+      "additionalProperties": true,
+      "title": "Payload",
+      "type": "object"
+    },
+    "priority": {
+      "default": 5,
+      "title": "Priority",
+      "type": "integer"
+    },
+    "received_at": {
+      "format": "date-time",
+      "title": "Received At",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "telemetry_event_envelope_v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source": {
+      "default": "",
+      "title": "Source",
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_id",
+    "bot_id",
+    "event_type"
+  ],
+  "title": "TelemetryEventEnvelope",
+  "type": "object"
+}

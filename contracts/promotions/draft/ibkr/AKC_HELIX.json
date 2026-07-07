@@ -1,0 +1,23 @@
+{
+  "approval": {
+    "notes": [],
+    "status": "phase3_alignment_passed"
+  },
+  "baseline_id": "ibkr:swing:helix",
+  "baseline_status": "frozen",
+  "bot_id": "ibkr_trading",
+  "generated_at": "2026-07-03T01:39:38+00:00",
+  "optimizer_round": {
+    "optimized_config_path": "backtests/baselines/ibkr/swing/helix/round_5/optimized_config.json",
+    "round_id": 5,
+    "rounds_manifest_path": "backtests/baselines/ibkr/swing/helix/rounds_manifest.json"
+  },
+  "promotion_state": "draft",
+  "schema_version": "strategy_promotion_manifest.v1.draft",
+  "source_live_config": {
+    "path": "bots/ibkr_trading/config/strategies.yaml",
+    "sha256": "12e8b04198925c6f3438f700edd0cdcdd59fd8bc5cd4a25d962a45e3f6806c2d"
+  },
+  "strategy_id": "AKC_HELIX",
+  "venue": "ibkr"
+}

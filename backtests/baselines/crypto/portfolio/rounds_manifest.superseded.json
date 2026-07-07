@@ -1,0 +1,20 @@
+{
+  "approval_state": "draft_pending_human_approval_before_crypto_cutover",
+  "available_rounds": [
+    {
+      "deployment_manifest": "backtests/baselines/crypto/portfolio/round_3/deployment_manifest.json",
+      "evidence_files": [
+        "backtests/baselines/crypto/portfolio/round_3/recommended_portfolio_config.json",
+        "backtests/baselines/crypto/portfolio/round_3/parity_alignment.json",
+        "backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/momentum.json",
+        "backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/trend.json",
+        "backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/breakout.json"
+      ],
+      "round": 3
+    }
+  ],
+  "generated_at": "2026-07-03T01:39:18+00:00",
+  "schema_version": "crypto_portfolio_rounds_manifest_supersession.v1",
+  "status": "explicit_phase0_supersession",
+  "supersedes_missing_path": "backtests/baselines/crypto/portfolio/rounds_manifest.json"
+}

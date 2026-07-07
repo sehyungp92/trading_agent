@@ -1,0 +1,221 @@
+{
+  "connection_groups": [
+    "default"
+  ],
+  "strategies": [
+    {
+      "asset_class": "mixed",
+      "connection_group": "default",
+      "dashboard_metadata": {
+        "color_key": "blue",
+        "short_label": "SWING",
+        "system_label": "Swing Trader"
+      },
+      "deployment_tags": [
+        "live",
+        "paper",
+        "swing"
+      ],
+      "display_name": "AKC Helix",
+      "enabled": true,
+      "family": "swing",
+      "paper_mode": false,
+      "strategy_id": "AKC_HELIX",
+      "symbols": [
+        "QQQ",
+        "GLD"
+      ],
+      "system_id": "swing_trader"
+    },
+    {
+      "asset_class": "equity",
+      "connection_group": "default",
+      "dashboard_metadata": {
+        "color_key": "green",
+        "short_label": "STOCK",
+        "system_label": "Stock Trader"
+      },
+      "deployment_tags": [
+        "live",
+        "paper",
+        "stock"
+      ],
+      "display_name": "ALCB v1",
+      "enabled": true,
+      "family": "stock",
+      "paper_mode": false,
+      "strategy_id": "ALCB_v1",
+      "symbols": [
+        "SPY",
+        "QQQ",
+        "IWM"
+      ],
+      "system_id": "stock_trader"
+    },
+    {
+      "asset_class": "mixed",
+      "connection_group": "default",
+      "dashboard_metadata": {
+        "color_key": "blue",
+        "short_label": "SWING",
+        "system_label": "Swing Trader"
+      },
+      "deployment_tags": [
+        "live",
+        "paper",
+        "swing"
+      ],
+      "display_name": "ATR Swing Strategy",
+      "enabled": true,
+      "family": "swing",
+      "paper_mode": false,
+      "strategy_id": "ATRSS",
+      "symbols": [
+        "QQQ",
+        "GLD"
+      ],
+      "system_id": "swing_trader"
+    },
+    {
+      "asset_class": "futures",
+      "connection_group": "default",
+      "dashboard_metadata": {
+        "color_key": "orange",
+        "short_label": "MOMO",
+        "system_label": "Momentum Trader"
+      },
+      "deployment_tags": [
+        "live",
+        "paper",
+        "momentum"
+      ],
+      "display_name": "Downturn Dominator v1",
+      "enabled": true,
+      "family": "momentum",
+      "paper_mode": false,
+      "strategy_id": "DownturnDominator_v1",
+      "symbols": [
+        "MNQ"
+      ],
+      "system_id": "momentum_trader"
+    },
+    {
+      "asset_class": "equity",
+      "connection_group": "default",
+      "dashboard_metadata": {
+        "color_key": "green",
+        "short_label": "STOCK",
+        "system_label": "Stock Trader"
+      },
+      "deployment_tags": [
+        "live",
+        "paper",
+        "stock"
+      ],
+      "display_name": "IARIC v1",
+      "enabled": true,
+      "family": "stock",
+      "paper_mode": false,
+      "strategy_id": "IARIC_v1",
+      "symbols": [
+        "SPY",
+        "QQQ",
+        "IWM"
+      ],
+      "system_id": "stock_trader"
+    },
+    {
+      "asset_class": "futures",
+      "connection_group": "default",
+      "dashboard_metadata": {
+        "color_key": "orange",
+        "short_label": "MOMO",
+        "system_label": "Momentum Trader"
+      },
+      "deployment_tags": [
+        "live",
+        "paper",
+        "momentum"
+      ],
+      "display_name": "NQDTC v2.1",
+      "enabled": true,
+      "family": "momentum",
+      "paper_mode": false,
+      "strategy_id": "NQDTC_v2.1",
+      "symbols": [
+        "MNQ"
+      ],
+      "system_id": "momentum_trader"
+    },
+    {
+      "asset_class": "futures",
+      "connection_group": "default",
+      "dashboard_metadata": {
+        "color_key": "orange",
+        "short_label": "MOMO",
+        "system_label": "Momentum Trader"
+      },
+      "deployment_tags": [
+        "live",
+        "paper",
+        "momentum"
+      ],
+      "display_name": "NQ Regime Engine",
+      "enabled": true,
+      "family": "momentum",
+      "paper_mode": false,
+      "strategy_id": "NQ_REGIME",
+      "symbols": [
+        "MNQ"
+      ],
+      "system_id": "momentum_trader"
+    },
+    {
+      "asset_class": "equity",
+      "connection_group": "default",
+      "dashboard_metadata": {
+        "color_key": "blue",
+        "short_label": "SWING",
+        "system_label": "Swing Trader"
+      },
+      "deployment_tags": [
+        "live",
+        "paper",
+        "swing"
+      ],
+      "display_name": "Trend Pullback Continuation",
+      "enabled": true,
+      "family": "swing",
+      "paper_mode": false,
+      "strategy_id": "TPC",
+      "symbols": [
+        "QQQ",
+        "GLD"
+      ],
+      "system_id": "swing_trader"
+    },
+    {
+      "asset_class": "futures",
+      "connection_group": "default",
+      "dashboard_metadata": {
+        "color_key": "orange",
+        "short_label": "MOMO",
+        "system_label": "Momentum Trader"
+      },
+      "deployment_tags": [
+        "live",
+        "paper",
+        "momentum"
+      ],
+      "display_name": "Vdubus NQ v4",
+      "enabled": true,
+      "family": "momentum",
+      "paper_mode": false,
+      "strategy_id": "VdubusNQ_v4",
+      "symbols": [
+        "MNQ"
+      ],
+      "system_id": "momentum_trader"
+    }
+  ]
+}

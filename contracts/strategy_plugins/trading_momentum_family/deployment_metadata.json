@@ -1,0 +1,20 @@
+{
+  "bot_id": "trading",
+  "config_artifacts": [
+    "config/strategies.yaml",
+    "config/portfolio.yaml",
+    "data/strategy-registry.json"
+  ],
+  "config_hash": "fcfd0106744ed7a161d83fc76a0f7f32f9f5d3a561e27fc6b273305d1d2da1a3",
+  "config_version": "trading_momentum_family_shadow_2026-05-31",
+  "deployed_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "deployment_id": "trading-momentum-family-shadow-3c6441d8",
+  "generated_at": "2026-07-03T00:00:00Z",
+  "metadata_source": "local clean live-repo checkout shadow snapshot",
+  "repo_url": "local://bots/ibkr_trading",
+  "strategy_id": "trading_momentum_family",
+  "strategy_plugin_contract_hash": "99f86d8fcd91b9e9ca079aba1bb805a9bd95fb307c1669913b4a9148b562ae01",
+  "strategy_plugin_contract_path": "strategy_plugin_contract.json",
+  "strategy_version": "trading_momentum_shadow_v1",
+  "telemetry_schema_version": "trading_live_shadow_contract_v1"
+}

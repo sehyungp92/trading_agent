@@ -1,0 +1,25 @@
+{
+  "status": "strategy_lineage_restored",
+  "created_at": "2026-05-27T20:48:08.783235+00:00",
+  "strategy_type": "trend",
+  "strategy_config_hash": "9afa0748fe45ec63f59645f4f0aeab7fd41fe6ff2f48af5189412e4216e9c917",
+  "profile": {
+    "profile_id": "live_parity_v1",
+    "symbols": [
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "initial_equity": 10000.0,
+    "taker_fee_bps": 4.5,
+    "maker_fee_bps": 1.0,
+    "slippage_bps": 2.0,
+    "spread_bps": 1.0,
+    "train_pct": 0.7,
+    "apply_funding": true,
+    "warmup_days": 60,
+    "terminal_accounting_mode": "terminal_mark"
+  },
+  "note": "This strategy round_3 folder is no longer the live deployment materialization for the portfolio candidate. Live example paths point to output/portfolio/round_3 instead.",
+  "live_deployment_bundle": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\crypto_trader\\output\\portfolio\\round_3"
+}

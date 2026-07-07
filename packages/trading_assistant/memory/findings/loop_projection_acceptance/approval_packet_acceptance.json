@@ -1,0 +1,21 @@
+{
+  "acceptance_evidence": true,
+  "approval_ready": false,
+  "artifact_paths": [
+    "packages/trading_assistant/memory/findings/loop_projection_acceptance\\candidate_gate_report.json",
+    "packages/trading_assistant/memory/findings/loop_projection_acceptance\\model_review_validation.json",
+    "packages/trading_assistant/memory/findings/loop_projection_acceptance\\monthly_evidence_verification_acceptance.json"
+  ],
+  "bot_id": "loop_acceptance_bot",
+  "candidate_id": "acceptance-candidate",
+  "machine_readable_payload": {
+    "approval_gate_evidence": [
+      "packages/trading_assistant/memory/findings/loop_projection_acceptance\\candidate_gate_report.json",
+      "packages/trading_assistant/memory/findings/loop_projection_acceptance\\model_review_validation.json",
+      "packages/trading_assistant/memory/findings/loop_projection_acceptance\\monthly_evidence_verification_acceptance.json"
+    ]
+  },
+  "proposal_id": "loop_acceptance_proposal",
+  "run_id": "monthly-loop-projection-acceptance-2026-06",
+  "strategy_id": "loop_acceptance_strategy"
+}

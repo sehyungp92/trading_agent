@@ -1,0 +1,36 @@
+bot_id: "stock_trader"
+bot_name: "Stock Trader"
+strategy_type: "stock_trader"
+
+data_dir: "instrumentation/data/stock"
+data_source_id: "ibkr_us_equities"
+heartbeat_interval_seconds: 30
+heartbeat_gap_multiplier: 2.5
+daily_snapshot_checkpoint_interval_seconds: 300
+
+rotation:
+  max_file_age_days: 30
+  max_disk_mb: 500
+
+market_snapshots:
+  interval_seconds: 60
+  symbols:
+    - "SPY"
+    - "QQQ"
+    - "IWM"
+
+sidecar:
+  relay_url: "http://127.0.0.1:8000/events"
+  hmac_secret_env: "INSTRUMENTATION_HMAC_SECRET"
+  batch_size: 50
+  retry_max: 5
+  retry_backoff_base_seconds: 10
+  poll_interval_seconds: 60
+  buffer_dir: "instrumentation/data/stock/.sidecar_buffer"
+  use_gzip: true  # Relay supports gzip; auto-disables if relay returns 415
+
+logging:
+  level: "INFO"
+  file: "instrumentation/data/stock/instrumentation.log"
+  max_size_mb: 50
+  backup_count: 3

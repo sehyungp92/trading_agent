@@ -8,12 +8,19 @@ dependencies = []
 [dependency-groups]
 dev = [
   "pytest>=8.3",
+  "pytest-asyncio>=1.1",
   "ruff>=0.9",
 ]
 
 [tool.uv.workspace]
 members = ["packages/*", "bots/*"]
-exclude = ["_references/*"]
+exclude = ["_*", "bots/*/_*"]
+
+[tool.uv.sources]
+trading-assistant = { workspace = true }
+trading-assistant-backtest = { workspace = true }
+trading-config = { workspace = true }
+trading-contracts = { workspace = true }
 
 [tool.ruff]
 target-version = "py312"
@@ -33,6 +40,12 @@ branch_protection_required_checks = [
   "contracts",
   "baselines",
   "live-configs",
+  "decision-parity",
+  "optimizer-compatibility",
+  "backtest-integrity",
+  "deployment-gate",
+  "deployment-metadata",
   "affected-images",
   "docker",
+  "strict-refactor-acceptance",
 ]

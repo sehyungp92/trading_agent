@@ -1,0 +1,184 @@
+services:
+  # ---------------------------------------------------------------
+  # PostgreSQL — structured storage for trades, equity, positions
+  # ---------------------------------------------------------------
+  postgres:
+    image: postgres:16-alpine
+    container_name: crypto-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: trading
+      POSTGRES_USER: trading_admin
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set}
+      POSTGRES_READER_PASSWORD: ${POSTGRES_READER_PASSWORD:?POSTGRES_READER_PASSWORD must be set}
+      POSTGRES_WRITER_PASSWORD: ${POSTGRES_WRITER_PASSWORD:?POSTGRES_WRITER_PASSWORD must be set}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./infra/postgres/init-db.sh:/docker-entrypoint-initdb.d/00-init-db.sh
+      - ./infra/postgres/migrations:/docker-entrypoint-initdb.d/migrations
+    ports:
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U trading_admin -d trading"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    logging:
+      driver: json-file
+      options:
+        max-size: "20m"
+        max-file: "3"
+
+  # ---------------------------------------------------------------
+  # Paper/Live trading engine
+  # ---------------------------------------------------------------
+  trader:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crypto-trader
+    restart: unless-stopped
+    entrypoint: ["crypto-trader", "paper"]
+    command: ["--config", "/app/config/live_config.json"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      # Persistent data (candles, funding, state)
+      - trader-data:/app/data
+      # Config with secrets (bind mount, read-only)
+      - ./config/live_config.json:/app/config/live_config.json:ro
+      # Portfolio config (optional)
+      - ./config/portfolio_config.json:/app/config/portfolio_config.json:ro
+      # Strategy optimized configs
+      - ./config/strategies:/app/config/strategies:ro
+      # Output directory for logs/reports
+      - trader-output:/app/output
+      # Promoted portfolio round 3 bundle (deployment source of truth)
+      - ./output/portfolio/round_3:/app/output/portfolio/round_3:ro
+      - ./output/portfolio/rounds_manifest.json:/app/output/portfolio/rounds_manifest.json:ro
+    environment:
+      - TZ=UTC
+      - PYTHONUNBUFFERED=1
+      - POSTGRES_DSN=postgresql://trading_writer:${POSTGRES_WRITER_PASSWORD:?POSTGRES_WRITER_PASSWORD must be set}@postgres:5432/trading
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "5"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import crypto_trader; print('ok')"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  # ---------------------------------------------------------------
+  # Periodic data refresh (candles + funding)
+  # ---------------------------------------------------------------
+  data-refresh:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crypto-data-refresh
+    entrypoint: ["python", "scripts/refresh_data.py"]
+    volumes:
+      - trader-data:/app/data
+    environment:
+      - TZ=UTC
+      - PYTHONUNBUFFERED=1
+    # Run once then exit — restarted by cron or systemd timer
+    restart: "no"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ---------------------------------------------------------------
+  # Backtest runner (on-demand)
+  # ---------------------------------------------------------------
+  backtest:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crypto-backtest
+    entrypoint: ["crypto-trader", "backtest"]
+    volumes:
+      - trader-data:/app/data
+      - trader-output:/app/output
+    environment:
+      - TZ=UTC
+      - PYTHONUNBUFFERED=1
+    profiles:
+      - tools   # Only starts with: docker compose --profile tools run backtest
+    restart: "no"
+
+  # ---------------------------------------------------------------
+  # Optimization runner (on-demand)
+  # ---------------------------------------------------------------
+  optimize:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crypto-optimize
+    entrypoint: ["crypto-trader", "optimize"]
+    volumes:
+      - trader-data:/app/data
+      - trader-output:/app/output
+    environment:
+      - TZ=UTC
+      - PYTHONUNBUFFERED=1
+    profiles:
+      - tools
+    restart: "no"
+
+  # ---------------------------------------------------------------
+  # Dashboard — real-time monitoring at localhost:3000
+  # ---------------------------------------------------------------
+  dashboard:
+    build:
+      context: ./infra/dashboard
+      dockerfile: Dockerfile
+    container_name: crypto-dashboard
+    restart: unless-stopped
+    environment:
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_NAME: trading
+      DB_USER: trading_reader
+      DB_PASSWORD: ${POSTGRES_READER_PASSWORD:?POSTGRES_READER_PASSWORD must be set}
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ---------------------------------------------------------------
+  # Auto-update (optional — pulls new images)
+  # ---------------------------------------------------------------
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_POLL_INTERVAL=86400   # check daily
+      - WATCHTOWER_LABEL_ENABLE=true
+    restart: unless-stopped
+    profiles:
+      - monitoring
+
+volumes:
+  postgres-data:
+    name: crypto-postgres-data
+  trader-data:
+    name: crypto-trader-data
+  trader-output:
+    name: crypto-trader-output

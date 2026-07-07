@@ -1,0 +1,55 @@
+{
+  "fixture_scope": "bounded_production_derived",
+  "notes": [
+    "This fixture is bounded and hash-referenced; it does not mutate production bridge contracts.",
+    "Production promotion remains blocked until live metadata and learning sufficiency are authoritative."
+  ],
+  "pilot_bridge_id": "trading_stock_family",
+  "schema_version": "ptg7_production_derived_fixture_window_v1",
+  "selected_from_existing_artifacts": true,
+  "source_evidence": [
+    {
+      "exists": true,
+      "name": "bridge_readiness_report",
+      "path": "artifacts/validation/bridge_readiness/bridge_readiness_report.json",
+      "sha256": "71e2a39aa0286332c6e1587b0d1067042af49575348da6dcde067fa378aca61a"
+    },
+    {
+      "exists": true,
+      "name": "strategy_plugin_contract",
+      "path": "contracts/strategy_plugins/trading_stock_family/strategy_plugin_contract.json",
+      "sha256": "feec4e326885ef4e3608507f76058cb7ce2ca033f72fc07b5144e12538da8a21"
+    },
+    {
+      "exists": true,
+      "name": "deployment_metadata",
+      "path": "contracts/strategy_plugins/trading_stock_family/deployment_metadata.json",
+      "sha256": "8f23e10523257c901572690a641b489b4ef1d3c840e1edd6b921a5779380b205"
+    },
+    {
+      "exists": true,
+      "name": "decision_parity_summary",
+      "path": "artifacts/validation/decision_parity_matrix/trading_stock_family/decision_parity/decision_parity_validation_summary.json",
+      "sha256": "4120975383220326a21d6321e2f285cae1b44447d290cf1a269375f5ba032420"
+    },
+    {
+      "exists": true,
+      "name": "decision_parity_report",
+      "path": "artifacts/validation/decision_parity_matrix/trading_stock_family/decision_parity/decision_parity_report.json",
+      "sha256": "7d36e85a5b9405b58693a3eb98404be347f1cfa00e3bc1bc3ef9e60eb8c59610"
+    },
+    {
+      "exists": true,
+      "name": "learning_sufficiency_manifest",
+      "path": "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_stock_family/learning_sufficiency_manifest.json",
+      "sha256": "104442b24a821c65936154f8153aab90bd6a3326525e8f85ccfe924794acd430"
+    },
+    {
+      "exists": true,
+      "name": "performance_learning_ledger",
+      "path": "packages/trading_assistant/memory/findings/performance_learning_ledger.jsonl",
+      "sha256": "45012bdf77f2cc8b6f44d02c694b15d07ccae69c29e803f7cd23e3e721c93cb7"
+    }
+  ],
+  "status": "pass"
+}

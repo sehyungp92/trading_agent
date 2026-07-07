@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter
+import re
 import subprocess
 import sys
 import tomllib
@@ -10,6 +12,22 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+REQUIRED_BRANCH_PROTECTION_CHECKS = (
+    "repo-bootstrap",
+    "workspace-lock",
+    "workspace-imports",
+    "contracts",
+    "baselines",
+    "live-configs",
+    "decision-parity",
+    "optimizer-compatibility",
+    "backtest-integrity",
+    "deployment-gate",
+    "deployment-metadata",
+    "affected-images",
+    "docker",
+    "strict-refactor-acceptance",
+)
 
 
 def run(command: list[str]) -> subprocess.CompletedProcess[str]:
@@ -90,17 +108,6 @@ def check_git(strict_remote: bool) -> int:
         else:
             warn("git.remote.reachable", "origin HEAD is not reachable in non-strict mode")
 
-    references = ROOT / "_references"
-    nested = [
-        path / ".git"
-        for path in references.iterdir()
-        if path.is_dir() and path.joinpath(".git").is_dir()
-    ] if references.exists() else []
-    if nested:
-        warn(
-            "git.nested_reference_repositories",
-            f"{len(nested)} nested reference repos remain migration input",
-        )
     return failures
 
 
@@ -114,6 +121,7 @@ def check_files() -> int:
         "pyproject.toml",
         "tools/check_repo_bootstrap.py",
         "tools/workspace_lock_check.py",
+        "tools/workspace_import_smoke.py",
         "tools/detect_affected_images.py",
         "uv.lock",
     ]
@@ -158,13 +166,33 @@ def check_pyproject() -> int:
         failures += 1
 
     checks = bootstrap.get("branch_protection_required_checks", [])
-    expected_checks = {"repo-bootstrap", "workspace-lock", "affected-images"}
-    missing_checks = sorted(expected_checks.difference(checks))
-    if missing_checks:
+    declared_checks = [item.strip() for item in checks if isinstance(item, str)]
+    malformed_checks = len(declared_checks) != len(checks) or any(not item for item in declared_checks)
+    duplicate_checks = sorted(
+        item for item, count in Counter(declared_checks).items() if count > 1
+    )
+    expected_checks = set(REQUIRED_BRANCH_PROTECTION_CHECKS)
+    declared_check_set = set(declared_checks)
+    missing_checks = sorted(expected_checks.difference(declared_check_set))
+    if malformed_checks:
+        fail("bootstrap.branch_protection", "required checks must be non-empty strings")
+        failures += 1
+    elif duplicate_checks:
+        fail("bootstrap.branch_protection", f"duplicate required checks: {duplicate_checks}")
+        failures += 1
+    elif missing_checks:
         fail("bootstrap.branch_protection", f"missing required checks: {missing_checks}")
         failures += 1
     else:
         ok("bootstrap.branch_protection", "required checks selected")
+    workflow_jobs = workflow_job_names(ROOT / ".github" / "workflows" / "ci.yml")
+    checks_for_ci = declared_check_set or expected_checks
+    missing_workflow_jobs = sorted(checks_for_ci.difference(workflow_jobs))
+    if missing_workflow_jobs:
+        fail("bootstrap.ci_required_jobs", f"missing workflow jobs: {missing_workflow_jobs}")
+        failures += 1
+    else:
+        ok("bootstrap.ci_required_jobs", "required checks are present in CI")
 
     policy_path = bootstrap.get("artifact_policy")
     if policy_path and (ROOT / policy_path).exists():
@@ -173,6 +201,17 @@ def check_pyproject() -> int:
         fail("bootstrap.artifact_policy", "artifact policy path is missing")
         failures += 1
     return failures
+
+
+def workflow_job_names(path: Path) -> set[str]:
+    if not path.exists():
+        return set()
+    text = path.read_text(encoding="utf-8")
+    return {
+        match.group(1)
+        for match in re.finditer(r"(?m)^  ([A-Za-z0-9_-]+):\s*$", text)
+        if match.group(1) != "steps"
+    }
 
 
 def check_artifact_policy() -> int:

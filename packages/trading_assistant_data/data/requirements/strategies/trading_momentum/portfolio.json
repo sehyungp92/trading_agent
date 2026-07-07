@@ -1,0 +1,17 @@
+{
+  "schema_version": "strategy_data_requirements_v1",
+  "requirements": [
+    {
+      "source": "ibkr",
+      "market": "cme_futures",
+      "symbol": "NQ",
+      "timeframe": "5m"
+    },
+    {
+      "source": "ibkr",
+      "market": "cme_futures",
+      "symbol": "ES",
+      "timeframe": "1d"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "monthly-acceptance-run-1",
+  "artifact_root": "packages/trading_assistant/memory/findings/performance_learning_acceptance",
+  "index_version": "backtest_artifact_index_v1",
+  "artifacts": {
+    "monthly_search_brief.json": "packages/trading_assistant/memory/findings/performance_learning_acceptance/monthly_search_brief.json",
+    "learning_sufficiency_manifest.json": "packages/trading_assistant/memory/findings/performance_learning_acceptance/learning_sufficiency_manifest.json",
+    "outcome_priors_snapshot.json": "packages/trading_assistant/memory/findings/performance_learning_acceptance/outcome_priors_snapshot.json",
+    "monthly_evidence_verification.json": "packages/trading_assistant/memory/findings/performance_learning_acceptance/monthly_evidence_verification.json",
+    "portfolio_synergy.json": "packages/trading_assistant/memory/findings/performance_learning_acceptance/portfolio_rolling_metrics.json"
+  }
+}

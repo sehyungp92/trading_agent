@@ -1,0 +1,128 @@
+{
+  "assistant_packages_present": false,
+  "bot": "crypto",
+  "compose": "deployments/crypto/docker-compose.yml",
+  "dependencies": [
+    "hyperliquid-python-sdk>=0.4",
+    "pandas>=2.1",
+    "pyarrow>=15.0",
+    "numpy>=1.26",
+    "click>=8.1",
+    "pydantic>=2.6",
+    "structlog>=24.0",
+    "PyYAML>=6.0"
+  ],
+  "dockerfile": "bots/crypto_trader/Dockerfile",
+  "image_build": {
+    "build": {
+      "command": [
+        "docker",
+        "build",
+        "-f",
+        "bots/crypto_trader/Dockerfile",
+        "-t",
+        "trading-agent-crypto:acceptance",
+        "."
+      ],
+      "returncode": 0,
+      "stderr_tail": [
+        "",
+        "#12 [7/9] COPY bots/crypto_trader/src /app/bots/crypto_trader/src",
+        "#12 CACHED",
+        "",
+        "#13 [9/9] WORKDIR /app/bots/crypto_trader",
+        "#13 CACHED",
+        "",
+        "#14 exporting to image",
+        "#14 exporting layers",
+        "#14 exporting layers 102.4s done",
+        "#14 exporting manifest sha256:31cdc7ae29e61c11ba26175bf7dfce2de3c712f151f214d4068f75b392bb1911 0.1s done",
+        "#14 exporting config sha256:1dcec2d27af93c4ed24cde873361d4cf9dc971f522aa3c73bb4045a9d011a590 0.1s done",
+        "#14 exporting attestation manifest sha256:4ca7f0b0e0fad0786696296eaa4e735553ddd0a34a8f7560c68960c5ae95a484",
+        "#14 exporting attestation manifest sha256:4ca7f0b0e0fad0786696296eaa4e735553ddd0a34a8f7560c68960c5ae95a484 0.2s done",
+        "#14 exporting manifest list sha256:13878dc91a9fb534939476c6bc51da290efd47b9a8498792ee3ee4b182eed231",
+        "#14 exporting manifest list sha256:13878dc91a9fb534939476c6bc51da290efd47b9a8498792ee3ee4b182eed231 0.1s done",
+        "#14 naming to docker.io/library/trading-agent-crypto:acceptance 0.0s done",
+        "#14 unpacking to docker.io/library/trading-agent-crypto:acceptance",
+        "#14 unpacking to docker.io/library/trading-agent-crypto:acceptance 40.3s done",
+        "#14 DONE 143.9s"
+      ],
+      "stdout_tail": []
+    },
+    "build_command": [
+      "docker",
+      "build",
+      "-f",
+      "bots/crypto_trader/Dockerfile",
+      "-t",
+      "trading-agent-crypto:acceptance",
+      "."
+    ],
+    "entrypoint_smoke": {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "trading-agent-crypto:acceptance",
+        "crypto-trader",
+        "--help"
+      ],
+      "returncode": 0,
+      "stderr_tail": [],
+      "stdout_tail": [
+        "Usage: crypto-trader [OPTIONS] COMMAND [ARGS]...",
+        "",
+        "  Crypto Trader \u2014 Hyperliquid perpetual futures trading system.",
+        "",
+        "Options:",
+        "  --help  Show this message and exit.",
+        "",
+        "Commands:",
+        "  admin                     Operator tools for durable live OMS state.",
+        "  backtest                  Run a backtest with the specified strategy.",
+        "  download                  Download historical candle and funding data...",
+        "  emit-deployment-metadata  Emit approval metadata through the runtime...",
+        "  optimize                  Run phased auto-optimization of the specified...",
+        "  paper                     Run paper trading on Hyperliquid testnet.",
+        "  paper-status              Show current positions, orders, and equity...",
+        "  parity-gate               Evaluate promotion/deployment gates from a...",
+        "  parity-report             Build a parity report from recorded canonical...",
+        "  status                    Show live system status from the latest..."
+      ]
+    },
+    "entrypoint_smoke_command": [
+      "docker",
+      "run",
+      "--rm",
+      "trading-agent-crypto:acceptance",
+      "crypto-trader",
+      "--help"
+    ],
+    "runtime_import_smoke": {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "trading-agent-crypto:acceptance",
+        "python",
+        "-c",
+        "import crypto_trader; import crypto_trader.cli"
+      ],
+      "returncode": 0,
+      "stderr_tail": [],
+      "stdout_tail": []
+    },
+    "runtime_import_smoke_command": [
+      "docker",
+      "run",
+      "--rm",
+      "trading-agent-crypto:acceptance",
+      "python",
+      "-c",
+      "import crypto_trader; import crypto_trader.cli"
+    ],
+    "status": "pass",
+    "tag": "trading-agent-crypto:acceptance"
+  },
+  "package": "crypto-trader"
+}

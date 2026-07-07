@@ -1,0 +1,12 @@
+{
+  "version": "hyperliquid_funding_v1",
+  "source": "Hyperliquid funding-history source snapshots",
+  "effective_date": "2026-05-30",
+  "markets_covered": ["crypto_perp"],
+  "instruments_covered": ["BTC", "ETH", "SOL"],
+  "formula": "Funding rows are stored as source rates with UTC timestamps. Runner-side PnL applies the rate to notional exposure.",
+  "known_limitations": [
+    "Historical source timestamps can have millisecond offsets around nominal funding boundaries."
+  ]
+}
+

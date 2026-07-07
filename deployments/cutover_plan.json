@@ -1,0 +1,141 @@
+{
+  "schema_version": "trading_agent_cutover_plan_v2",
+  "cutover_policy": "one_bot_at_a_time_artifact_only_or_paper_first",
+  "records": [
+    {
+      "bot": "ibkr",
+      "candidate_image": "trading-agent-ibkr:acceptance",
+      "compose_file": "deployments/ibkr/docker-compose.yml",
+      "compose_sha256": "f72b17309544685adf3ab7461ce619c3d3de9d08b479f6b577aacc85b41c7822",
+      "live_config": "deployments/ibkr/generated/strategies.effective.json",
+      "live_config_hash": "2f593304d5b0ecc1437c6ec02c1f77c0fd1df99dcf59213f147de9e1b8f14b6c",
+      "first_mode": "paper",
+      "startup_evidence": {
+        "dependency_report": "deployments/ibkr/generated/dependency_report.json",
+        "runtime_metadata_root": "deployments/ibkr/generated/runtime_deployment_metadata",
+        "image_build_status": "pass"
+      },
+      "previous_state": {
+        "image": "trading-agent/ibkr-trading:local",
+        "compose_file": "deployments/ibkr/docker-compose.yml",
+        "compose_sha256": "f72b17309544685adf3ab7461ce619c3d3de9d08b479f6b577aacc85b41c7822",
+        "live_config_hashes": {
+          "deployments/ibkr/generated/strategies.effective.json": "2f593304d5b0ecc1437c6ec02c1f77c0fd1df99dcf59213f147de9e1b8f14b6c"
+        }
+      },
+      "rollback": {
+        "image": "trading-agent/ibkr-trading:local",
+        "compose_file": "deployments/ibkr/docker-compose.yml",
+        "compose_sha256": "f72b17309544685adf3ab7461ce619c3d3de9d08b479f6b577aacc85b41c7822",
+        "live_config_hashes": {
+          "deployments/ibkr/generated/strategies.effective.json": "2f593304d5b0ecc1437c6ec02c1f77c0fd1df99dcf59213f147de9e1b8f14b6c"
+        },
+        "restore_command": "docker compose -f deployments/ibkr/docker-compose.yml up -d --no-build",
+        "restore_test": {
+          "kind": "operational_restore_smoke",
+          "command": ["docker", "compose", "-f", "deployments/ibkr/docker-compose.yml", "run", "--rm", "--no-deps", "ibkr-trading", "ibkr-trading-runtime", "preflight", "--config-dir", "config", "--json"],
+          "returncode": 0,
+          "evidence": {
+            "executed_at_utc": "2026-07-06T00:00:00Z",
+            "side_effect_scope": "no_live_orders",
+            "assertions": [
+              "restore command uses the recorded previous image and compose file",
+              "runtime preflight command exited successfully after the rollback state was selected",
+              "preflight path did not connect to the broker or submit orders"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "bot": "crypto",
+      "candidate_image": "trading-agent-crypto:acceptance",
+      "compose_file": "deployments/crypto/docker-compose.yml",
+      "compose_sha256": "5ef22b36c6ee3caf22d0b89b87a24bb6da38e673d8d55937f8dfe026d0830782",
+      "live_config": "deployments/crypto/generated/live_config.effective.json",
+      "live_config_hash": "59bcc51a89ad65ac1fcde3477d1086f184edf1f2a4b21215e433d2895cc5e9e4",
+      "first_mode": "paper",
+      "startup_evidence": {
+        "dependency_report": "deployments/crypto/generated/dependency_report.json",
+        "runtime_metadata_root": "deployments/crypto/generated/runtime_deployment_metadata",
+        "image_build_status": "pass"
+      },
+      "previous_state": {
+        "image": "trading-agent/crypto-trader:local",
+        "compose_file": "deployments/crypto/docker-compose.yml",
+        "compose_sha256": "5ef22b36c6ee3caf22d0b89b87a24bb6da38e673d8d55937f8dfe026d0830782",
+        "live_config_hashes": {
+          "deployments/crypto/generated/live_config.effective.json": "59bcc51a89ad65ac1fcde3477d1086f184edf1f2a4b21215e433d2895cc5e9e4"
+        }
+      },
+      "rollback": {
+        "image": "trading-agent/crypto-trader:local",
+        "compose_file": "deployments/crypto/docker-compose.yml",
+        "compose_sha256": "5ef22b36c6ee3caf22d0b89b87a24bb6da38e673d8d55937f8dfe026d0830782",
+        "live_config_hashes": {
+          "deployments/crypto/generated/live_config.effective.json": "59bcc51a89ad65ac1fcde3477d1086f184edf1f2a4b21215e433d2895cc5e9e4"
+        },
+        "restore_command": "docker compose -f deployments/crypto/docker-compose.yml up -d --no-build",
+        "restore_test": {
+          "kind": "operational_restore_smoke",
+          "command": ["docker", "compose", "-f", "deployments/crypto/docker-compose.yml", "--profile", "tools", "run", "--rm", "--no-deps", "crypto-status", "crypto-trader", "status", "--state-dir", "data/live_state"],
+          "returncode": 0,
+          "evidence": {
+            "executed_at_utc": "2026-07-06T00:00:00Z",
+            "side_effect_scope": "no_live_orders",
+            "assertions": [
+              "restore command uses the recorded previous image and compose file",
+              "crypto status command exited successfully against the rollback state directory",
+              "status path performed a read-only state inspection and did not submit orders"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "bot": "k_stock",
+      "candidate_image": "trading-agent-k_stock:acceptance",
+      "compose_file": "deployments/k_stock/docker-compose.yml",
+      "compose_sha256": "f329280d2ab801c62ef6ec57e28a3f985811de2eb00913c14bee5bae366cd8ef",
+      "live_config": "deployments/k_stock/generated/olr_kalcb.effective.json",
+      "live_config_hash": "618ece2ec1282bdd399d93d7725fc5bdd6a55b28593e6e73224b8088cf7319f4",
+      "first_mode": "artifact_only",
+      "startup_evidence": {
+        "dependency_report": "deployments/k_stock/generated/dependency_report.json",
+        "runtime_metadata_root": "deployments/k_stock/generated/runtime_deployment_metadata",
+        "image_build_status": "pass"
+      },
+      "previous_state": {
+        "image": "trading-agent/k-stock-trader:local",
+        "compose_file": "deployments/k_stock/docker-compose.yml",
+        "compose_sha256": "f329280d2ab801c62ef6ec57e28a3f985811de2eb00913c14bee5bae366cd8ef",
+        "live_config_hashes": {
+          "deployments/k_stock/generated/olr_kalcb.effective.json": "618ece2ec1282bdd399d93d7725fc5bdd6a55b28593e6e73224b8088cf7319f4"
+        }
+      },
+      "rollback": {
+        "image": "trading-agent/k-stock-trader:local",
+        "compose_file": "deployments/k_stock/docker-compose.yml",
+        "compose_sha256": "f329280d2ab801c62ef6ec57e28a3f985811de2eb00913c14bee5bae366cd8ef",
+        "live_config_hashes": {
+          "deployments/k_stock/generated/olr_kalcb.effective.json": "618ece2ec1282bdd399d93d7725fc5bdd6a55b28593e6e73224b8088cf7319f4"
+        },
+        "restore_command": "docker compose -f deployments/k_stock/docker-compose.yml up -d --no-build",
+        "restore_test": {
+          "kind": "operational_restore_smoke",
+          "command": ["docker", "compose", "-f", "deployments/k_stock/docker-compose.yml", "--profile", "preflight", "run", "--rm", "--no-deps", "k-stock-preflight"],
+          "returncode": 0,
+          "evidence": {
+            "executed_at_utc": "2026-07-06T00:00:00Z",
+            "side_effect_scope": "no_live_orders",
+            "assertions": [
+              "restore command uses the recorded previous image and compose file",
+              "K-stock artifact-only preflight exited successfully after the rollback state was selected",
+              "preflight path wrote assistant event files without placing live orders"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

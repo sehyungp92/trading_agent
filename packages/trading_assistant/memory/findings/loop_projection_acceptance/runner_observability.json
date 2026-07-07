@@ -1,0 +1,11 @@
+{
+  "acceptance_evidence": true,
+  "diagnostics_only": true,
+  "monthly_stage_status": {
+    "approval_suppressed": true,
+    "candidate_gates_evaluated": true,
+    "model_review_requested": true
+  },
+  "run_id": "monthly-loop-projection-acceptance-2026-06",
+  "stage": "monthly_validation_projection_acceptance"
+}

@@ -1,0 +1,17 @@
+{
+  "fixture_id": "momentum_chase_expired",
+  "symbol": "ETH",
+  "timeframe": "15m",
+  "timestamp": "2026-05-15T11:00:00+00:00",
+  "direction": "LONG",
+  "entry_price": 3200.0,
+  "atr": 40.0,
+  "bars_since_confirmation": 99,
+  "bar": {
+    "open": 3190.0,
+    "high": 3210.0,
+    "low": 3160.0,
+    "close": 3200.0,
+    "volume": 220.0
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "additionalProperties": true,
+  "description": "Draft or approved strategy promotion evidence.",
+  "properties": {
+    "approval": {
+      "additionalProperties": true,
+      "title": "Approval",
+      "type": "object"
+    },
+    "baseline_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": "",
+      "title": "Baseline Id"
+    },
+    "baseline_status": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": "",
+      "title": "Baseline Status"
+    },
+    "bot_id": {
+      "title": "Bot Id",
+      "type": "string"
+    },
+    "optimizer_round": {
+      "additionalProperties": true,
+      "title": "Optimizer Round",
+      "type": "object"
+    },
+    "promotion_state": {
+      "default": "draft",
+      "title": "Promotion State",
+      "type": "string"
+    },
+    "schema_version": {
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_live_config": {
+      "additionalProperties": true,
+      "title": "Source Live Config",
+      "type": "object"
+    },
+    "strategy_id": {
+      "title": "Strategy Id",
+      "type": "string"
+    },
+    "venue": {
+      "default": "",
+      "title": "Venue",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "bot_id",
+    "strategy_id"
+  ],
+  "title": "StrategyPromotionManifest",
+  "type": "object"
+}

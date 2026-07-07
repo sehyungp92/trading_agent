@@ -1,0 +1,117 @@
+{
+  "$defs": {
+    "DecisionParityCheck": {
+      "properties": {
+        "dimension": {
+          "title": "Dimension",
+          "type": "string"
+        },
+        "evidence_paths": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Paths",
+          "type": "array"
+        },
+        "match_rate": {
+          "default": 0.0,
+          "title": "Match Rate",
+          "type": "number"
+        },
+        "mismatch_count": {
+          "default": 0,
+          "title": "Mismatch Count",
+          "type": "integer"
+        },
+        "notes": {
+          "default": "",
+          "title": "Notes",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/DecisionParityStatus",
+          "default": "insufficient_data"
+        }
+      },
+      "required": [
+        "dimension"
+      ],
+      "title": "DecisionParityCheck",
+      "type": "object"
+    },
+    "DecisionParityStatus": {
+      "enum": [
+        "pass",
+        "fail",
+        "insufficient_data"
+      ],
+      "title": "DecisionParityStatus",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "backtest_adapter_commit_sha": {
+      "default": "",
+      "title": "Backtest Adapter Commit Sha",
+      "type": "string"
+    },
+    "candidate_id": {
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "checks": {
+      "items": {
+        "$ref": "#/$defs/DecisionParityCheck"
+      },
+      "title": "Checks",
+      "type": "array"
+    },
+    "evidence_paths": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Paths",
+      "type": "array"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "live_repo_commit_sha": {
+      "default": "",
+      "title": "Live Repo Commit Sha",
+      "type": "string"
+    },
+    "min_required_match_rate": {
+      "default": 1.0,
+      "title": "Min Required Match Rate",
+      "type": "number"
+    },
+    "report_version": {
+      "default": "decision_parity_report_v1",
+      "title": "Report Version",
+      "type": "string"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/DecisionParityStatus",
+      "default": "insufficient_data"
+    },
+    "strategy_plugin_id": {
+      "default": "",
+      "title": "Strategy Plugin Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "candidate_id",
+    "checks"
+  ],
+  "title": "DecisionParityReport",
+  "type": "object"
+}

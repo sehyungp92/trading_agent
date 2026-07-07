@@ -1,0 +1,8 @@
+{
+  "acceptance_evidence": true,
+  "blocking_findings": [],
+  "candidate_id": "acceptance-candidate",
+  "recommended_action": "route_approval",
+  "run_id": "monthly-loop-projection-acceptance-2026-06",
+  "verdict": "pass"
+}

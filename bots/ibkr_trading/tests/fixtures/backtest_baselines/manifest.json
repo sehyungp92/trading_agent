@@ -1,0 +1,61 @@
+{
+  "artifacts": [
+    {
+      "id": "momentum_downturn_round_1_final_diagnostics",
+      "artifact_path": "backtests/output/momentum/downturn/round_1/round_final_diagnostics.txt",
+      "parser_kind": "downturn_summary",
+      "sha256": "206FDD5B156551533895BB77549B0FF1A0F8DCD1244317795E0F7419EE4AAAAD",
+      "expected_metrics": {
+        "total_trades": 119.0,
+        "win_rate_pct": 42.0,
+        "profit_factor": 1.27,
+        "net_return_pct": 30.0,
+        "max_drawdown_pct": 29.2,
+        "correction_pnl_pct": 51.75
+      },
+      "regeneration": {
+        "executor": "manual",
+        "entrypoint": "backtests/momentum/auto/downturn",
+        "arguments": [],
+        "expected_output": "backtests/output/momentum/downturn/round_1/round_final_diagnostics.txt",
+        "notes": "Frozen canonical artifact used to keep the baseline gate active. Regenerate with the promoted Downturn round-1 diagnostics workflow before accepting intentional metric drift."
+      }
+    },
+    {
+      "id": "momentum_nqdtc_round_1_post_ioc_final_diagnostics",
+      "artifact_path": "backtests/output/momentum/nqdtc/round_1/round_final_diagnostics.txt",
+      "parser_kind": "nqdtc_round_final_diagnostics",
+      "sha256": "8CA279100743450110693E8DE3059885D13B9E4F0BDC471629155591AD0317F2",
+      "expected_metrics": {
+        "total_trades": 97.0,
+        "win_rate_pct": 58.8,
+        "profit_factor": 1.89,
+        "net_return_pct": 241.2,
+        "max_drawdown_pct": 15.19,
+        "sharpe": 1.65,
+        "calmar": 15.88
+      },
+      "regeneration": {
+        "executor": "python_module",
+        "entrypoint": "backtests.momentum.auto.nqdtc.run_final_diagnostics",
+        "arguments": [
+          "--round",
+          "1",
+          "--phase-state",
+          "backtests/output/momentum/nqdtc/round_1/phase_state.json",
+          "--output",
+          "backtests/output/momentum/nqdtc/round_1/round_final_diagnostics.txt",
+          "--data-dir",
+          "backtests/momentum/data/raw",
+          "--equity",
+          "10000",
+          "--max-workers",
+          "1"
+        ],
+        "expected_output": "backtests/output/momentum/nqdtc/round_1/round_final_diagnostics.txt",
+        "verified_post_ioc": true,
+        "notes": "Regenerated from the promoted round-1 phase state with the current B-sweep marketable IOC-limit fill model and verified by the manifest regeneration command."
+      }
+    }
+  ]
+}

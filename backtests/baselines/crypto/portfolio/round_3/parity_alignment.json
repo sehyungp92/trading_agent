@@ -1,0 +1,76 @@
+{
+  "status": "matched",
+  "created_at": "2026-05-27T20:48:40.319875+00:00",
+  "profile": {
+    "profile_id": "live_parity_v1",
+    "symbols": [
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "initial_equity": 10000.0,
+    "taker_fee_bps": 4.5,
+    "maker_fee_bps": 1.0,
+    "slippage_bps": 2.0,
+    "spread_bps": 1.0,
+    "train_pct": 0.7,
+    "apply_funding": true,
+    "warmup_days": 60,
+    "terminal_accounting_mode": "terminal_mark"
+  },
+  "terminal_accounting_mode": "terminal_mark",
+  "source_candidate": "extended_body108_scorea250_breakbody0715_riskall_1.4",
+  "live_config_example": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\crypto_trader\\config\\live_config.example.json",
+  "deployment_model": "live_config_example_points_to_portfolio_round_3_bundle",
+  "bundle_paths": {
+    "portfolio_config_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\crypto_trader\\output\\portfolio\\round_3\\recommended_portfolio_config.json",
+    "strategy_config_paths": {
+      "momentum": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\crypto_trader\\output\\portfolio\\round_3\\recommended_strategy_configs\\momentum.json",
+      "trend": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\crypto_trader\\output\\portfolio\\round_3\\recommended_strategy_configs\\trend.json",
+      "breakout": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\crypto_trader\\output\\portfolio\\round_3\\recommended_strategy_configs\\breakout.json"
+    }
+  },
+  "portfolio_metric_replay": {
+    "status": "matched",
+    "deltas": {
+      "net_return_pct": 0.0,
+      "net_profit": 0.0,
+      "realized_pnl_net": 0.0,
+      "terminal_mark_pnl_net": 0.0,
+      "total_trades": 0.0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown_pct": 0.0,
+      "sharpe_ratio": 0.0,
+      "calmar_ratio": 0.0,
+      "exit_efficiency": 0.0
+    },
+    "max_abs_delta": 0.0,
+    "tolerance": 1e-09
+  },
+  "live_config_hashes": {
+    "portfolio": {
+      "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\crypto_trader\\output\\portfolio\\round_3\\recommended_portfolio_config.json",
+      "hash": "7faa6556e49d45ef4b8f1de45c80e11288e59d6f3591ac24f7e5f50ac79d6924",
+      "status": "matched"
+    },
+    "strategies": {
+      "momentum": {
+        "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\crypto_trader\\output\\portfolio\\round_3\\recommended_strategy_configs\\momentum.json",
+        "hash": "23e2ac0a463e02cc1c7358eff30d4b801397a7d4329804edb7e5c3effcbeab9d",
+        "status": "matched"
+      },
+      "trend": {
+        "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\crypto_trader\\output\\portfolio\\round_3\\recommended_strategy_configs\\trend.json",
+        "hash": "bd080036447f692b87982e63a95c132cb514bc36fd59a6a629b446373294e931",
+        "status": "matched"
+      },
+      "breakout": {
+        "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\crypto_trader\\output\\portfolio\\round_3\\recommended_strategy_configs\\breakout.json",
+        "hash": "423992e9019877752e5d79151c71dd42fe21b232776e2fbff05f9257760b8e5c",
+        "status": "matched"
+      }
+    }
+  }
+}

@@ -1,0 +1,347 @@
+{
+  "adapter_runner": "trading_optimizer.phase_runner_adapters.LegacyPhaseRunnerAdapter",
+  "comparisons": [
+    {
+      "adapter_hash": "ab07fc06a3ef08a93f8363f191daacb24ba2809ca4a1b633b0fd24b4f1eaed4c",
+      "dimension": "cumulative_mutations",
+      "legacy_hash": "ab07fc06a3ef08a93f8363f191daacb24ba2809ca4a1b633b0fd24b4f1eaed4c",
+      "notes": "same-input legacy runner and shared adapter runner outputs match",
+      "status": "pass"
+    },
+    {
+      "adapter_hash": "7d6fe95866239ae866dbf2c76c32e19cb1e61e05b08ae1ecc9ddd038084d0dac",
+      "dimension": "gate_decisions",
+      "legacy_hash": "7d6fe95866239ae866dbf2c76c32e19cb1e61e05b08ae1ecc9ddd038084d0dac",
+      "notes": "same-input legacy runner and shared adapter runner outputs match",
+      "status": "pass"
+    },
+    {
+      "adapter_hash": "266ee2e5e4417951d94d135508e032b2aacc1a4ab493fd08687bbb5a7b7c9532",
+      "dimension": "selected_candidates",
+      "legacy_hash": "266ee2e5e4417951d94d135508e032b2aacc1a4ab493fd08687bbb5a7b7c9532",
+      "notes": "same-input legacy runner and shared adapter runner outputs match",
+      "status": "pass"
+    },
+    {
+      "adapter_hash": "05e0c78a97a7b1b66c7f178c0e0762319e89f21907398f7540a16a7a5d974607",
+      "dimension": "canonical_round_outputs",
+      "legacy_hash": "05e0c78a97a7b1b66c7f178c0e0762319e89f21907398f7540a16a7a5d974607",
+      "notes": "same-input legacy runner and shared adapter runner outputs match",
+      "status": "pass"
+    }
+  ],
+  "errors": [],
+  "execution_evidence": {
+    "adapter_command": {
+      "command": [
+        "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/run_optimizer_equivalence_fixture.py",
+        "--scope",
+        "trading_swing_family",
+        "--fixture-set",
+        "smoke",
+        "--runner",
+        "adapter",
+        "--result-path",
+        "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/validation/optimizer_compatibility/_runner_results/trading_swing_family.smoke.adapter.json"
+      ],
+      "result_path": "artifacts/validation/optimizer_compatibility/_runner_results/trading_swing_family.smoke.adapter.json",
+      "returncode": 0,
+      "stderr_tail": [],
+      "stdout_tail": []
+    },
+    "compared_payloads": {
+      "canonical_round_outputs": {
+        "adapter": {
+          "1": {
+            "accepted_count": 2,
+            "adoption_reason": "gate_passed",
+            "analysis": {
+              "diagnostic_gaps": [],
+              "extra": {},
+              "goal_progress": {
+                "score": {
+                  "actual": 1.3,
+                  "pct_of_target": 130.0,
+                  "target": 1.0
+                }
+              },
+              "phase": 1,
+              "recommendation": "advance",
+              "recommendation_reason": "Gate passed.",
+              "report": "======================================================================\nPHASE 1 ANALYSIS\n======================================================================\n\nRecommendation: advance\nReason: Gate passed.\nScoring assessment: EFFECTIVE\n\nStrengths:\n  + score: 1.3000 (130% of 1.0000)\n\nGoal Progress:\n  score: 1.3000 / 1.0000 (130%)",
+              "scoring_assessment": "EFFECTIVE",
+              "scoring_weight_overrides": null,
+              "strengths": [
+                "score: 1.3000 (130% of 1.0000)"
+              ],
+              "suggested_experiments": [],
+              "weaknesses": []
+            },
+            "applied_phase_mutations": true,
+            "attempted_accepted_count": 2,
+            "attempted_final_metrics": {
+              "score": 1.3
+            },
+            "attempted_final_mutations": {
+              "alpha": 1,
+              "base": 1,
+              "beta": 2
+            },
+            "attempted_final_score": 1.4000000000000001,
+            "attempted_kept_features": [
+              "beta",
+              "alpha"
+            ],
+            "base_mutations": {
+              "base": 1
+            },
+            "base_score": 1.2000000000000002,
+            "final_metrics": {
+              "score": 1.3
+            },
+            "final_mutations": {
+              "alpha": 1,
+              "base": 1,
+              "beta": 2
+            },
+            "final_score": 1.4000000000000001,
+            "focus": "fixture",
+            "kept_features": [
+              "beta",
+              "alpha"
+            ],
+            "new_mutations": {
+              "alpha": 1,
+              "beta": 2
+            },
+            "rounds": [
+              {
+                "best_delta_pct": 16.66666666666664,
+                "best_name": "beta",
+                "best_score": 1.4,
+                "candidates_tested": 2,
+                "kept": true,
+                "rejected_count": 0,
+                "round_num": 1
+              },
+              {
+                "best_delta_pct": 1.5860328923216522e-14,
+                "best_name": "alpha",
+                "best_score": 1.4000000000000001,
+                "candidates_tested": 1,
+                "kept": true,
+                "rejected_count": 0,
+                "round_num": 2
+              }
+            ],
+            "suggested_experiments": [],
+            "total_candidates": 2
+          }
+        },
+        "legacy": {
+          "1": {
+            "accepted_count": 2,
+            "adoption_reason": "gate_passed",
+            "analysis": {
+              "diagnostic_gaps": [],
+              "extra": {},
+              "goal_progress": {
+                "score": {
+                  "actual": 1.3,
+                  "pct_of_target": 130.0,
+                  "target": 1.0
+                }
+              },
+              "phase": 1,
+              "recommendation": "advance",
+              "recommendation_reason": "Gate passed.",
+              "report": "======================================================================\nPHASE 1 ANALYSIS\n======================================================================\n\nRecommendation: advance\nReason: Gate passed.\nScoring assessment: EFFECTIVE\n\nStrengths:\n  + score: 1.3000 (130% of 1.0000)\n\nGoal Progress:\n  score: 1.3000 / 1.0000 (130%)",
+              "scoring_assessment": "EFFECTIVE",
+              "scoring_weight_overrides": null,
+              "strengths": [
+                "score: 1.3000 (130% of 1.0000)"
+              ],
+              "suggested_experiments": [],
+              "weaknesses": []
+            },
+            "applied_phase_mutations": true,
+            "attempted_accepted_count": 2,
+            "attempted_final_metrics": {
+              "score": 1.3
+            },
+            "attempted_final_mutations": {
+              "alpha": 1,
+              "base": 1,
+              "beta": 2
+            },
+            "attempted_final_score": 1.4000000000000001,
+            "attempted_kept_features": [
+              "beta",
+              "alpha"
+            ],
+            "base_mutations": {
+              "base": 1
+            },
+            "base_score": 1.2000000000000002,
+            "final_metrics": {
+              "score": 1.3
+            },
+            "final_mutations": {
+              "alpha": 1,
+              "base": 1,
+              "beta": 2
+            },
+            "final_score": 1.4000000000000001,
+            "focus": "fixture",
+            "kept_features": [
+              "beta",
+              "alpha"
+            ],
+            "new_mutations": {
+              "alpha": 1,
+              "beta": 2
+            },
+            "rounds": [
+              {
+                "best_delta_pct": 16.66666666666664,
+                "best_name": "beta",
+                "best_score": 1.4,
+                "candidates_tested": 2,
+                "kept": true,
+                "rejected_count": 0,
+                "round_num": 1
+              },
+              {
+                "best_delta_pct": 1.5860328923216522e-14,
+                "best_name": "alpha",
+                "best_score": 1.4000000000000001,
+                "candidates_tested": 1,
+                "kept": true,
+                "rejected_count": 0,
+                "round_num": 2
+              }
+            ],
+            "suggested_experiments": [],
+            "total_candidates": 2
+          }
+        }
+      },
+      "cumulative_mutations": {
+        "adapter": {
+          "alpha": 1,
+          "base": 1,
+          "beta": 2
+        },
+        "legacy": {
+          "alpha": 1,
+          "base": 1,
+          "beta": 2
+        }
+      },
+      "gate_decisions": {
+        "adapter": {
+          "1": {
+            "criteria": [
+              {
+                "actual": 1.3,
+                "name": "score",
+                "passed": true,
+                "target": 1.0
+              }
+            ],
+            "failure_category": null,
+            "passed": true,
+            "recommendations": []
+          }
+        },
+        "legacy": {
+          "1": {
+            "criteria": [
+              {
+                "actual": 1.3,
+                "name": "score",
+                "passed": true,
+                "target": 1.0
+              }
+            ],
+            "failure_category": null,
+            "passed": true,
+            "recommendations": []
+          }
+        }
+      },
+      "selected_candidates": {
+        "adapter": {
+          "1": {
+            "accepted_count": 2,
+            "adoption_reason": "gate_passed",
+            "kept_features": [
+              "beta",
+              "alpha"
+            ],
+            "new_mutations": {
+              "alpha": 1,
+              "beta": 2
+            }
+          }
+        },
+        "legacy": {
+          "1": {
+            "accepted_count": 2,
+            "adoption_reason": "gate_passed",
+            "kept_features": [
+              "beta",
+              "alpha"
+            ],
+            "new_mutations": {
+              "alpha": 1,
+              "beta": 2
+            }
+          }
+        }
+      }
+    },
+    "input_hashes": {
+      "fixture": "7b125f6dbda0e58c14e2b157622e0b584c8d71b017021bbe4bd11e73e4a10a55",
+      "legacy_runner_source": "8bb6a2e81da4a7cf9088e08ef3dede12c60677bcc3dae15fcafee5d675a1fd99",
+      "shared_adapter_source": "fb34a77087e015a89d7e2364ff82693578ecf556765c717e7989430d435b77ea"
+    },
+    "legacy_command": {
+      "command": [
+        "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/run_optimizer_equivalence_fixture.py",
+        "--scope",
+        "trading_swing_family",
+        "--fixture-set",
+        "smoke",
+        "--runner",
+        "legacy",
+        "--result-path",
+        "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/validation/optimizer_compatibility/_runner_results/trading_swing_family.smoke.legacy.json"
+      ],
+      "result_path": "artifacts/validation/optimizer_compatibility/_runner_results/trading_swing_family.smoke.legacy.json",
+      "returncode": 0,
+      "stderr_tail": [],
+      "stdout_tail": []
+    },
+    "output_hashes": {
+      "adapter": "d3a8f2b6079367424934bf1c280b4c1b4e7a73f9806132984cdbff3311ba6f40",
+      "legacy": "d3a8f2b6079367424934bf1c280b4c1b4e7a73f9806132984cdbff3311ba6f40"
+    }
+  },
+  "fixture_set": "smoke",
+  "legacy_runner": "backtests.shared.auto.phase_runner.PhaseRunner",
+  "schema_version": "optimizer_runner_equivalence_matrix_v1",
+  "scope_id": "trading_swing_family",
+  "status": "pass",
+  "wrapped_legacy_runners": [
+    {
+      "bot": "ibkr",
+      "class_name": "PhaseRunner",
+      "module_path": "backtests.shared.auto.phase_runner",
+      "source_path": "bots/ibkr_trading/backtests/shared/auto/phase_runner.py",
+      "source_sha256": "8bb6a2e81da4a7cf9088e08ef3dede12c60677bcc3dae15fcafee5d675a1fd99"
+    }
+  ]
+}

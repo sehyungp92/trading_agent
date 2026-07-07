@@ -1,0 +1,15 @@
+# Experiment definitions for A/B tracking (#20)
+#
+# Example:
+# experiments:
+#   exp_001:
+#     hypothesis: "Tighter trailing stop improves Sharpe ratio"
+#     variants: ["control", "tight_trail"]
+#     start_date: "2026-03-15"
+#     end_date: "2026-04-15"
+#     strategy_type: "helix"
+#     primary_metric: "sharpe"
+#     secondary_metrics: ["win_rate", "avg_pnl", "max_dd"]
+#     min_trades_per_variant: 30
+
+experiments: {}

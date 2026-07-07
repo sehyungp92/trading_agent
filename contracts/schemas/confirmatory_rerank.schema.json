@@ -1,0 +1,159 @@
+{
+  "$defs": {
+    "ConfirmatoryVariant": {
+      "properties": {
+        "baseline_score": {
+          "default": 0.0,
+          "title": "Baseline Score",
+          "type": "number"
+        },
+        "candidate_id": {
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "deterministic_replay_passed": {
+          "default": false,
+          "title": "Deterministic Replay Passed",
+          "type": "boolean"
+        },
+        "evidence_paths": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Paths",
+          "type": "array"
+        },
+        "fold_support_passed": {
+          "default": false,
+          "title": "Fold Support Passed",
+          "type": "boolean"
+        },
+        "in_sample_delta": {
+          "default": 0.0,
+          "title": "In Sample Delta",
+          "type": "number"
+        },
+        "materially_degrades_in_sample": {
+          "default": false,
+          "title": "Materially Degrades In Sample",
+          "type": "boolean"
+        },
+        "objective_score": {
+          "default": 0.0,
+          "title": "Objective Score",
+          "type": "number"
+        },
+        "selection_oos_delta": {
+          "default": 0.0,
+          "title": "Selection Oos Delta",
+          "type": "number"
+        },
+        "source_candidate_id": {
+          "default": "",
+          "title": "Source Candidate Id",
+          "type": "string"
+        },
+        "variant_type": {
+          "default": "",
+          "title": "Variant Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_id"
+      ],
+      "title": "ConfirmatoryVariant",
+      "type": "object"
+    },
+    "MonthlyCandidateSource": {
+      "enum": [
+        "smoke_repair",
+        "phased_auto",
+        "model_review",
+        "unknown"
+      ],
+      "title": "MonthlyCandidateSource",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "adopted_candidate_id": {
+      "default": "",
+      "title": "Adopted Candidate Id",
+      "type": "string"
+    },
+    "adopted_source": {
+      "$ref": "#/$defs/MonthlyCandidateSource",
+      "default": "unknown"
+    },
+    "compared_candidate_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Compared Candidate Ids",
+      "type": "array"
+    },
+    "evidence_paths": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Paths",
+      "type": "array"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "no_adoption_reason": {
+      "default": "",
+      "title": "No Adoption Reason",
+      "type": "string"
+    },
+    "objective_version": {
+      "default": "objective_weights_v1",
+      "title": "Objective Version",
+      "type": "string"
+    },
+    "primary_candidate_id": {
+      "default": "",
+      "title": "Primary Candidate Id",
+      "type": "string"
+    },
+    "primary_source": {
+      "$ref": "#/$defs/MonthlyCandidateSource",
+      "default": "phased_auto"
+    },
+    "repair_triggered": {
+      "default": false,
+      "title": "Repair Triggered",
+      "type": "boolean"
+    },
+    "rerank_version": {
+      "default": "confirmatory_rerank_v1",
+      "title": "Rerank Version",
+      "type": "string"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "selection_rule": {
+      "default": "",
+      "title": "Selection Rule",
+      "type": "string"
+    },
+    "variants": {
+      "items": {
+        "$ref": "#/$defs/ConfirmatoryVariant"
+      },
+      "title": "Variants",
+      "type": "array"
+    }
+  },
+  "required": [
+    "run_id"
+  ],
+  "title": "ConfirmatoryRerank",
+  "type": "object"
+}

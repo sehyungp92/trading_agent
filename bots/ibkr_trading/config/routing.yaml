@@ -1,0 +1,74 @@
+MNQ:
+  root_symbol: MNQ
+  exchange: CME
+  trading_class: MNQ
+
+MYM:
+  root_symbol: MYM
+  exchange: CBOT
+  trading_class: MYM
+
+MCL:
+  root_symbol: MCL
+  exchange: NYMEX
+  trading_class: MCL
+
+MGC:
+  root_symbol: MGC
+  exchange: COMEX
+  trading_class: MGC
+
+MBT:
+  root_symbol: MBT
+  exchange: CME
+  trading_class: MBT
+
+NQ:
+  root_symbol: NQ
+  exchange: CME
+  trading_class: NQ
+
+ES:
+  root_symbol: ES
+  exchange: CME
+  trading_class: ES
+
+CL:
+  root_symbol: CL
+  exchange: NYMEX
+  trading_class: CL
+
+GC:
+  root_symbol: GC
+  exchange: COMEX
+  trading_class: GC
+
+BT:
+  root_symbol: BT
+  exchange: CME
+  trading_class: BT
+
+SPY:
+  root_symbol: SPY
+  exchange: SMART
+  primary_exchange: ARCA
+
+QQQ:
+  root_symbol: QQQ
+  exchange: SMART
+  primary_exchange: NASDAQ
+
+IWM:
+  root_symbol: IWM
+  exchange: SMART
+  primary_exchange: ARCA
+
+USO:
+  root_symbol: USO
+  exchange: SMART
+  primary_exchange: ARCA
+
+GLD:
+  root_symbol: GLD
+  exchange: SMART
+  primary_exchange: ARCA

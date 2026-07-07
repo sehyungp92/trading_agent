@@ -1,0 +1,247 @@
+{
+  "adapter_runner": "trading_optimizer.phase_runner_adapters.LegacyPhaseRunnerAdapter",
+  "comparisons": [
+    {
+      "adapter_hash": "a30ffc9d2cfa4ecb67677ccdd83b5e4149ea8e418ee30493254c43a10b44aed7",
+      "dimension": "cumulative_mutations",
+      "legacy_hash": "a30ffc9d2cfa4ecb67677ccdd83b5e4149ea8e418ee30493254c43a10b44aed7",
+      "notes": "same-input legacy runner and shared adapter runner outputs match",
+      "status": "pass"
+    },
+    {
+      "adapter_hash": "2d137b4b8daee8a63e155b68dd55cd60b98fb4392941f436a0857a68bdce0dd6",
+      "dimension": "gate_decisions",
+      "legacy_hash": "2d137b4b8daee8a63e155b68dd55cd60b98fb4392941f436a0857a68bdce0dd6",
+      "notes": "same-input legacy runner and shared adapter runner outputs match",
+      "status": "pass"
+    },
+    {
+      "adapter_hash": "509edfa4716dc3d3725a39e9833d173ff5264a78e8d6e6012601d93c2cdc325e",
+      "dimension": "selected_candidates",
+      "legacy_hash": "509edfa4716dc3d3725a39e9833d173ff5264a78e8d6e6012601d93c2cdc325e",
+      "notes": "same-input legacy runner and shared adapter runner outputs match",
+      "status": "pass"
+    },
+    {
+      "adapter_hash": "20c7f79b20db236eae84a506790bbb96c6e3a52d0aabb651753448bbc5648d0e",
+      "dimension": "canonical_round_outputs",
+      "legacy_hash": "20c7f79b20db236eae84a506790bbb96c6e3a52d0aabb651753448bbc5648d0e",
+      "notes": "same-input legacy runner and shared adapter runner outputs match",
+      "status": "pass"
+    }
+  ],
+  "errors": [],
+  "execution_evidence": {
+    "adapter_command": {
+      "command": [
+        "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/run_optimizer_equivalence_fixture.py",
+        "--scope",
+        "crypto_trader_portfolio",
+        "--fixture-set",
+        "smoke",
+        "--runner",
+        "adapter",
+        "--result-path",
+        "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/validation/optimizer_compatibility/_runner_results/crypto_trader_portfolio.smoke.adapter.json"
+      ],
+      "result_path": "artifacts/validation/optimizer_compatibility/_runner_results/crypto_trader_portfolio.smoke.adapter.json",
+      "returncode": 0,
+      "stderr_tail": [],
+      "stdout_tail": [
+        "2026-07-06 22:01:50 [info     ] phase.start                    name=fixture num_candidates=2 phase=1",
+        "2026-07-06 22:01:50 [info     ] greedy.round_start             remaining=2 round=1",
+        "2026-07-06 22:01:50 [info     ] greedy.round_result            best=beta delta_pct=16.67% round=1 score=1.4",
+        "2026-07-06 22:01:50 [info     ] greedy.delta_pruned            count=1",
+        "2026-07-06 22:01:50 [info     ] experiment.result              accepted=True experiment=beta phase=1 reject_reason= rejected=False score=1.4",
+        "2026-07-06 22:01:50 [info     ] gate.result                    failure_category=None failures=[] passed=True phase=1",
+        "2026-07-06 22:01:50 [info     ] phase.analysis                 phase=1 recommendation=advance summary='======== PHASE 1 ANALYSIS ========\\nRecommendation: advance\\nReason: Gate passed.\\nScoring assessment: EFFECTIVE\\n\\nAccepted: 1 experiments\\nFinal score: 1.4000\\nBase score: 1.2000\\nRounds: 1\\n\\nStrengths: score\\n\\nGoal Progress:\\n  score: 1.20 / 1.00 (120%)'",
+        "2026-07-06 22:01:50 [info     ] phase.end                      accepted=1 final_score=1.4 metrics={'score': 1.2} name=fixture phase=1",
+        "2026-07-06 22:01:50 [info     ] round.complete                 report_length=488"
+      ]
+    },
+    "compared_payloads": {
+      "canonical_round_outputs": {
+        "adapter": {
+          "1": {
+            "accepted_count": 1,
+            "base_mutations": {
+              "base": 1
+            },
+            "base_score": 1.2000000000000002,
+            "contract": {},
+            "contract_hash": "",
+            "final_metrics": {
+              "score": 1.2
+            },
+            "final_mutations": {
+              "base": 1,
+              "beta": 2
+            },
+            "final_score": 1.4,
+            "final_validation": {
+              "status": "passed"
+            },
+            "focus": "fixture",
+            "kept_features": [
+              "beta"
+            ],
+            "new_mutations": {
+              "beta": 2
+            },
+            "rounds": [
+              {
+                "best_name": "beta",
+                "best_score": 1.4,
+                "kept": true,
+                "round_num": 1
+              }
+            ],
+            "suggested_experiments": []
+          }
+        },
+        "legacy": {
+          "1": {
+            "accepted_count": 1,
+            "base_mutations": {
+              "base": 1
+            },
+            "base_score": 1.2000000000000002,
+            "contract": {},
+            "contract_hash": "",
+            "final_metrics": {
+              "score": 1.2
+            },
+            "final_mutations": {
+              "base": 1,
+              "beta": 2
+            },
+            "final_score": 1.4,
+            "final_validation": {
+              "status": "passed"
+            },
+            "focus": "fixture",
+            "kept_features": [
+              "beta"
+            ],
+            "new_mutations": {
+              "beta": 2
+            },
+            "rounds": [
+              {
+                "best_name": "beta",
+                "best_score": 1.4,
+                "kept": true,
+                "round_num": 1
+              }
+            ],
+            "suggested_experiments": []
+          }
+        }
+      },
+      "cumulative_mutations": {
+        "adapter": {
+          "base": 1,
+          "beta": 2
+        },
+        "legacy": {
+          "base": 1,
+          "beta": 2
+        }
+      },
+      "gate_decisions": {
+        "adapter": {
+          "1": {
+            "failure_category": null,
+            "failure_reasons": [],
+            "passed": true
+          }
+        },
+        "legacy": {
+          "1": {
+            "failure_category": null,
+            "failure_reasons": [],
+            "passed": true
+          }
+        }
+      },
+      "selected_candidates": {
+        "adapter": {
+          "1": {
+            "accepted_count": 1,
+            "adoption_reason": null,
+            "kept_features": [
+              "beta"
+            ],
+            "new_mutations": {
+              "beta": 2
+            }
+          }
+        },
+        "legacy": {
+          "1": {
+            "accepted_count": 1,
+            "adoption_reason": null,
+            "kept_features": [
+              "beta"
+            ],
+            "new_mutations": {
+              "beta": 2
+            }
+          }
+        }
+      }
+    },
+    "input_hashes": {
+      "fixture": "ac86e5b3ada97f8b3a52420ac721d80d4fa355d9c581a9e3929948f00f3c1c51",
+      "legacy_runner_source": "f818a72b2ea977b221a7ffa380e9f2dd8711b671f0dbebc99d12c290accc3940",
+      "shared_adapter_source": "fb34a77087e015a89d7e2364ff82693578ecf556765c717e7989430d435b77ea"
+    },
+    "legacy_command": {
+      "command": [
+        "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/run_optimizer_equivalence_fixture.py",
+        "--scope",
+        "crypto_trader_portfolio",
+        "--fixture-set",
+        "smoke",
+        "--runner",
+        "legacy",
+        "--result-path",
+        "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/validation/optimizer_compatibility/_runner_results/crypto_trader_portfolio.smoke.legacy.json"
+      ],
+      "result_path": "artifacts/validation/optimizer_compatibility/_runner_results/crypto_trader_portfolio.smoke.legacy.json",
+      "returncode": 0,
+      "stderr_tail": [],
+      "stdout_tail": [
+        "2026-07-06 22:01:43 [info     ] phase.start                    name=fixture num_candidates=2 phase=1",
+        "2026-07-06 22:01:43 [info     ] greedy.round_start             remaining=2 round=1",
+        "2026-07-06 22:01:43 [info     ] greedy.round_result            best=beta delta_pct=16.67% round=1 score=1.4",
+        "2026-07-06 22:01:43 [info     ] greedy.delta_pruned            count=1",
+        "2026-07-06 22:01:43 [info     ] experiment.result              accepted=True experiment=beta phase=1 reject_reason= rejected=False score=1.4",
+        "2026-07-06 22:01:43 [info     ] gate.result                    failure_category=None failures=[] passed=True phase=1",
+        "2026-07-06 22:01:43 [info     ] phase.analysis                 phase=1 recommendation=advance summary='======== PHASE 1 ANALYSIS ========\\nRecommendation: advance\\nReason: Gate passed.\\nScoring assessment: EFFECTIVE\\n\\nAccepted: 1 experiments\\nFinal score: 1.4000\\nBase score: 1.2000\\nRounds: 1\\n\\nStrengths: score\\n\\nGoal Progress:\\n  score: 1.20 / 1.00 (120%)'",
+        "2026-07-06 22:01:43 [info     ] phase.end                      accepted=1 final_score=1.4 metrics={'score': 1.2} name=fixture phase=1",
+        "2026-07-06 22:01:43 [info     ] round.complete                 report_length=488"
+      ]
+    },
+    "output_hashes": {
+      "adapter": "232b0cf6559b392fe0a2fc0e1e7798e3f72336c7cb8e08dd842650ac2a11010a",
+      "legacy": "232b0cf6559b392fe0a2fc0e1e7798e3f72336c7cb8e08dd842650ac2a11010a"
+    }
+  },
+  "fixture_set": "smoke",
+  "legacy_runner": "crypto_trader.optimize.phase_runner.PhaseRunner",
+  "schema_version": "optimizer_runner_equivalence_matrix_v1",
+  "scope_id": "crypto_trader_portfolio",
+  "status": "pass",
+  "wrapped_legacy_runners": [
+    {
+      "bot": "crypto",
+      "class_name": "PhaseRunner",
+      "module_path": "crypto_trader.optimize.phase_runner",
+      "source_path": "bots/crypto_trader/src/crypto_trader/optimize/phase_runner.py",
+      "source_sha256": "f818a72b2ea977b221a7ffa380e9f2dd8711b671f0dbebc99d12c290accc3940"
+    }
+  ]
+}

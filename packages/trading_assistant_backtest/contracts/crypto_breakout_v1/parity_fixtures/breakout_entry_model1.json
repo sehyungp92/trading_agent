@@ -1,0 +1,16 @@
+{
+  "fixture_id": "breakout_entry_model1",
+  "symbol": "BTC",
+  "timeframe": "30m",
+  "timestamp": "2026-05-15T10:30:00+00:00",
+  "direction": "LONG",
+  "entry_price": 50150.0,
+  "atr": 250.0,
+  "bar": {
+    "open": 50000.0,
+    "high": 50200.0,
+    "low": 49950.0,
+    "close": 50150.0,
+    "volume": 500.0
+  }
+}

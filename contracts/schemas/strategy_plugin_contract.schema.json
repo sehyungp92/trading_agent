@@ -1,0 +1,102 @@
+{
+  "$defs": {
+    "StrategyPluginMaturity": {
+      "enum": [
+        "diagnostic",
+        "shadow_validated",
+        "approval_ready"
+      ],
+      "title": "StrategyPluginMaturity",
+      "type": "string"
+    }
+  },
+  "additionalProperties": true,
+  "properties": {
+    "backtest_adapter_commit_sha": {
+      "default": "",
+      "title": "Backtest Adapter Commit Sha",
+      "type": "string"
+    },
+    "backtest_adapter_path": {
+      "title": "Backtest Adapter Path",
+      "type": "string"
+    },
+    "config_schema_version": {
+      "title": "Config Schema Version",
+      "type": "string"
+    },
+    "contract_id": {
+      "default": "",
+      "title": "Contract Id",
+      "type": "string"
+    },
+    "contract_version": {
+      "default": "strategy_plugin_contract_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "decision_api_version": {
+      "title": "Decision Api Version",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "live_repo_commit_sha": {
+      "default": "",
+      "title": "Live Repo Commit Sha",
+      "type": "string"
+    },
+    "live_repo_path": {
+      "default": "",
+      "title": "Live Repo Path",
+      "type": "string"
+    },
+    "maturity": {
+      "$ref": "#/$defs/StrategyPluginMaturity",
+      "default": "diagnostic"
+    },
+    "parity_fixture_set": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Parity Fixture Set",
+      "type": "array"
+    },
+    "plugin_id": {
+      "title": "Plugin Id",
+      "type": "string"
+    },
+    "required_telemetry_schemas": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Required Telemetry Schemas",
+      "type": "array"
+    },
+    "supported_symbols": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Supported Symbols",
+      "type": "array"
+    },
+    "supported_timeframes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Supported Timeframes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "plugin_id",
+    "backtest_adapter_path",
+    "config_schema_version",
+    "decision_api_version"
+  ],
+  "title": "StrategyPluginContract",
+  "type": "object"
+}

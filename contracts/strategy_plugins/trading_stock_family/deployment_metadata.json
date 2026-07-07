@@ -1,0 +1,15 @@
+{
+  "bot_id": "trading",
+  "config_hash": "4bfd5d145d581942bf785fe1bea580c4fea286cdab94ea3e72b32d059f94411c",
+  "config_version": "trading_stock_family_shadow_2026-05-31",
+  "deployed_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "deployment_id": "trading-stock-family-shadow-3c6441d8",
+  "generated_at": "2026-07-03T00:00:00Z",
+  "metadata_source": "local clean live-repo checkout shadow snapshot",
+  "repo_url": "local://bots/ibkr_trading",
+  "strategy_id": "trading_stock_family",
+  "strategy_plugin_contract_hash": "feec4e326885ef4e3608507f76058cb7ce2ca033f72fc07b5144e12538da8a21",
+  "strategy_plugin_contract_path": "strategy_plugin_contract.json",
+  "strategy_version": "trading_stock_shadow_v1",
+  "telemetry_schema_version": "trading_live_shadow_contract_v1"
+}

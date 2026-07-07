@@ -1,0 +1,57 @@
+{
+  "additionalProperties": true,
+  "description": "Tolerant reader for IBKR, crypto, and K-stock optimizer round manifests.",
+  "properties": {
+    "baseline_reset": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Baseline Reset"
+    },
+    "family": {
+      "default": "",
+      "title": "Family",
+      "type": "string"
+    },
+    "generated_at_utc": {
+      "default": "",
+      "title": "Generated At Utc",
+      "type": "string"
+    },
+    "rounds": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Rounds",
+      "type": "array"
+    },
+    "schema_version": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Schema Version"
+    }
+  },
+  "required": [
+    "rounds"
+  ],
+  "title": "LegacyRoundsManifest",
+  "type": "object"
+}

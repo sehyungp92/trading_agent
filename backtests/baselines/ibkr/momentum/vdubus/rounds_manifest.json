@@ -1,0 +1,272 @@
+{
+  "family": "momentum",
+  "strategy": "vdubus",
+  "rounds": [
+    {
+      "round": 1,
+      "timestamp": "2026-04-29T21:31:54.374002+00:00",
+      "mutations_count": 4,
+      "mutations": {
+        "flags.plus_1r_partial": false,
+        "param_overrides.CHOP_THRESHOLD": 32.0,
+        "flags.early_kill": false,
+        "param_overrides.MAX_POSITION_BARS_15M": 51.2
+      },
+      "total_trades": 174,
+      "win_rate": 46.55172413793103,
+      "profit_factor": 1.9544579883619144,
+      "max_drawdown_pct": 20.782611893641104,
+      "net_return_pct": 752.5770000000063,
+      "sharpe_ratio": 1.6604832640187106,
+      "calmar_ratio": 36.2118584445237,
+      "archived": true,
+      "archived_at_utc": "2026-05-22T22:25:42.279142+00:00",
+      "archive_reason": "selection_stale_after_current_code_source_recompute_drift"
+    },
+    {
+      "round": 1,
+      "timestamp": "2026-05-22T23:52:51.614805+00:00",
+      "mutations_count": 19,
+      "mutations": {
+        "flags.plus_1r_partial": false,
+        "param_overrides.CHOP_THRESHOLD": 28,
+        "flags.hourly_bypass_quality": true,
+        "param_overrides.HOURLY_BYPASS_ALLOWED_WINDOWS": [
+          "OPEN",
+          "CLOSE"
+        ],
+        "param_overrides.HOURLY_BYPASS_EQS_MIN": 2,
+        "param_overrides.HOURLY_BYPASS_MAX_CHOP": 33.6,
+        "param_overrides.HOURLY_BYPASS_SIZE_MULT": 0.5,
+        "flags.slope_bypass_quality": true,
+        "param_overrides.SLOPE_BYPASS_ALLOWED_WINDOWS": [
+          "OPEN",
+          "CORE",
+          "CLOSE"
+        ],
+        "param_overrides.SLOPE_BYPASS_EQS_MIN": 4,
+        "param_overrides.SLOPE_BYPASS_MAX_CHOP": 36.0,
+        "param_overrides.SLOPE_BYPASS_SIZE_MULT": 1.0,
+        "flags.stale_mfe_exempt": true,
+        "flags.type_c_enabled": true,
+        "param_overrides.USE_TYPE_C": true,
+        "param_overrides.TYPE_C_ALLOWED_WINDOWS": [
+          "OPEN"
+        ],
+        "param_overrides.TYPE_C_MAX_VWAP_DIST_ATR": 2.4,
+        "flags.dow_sizing": true,
+        "param_overrides.DOW_SIZE_MULT": {
+          "0": 0.5,
+          "3": 0.65
+        }
+      },
+      "total_trades": 220,
+      "win_rate": 46.36363636363636,
+      "profit_factor": 2.1750284810724265,
+      "max_drawdown_pct": 16.72486892861886,
+      "net_return_pct": 1217.4669999999992,
+      "sharpe_ratio": 2.139211540579075,
+      "calmar_ratio": 72.79381412171925,
+      "selection_fingerprint": "a6e1b4eb41c288bfe68642e4980a47f4d51e120b3ef67b0f3a5876a577b00274",
+      "diagnostics_fingerprint": "a6e1b4eb41c288bfe68642e4980a47f4d51e120b3ef67b0f3a5876a577b00274",
+      "provenance_schema_version": 1,
+      "provenance_status": "complete"
+    },
+    {
+      "round": 2,
+      "timestamp": "2026-04-29T23:22:16.232792+00:00",
+      "mutations_count": 9,
+      "mutations": {
+        "flags.plus_1r_partial": false,
+        "param_overrides.CHOP_THRESHOLD": 32.0,
+        "flags.early_kill": false,
+        "param_overrides.MAX_POSITION_BARS_15M": 51.2,
+        "flags.vwap_fail_evening": true,
+        "flags.evening_vwap_cap": true,
+        "param_overrides.VWAP_CAP_EVENING": 0.05,
+        "flags.dow_sizing": true,
+        "param_overrides.DOW_SIZE_MULT": {
+          "0": 0.6,
+          "3": 0.75
+        }
+      },
+      "total_trades": 159,
+      "win_rate": 47.79874213836478,
+      "profit_factor": 2.3577704500699292,
+      "max_drawdown_pct": 18.64301442048537,
+      "net_return_pct": 841.7264000000035,
+      "sharpe_ratio": 1.7605005097269317,
+      "calmar_ratio": 45.14969419725897,
+      "archived": true,
+      "archived_at_utc": "2026-05-22T22:25:42.280143+00:00",
+      "archive_reason": "selection_stale_after_current_code_source_recompute_drift"
+    },
+    {
+      "round": 2,
+      "timestamp": "2026-05-23T04:15:06.231617+00:00",
+      "mutations_count": 24,
+      "mutations": {
+        "flags.plus_1r_partial": false,
+        "param_overrides.CHOP_THRESHOLD": 28,
+        "flags.hourly_bypass_quality": true,
+        "param_overrides.HOURLY_BYPASS_ALLOWED_WINDOWS": [
+          "OPEN",
+          "CLOSE"
+        ],
+        "param_overrides.HOURLY_BYPASS_EQS_MIN": 2,
+        "param_overrides.HOURLY_BYPASS_MAX_CHOP": 33.6,
+        "param_overrides.HOURLY_BYPASS_SIZE_MULT": 0.6,
+        "flags.slope_bypass_quality": true,
+        "param_overrides.SLOPE_BYPASS_ALLOWED_WINDOWS": [
+          "OPEN",
+          "CORE",
+          "CLOSE"
+        ],
+        "param_overrides.SLOPE_BYPASS_EQS_MIN": 4,
+        "param_overrides.SLOPE_BYPASS_MAX_CHOP": 36.0,
+        "param_overrides.SLOPE_BYPASS_SIZE_MULT": 1.0,
+        "flags.stale_mfe_exempt": true,
+        "flags.type_c_enabled": true,
+        "param_overrides.USE_TYPE_C": true,
+        "param_overrides.TYPE_C_ALLOWED_WINDOWS": [
+          "OPEN",
+          "CLOSE"
+        ],
+        "param_overrides.TYPE_C_MAX_VWAP_DIST_ATR": 2.4,
+        "flags.dow_sizing": true,
+        "param_overrides.DOW_SIZE_MULT": {
+          "0": 0.5,
+          "3": 0.65
+        },
+        "flags.evening_vwap_cap": true,
+        "param_overrides.VWAP_CAP_EVENING": 0.35,
+        "flags.late_trail": true,
+        "param_overrides.STALE_MFE_EXEMPT_R": 0.5,
+        "param_overrides.LATE_TRAIL_ACTIVATE_R": 1.5
+      },
+      "total_trades": 214,
+      "win_rate": 46.728971962616825,
+      "profit_factor": 2.4084421823755298,
+      "max_drawdown_pct": 17.640121888559044,
+      "net_return_pct": 1266.1523999999997,
+      "sharpe_ratio": 2.2370741737825064,
+      "calmar_ratio": 71.77685097636403,
+      "selection_fingerprint": "a6e1b4eb41c288bfe68642e4980a47f4d51e120b3ef67b0f3a5876a577b00274",
+      "diagnostics_fingerprint": "a6e1b4eb41c288bfe68642e4980a47f4d51e120b3ef67b0f3a5876a577b00274",
+      "provenance_schema_version": 1,
+      "provenance_status": "complete"
+    },
+    {
+      "round": 3,
+      "timestamp": "2026-04-30T02:34:58.142674+00:00",
+      "mutations_count": 26,
+      "mutations": {
+        "flags.plus_1r_partial": false,
+        "param_overrides.CHOP_THRESHOLD": 32.0,
+        "flags.early_kill": false,
+        "param_overrides.MAX_POSITION_BARS_15M": 51.2,
+        "flags.vwap_fail_evening": true,
+        "flags.evening_vwap_cap": true,
+        "param_overrides.VWAP_CAP_EVENING": 0.35,
+        "flags.dow_sizing": true,
+        "param_overrides.DOW_SIZE_MULT": {
+          "0": 0.5,
+          "3": 0.65
+        },
+        "flags.hourly_bypass_quality": true,
+        "param_overrides.HOURLY_BYPASS_ALLOWED_WINDOWS": [
+          "OPEN",
+          "CLOSE"
+        ],
+        "param_overrides.HOURLY_BYPASS_EQS_MIN": 2,
+        "param_overrides.HOURLY_BYPASS_MAX_CHOP": 35.2,
+        "param_overrides.HOURLY_BYPASS_SIZE_MULT": 0.5,
+        "flags.slope_bypass_quality": true,
+        "param_overrides.SLOPE_BYPASS_ALLOWED_WINDOWS": [
+          "OPEN",
+          "CORE",
+          "CLOSE"
+        ],
+        "param_overrides.SLOPE_BYPASS_EQS_MIN": 4,
+        "param_overrides.SLOPE_BYPASS_MAX_CHOP": 36.0,
+        "param_overrides.SLOPE_BYPASS_SIZE_MULT": 1.0,
+        "param_overrides.VWAP_CAP_OPEN_EVE": 0.935,
+        "param_overrides.BUFFER_TICKS": 2,
+        "flags.mfe_rescue_stop": true,
+        "param_overrides.MFE_RESCUE_MIN_R": 0.5,
+        "param_overrides.MFE_RESCUE_AFTER_BARS": 5,
+        "param_overrides.MFE_RESCUE_TRIGGER_R": 0.1,
+        "param_overrides.MFE_RESCUE_LOCK_R": 0.1
+      },
+      "total_trades": 198,
+      "win_rate": 52.02020202020202,
+      "profit_factor": 2.780844271826482,
+      "max_drawdown_pct": 18.10610678141057,
+      "net_return_pct": 1166.0174000000002,
+      "sharpe_ratio": 2.336424418275617,
+      "calmar_ratio": 64.39912312884088,
+      "archived": true,
+      "archived_at_utc": "2026-05-22T22:25:42.280143+00:00",
+      "archive_reason": "selection_stale_after_current_code_source_recompute_drift"
+    },
+    {
+      "round": 3,
+      "timestamp": "2026-05-23T17:13:08.552639+00:00",
+      "mutations_count": 29,
+      "mutations": {
+        "flags.plus_1r_partial": false,
+        "param_overrides.CHOP_THRESHOLD": 28,
+        "flags.hourly_bypass_quality": true,
+        "param_overrides.HOURLY_BYPASS_ALLOWED_WINDOWS": [
+          "OPEN",
+          "CLOSE"
+        ],
+        "param_overrides.HOURLY_BYPASS_EQS_MIN": 2,
+        "param_overrides.HOURLY_BYPASS_MAX_CHOP": 33.6,
+        "param_overrides.HOURLY_BYPASS_SIZE_MULT": 0.72,
+        "flags.slope_bypass_quality": true,
+        "param_overrides.SLOPE_BYPASS_ALLOWED_WINDOWS": [
+          "OPEN",
+          "CORE",
+          "CLOSE"
+        ],
+        "param_overrides.SLOPE_BYPASS_EQS_MIN": 4,
+        "param_overrides.SLOPE_BYPASS_MAX_CHOP": 36.0,
+        "param_overrides.SLOPE_BYPASS_SIZE_MULT": 1.0,
+        "flags.stale_mfe_exempt": true,
+        "flags.type_c_enabled": true,
+        "param_overrides.USE_TYPE_C": true,
+        "param_overrides.TYPE_C_ALLOWED_WINDOWS": [
+          "OPEN"
+        ],
+        "param_overrides.TYPE_C_MAX_VWAP_DIST_ATR": 2.4,
+        "flags.dow_sizing": true,
+        "param_overrides.DOW_SIZE_MULT": {
+          "0": 0.5,
+          "3": 0.65
+        },
+        "flags.evening_vwap_cap": true,
+        "param_overrides.VWAP_CAP_EVENING": 0.35,
+        "flags.late_trail": true,
+        "param_overrides.STALE_MFE_EXEMPT_R": 0.5,
+        "param_overrides.LATE_TRAIL_ACTIVATE_R": 1.5,
+        "flags.mfe_rescue_stop": true,
+        "param_overrides.MFE_RESCUE_MIN_R": 0.75,
+        "param_overrides.MFE_RESCUE_AFTER_BARS": 8.4,
+        "param_overrides.MFE_RESCUE_TRIGGER_R": 0.0,
+        "param_overrides.MFE_RESCUE_LOCK_R": 0.05
+      },
+      "total_trades": 212,
+      "win_rate": 46.22641509433962,
+      "profit_factor": 2.6473596372605535,
+      "max_drawdown_pct": 17.456174189225823,
+      "net_return_pct": 1373.649199999998,
+      "sharpe_ratio": 2.3359519170204384,
+      "calmar_ratio": 78.69130916715028,
+      "selection_fingerprint": "474c585b5cfbe31cba76924645b066324a8de075ba2a98c97e43367a36ccb8a5",
+      "diagnostics_fingerprint": "474c585b5cfbe31cba76924645b066324a8de075ba2a98c97e43367a36ccb8a5",
+      "provenance_schema_version": 1,
+      "provenance_status": "selection_drift_accepted"
+    }
+  ]
+}

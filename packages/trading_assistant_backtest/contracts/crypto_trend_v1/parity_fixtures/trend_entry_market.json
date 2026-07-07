@@ -1,0 +1,56 @@
+{
+  "fixture_id": "trend_entry_market",
+  "symbol": "BTC",
+  "timeframe": "5m",
+  "timestamp": "2026-05-15T10:00:00+00:00",
+  "direction": "LONG",
+  "entry_price": 50050.0,
+  "atr": 250.0,
+  "bar": {
+    "open": 50000.0,
+    "high": 50100.0,
+    "low": 49900.0,
+    "close": 50050.0,
+    "volume": 100.0
+  },
+  "setup": {
+    "grade": "B",
+    "direction": "LONG",
+    "impulse_start": 49000.0,
+    "impulse_end": 50500.0,
+    "impulse_atr_move": 2.0,
+    "pullback_depth": 0.3,
+    "confluences": [
+      "h1_ema_zone",
+      "rsi_pullback"
+    ],
+    "zone_price": 50050.0,
+    "room_r": 2.5,
+    "stop_level": 49500.0,
+    "setup_score": 2.0
+  },
+  "trigger": {
+    "pattern": "engulfing",
+    "trigger_price": 50050.0,
+    "bar_offset": 0,
+    "valid": true
+  },
+  "sizing": {
+    "qty": 0.1,
+    "leverage": 5.0,
+    "liquidation_price": 40000.0,
+    "risk_pct_actual": 0.005,
+    "notional": 5005.0,
+    "was_reduced": false,
+    "reduction_reason": null
+  },
+  "exit_state": {
+    "entry_price": 50050.0,
+    "stop_distance": 550.0,
+    "qty": 0.1,
+    "bars_since_entry": 4,
+    "mfe_r": 0.35,
+    "peak_r": 0.35,
+    "ema_fast": 50100.0
+  }
+}

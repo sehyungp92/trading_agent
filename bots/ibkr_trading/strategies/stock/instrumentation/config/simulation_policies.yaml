@@ -1,0 +1,39 @@
+# Simulation policies for missed opportunity backfill
+# US equities intraday strategies via IBKR
+
+simulation_policies:
+  # IARIC v2 — pullback hybrid engine, US large-cap equities via IBKR
+  iaric:
+    entry_fill_model: mid          # IBKR smart routing typically fills near mid
+    slippage_model: fixed_bps
+    slippage_bps: 3.0              # US large-cap equities: ~3 bps typical
+    fees_included: true
+    fee_bps: 1.0                   # IBKR tiered: ~$0.005/share ≈ 1 bps on $50 stock
+    tp_sl_logic: atr_based
+    tp_value: 2.0                  # 2x ATR take profit
+    sl_value: 1.0                  # V4R1: pb_stop_daily_atr_cap=1.0
+    max_hold_bars: 156             # V2R4: 2 trading days (5-min bars)
+
+  # ALCB — adaptive limit/continuation breakout, US equities via IBKR
+  alcb:
+    entry_fill_model: mid
+    slippage_model: fixed_bps
+    slippage_bps: 3.0              # US large-cap equities: ~3 bps typical
+    fees_included: true
+    fee_bps: 1.0
+    tp_sl_logic: atr_based
+    tp_value: 2.5                  # Trailing ATR — wider than IARIC's 2.0×
+    sl_value: 1.0                  # 1× ATR stop loss
+    max_hold_bars: 156             # 2 trading days (5-min bars)
+
+  # Fallback
+  default:
+    entry_fill_model: mid
+    slippage_model: fixed_bps
+    slippage_bps: 3.0
+    fees_included: true
+    fee_bps: 1.5
+    tp_sl_logic: atr_based
+    tp_value: 1.5
+    sl_value: 1.0
+    max_hold_bars: 100

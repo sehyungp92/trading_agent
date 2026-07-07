@@ -1,0 +1,10 @@
+# Conservative Configuration
+#
+# This file restores original conservative (strict) behavior.
+
+pcim:
+  t3_bucket_a_allowed: false
+  entry_cutoff: [10, 0]
+  gap_reversal_threshold: 0.60
+  spread_veto_pct: 0.006
+  enable_adtv_soft_penalty: true

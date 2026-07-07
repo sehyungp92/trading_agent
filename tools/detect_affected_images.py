@@ -53,8 +53,7 @@ def affected_images(paths: list[str]) -> set[str]:
         path = raw_path.replace("\\", "/")
         if path.startswith(ASSISTANT_ONLY_PREFIXES):
             continue
-        if path.startswith("_references/"):
-            affected.update(ALL_IMAGES)
+        if path.split("/", 1)[0].startswith("_"):
             continue
         for prefix, images in IMAGE_RULES:
             if path.startswith(prefix):
@@ -67,7 +66,7 @@ def print_rules() -> None:
     for prefix, images in IMAGE_RULES:
         print(f"- {prefix} -> {', '.join(sorted(images))}")
     print("- packages/trading_assistant* -> assistant gates only unless shared artifacts changed")
-    print("- _references/ -> all bot images while references remain migration input")
+    print("- root underscore-prefixed archive dirs -> no image; source has been ported")
     print("- docs/ and tools/ -> no image by default; CI gates still run")
 
 

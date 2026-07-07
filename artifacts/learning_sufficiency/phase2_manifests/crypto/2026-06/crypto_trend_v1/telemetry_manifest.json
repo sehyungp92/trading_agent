@@ -1,0 +1,33 @@
+{
+  "manifest_id": "90a36a421ad08f81",
+  "bot_id": "crypto",
+  "strategy_id": "crypto_trend_v1",
+  "run_month": "2026-06",
+  "window_start": "2026-06-01",
+  "window_end": "2026-06-30",
+  "event_counts_by_type": {},
+  "lineage_coverage_ratio": 1.0,
+  "missing_field_counts": {
+    "event_id": 0,
+    "strategy_version": 0,
+    "config_version": 0,
+    "deployment_id": 0,
+    "parameter_set_id": 0,
+    "experiment_id": 0,
+    "variant_id": 0,
+    "code_sha": 0,
+    "signal_id": 0,
+    "bar_id": 0,
+    "data_source_id": 0,
+    "exchange_timestamp": 0,
+    "local_timestamp": 0,
+    "clock_skew_ms": 0
+  },
+  "duplicate_count": 0,
+  "known_gaps": [],
+  "authoritative_eligibility": "insufficient_data",
+  "time_coverage": {},
+  "total_events": 0,
+  "generated_at": "2026-07-04T13:58:19.532275Z",
+  "manifest_version": "telemetry_manifest_v1"
+}

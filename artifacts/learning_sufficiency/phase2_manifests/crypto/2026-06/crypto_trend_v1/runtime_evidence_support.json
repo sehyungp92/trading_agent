@@ -1,0 +1,188 @@
+{
+  "bot_id": "crypto",
+  "capabilities": {
+    "after_cost_authority": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "trade"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "trade"
+      ],
+      "status": "configured_unobserved"
+    },
+    "counterfactual_coverage": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "missed_opportunity"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "missed_opportunity"
+      ],
+      "status": "configured_unobserved"
+    },
+    "decision_to_order_join": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "filter_decision",
+        "order"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "filter_decision",
+        "order"
+      ],
+      "status": "configured_unobserved"
+    },
+    "denominator_coverage": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "pipeline_funnel"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "pipeline_funnel"
+      ],
+      "status": "configured_unobserved"
+    },
+    "filter_threshold_learning": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "filter_decision",
+        "missed_opportunity",
+        "order",
+        "pipeline_funnel",
+        "trade"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "filter_decision",
+        "missed_opportunity",
+        "order",
+        "pipeline_funnel",
+        "trade"
+      ],
+      "status": "configured_unobserved"
+    },
+    "missed_opportunity_lineage": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "missed_opportunity"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "missed_opportunity"
+      ],
+      "status": "configured_unobserved"
+    },
+    "order_to_fill_join": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "fill",
+        "order"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "fill",
+        "order"
+      ],
+      "status": "configured_unobserved"
+    },
+    "proposal_trace_coverage": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [],
+      "observed": true,
+      "required_event_types": [
+        "deployment_metadata"
+      ],
+      "status": "observed"
+    },
+    "risk_portfolio_join": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "missed_opportunity",
+        "portfolio_rule",
+        "trade"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "missed_opportunity",
+        "portfolio_rule",
+        "trade"
+      ],
+      "status": "configured_unobserved"
+    },
+    "runtime_evidence_coverage": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "missed_opportunity",
+        "trade"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "deployment_metadata",
+        "missed_opportunity",
+        "trade"
+      ],
+      "status": "configured_unobserved"
+    },
+    "trade_outcome_lineage": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "trade"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "trade"
+      ],
+      "status": "configured_unobserved"
+    }
+  },
+  "declares_complete_runtime_support": true,
+  "event_value_classifications": {
+    "allocation_snapshot": "operational_health",
+    "config_snapshot": "operational_health",
+    "daily_snapshot": "operational_health",
+    "decision_event": "learning_gap_diagnostic",
+    "deployment": "learning_authority",
+    "equity_snapshot": "operational_health",
+    "error": "operational_health",
+    "exchange_position_snapshot": "operational_health",
+    "fill": "learning_authority",
+    "filter_decision": "learning_authority",
+    "health_report": "operational_health",
+    "heartbeat": "operational_health",
+    "indicator_snapshot": "learning_gap_diagnostic",
+    "market_snapshot": "learning_gap_diagnostic",
+    "missed_opportunity": "learning_authority",
+    "order": "learning_authority",
+    "pipeline_funnel": "learning_authority",
+    "portfolio_rule": "learning_authority",
+    "portfolio_snapshot": "operational_health",
+    "position_allocation_snapshot": "operational_health",
+    "position_snapshot": "operational_health",
+    "reconciliation_event": "operational_health",
+    "regime_transition": "learning_gap_diagnostic",
+    "risk_decision": "learning_authority",
+    "trade": "learning_authority"
+  },
+  "schema_version": "runtime_evidence_support_v1",
+  "strategy_id": "crypto_trend_v1",
+  "support_source_paths": [
+    "bots/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
+    "bots/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
+  ]
+}

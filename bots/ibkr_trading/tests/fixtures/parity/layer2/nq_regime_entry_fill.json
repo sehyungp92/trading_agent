@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "surface": "NQ_REGIME",
+  "family": "momentum",
+  "timezone": "UTC",
+  "clock_start": "2026-05-20T14:15:00+00:00",
+  "market_calendar": {"name": "CME", "is_open": true},
+  "instruments": [
+    {"symbol": "NQ", "trade_symbol": "NQ", "root": "NQ", "venue": "CME", "sec_type": "FUT", "trading_class": "NQ", "contract_expiry": "202609", "tick_size": 0.25, "point_value": 20.0, "currency": "USD"},
+    {"symbol": "MNQ", "trade_symbol": "MNQ", "root": "MNQ", "venue": "CME", "sec_type": "FUT", "trading_class": "MNQ", "contract_expiry": "202609", "tick_size": 0.25, "point_value": 2.0, "currency": "USD"}
+  ],
+  "bars": [
+    {"symbol": "NQ", "timeframe": "5m", "timestamp": "2026-05-20T14:15:00+00:00", "open": 20020.0, "high": 20060.0, "low": 20012.0, "close": 20055.0, "volume": 3000}
+  ],
+  "higher_timeframe_bars": {},
+  "artifacts": {
+    "nq_regime": {
+      "daily_context": {"pdh": 20200.0, "pdl": 19800.0, "pdm": 20000.0, "weekly_high": 20400.0, "weekly_low": 19600.0},
+      "live_context": {}
+    }
+  },
+  "strategy_config": {"strategy_id": "NQ_REGIME", "family": "momentum", "unit_risk_dollars": 1000.0, "config_overrides": {"max_contracts": 5}},
+  "family_config": {},
+  "initial_repository_state": {},
+  "initial_strategy_state": {
+    "NQ_REGIME": {
+      "phase": "pre_market",
+      "regime": null,
+      "regime_scores": null,
+      "active_module": "none",
+      "active_session_date": "2026-05-20",
+      "ib_levels": {"high": 20000.0, "low": 19900.0, "mid": 19950.0, "range_pts": 100.0, "ib_type": "wide"},
+      "ib_high_working": 20000.0,
+      "ib_low_working": 19900.0,
+      "ib_locked": true,
+      "ib_type": "wide",
+      "levels": {"pdh": 20200.0, "pdl": 19800.0, "pdm": 20000.0, "onh": 0.0, "onl": 0.0, "onm": 0.0, "pmh": 0.0, "pml": 0.0, "pmm": 0.0, "vah": 0.0, "val": 0.0, "orh": 0.0, "orl": 0.0, "weekly_high": 20400.0, "weekly_low": 19600.0},
+      "position_side": "flat",
+      "entry_price": 0.0,
+      "entry_time": null,
+      "entry_bar_index": -1,
+      "stop_price": 0.0,
+      "qty": 0,
+      "qty_open": 0,
+      "entry_module": "none",
+      "setup_grade": "Invalid",
+      "setup_score": 0,
+      "initial_risk_points": 0.0,
+      "planned_targets": [],
+      "partial_taken": 0,
+      "stop_at_be": false,
+      "active_trade_id": null,
+      "working_entry_order_id": null,
+      "working_stop_order_id": null,
+      "working_target_order_ids": [],
+      "order_to_role": {},
+      "order_to_candidate": {},
+      "pending_candidates": {},
+      "pending_cancel_reason": null,
+      "last_submitted_signal_id": null,
+      "expansion_state": {"active_break_side": "flat", "active_break_ts": null, "active_break_bar_index": -1, "active_break_level": 0.0, "active_break_high": 0.0, "active_break_low": 0.0, "active_break_midpoint": 0.0, "active_break_fvg_low": 0.0, "active_break_fvg_high": 0.0, "active_break_score": 0, "failed_break_count": 0, "retest_expiry_bar": -1, "pullback_side": "flat", "pullback_ts": null, "pullback_bar_index": -1, "pullback_reference": 0.0, "pullback_extreme": 0.0, "pullback_trigger": 0.0},
+      "reversion_state": {"last_sweep_level": 0.0, "last_sweep_side": "flat", "last_sweep_ts": null, "last_sweep_bar_index": -1, "last_sweep_extreme": 0.0, "sweeps_seen": 0},
+      "second_wind_state": {"squeeze_start_ts": null, "squeeze_duration": 0, "fired_ts": null, "bias": "flat"},
+      "daily_trades": 0,
+      "daily_full_risk_trades": 0,
+      "daily_losses": 0,
+      "daily_realized_r": 0.0,
+      "daily_realized_pnl": 0.0,
+      "daily_locked_out": false,
+      "bars_5m": [
+        {"ts": "2026-05-20T10:05:00-04:00", "open": 20020.0, "high": 20025.0, "low": 20012.0, "close": 20022.0, "volume": 1000.0, "vwap": null},
+        {"ts": "2026-05-20T10:10:00-04:00", "open": 20022.0, "high": 20030.0, "low": 20020.0, "close": 20025.0, "volume": 1000.0, "vwap": null}
+      ],
+      "bars_15m": [
+        {"ts": "2026-05-20T09:45:00-04:00", "open": 19955.0, "high": 19975.0, "low": 19945.0, "close": 19960.0, "volume": 900.0, "vwap": null},
+        {"ts": "2026-05-20T10:00:00-04:00", "open": 19960.0, "high": 19995.0, "low": 19950.0, "close": 19980.0, "volume": 900.0, "vwap": null}
+      ],
+      "indicators": null,
+      "routing_log": [],
+      "bar_index": 0,
+      "last_bar_ts": null,
+      "last_decision_code": "IDLE",
+      "last_decision_details": {}
+    }
+  },
+  "initial_family_state": {},
+  "account_state": {"account_id": "ACCT-PARITY", "equity": 100000.0, "currency": "USD"},
+  "expected_fill_model": {"mode": "deterministic", "slippage_ticks": 0, "commission": 0.0},
+  "broker_event_script": [
+    {"order_match": {"strategy_id": "NQ_REGIME", "symbol": "MNQ", "role": "ENTRY", "side": "BUY", "sequence": 1}, "event": "fill", "exec_id": "NQREG-L2-FILL-1", "price": 20036.0, "commission": 0.0, "timestamp": "2026-05-20T14:16:00+00:00"}
+  ],
+  "expected_normalized_outputs": {}
+}

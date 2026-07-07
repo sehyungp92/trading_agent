@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "candidate": "extended_body108_scorea250_breakbody0715_riskall_1.4",
+  "portfolio_round": 3,
+  "required_strategy_ids": [
+    "momentum",
+    "trend",
+    "breakout"
+  ],
+  "portfolio_config_path": "output/portfolio/round_3/recommended_portfolio_config.json",
+  "strategy_configs": {
+    "momentum": "output/portfolio/round_3/recommended_strategy_configs/momentum.json",
+    "trend": "output/portfolio/round_3/recommended_strategy_configs/trend.json",
+    "breakout": "output/portfolio/round_3/recommended_strategy_configs/breakout.json"
+  },
+  "portfolio_rounds_manifest_path": "output/portfolio/rounds_manifest.json",
+  "required_portfolio_rounds": [
+    1,
+    2,
+    3
+  ],
+  "parity_alignment_path": "output/portfolio/round_3/parity_alignment.json"
+}

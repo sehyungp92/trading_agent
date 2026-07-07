@@ -1,0 +1,42 @@
+{
+  "fixture_id": "breakout_short_risk_reduced",
+  "symbol": "SOL",
+  "timeframe": "30m",
+  "timestamp": "2026-05-15T12:30:00+00:00",
+  "direction": "SHORT",
+  "entry_price": 165.0,
+  "atr": 4.0,
+  "bar": {
+    "open": 168.0,
+    "high": 169.0,
+    "low": 164.0,
+    "close": 165.0,
+    "volume": 700.0
+  },
+  "setup": {
+    "grade": "A",
+    "is_a_plus": false,
+    "direction": "SHORT",
+    "breakout_price": 165.0,
+    "room_r": 2.2,
+    "volume_mult": 1.8,
+    "confluences": ["h4_alignment", "volume_surge", "lvn_runway"],
+    "balance_zone": {
+      "center": 170.0,
+      "upper": 174.0,
+      "lower": 166.0,
+      "bars_in_zone": 24,
+      "touches": 4,
+      "width_atr": 1.1
+    }
+  },
+  "sizing": {
+    "qty": 16.0,
+    "leverage": 8.0,
+    "liquidation_price": 205.0,
+    "risk_pct_actual": 0.014,
+    "notional": 2640.0,
+    "was_reduced": true,
+    "reduction_reason": "leverage_clamped_8.0"
+  }
+}

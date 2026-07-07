@@ -1,0 +1,166 @@
+{
+  "$defs": {
+    "MonthlyCandidateSource": {
+      "enum": [
+        "smoke_repair",
+        "phased_auto",
+        "model_review",
+        "unknown"
+      ],
+      "title": "MonthlyCandidateSource",
+      "type": "string"
+    },
+    "RoundManifestRecord": {
+      "properties": {
+        "approval_state": {
+          "default": "not_requested",
+          "title": "Approval State",
+          "type": "string"
+        },
+        "candidate_id": {
+          "default": "",
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "config_version": {
+          "default": "",
+          "title": "Config Version",
+          "type": "string"
+        },
+        "confirmatory_rerank_path": {
+          "default": "",
+          "title": "Confirmatory Rerank Path",
+          "type": "string"
+        },
+        "decision_parity_report_path": {
+          "default": "",
+          "title": "Decision Parity Report Path",
+          "type": "string"
+        },
+        "diagnostics_path": {
+          "default": "",
+          "title": "Diagnostics Path",
+          "type": "string"
+        },
+        "evidence_paths": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Paths",
+          "type": "array"
+        },
+        "fold_manifest_path": {
+          "default": "",
+          "title": "Fold Manifest Path",
+          "type": "string"
+        },
+        "live_deployment_status": {
+          "default": "optimized_backtest_recommendation",
+          "title": "Live Deployment Status",
+          "type": "string"
+        },
+        "next_round_id": {
+          "default": "",
+          "title": "Next Round Id",
+          "type": "string"
+        },
+        "objective_version": {
+          "default": "objective_weights_v1",
+          "title": "Objective Version",
+          "type": "string"
+        },
+        "parameter_set_id": {
+          "default": "",
+          "title": "Parameter Set Id",
+          "type": "string"
+        },
+        "prior_round_id": {
+          "default": "",
+          "title": "Prior Round Id",
+          "type": "string"
+        },
+        "round_id": {
+          "title": "Round Id",
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/MonthlyCandidateSource",
+          "default": "unknown"
+        },
+        "strategy_version": {
+          "default": "",
+          "title": "Strategy Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "round_id"
+      ],
+      "title": "RoundManifestRecord",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "adopted_candidate_id": {
+      "default": "",
+      "title": "Adopted Candidate Id",
+      "type": "string"
+    },
+    "bot_id": {
+      "default": "",
+      "title": "Bot Id",
+      "type": "string"
+    },
+    "current_round_id": {
+      "title": "Current Round Id",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "manifest_version": {
+      "default": "rounds_manifest_v1",
+      "title": "Manifest Version",
+      "type": "string"
+    },
+    "next_round_id": {
+      "default": "",
+      "title": "Next Round Id",
+      "type": "string"
+    },
+    "no_adoption_reason": {
+      "default": "",
+      "title": "No Adoption Reason",
+      "type": "string"
+    },
+    "objective_version": {
+      "default": "objective_weights_v1",
+      "title": "Objective Version",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/RoundManifestRecord"
+      },
+      "title": "Records",
+      "type": "array"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "strategy_id": {
+      "default": "",
+      "title": "Strategy Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "current_round_id"
+  ],
+  "title": "RoundsManifest",
+  "type": "object"
+}

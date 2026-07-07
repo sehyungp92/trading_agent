@@ -1,0 +1,13 @@
+{
+  "schema_version": "strategy_data_requirements_v1",
+  "bot_id": "crypto_portfolio",
+  "strategy_id": "btc_1m",
+  "requirements": [
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "BTC",
+      "timeframe": "1m"
+    }
+  ]
+}

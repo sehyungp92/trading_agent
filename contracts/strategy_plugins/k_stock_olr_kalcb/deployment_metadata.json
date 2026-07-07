@@ -1,0 +1,15 @@
+{
+  "bot_id": "k_stock_trader",
+  "config_hash": "88764601b3bdcdf8c81d876088276165aca09d0aebeed0d418cee3e7feaf3ef5",
+  "config_version": "olr_kalcb_default_shadow_2026-05-31",
+  "deployed_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "deployment_id": "k-stock-olr-kalcb-shadow-3c6441d8",
+  "generated_at": "2026-07-03T00:00:00Z",
+  "metadata_source": "local clean live-repo checkout shadow snapshot",
+  "repo_url": "local://bots/k_stock_trader",
+  "strategy_id": "OLR_KALCB",
+  "strategy_plugin_contract_hash": "05e468126e83e53291ae918433aee1bae079b221b28dc50075c0f7a4ec335e0e",
+  "strategy_plugin_contract_path": "strategy_plugin_contract.json",
+  "strategy_version": "olr_kalcb_shadow_v1",
+  "telemetry_schema_version": "olr_kalcb_decision_stream_v1"
+}

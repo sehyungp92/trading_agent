@@ -1,0 +1,51 @@
+[
+  {
+    "id": "live_actual_fill_price",
+    "phase": "phase_0_characterization",
+    "status": "known_gap",
+    "description": "Live fills can occur at actual exchange prices with rejections or partial fills, while current backtests use simulated fill assumptions.",
+    "mitigation": "Introduce execution reports and adapter capability tests before comparing live fill economics to simulated fills."
+  },
+  {
+    "id": "delayed_live_fill_handling",
+    "phase": "phase_0_characterization",
+    "status": "covered_by_regression",
+    "description": "Entry submissions that can fill immediately now queue a fill sync and drain it after strategy on_bar state is stored.",
+    "mitigation": "Covered by tests/live/test_entry_fill_protection.py; keep protective-stop race regressions in the live test set."
+  },
+  {
+    "id": "durable_oms_missing",
+    "phase": "phase_4_oms",
+    "status": "known_gap",
+    "description": "SQLite OMS now records orders, stateful fill ingestion, lifecycle state, snapshots, and fill watermarks; the remaining gap is full startup discrepancy repair for unmanaged exchange state.",
+    "mitigation": "Covered in part by tests/live/test_fill_routing.py, tests/live/test_entry_fill_protection.py, and tests/live/test_oms_store.py; complete restart drills for unmanaged orders, partial exits, missed fills, and protective state before claiming full restart parity."
+  },
+  {
+    "id": "orchestration_drift",
+    "phase": "phase_2_runtime",
+    "status": "covered_by_regression",
+    "description": "Single-strategy, portfolio, and live bar dispatch delegate to StrategySlotRuntime, and mocked live replay is compared against backtest decision/order-intent output.",
+    "mitigation": "Covered by tests/parity/test_strategy_runtime_single_vs_live_replay.py; continue expanding fixtures for fills, exits, and portfolio scenarios."
+  },
+  {
+    "id": "market_timestamp_policy_normalized",
+    "phase": "phase_5_market_data",
+    "status": "covered_by_regression",
+    "description": "Historical, live, and replay market bars now share canonical open_time, close_time, and available_at semantics through MarketEvent and shared candle-boundary helpers.",
+    "mitigation": "Covered by tests/parity/test_market_event_timestamps.py and tests/parity/test_strategy_runtime.py; keep expanding fixtures as new market-data adapters are added."
+  },
+  {
+    "id": "portfolio_terminal_accounting_divergence",
+    "phase": "phase_6_accounting",
+    "status": "known_gap",
+    "description": "Portfolio backtests now default to terminal marks, but force-close remains available as an explicit legacy accounting mode.",
+    "mitigation": "Keep terminal-mark/force-close characterization tests and ensure reports label the selected accounting mode."
+  },
+  {
+    "id": "economic_contract_normalized",
+    "phase": "phase_6_accounting",
+    "status": "covered_by_regression",
+    "description": "TradeOutcome, metrics, instrumentation, daily aggregation, Postgres net PnL, and simulated/live partial exits now share explicit gross price PnL, fee, funding, and realized net semantics.",
+    "mitigation": "Covered by tests/parity/test_trade_outcome_accounting.py, tests/parity/test_runtime_types.py, tests/test_partial_fill_pnl.py, tests/live/test_lifecycle.py, tests/test_instrumentation.py, and tests/test_postgres_sink.py."
+  }
+]

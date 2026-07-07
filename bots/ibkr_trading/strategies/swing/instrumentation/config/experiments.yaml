@@ -1,0 +1,14 @@
+# experiments.yaml — active A/B experiments
+exp_coord_tight_stop:
+  hypothesis: "Tighter coordinator stop rules reduce drawdown without hurting overall PnL"
+  variants: ["control", "tight_2atr"]
+  primary_metric: "sharpe"
+  start_date: "2026-03-01"
+  strategy_type: "coordinator"
+
+exp_overlay_gld:
+  hypothesis: "Adding GLD overlay signal improves regime detection"
+  variants: ["control", "gld_ema_20"]
+  primary_metric: "win_rate"
+  start_date: "2026-02-15"
+  strategy_type: "overlay"

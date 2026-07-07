@@ -1,0 +1,64 @@
+{
+  "backtest_adapter_commit_sha": "1a0b42f3fbb74daeec7a1ac0efbf1bf3c18ee8ca68c09beb468cc1cfdeda8b64",
+  "checks": [
+    {
+      "errors": [],
+      "name": "contract_loads_cleanly",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "wired_week1_adapter_available",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "deployment_metadata_loads_cleanly",
+      "passed": true
+    },
+    {
+      "errors": [
+        "deployment metadata strategy_plugin_contract_hash does not match contract artifact"
+      ],
+      "name": "deployment_metadata_matches_contract",
+      "passed": false
+    },
+    {
+      "errors": [],
+      "name": "live_repo_checkout_clean_at_pinned_commit",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "parity_fixtures_available_in_clean_checkout",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "contract_matches_backtest_adapter_hash",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "plugin_remains_shadow_validated_not_approval_ready",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "live_and_adapter_traces_match_required_dimensions",
+      "passed": true
+    }
+  ],
+  "contract_maturity": "shadow_validated",
+  "decision_parity_report_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\week1_probe2\\k_stock_olr_kalcb\\decision_parity\\decision_parity_report.json",
+  "decision_parity_status": "pass",
+  "eligible_for_approval": false,
+  "eligible_for_optimizer": true,
+  "fixture_count": 2,
+  "live_repo_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "ok": false,
+  "run_id": "decision-parity-week1-shadow-k_stock_olr_kalcb",
+  "strategy_plugin_id": "k-stock-olr-kalcb",
+  "summary_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\week1_probe2\\k_stock_olr_kalcb\\decision_parity\\decision_parity_validation_summary.json",
+  "validated_live_repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader"
+}

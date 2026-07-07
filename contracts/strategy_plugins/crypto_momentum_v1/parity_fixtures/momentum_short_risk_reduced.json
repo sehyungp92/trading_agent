@@ -1,0 +1,33 @@
+{
+  "fixture_id": "momentum_short_risk_reduced",
+  "symbol": "SOL",
+  "timeframe": "15m",
+  "timestamp": "2026-05-15T12:00:00+00:00",
+  "direction": "SHORT",
+  "entry_price": 170.0,
+  "atr": 4.0,
+  "bar": {
+    "open": 172.0,
+    "high": 174.0,
+    "low": 168.0,
+    "close": 170.0,
+    "volume": 300.0
+  },
+  "setup": {
+    "grade": "A",
+    "zone_price": 171.0,
+    "confluences": ["m15_ema20", "m15_ema50", "fib_zone"],
+    "room_r": 3.1,
+    "projected_r": 3.1,
+    "stop_level": 178.0
+  },
+  "sizing": {
+    "qty": 18.0,
+    "leverage": 8.0,
+    "liquidation_price": 210.0,
+    "risk_pct_actual": 0.012,
+    "notional": 3060.0,
+    "was_reduced": true,
+    "reduction_reason": "leverage clamped to 8.0x"
+  }
+}

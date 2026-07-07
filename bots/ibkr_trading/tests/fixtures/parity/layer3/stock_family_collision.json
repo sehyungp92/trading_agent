@@ -1,0 +1,253 @@
+{
+  "schema_version": 2,
+  "surface": "stock_family",
+  "family": "stock",
+  "timezone": "UTC",
+  "clock_start": "2026-05-20T14:30:00+00:00",
+  "market_calendar": {
+    "name": "XNYS",
+    "is_open": true
+  },
+  "instruments": [
+    {
+      "symbol": "MSFT",
+      "trade_symbol": "MSFT",
+      "root": "MSFT",
+      "venue": "SMART",
+      "primary_exchange": "NASDAQ",
+      "sec_type": "STK",
+      "tick_size": 0.01,
+      "point_value": 1.0,
+      "currency": "USD"
+    }
+  ],
+  "bars": [
+    {
+      "symbol": "MSFT",
+      "timeframe": "5m",
+      "timestamp": "2026-05-20T14:30:00+00:00",
+      "open": 410.2,
+      "high": 412.4,
+      "low": 410.1,
+      "close": 412.0,
+      "volume": 900000
+    }
+  ],
+  "higher_timeframe_bars": {},
+  "artifacts": {
+    "iaric": {
+      "watchlist": [
+        {
+          "symbol": "MSFT",
+          "sector": "Technology",
+          "price": 412.0,
+          "daily_signal_score": 82.0,
+          "trigger_types": [
+            "OPENING_RECLAIM"
+          ],
+          "daily_atr": 2.0,
+          "sizing_mult": 1.0,
+          "expected_5m_volume": 100000.0,
+          "average_30m_volume": 600000.0
+        }
+      ],
+      "quotes": {
+        "MSFT": {
+          "timestamp": "2026-05-20T14:30:00+00:00",
+          "bid": 411.99,
+          "ask": 412.01,
+          "last": 412.0,
+          "spread_pct": 5e-05
+        }
+      },
+      "regime": {
+        "score": 0.75,
+        "tier": "B",
+        "risk_multiplier": 1.0,
+        "price_ok": true,
+        "breadth_ok": true,
+        "vol_ok": true,
+        "credit_ok": true
+      }
+    },
+    "alcb": {
+      "idle_market_input": {
+        "symbol": "MSFT",
+        "timeframe": "5m",
+        "bars": [
+          {
+            "symbol": "MSFT",
+            "timeframe": "5m",
+            "timestamp": "2026-05-20T14:30:00+00:00",
+            "open": 410.2,
+            "high": 412.4,
+            "low": 410.1,
+            "close": 412.0,
+            "volume": 900000
+          }
+        ],
+        "reason": "fixture_child_idle"
+      }
+    }
+  },
+  "strategy_config": {
+    "config_overrides": {
+      "base_risk_fraction": 0.0002
+    }
+  },
+  "family_config": {
+    "family": "stock",
+    "heat_cap_R": 20.0,
+    "portfolio_daily_stop_R": 20.0,
+    "portfolio_weekly_stop_R": 50.0,
+    "strategies": [
+      {
+        "id": "IARIC_v1",
+        "family": "stock",
+        "unit_risk_dollars": 864.0,
+        "daily_stop_R": 20.0,
+        "priority": 0,
+        "max_heat_R": 20.0,
+        "max_working_orders": 4
+      },
+      {
+        "id": "ALCB_v1",
+        "family": "stock",
+        "unit_risk_dollars": 702.0,
+        "daily_stop_R": 20.0,
+        "priority": 1,
+        "max_heat_R": 20.0,
+        "max_working_orders": 4
+      }
+    ],
+    "portfolio_rules": {
+      "family_strategy_ids": [
+        "IARIC_v1",
+        "ALCB_v1"
+      ],
+      "directional_cap_R": 20.0,
+      "directional_cap_long_R": 20.0,
+      "reference_unit_risk_dollars": 648.0,
+      "nqdtc_direction_filter_enabled": false,
+      "dd_tiers": [
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "symbol_collision_action": "half_size",
+      "symbol_collision_pairs": [
+        [
+          "ALCB_v1",
+          "IARIC_v1",
+          "half_size"
+        ]
+      ],
+      "strategy_priorities": [
+        [
+          "IARIC_v1",
+          0
+        ],
+        [
+          "ALCB_v1",
+          1
+        ]
+      ]
+    }
+  },
+  "initial_repository_state": {
+    "positions": [
+      {
+        "strategy_id": "ALCB_v1",
+        "account_id": "ACCT-PARITY",
+        "symbol": "MSFT",
+        "net_qty": 1,
+        "avg_price": 410.0,
+        "open_risk_dollars": 100.0,
+        "open_risk_R": 0.1,
+        "last_update_at": "2026-05-20T14:29:00+00:00"
+      }
+    ]
+  },
+  "initial_strategy_state": {
+    "IARIC_v1": {
+      "trade_date": "2026-05-20",
+      "saved_at": "2026-05-20T14:30:00+00:00",
+      "symbols": [
+        {
+          "symbol": "MSFT",
+          "stage": "READY",
+          "route_family": "OPENING_RECLAIM",
+          "setup_low": 410.0,
+          "reclaim_level": 411.5,
+          "stop_level": 410.0,
+          "bars_seen_today": 0,
+          "session_low": 410.0,
+          "session_high": 412.0,
+          "daily_signal_score": 82.0,
+          "trigger_types": [
+            "OPENING_RECLAIM"
+          ],
+          "trigger_tier": "STANDARD",
+          "trend_tier": "STRONG",
+          "sizing_mult": 1.0,
+          "daily_atr": 2.0,
+          "entry_atr": 2.0,
+          "ready_bar_idx": -1,
+          "target_entry_price": 412.0,
+          "improvement_expires": 2
+        }
+      ],
+      "last_decision_code": "IDLE",
+      "meta": {
+        "active_symbols": [
+          "MSFT"
+        ],
+        "pending_entry_risk": {},
+        "order_index": {},
+        "account_equity": 100000.0,
+        "base_risk_fraction": 0.0002
+      }
+    }
+  },
+  "initial_family_state": {},
+  "account_state": {
+    "account_id": "ACCT-PARITY",
+    "equity": 100000.0,
+    "currency": "USD"
+  },
+  "expected_fill_model": {
+    "mode": "deterministic",
+    "slippage_ticks": 0,
+    "commission": 0.0
+  },
+  "broker_event_script": [
+    {
+      "order_match": {
+        "strategy_id": "IARIC_v1",
+        "symbol": "MSFT",
+        "role": "ENTRY",
+        "side": "BUY",
+        "sequence": 1
+      },
+      "event": "fill",
+      "exec_id": "IARIC-STOCK-FAMILY-FILL-1",
+      "price": 412.01,
+      "qty": 1,
+      "commission": 0.0,
+      "timestamp": "2026-05-20T14:31:00+00:00"
+    }
+  ],
+  "expected_normalized_outputs": {
+    "family_decisions": [
+      {
+        "strategy_id": "IARIC_v1",
+        "symbol": "MSFT",
+        "status": "reduced",
+        "original_qty": 3,
+        "approved_qty": 1
+      }
+    ]
+  },
+  "expected_trade_count": 1
+}

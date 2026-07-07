@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "surface": "IARIC",
+  "family": "stock",
+  "timezone": "UTC",
+  "clock_start": "2026-05-20T14:30:00+00:00",
+  "market_calendar": {"name": "XNYS", "is_open": true},
+  "instruments": [
+    {"symbol": "MSFT", "trade_symbol": "MSFT", "root": "MSFT", "venue": "SMART", "primary_exchange": "NASDAQ", "sec_type": "STK", "tick_size": 0.01, "point_value": 1.0, "currency": "USD"}
+  ],
+  "bars": [
+    {"symbol": "MSFT", "timeframe": "5m", "timestamp": "2026-05-20T14:30:00+00:00", "open": 410.2, "high": 412.4, "low": 410.1, "close": 412.0, "volume": 900000}
+  ],
+  "higher_timeframe_bars": {},
+  "artifacts": {
+    "iaric": {
+      "watchlist": [
+        {"symbol": "MSFT", "sector": "Technology", "price": 412.0, "daily_signal_score": 82.0, "trigger_types": ["OPENING_RECLAIM"], "daily_atr": 2.0, "sizing_mult": 1.0, "expected_5m_volume": 100000.0, "average_30m_volume": 600000.0}
+      ],
+      "quotes": {"MSFT": {"timestamp": "2026-05-20T14:30:00+00:00", "bid": 411.99, "ask": 412.01, "last": 412.0, "spread_pct": 0.00005}},
+      "regime": {"score": 0.75, "tier": "B", "risk_multiplier": 1.0, "price_ok": true, "breadth_ok": true, "vol_ok": true, "credit_ok": true}
+    }
+  },
+  "strategy_config": {"strategy_id": "IARIC_v1", "family": "stock", "unit_risk_dollars": 1000.0, "config_overrides": {"base_risk_fraction": 0.0002}},
+  "family_config": {},
+  "initial_repository_state": {},
+  "initial_strategy_state": {
+    "IARIC_v1": {
+      "trade_date": "2026-05-20",
+      "saved_at": "2026-05-20T14:30:00+00:00",
+      "symbols": [
+        {
+          "symbol": "MSFT",
+          "stage": "READY",
+          "route_family": "OPENING_RECLAIM",
+          "setup_low": 410.0,
+          "reclaim_level": 411.5,
+          "stop_level": 410.0,
+          "bars_seen_today": 0,
+          "session_low": 410.0,
+          "session_high": 412.0,
+          "daily_signal_score": 82.0,
+          "trigger_types": ["OPENING_RECLAIM"],
+          "trigger_tier": "STANDARD",
+          "trend_tier": "STRONG",
+          "sizing_mult": 1.0,
+          "daily_atr": 2.0,
+          "entry_atr": 2.0,
+          "ready_bar_idx": -1,
+          "target_entry_price": 412.0,
+          "improvement_expires": 2
+        }
+      ],
+      "last_decision_code": "IDLE",
+      "meta": {"active_symbols": ["MSFT"], "pending_entry_risk": {}, "order_index": {}, "account_equity": 100000.0, "base_risk_fraction": 0.0002}
+    }
+  },
+  "initial_family_state": {},
+  "account_state": {"account_id": "ACCT-PARITY", "equity": 100000.0, "currency": "USD"},
+  "expected_fill_model": {"mode": "deterministic", "slippage_ticks": 0, "commission": 0.0},
+  "broker_event_script": [
+    {"order_match": {"strategy_id": "IARIC_v1", "symbol": "MSFT", "role": "ENTRY", "side": "BUY", "sequence": 1}, "event": "fill", "exec_id": "IARIC-L2-FILL-1", "price": 412.01, "commission": 0.0, "timestamp": "2026-05-20T14:36:00+00:00"}
+  ],
+  "expected_normalized_outputs": {}
+}

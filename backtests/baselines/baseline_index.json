@@ -1,0 +1,2426 @@
+{
+  "archive_resolution_policy": "Resolve explicit archive_path/archive_replaced_round3_path only when the target exists inside this checkout. Otherwise fail closed and record the missing artifact.",
+  "baselines": [
+    {
+      "baseline_id": "ibkr:momentum:downturn",
+      "bot": "ibkr",
+      "family": "momentum",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/ibkr/momentum/downturn/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/ibkr/momentum/downturn/rounds_manifest.json",
+          "canonical_json_sha256": "6d7cbcff73bdcd22678944f2cdf4868edf1a35365f9adfa7e2be7f86df35c151",
+          "role": "rounds_manifest",
+          "sha256": "9a8e96955ef4b7bdfe0824011ee3ab1fb3a235ced60c45f857d8aa3f3bbbfcb8",
+          "size_bytes": 6752,
+          "source_path": "backtests/baselines/ibkr/momentum/downturn/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/ibkr/momentum/downturn/round_4/optimized_config.json",
+          "baseline_path": "backtests/baselines/ibkr/momentum/downturn/round_4/optimized_config.json",
+          "canonical_json_sha256": "e90b19904fd8d456e4b82cc718cfc85bf9782b399d5558ebb89331e1622b97a7",
+          "role": "optimized_config",
+          "sha256": "4fd3a3a7e07da910b95124c232c29f051329f66d101431409b863f992b4ff48a",
+          "size_bytes": 1349,
+          "source_path": "backtests/baselines/ibkr/momentum/downturn/round_4/optimized_config.json"
+        }
+      ],
+      "key_metrics": {
+        "calmar_ratio": 7.407808305713719,
+        "max_drawdown_pct": 7.3282360729374965,
+        "net_return_pct": 145.6248,
+        "profit_factor": 3.1399173568292293,
+        "sharpe_ratio": 1.6740949753522878,
+        "total_trades": 127,
+        "win_rate": 54.330708661417326
+      },
+      "latest_round": 4,
+      "latest_timestamp": "2026-05-04T21:14:03.500947+00:00",
+      "notes": [],
+      "round_record_canonical_sha256": "a17ca1c5ec2bb9041c6ea9aba192f508e9fbe87f67ffb5e3dcf1af132c50d922",
+      "source_root": "bots/ibkr_trading",
+      "status": "frozen",
+      "strategy": "downturn"
+    },
+    {
+      "baseline_id": "ibkr:momentum:nq_regime",
+      "bot": "ibkr",
+      "family": "momentum",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/ibkr/momentum/nq_regime/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/ibkr/momentum/nq_regime/rounds_manifest.json",
+          "canonical_json_sha256": "94607e07139e66cdd6f35d2271997980e1cf8bd30c53f52cc16b59c774f78a6e",
+          "role": "rounds_manifest",
+          "sha256": "a65034e1b9482226d993c490397ec509f52a75adc716bfaacd1bf12d760f3164",
+          "size_bytes": 21687,
+          "source_path": "backtests/baselines/ibkr/momentum/nq_regime/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/ibkr/momentum/nq_regime/round_6/optimized_config.json",
+          "baseline_path": "backtests/baselines/ibkr/momentum/nq_regime/round_6/optimized_config.json",
+          "canonical_json_sha256": "14c0b1eabaa1790b5583c250a7fbc49ecd960e6314bae30fa2152fdf14abc296",
+          "role": "optimized_config",
+          "sha256": "91dacd67b09a05b019ab72038ae604764426b83e011dcfbd35a9e79abdc35c72",
+          "size_bytes": 5249,
+          "source_path": "backtests/baselines/ibkr/momentum/nq_regime/round_6/optimized_config.json"
+        }
+      ],
+      "key_metrics": {
+        "calmar_ratio": null,
+        "max_drawdown_pct": null,
+        "net_return_pct": null,
+        "profit_factor": 7.458001487967126,
+        "sharpe_ratio": null,
+        "total_trades": 681,
+        "win_rate": 73.568281938326
+      },
+      "latest_round": 6,
+      "latest_timestamp": "2026-05-05T00:23:11.420362+00:00",
+      "notes": [],
+      "round_record_canonical_sha256": "3aa0fa5f3ab072b18cf86bdb3966a37000d0781eb4c4047533c96acec7949bf1",
+      "source_root": "bots/ibkr_trading",
+      "status": "frozen",
+      "strategy": "nq_regime"
+    },
+    {
+      "baseline_id": "ibkr:momentum:nqdtc",
+      "bot": "ibkr",
+      "family": "momentum",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/ibkr/momentum/nqdtc/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/ibkr/momentum/nqdtc/rounds_manifest.json",
+          "canonical_json_sha256": "4b53b60a3812b32c468591bbe5626d8f514c058760d78d48deed11580c7c0e90",
+          "role": "rounds_manifest",
+          "sha256": "cd412accbbeaed1484a49c0b733d83985a93d45788e1a6ab46f52f179b576903",
+          "size_bytes": 16539,
+          "source_path": "backtests/baselines/ibkr/momentum/nqdtc/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/ibkr/momentum/nqdtc/round_5/optimized_config.json",
+          "baseline_path": "backtests/baselines/ibkr/momentum/nqdtc/round_5/optimized_config.json",
+          "canonical_json_sha256": "a48ceef2e699c1e10cfbaf633722832af741dd1f6b04f6fc027c3fb860c352e5",
+          "role": "optimized_config",
+          "sha256": "1baec4d83ebc9d4438c68bf1c7692d06e9864faf5eb7de6a91385b648792ae85",
+          "size_bytes": 982,
+          "source_path": "backtests/baselines/ibkr/momentum/nqdtc/round_5/optimized_config.json"
+        }
+      ],
+      "key_metrics": {
+        "calmar_ratio": 20.771014850509715,
+        "max_drawdown_pct": 16.9855638994617,
+        "net_return_pct": 352.80740000000065,
+        "profit_factor": 1.8681636685219964,
+        "sharpe_ratio": 2.467569682877257,
+        "total_trades": 161,
+        "win_rate": 55.27950310559007
+      },
+      "latest_round": 5,
+      "latest_timestamp": "2026-05-25T11:12:08.320210+00:00",
+      "notes": [],
+      "round_record_canonical_sha256": "ea579fbd52e616dc8978bac5649c16126c18002dded3d900b2180df45e39f8a3",
+      "source_root": "bots/ibkr_trading",
+      "status": "frozen",
+      "strategy": "nqdtc"
+    },
+    {
+      "baseline_id": "ibkr:momentum:portfolio_synergy",
+      "bot": "ibkr",
+      "family": "momentum",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/ibkr/momentum/portfolio_synergy/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/ibkr/momentum/portfolio_synergy/rounds_manifest.json",
+          "canonical_json_sha256": "ae1a9c7c136776063000b27a7a936f4e90c8639014d005787951a19c9dff5d16",
+          "role": "rounds_manifest",
+          "sha256": "1bc115be02acc76753ffe06e8d2b33645a29a5e3f43f05bc973d62ac948f7c81",
+          "size_bytes": 27700,
+          "source_path": "backtests/baselines/ibkr/momentum/portfolio_synergy/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/ibkr/momentum/portfolio_synergy/round_2/optimized_config.json",
+          "baseline_path": "backtests/baselines/ibkr/momentum/portfolio_synergy/round_2/optimized_config.json",
+          "canonical_json_sha256": "464fbabc0670cfa20404ff91d1059d4789e4e6a090b132c98d4eea4eeca2cf7a",
+          "role": "optimized_config",
+          "sha256": "5983a2298b68944b861e0cc8b234b049e83d95c1c7a92c163b3f49aebb12cd24",
+          "size_bytes": 3290,
+          "source_path": "backtests/baselines/ibkr/momentum/portfolio_synergy/round_2/optimized_config.json"
+        }
+      ],
+      "key_metrics": {
+        "calmar_ratio": 16.39310689186779,
+        "max_drawdown_pct": 7.552823943493251,
+        "net_return_pct": 6.031136759767343,
+        "profit_factor": 3.4032364656016414,
+        "sharpe_ratio": 5.980101660451219,
+        "total_trades": 1238,
+        "win_rate": 63.48949919224556
+      },
+      "latest_round": 2,
+      "latest_timestamp": "2026-05-25T11:22:01.342190+00:00",
+      "notes": [],
+      "round_record_canonical_sha256": "43d5ba11140baa6c2bc2399f25c947185ebe1d21c9cbac7f02dc9d0e0484810b",
+      "source_root": "bots/ibkr_trading",
+      "status": "frozen",
+      "strategy": "portfolio_synergy"
+    },
+    {
+      "baseline_id": "ibkr:momentum:vdubus",
+      "bot": "ibkr",
+      "family": "momentum",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/ibkr/momentum/vdubus/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/ibkr/momentum/vdubus/rounds_manifest.json",
+          "canonical_json_sha256": "bd076482ac1630a63565be308b35ec5655d55a40c4431936ec2ebf8633812bc9",
+          "role": "rounds_manifest",
+          "sha256": "cb6b3b8c231b72232fd0c4bb3dd4bdc2e5115a40ea32bf323b4f63fd00023939",
+          "size_bytes": 10329,
+          "source_path": "backtests/baselines/ibkr/momentum/vdubus/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/ibkr/momentum/vdubus/round_3/optimized_config.json",
+          "baseline_path": "backtests/baselines/ibkr/momentum/vdubus/round_3/optimized_config.json",
+          "canonical_json_sha256": "8f8145c7f7fe252ad44c3967338de6883aae5b0632fe841b439a6ab104ad97c8",
+          "role": "optimized_config",
+          "sha256": "556ff21a697a8e80f5a49033e1aa9dc490ab9631d63f1b626d414b8be3111d26",
+          "size_bytes": 1391,
+          "source_path": "backtests/baselines/ibkr/momentum/vdubus/round_3/optimized_config.json"
+        }
+      ],
+      "key_metrics": {
+        "calmar_ratio": 78.69130916715028,
+        "max_drawdown_pct": 17.456174189225823,
+        "net_return_pct": 1373.649199999998,
+        "profit_factor": 2.6473596372605535,
+        "sharpe_ratio": 2.3359519170204384,
+        "total_trades": 212,
+        "win_rate": 46.22641509433962
+      },
+      "latest_round": 3,
+      "latest_timestamp": "2026-05-23T17:13:08.552639+00:00",
+      "notes": [],
+      "round_record_canonical_sha256": "c94b0e96d4ee05dc4783de75fdb18e68bbc40db66974565f2eac4d62eaeb9b98",
+      "source_root": "bots/ibkr_trading",
+      "status": "frozen",
+      "strategy": "vdubus"
+    },
+    {
+      "baseline_id": "ibkr:regime:crisis",
+      "bot": "ibkr",
+      "family": "regime",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/ibkr/regime/crisis/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/ibkr/regime/crisis/rounds_manifest.json",
+          "canonical_json_sha256": "d91bf2c30d181e98742eaf61bbcefc80f9b2782a828836f9732a945f79f8d02a",
+          "role": "rounds_manifest",
+          "sha256": "42c3481305e173022a905c30488d47c154e5ab06038167664ed2d3ebf272efe9",
+          "size_bytes": 7989,
+          "source_path": "backtests/baselines/ibkr/regime/crisis/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/ibkr/regime/crisis/round_9/optimized_config.json",
+          "baseline_path": "backtests/baselines/ibkr/regime/crisis/round_9/optimized_config.json",
+          "canonical_json_sha256": "06de449c33c3ebb5c85e4367e03268573fbf000ea7d480b546bb7bf88061829a",
+          "role": "optimized_config",
+          "sha256": "2d9c7f10be508a3f63ee3fd460c5c1d474f8b17d36ef4a08feda72f7fccb4581",
+          "size_bytes": 1014,
+          "source_path": "backtests/baselines/ibkr/regime/crisis/round_9/optimized_config.json"
+        }
+      ],
+      "key_metrics": {
+        "calmar_ratio": null,
+        "max_drawdown_pct": null,
+        "net_return_pct": null,
+        "profit_factor": null,
+        "sharpe_ratio": null,
+        "total_trades": null,
+        "win_rate": null
+      },
+      "latest_round": 9,
+      "latest_timestamp": "2026-05-06T12:58:12.985445+00:00",
+      "notes": [],
+      "round_record_canonical_sha256": "73b5b9b759e15fc0ccad80687c434495453b428c648cd4946b10296af801f2b7",
+      "source_root": "bots/ibkr_trading",
+      "status": "frozen",
+      "strategy": "crisis"
+    },
+    {
+      "baseline_id": "ibkr:stock:alcb",
+      "bot": "ibkr",
+      "family": "stock",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/ibkr/stock/alcb/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/ibkr/stock/alcb/rounds_manifest.json",
+          "canonical_json_sha256": "80600d17f59ceb823dece96997e2919827c2cb50d56c69df517a7b8f009a1200",
+          "role": "rounds_manifest",
+          "sha256": "86c0fb3cf7d98ae8fcbfe5db5ebd0734bc91c1f9c582a7f6aaabc1465f36d759",
+          "size_bytes": 5630,
+          "source_path": "backtests/baselines/ibkr/stock/alcb/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/ibkr/stock/alcb/round_2/optimized_config.json",
+          "baseline_path": "backtests/baselines/ibkr/stock/alcb/round_2/optimized_config.json",
+          "canonical_json_sha256": "9d4590bfd26fb44de9a713c0f58b6d0d20c1e1148cc07dfa35974adc25742313",
+          "role": "optimized_config",
+          "sha256": "5aa6b134838e56ddfad0b7775345e88614127cbb607b25f17e0cb0aa3aeacec6",
+          "size_bytes": 1817,
+          "source_path": "backtests/baselines/ibkr/stock/alcb/round_2/optimized_config.json"
+        }
+      ],
+      "key_metrics": {
+        "calmar_ratio": 16.969738702244644,
+        "max_drawdown_pct": 2.923331664677091,
+        "net_return_pct": null,
+        "profit_factor": 2.2066247266200185,
+        "sharpe_ratio": 3.9948433433040345,
+        "total_trades": 589,
+        "win_rate": 62.81833616298812
+      },
+      "latest_round": 2,
+      "latest_timestamp": "2026-05-23T21:55:00.841359+00:00",
+      "notes": [],
+      "round_record_canonical_sha256": "1babc89e0b7b3f3143e2dc8d70827b458b350d1ff1e1cc5eec7b14fecc07b419",
+      "source_root": "bots/ibkr_trading",
+      "status": "frozen",
+      "strategy": "alcb"
+    },
+    {
+      "baseline_id": "ibkr:stock:iaric",
+      "bot": "ibkr",
+      "family": "stock",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/ibkr/stock/iaric/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/ibkr/stock/iaric/rounds_manifest.json",
+          "canonical_json_sha256": "1916ca7d008668252486b1ad8523c1d3f845429bb250ecd3a2d25ab3fa24bbfa",
+          "role": "rounds_manifest",
+          "sha256": "3fd5eabb8b97289276bdd1407d35be9a1544a56f850cdb64e1d860907ce881fd",
+          "size_bytes": 3859,
+          "source_path": "backtests/baselines/ibkr/stock/iaric/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/ibkr/stock/iaric/round_1/optimized_config.json",
+          "baseline_path": "backtests/baselines/ibkr/stock/iaric/round_1/optimized_config.json",
+          "canonical_json_sha256": "2c46a9c1b5be5a573684f756d5928bbe684dc15705176ae2891eef62d343c9b8",
+          "role": "optimized_config",
+          "sha256": "cf2506516ad0191567e03146304c9ff8ece92985c7713f906cbe2a8938c6e7d4",
+          "size_bytes": 2776,
+          "source_path": "backtests/baselines/ibkr/stock/iaric/round_1/optimized_config.json"
+        }
+      ],
+      "key_metrics": {
+        "calmar_ratio": 34.930061359408505,
+        "max_drawdown_pct": 1.9851291013273222,
+        "net_return_pct": null,
+        "profit_factor": 2.3130200056599257,
+        "sharpe_ratio": 6.570245562344438,
+        "total_trades": 1446,
+        "win_rate": 79.73720608575381
+      },
+      "latest_round": 1,
+      "latest_timestamp": "2026-05-24T00:26:13.635997+00:00",
+      "notes": [],
+      "round_record_canonical_sha256": "aa6eb31a630aef288c88f1899421a522da3a12295ce3bd492f240586dec466d1",
+      "source_root": "bots/ibkr_trading",
+      "status": "frozen",
+      "strategy": "iaric"
+    },
+    {
+      "baseline_id": "ibkr:stock:portfolio_synergy",
+      "bot": "ibkr",
+      "family": "stock",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/ibkr/stock/portfolio_synergy/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/ibkr/stock/portfolio_synergy/rounds_manifest.json",
+          "canonical_json_sha256": "d24166ecc5592ef4517d6a4a710393cb1c574679fc75cfc97f78a251f0c2dc1c",
+          "role": "rounds_manifest",
+          "sha256": "ce96da9d4a87c630966b6b3b37c90b9fc9612b7926c486bd49f64e34f90ecea0",
+          "size_bytes": 30191,
+          "source_path": "backtests/baselines/ibkr/stock/portfolio_synergy/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/ibkr/stock/portfolio_synergy/round_3/optimized_config.json",
+          "baseline_path": "backtests/baselines/ibkr/stock/portfolio_synergy/round_3/optimized_config.json",
+          "canonical_json_sha256": "c14e81eec1d367471e3ce038d637e2fd6db86685c235ba0fe0114fb03c089964",
+          "role": "optimized_config",
+          "sha256": "57ea011ce56bbe10bb4cf61120da6a580cacb222dc92138d31c10db2ee713605",
+          "size_bytes": 2431,
+          "source_path": "backtests/baselines/ibkr/stock/portfolio_synergy/round_3/optimized_config.json"
+        }
+      ],
+      "key_metrics": {
+        "calmar_ratio": 46.09727062478604,
+        "max_drawdown_pct": 4.623062045722482,
+        "net_return_pct": 7.980608204189258,
+        "profit_factor": 2.241240261297979,
+        "sharpe_ratio": 4.3729861216896495,
+        "total_trades": 1684,
+        "win_rate": 74.40617577197149
+      },
+      "latest_round": 3,
+      "latest_timestamp": "2026-05-24T14:54:39.140683+00:00",
+      "notes": [],
+      "round_record_canonical_sha256": "74c71ff357cdebcf1f59ce967c0eb7745e30a8706d42563e823392482043fc7c",
+      "source_root": "bots/ibkr_trading",
+      "status": "frozen",
+      "strategy": "portfolio_synergy"
+    },
+    {
+      "baseline_id": "ibkr:swing:atrss",
+      "bot": "ibkr",
+      "family": "swing",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/ibkr/swing/atrss/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/ibkr/swing/atrss/rounds_manifest.json",
+          "canonical_json_sha256": "f473e75bfdbdf3ea2f4ef9fefc47a6ef03540e63ef111eed5bb29b8fcb8ef6ab",
+          "role": "rounds_manifest",
+          "sha256": "4c9f49d698bdc6bad7f530e1576b52e5d156f76d94320692867bc0d145d2a4dc",
+          "size_bytes": 2796,
+          "source_path": "backtests/baselines/ibkr/swing/atrss/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/ibkr/swing/atrss/round_3/optimized_config.json",
+          "baseline_path": "backtests/baselines/ibkr/swing/atrss/round_3/optimized_config.json",
+          "canonical_json_sha256": "4ce803496dd04ba42507672c8d4247bc3a19f7d3017d1d5440b2802f2df09d4a",
+          "role": "optimized_config",
+          "sha256": "b4c105aead4a4957eb6eed61a4ad18c721c45d6a5df5fe191b2fa6b58af555d1",
+          "size_bytes": 620,
+          "source_path": "backtests/baselines/ibkr/swing/atrss/round_3/optimized_config.json"
+        }
+      ],
+      "key_metrics": {
+        "calmar_ratio": 73.7259853528312,
+        "max_drawdown_pct": 11.17839987275162,
+        "net_return_pct": 238.97109450000013,
+        "profit_factor": 6.5825101580783,
+        "sharpe_ratio": 1.8328062795813067,
+        "total_trades": 264,
+        "win_rate": 83.33333333333334
+      },
+      "latest_round": 3,
+      "latest_timestamp": "2026-05-23T00:05:33.033593+00:00",
+      "notes": [],
+      "round_record_canonical_sha256": "f3af86ac68fc39bf6dd2336b05f2ba29e6dfb34c82a4059ea85584437f539ce1",
+      "source_root": "bots/ibkr_trading",
+      "status": "frozen",
+      "strategy": "atrss"
+    },
+    {
+      "baseline_id": "ibkr:swing:helix",
+      "bot": "ibkr",
+      "family": "swing",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/ibkr/swing/helix/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/ibkr/swing/helix/rounds_manifest.json",
+          "canonical_json_sha256": "22f2586089b27e363e910b5f0d5972848379f246f6022c32e309098588d06836",
+          "role": "rounds_manifest",
+          "sha256": "7bd060699ae9485ee580a93bb3d20aae569d0d1baa80838630a48dfa02d7f0fa",
+          "size_bytes": 10787,
+          "source_path": "backtests/baselines/ibkr/swing/helix/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/ibkr/swing/helix/round_5/optimized_config.json",
+          "baseline_path": "backtests/baselines/ibkr/swing/helix/round_5/optimized_config.json",
+          "canonical_json_sha256": "7f86ddc94169f817870f3705ffb04426935ef16af4e24e6ece9df169dd863423",
+          "role": "optimized_config",
+          "sha256": "c980640b2a1d4ef86c3398b09dddfb0e3c6aa71207718fcb3e38210aa73699f4",
+          "size_bytes": 1709,
+          "source_path": "backtests/baselines/ibkr/swing/helix/round_5/optimized_config.json"
+        }
+      ],
+      "key_metrics": {
+        "calmar_ratio": 19.323548057309754,
+        "max_drawdown_pct": null,
+        "net_return_pct": 114.68418400000286,
+        "profit_factor": 2.1586381200826636,
+        "sharpe_ratio": 1.3365289549100519,
+        "total_trades": 325,
+        "win_rate": 49.84615384615385
+      },
+      "latest_round": 5,
+      "latest_timestamp": "2026-05-23T00:06:01.480944+00:00",
+      "notes": [],
+      "round_record_canonical_sha256": "aa10cd88e1001c2bdd51471ced6aa52b37b700eadaeed6a271271d3447b24b93",
+      "source_root": "bots/ibkr_trading",
+      "status": "frozen",
+      "strategy": "helix"
+    },
+    {
+      "baseline_id": "ibkr:swing:portfolio_synergy",
+      "bot": "ibkr",
+      "family": "swing",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/ibkr/swing/portfolio_synergy/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/ibkr/swing/portfolio_synergy/rounds_manifest.json",
+          "canonical_json_sha256": "ec212a1655feb790d616472eb0e5311baef1398a28f8e7490a9e879c1ff0c30e",
+          "role": "rounds_manifest",
+          "sha256": "5935f16c366eceb0bb54e5e6a85b31494e8f88295b2526524aac80765996177e",
+          "size_bytes": 27501,
+          "source_path": "backtests/baselines/ibkr/swing/portfolio_synergy/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/ibkr/swing/portfolio_synergy/round_3/optimized_config.json",
+          "baseline_path": "backtests/baselines/ibkr/swing/portfolio_synergy/round_3/optimized_config.json",
+          "canonical_json_sha256": "0c56937c54019e66fb007f1266b7662c52e216c48e2b4f93baa721f3dd780294",
+          "role": "optimized_config",
+          "sha256": "23ad1ed6390f4177abdfbabf17c5cc027d4832735351150422df6a4f4967ef1d",
+          "size_bytes": 7402,
+          "source_path": "backtests/baselines/ibkr/swing/portfolio_synergy/round_3/optimized_config.json"
+        }
+      ],
+      "key_metrics": {
+        "calmar_ratio": null,
+        "max_drawdown_pct": 8.555451299897042,
+        "net_return_pct": 509.7686984065371,
+        "profit_factor": 3.3548725921976272,
+        "sharpe_ratio": 2.1245668391908747,
+        "total_trades": 716,
+        "win_rate": null
+      },
+      "latest_round": 3,
+      "latest_timestamp": "2026-05-23T00:15:52.497522+00:00",
+      "notes": [],
+      "round_record_canonical_sha256": "06d469826cf49d5fb94509f20375b2be2d0af8fd2569f568102d494de6b78d67",
+      "source_root": "bots/ibkr_trading",
+      "status": "frozen",
+      "strategy": "portfolio_synergy"
+    },
+    {
+      "baseline_id": "ibkr:swing:tpc",
+      "bot": "ibkr",
+      "family": "swing",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/ibkr/swing/tpc/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/ibkr/swing/tpc/rounds_manifest.json",
+          "canonical_json_sha256": "6ff897c5f22620e07d84195d7f24c0f8ad13cd4ca2427389df5853665eac0fee",
+          "role": "rounds_manifest",
+          "sha256": "0907bc8101cf02c24e0f517ad675e3a77313316d533196ff2b8cf376c1063b4e",
+          "size_bytes": 44222,
+          "source_path": "backtests/baselines/ibkr/swing/tpc/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/ibkr/swing/tpc/round_8/optimized_config.json",
+          "baseline_path": "backtests/baselines/ibkr/swing/tpc/round_8/optimized_config.json",
+          "canonical_json_sha256": "cc646822f756b0ca1d61c633809f38c84fd61821d317390fd2577ef118c15a00",
+          "role": "optimized_config",
+          "sha256": "72628b79ef3ebf7c38b719846c1605c5205019d41b64641a8a9389df7c22c1f3",
+          "size_bytes": 3617,
+          "source_path": "backtests/baselines/ibkr/swing/tpc/round_8/optimized_config.json"
+        }
+      ],
+      "key_metrics": {
+        "calmar_ratio": null,
+        "max_drawdown_pct": 13.846465000000082,
+        "net_return_pct": 160.59117499999803,
+        "profit_factor": 2.4405470265536504,
+        "sharpe_ratio": 0.9857809721796249,
+        "total_trades": 126,
+        "win_rate": 59.523809523809526
+      },
+      "latest_round": 8,
+      "latest_timestamp": "2026-05-23T00:05:26.198218+00:00",
+      "notes": [],
+      "round_record_canonical_sha256": "6c208484abd8c37ee468d7b1fd863d134284390e1661e8d34b269902d45c9a7b",
+      "source_root": "bots/ibkr_trading",
+      "status": "frozen",
+      "strategy": "tpc"
+    },
+    {
+      "baseline_id": "crypto:breakout",
+      "bot": "crypto",
+      "contract_hash": "f4185b49ecbcf62d3d7b42629869a0e5a17d9a9e8ae75c074dd3eb7ca0cebc71",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/crypto/breakout/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/crypto/breakout/rounds_manifest.json",
+          "canonical_json_sha256": "df69a5029025fcd206cc7327c3c4176895e4b848ebd8340330d2083d4c042a6b",
+          "role": "rounds_manifest",
+          "sha256": "423d65e7415fdf739767f9c609ac2d6e55acac476ac07586f62f20b3545ee734",
+          "size_bytes": 64563,
+          "source_path": "backtests/baselines/crypto/breakout/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/crypto/breakout/round_3/optimized_config.json",
+          "baseline_path": "backtests/baselines/crypto/breakout/round_3/optimized_config.json",
+          "canonical_json_sha256": "fcdd301aa314c84bc78c6f4ef7bf1e81f48c0807d58012e3f2c6a8ba6acd7d49",
+          "role": "optimized_config",
+          "sha256": "95a3e4f6c6ecc1c9e96020bf5c6b598035dd4ebd4e019dbb2c2583d1fc5fb8a0",
+          "size_bytes": 42515,
+          "source_path": "backtests/baselines/crypto/breakout/round_3/optimized_config.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/crypto/breakout/round_3/parity_alignment.json",
+          "baseline_path": "backtests/baselines/crypto/breakout/round_3/parity_alignment.json",
+          "canonical_json_sha256": "ae39eac99924cb6f9166756b94e1dc70d56481e12cf186e65260ffaf3cfae868",
+          "role": "parity_alignment",
+          "sha256": "5b7792fd4f85895cde9d239ce44adba55ef2298cd2a8e6032706d83d7cdc7431",
+          "size_bytes": 914,
+          "source_path": "backtests/baselines/crypto/breakout/round_3/parity_alignment.json"
+        }
+      ],
+      "key_metrics": {
+        "calmar_ratio": 20.79573787011365,
+        "expectancy_r": 0.9572560551129407,
+        "max_drawdown_pct": 1.9270458439939082,
+        "net_return_pct": 40.07434023538924,
+        "profit_factor": 23.329755230473133,
+        "sharpe_ratio": 4.7718378189614095,
+        "total_trades": 17.0,
+        "win_rate": 88.23529411764706
+      },
+      "latest_round": 3,
+      "latest_timestamp": "2026-05-27T10:01:00.287842+00:00",
+      "notes": [],
+      "profile_hash": "599bce679e21017b6b824d80ec50ca321eb25a164c37e91a26d61da264672b6f",
+      "round_record_canonical_sha256": "9dfc9c73605162ca827158cdc667049708effd9068aa21dd18dbfbfd40cd80eb",
+      "source_root": "bots/crypto_trader",
+      "status": "frozen",
+      "strategy": "breakout",
+      "strategy_config_hash": "289298be3a6e5a745481b2155e6af48d16d0637dd6ad2d6cb45b061cf5b91f40"
+    },
+    {
+      "baseline_id": "crypto:momentum",
+      "bot": "crypto",
+      "contract_hash": "f709c730f6efa16f328025234b529ec8e4d876220104468ecc0c235120526b5f",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/crypto/momentum/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/crypto/momentum/rounds_manifest.json",
+          "canonical_json_sha256": "db5749491c85f5bdf464d2eacc0d4112bd9620cd70d62d52caa572cb2726a20e",
+          "role": "rounds_manifest",
+          "sha256": "1374da3b08a962d9f2469ef4dc799da7dcd4d3e74f00f9270556bbad277035d8",
+          "size_bytes": 69443,
+          "source_path": "backtests/baselines/crypto/momentum/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/crypto/momentum/round_3/optimized_config.json",
+          "baseline_path": "backtests/baselines/crypto/momentum/round_3/optimized_config.json",
+          "canonical_json_sha256": "4f717b578728e1ba9ffb9a9ebd0446215fa0ad75f86450913c110ee359bf1a08",
+          "role": "optimized_config",
+          "sha256": "28071850c4b7aaa1f5daabccbebc22799943573d300014e08eb3d1f3894afbae",
+          "size_bytes": 36629,
+          "source_path": "backtests/baselines/crypto/momentum/round_3/optimized_config.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/crypto/momentum/round_3/parity_alignment.json",
+          "baseline_path": "backtests/baselines/crypto/momentum/round_3/parity_alignment.json",
+          "canonical_json_sha256": "97a5597da43d120f759e1f22b7a55d47a920bec9b650941af8a652554f1e9921",
+          "role": "parity_alignment",
+          "sha256": "53b6dc49dfa2b2727a6b45f3d3612bb7db5e3359430bfade2e31bba04f6f79a6",
+          "size_bytes": 914,
+          "source_path": "backtests/baselines/crypto/momentum/round_3/parity_alignment.json"
+        }
+      ],
+      "key_metrics": {
+        "calmar_ratio": 6.877745334978828,
+        "expectancy_r": 0.4236458546371484,
+        "max_drawdown_pct": 5.098305526977368,
+        "net_return_pct": 35.06484705446537,
+        "profit_factor": 2.7163977746603463,
+        "sharpe_ratio": 3.8659430616302126,
+        "total_trades": 46.0,
+        "win_rate": 56.52173913043478
+      },
+      "latest_round": 3,
+      "latest_timestamp": "2026-05-26T11:42:06.473354+00:00",
+      "notes": [],
+      "profile_hash": "599bce679e21017b6b824d80ec50ca321eb25a164c37e91a26d61da264672b6f",
+      "round_record_canonical_sha256": "3c69b1771c21a9af5e3d937f482d72dbeac2aca71591f163134705eaae0af3b9",
+      "source_root": "bots/crypto_trader",
+      "status": "frozen",
+      "strategy": "momentum",
+      "strategy_config_hash": "702e9ffc2e7c5acc1917502e536cca440a5e67c406b86b1e66c30c4ee63e5fec"
+    },
+    {
+      "baseline_id": "crypto:trend",
+      "bot": "crypto",
+      "contract_hash": "99fec565e0aead440b41e36f5ba07b4d5d75311ae0d4d9958a1f275e1a6a4943",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/crypto/trend/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/crypto/trend/rounds_manifest.json",
+          "canonical_json_sha256": "c4fd89629b5c76a7171e20a1aa05c6e2e2ab32cbeb7e7c526023da40504122b5",
+          "role": "rounds_manifest",
+          "sha256": "45aaafc8e1139f39282026106490e99df24e2202d0cd37ec022cc53220b10345",
+          "size_bytes": 61368,
+          "source_path": "backtests/baselines/crypto/trend/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/crypto/trend/round_3/optimized_config.json",
+          "baseline_path": "backtests/baselines/crypto/trend/round_3/optimized_config.json",
+          "canonical_json_sha256": "4a395d14e5663e8ec686a9bf40e15474f111e398887e047f9721318feee70c7e",
+          "role": "optimized_config",
+          "sha256": "4c72fdb0098392ca965e85f0c02e5a45d4de5886703ea76703ce0e815c50f624",
+          "size_bytes": 28725,
+          "source_path": "backtests/baselines/crypto/trend/round_3/optimized_config.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/crypto/trend/round_3/parity_alignment.json",
+          "baseline_path": "backtests/baselines/crypto/trend/round_3/parity_alignment.json",
+          "canonical_json_sha256": "e100c6580120160d672a548727bbe0137a48d811f5f694211ba2de1b69d2a1f3",
+          "role": "parity_alignment",
+          "sha256": "14b2b78a3f8d0efe0934234b259bbbcb50da5c2bef98af45d7412269e8dff1b2",
+          "size_bytes": 911,
+          "source_path": "backtests/baselines/crypto/trend/round_3/parity_alignment.json"
+        }
+      ],
+      "key_metrics": {
+        "calmar_ratio": 8.506740290182986,
+        "expectancy_r": 0.3729028454506647,
+        "max_drawdown_pct": 3.352015299880588,
+        "net_return_pct": 28.514723604804004,
+        "profit_factor": 5.927839659877343,
+        "sharpe_ratio": 4.38094374449604,
+        "total_trades": 29.0,
+        "win_rate": 55.172413793103445
+      },
+      "latest_round": 3,
+      "latest_timestamp": "2026-05-25T20:56:53.985205+00:00",
+      "notes": [],
+      "profile_hash": "599bce679e21017b6b824d80ec50ca321eb25a164c37e91a26d61da264672b6f",
+      "round_record_canonical_sha256": "1f948066a608fb04c1b69a26779f8d49d8fff37b127d476f7fbce094b4f7d951",
+      "source_root": "bots/crypto_trader",
+      "status": "frozen",
+      "strategy": "trend",
+      "strategy_config_hash": "9afa0748fe45ec63f59645f4f0aeab7fd41fe6ff2f48af5189412e4216e9c917"
+    },
+    {
+      "audit_status": "direct_shared_core_replay_train_only",
+      "baseline_id": "k_stock:kalcb",
+      "bot": "k_stock",
+      "candidate_snapshot_hash": "a5a4285ac64d23c6c8769f7d0b6854c99cac310dea8a7cdc374d9b6d274890af",
+      "feature_manifest_hash": "2eb62f9990a0d3b4bbd5c73101c99a2a051d93626bb67dc9b6d21578d0fe042a",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/k_stock/kalcb/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/k_stock/kalcb/rounds_manifest.json",
+          "canonical_json_sha256": "d52247dcec8c7cfc4495cb734b8b7b2be7f2254fe9a23ca0da6099e219b501d1",
+          "role": "rounds_manifest",
+          "sha256": "3622fea8264f2ba2ce4c3d711c2e25ca739916de6253d3aa7a75947820204c6f",
+          "size_bytes": 56826,
+          "source_path": "backtests/baselines/k_stock/kalcb/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/kalcb/round_3/optimized_config.json",
+          "baseline_path": "backtests/baselines/k_stock/kalcb/round_3/optimized_config.json",
+          "canonical_json_sha256": "4646ed94d835c1ac4a14a4ef83b7df78c78eacbc376d714fb015f518522aab1f",
+          "role": "optimized_config",
+          "sha256": "ea46f5d8f3c60a7714a8f079f1bd6be00bc14151bfb76c657ab8a97bf0dc7bd0",
+          "size_bytes": 19921,
+          "source_path": "backtests/baselines/k_stock/kalcb/round_3/optimized_config.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/kalcb/round_3/context_status.json",
+          "baseline_path": "backtests/baselines/k_stock/kalcb/round_3/context_status.json",
+          "canonical_json_sha256": "03af56154a22f20f214834e77324a4b48de3473dbaedb981d860d883316015d1",
+          "role": "context_status",
+          "sha256": "5de4774fe4f60f74a0fefe62b870a39c00026b73842946f9f4a1a037aa0db5a5",
+          "size_bytes": 170,
+          "source_path": "backtests/baselines/k_stock/kalcb/round_3/context_status.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/kalcb/round_3/diagnostics_summary.json",
+          "baseline_path": "backtests/baselines/k_stock/kalcb/round_3/diagnostics_summary.json",
+          "canonical_json_sha256": "10e9abc67f56725628777e97189ebc4d4ac9c6eb1ab93c975ae9188c27a8af70",
+          "role": "diagnostics_summary",
+          "sha256": "3b128a12d1d9e4a2a392999b654ba02927eef356dfff0a8751100d9042b7faf6",
+          "size_bytes": 42718,
+          "source_path": "backtests/baselines/k_stock/kalcb/round_3/diagnostics_summary.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/kalcb/round_3/full_diagnostics_index.json",
+          "baseline_path": "backtests/baselines/k_stock/kalcb/round_3/full_diagnostics_index.json",
+          "canonical_json_sha256": "e181eb7554be313ad243ae60ffdbf3bad49980d04ae164938ed552a145891351",
+          "role": "full_diagnostics_index",
+          "sha256": "08221abf3ac4064dc9e06e4c8a5e4c4204623fc4fbee3a87c16cd8852f4616ce",
+          "size_bytes": 1676,
+          "source_path": "backtests/baselines/k_stock/kalcb/round_3/full_diagnostics_index.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/kalcb/round_3/holdout_evaluation.json",
+          "baseline_path": "backtests/baselines/k_stock/kalcb/round_3/holdout_evaluation.json",
+          "canonical_json_sha256": "a3efe6e2d6246b12ba812613109c3438c1352804b09d06e431e3dcc8b1b01072",
+          "role": "holdout_evaluation",
+          "sha256": "7f9a1c0b0087e47a9681b91fb5d86ba961363857acc7e2550730ed6af61b2123",
+          "size_bytes": 142923,
+          "source_path": "backtests/baselines/k_stock/kalcb/round_3/holdout_evaluation.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/kalcb/round_3/live_parity_audit.json",
+          "baseline_path": "backtests/baselines/k_stock/kalcb/round_3/live_parity_audit.json",
+          "canonical_json_sha256": "574106a93c8416ca0d82d4462344a0e2bfe2a7b96041ab8962a814637d58afa2",
+          "role": "live_parity_audit",
+          "sha256": "3d9b38c8f38cdbfd7675387347b0dd4d6528f8446e8d615f534b6a6f107a72a7",
+          "size_bytes": 19157,
+          "source_path": "backtests/baselines/k_stock/kalcb/round_3/live_parity_audit.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/kalcb/round_3/paper_live_parity_contract.json",
+          "baseline_path": "backtests/baselines/k_stock/kalcb/round_3/paper_live_parity_contract.json",
+          "canonical_json_sha256": "574106a93c8416ca0d82d4462344a0e2bfe2a7b96041ab8962a814637d58afa2",
+          "role": "paper_live_parity_contract",
+          "sha256": "3d9b38c8f38cdbfd7675387347b0dd4d6528f8446e8d615f534b6a6f107a72a7",
+          "size_bytes": 19157,
+          "source_path": "backtests/baselines/k_stock/kalcb/round_3/paper_live_parity_contract.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/kalcb/round_3/phase_state.json",
+          "baseline_path": "backtests/baselines/k_stock/kalcb/round_3/phase_state.json",
+          "canonical_json_sha256": "6ddc16bccf17579f229f7b9fb98cce6522dfa0cbc13688300f0d16507172b626",
+          "role": "phase_state",
+          "sha256": "e8ec326f8c2737ec35342402f9ac93664103c5302d88ff98df194dc3455c5f6a",
+          "size_bytes": 51154,
+          "source_path": "backtests/baselines/k_stock/kalcb/round_3/phase_state.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/kalcb/round_3/promotion_summary.json",
+          "baseline_path": "backtests/baselines/k_stock/kalcb/round_3/promotion_summary.json",
+          "canonical_json_sha256": "dd78265566403d317eed0545d3db04efc0fff55bbf3a975797df6e417179037c",
+          "role": "promotion_summary",
+          "sha256": "6adec259130c71f372142a8213df2f5dcc15905c3d99b94dd41ceb25d974c774",
+          "size_bytes": 3133,
+          "source_path": "backtests/baselines/k_stock/kalcb/round_3/promotion_summary.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/kalcb/round_3/round_evaluation.txt",
+          "baseline_path": "backtests/baselines/k_stock/kalcb/round_3/round_evaluation.txt",
+          "role": "round_evaluation",
+          "sha256": "e4ca0f682e956a17048f0ab4c9a8ce01583ca84bc7464811f23106e2d89ecdd2",
+          "size_bytes": 791,
+          "source_path": "backtests/baselines/k_stock/kalcb/round_3/round_evaluation.txt"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/kalcb/round_3/round_final_diagnostics.txt",
+          "baseline_path": "backtests/baselines/k_stock/kalcb/round_3/round_final_diagnostics.txt",
+          "role": "round_final_diagnostics",
+          "sha256": "e172c6313b8695d8e7d23fa4c79ea6fd50f084017050ce50cd192d3a1a430813",
+          "size_bytes": 25308,
+          "source_path": "backtests/baselines/k_stock/kalcb/round_3/round_final_diagnostics.txt"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/kalcb/round_3/run_spec.json",
+          "baseline_path": "backtests/baselines/k_stock/kalcb/round_3/run_spec.json",
+          "canonical_json_sha256": "b5980d1c5930b4fc12f22409b4c00e9568f6e09688d2e76441a284a2d2651123",
+          "role": "run_spec",
+          "sha256": "325c8d1ba3a84a65d8942a6c7c023c0de6b54dcc2c080ffd94c6ca3c66414c44",
+          "size_bytes": 48781,
+          "source_path": "backtests/baselines/k_stock/kalcb/round_3/run_spec.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/kalcb/round_3/run_summary.json",
+          "baseline_path": "backtests/baselines/k_stock/kalcb/round_3/run_summary.json",
+          "canonical_json_sha256": "d1adee42a11eb7c1c7b2a49c06ec321d17f6da72f8fde3fa9b718de21ffe9f18",
+          "role": "run_summary",
+          "sha256": "e17a54659b5eed8d80114735434c0edfac5855a20cdbb7d525680111fa918058",
+          "size_bytes": 57107,
+          "source_path": "backtests/baselines/k_stock/kalcb/round_3/run_summary.json"
+        }
+      ],
+      "key_metrics": {
+        "max_drawdown_pct": 0.03866584890291983,
+        "net_return_pct": 2.583427246872277,
+        "profit_factor": null,
+        "sharpe_ratio": null,
+        "total_trades": 205.0,
+        "win_rate": 0.6634146341463415
+      },
+      "latest_round": 3,
+      "latest_timestamp": "2026-05-27T10:32:50.507507+00:00",
+      "notes": [],
+      "promotion_status": "research_only",
+      "round_record_canonical_sha256": "c12c9187fd97837e4d1c8a4f44e038ff3e1c3ee0b3032d104e4b725e1c9560b4",
+      "source_fingerprint": "c26a47fd1fae37f84d0f12b82558f6711b6d50a9bcd5e670a652bb8a24e8515d",
+      "source_root": "bots/k_stock_trader",
+      "status": "frozen",
+      "strategy": "kalcb"
+    },
+    {
+      "audit_status": "direct_official_training_replay_paper_live_pending",
+      "baseline_id": "k_stock:olr",
+      "bot": "k_stock",
+      "candidate_snapshot_hash": "1e20a5632147f33e9346fa4f9220ca7bb69813074d736095de5bc1c35cb36dcf",
+      "feature_manifest_hash": "641118bc0383d720e48a276fe01d8cd41c55a4a6548c0e9a1ae7be2c2cdf7f0a",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/k_stock/olr/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/k_stock/olr/rounds_manifest.json",
+          "canonical_json_sha256": "3c92627b2a1445257dcb552f41d9a3e81752a2edf0e31dd900dc6abe2223845d",
+          "role": "rounds_manifest",
+          "sha256": "127d2406804d5e57496f0dae0ddade76a818c410c0f4a98303f4ffb3b2288803",
+          "size_bytes": 63625,
+          "source_path": "backtests/baselines/k_stock/olr/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/olr/round_5/optimized_config.json",
+          "baseline_path": "backtests/baselines/k_stock/olr/round_5/optimized_config.json",
+          "canonical_json_sha256": "34eaacb5c6e1f1341d6c4d16ca2cb3716be0ae30dbd0bd9240abe8bf88028296",
+          "role": "optimized_config",
+          "sha256": "9134d34ba2f75187bc81ed1f9d575a70160ce6d0e09f25026d8f108bb49b0e8e",
+          "size_bytes": 23836,
+          "source_path": "backtests/baselines/k_stock/olr/round_5/optimized_config.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/olr/round_5/evaluations.jsonl",
+          "baseline_path": "backtests/baselines/k_stock/olr/round_5/evaluations.jsonl",
+          "role": "evaluations",
+          "sha256": "169b645b57bcb772aedb8670f8e1bb48ae3c39f48c8498a2e7c331ffb9743b7c",
+          "size_bytes": 4818,
+          "source_path": "backtests/baselines/k_stock/olr/round_5/evaluations.jsonl"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/olr/round_5/optimized_results.json",
+          "baseline_path": "backtests/baselines/k_stock/olr/round_5/optimized_results.json",
+          "canonical_json_sha256": "7532086eb58b28898d911b2aa4e9e6b9379fbc5c8ec87ab622cc70f284b36df9",
+          "role": "optimized_results",
+          "sha256": "14fe717bb342f0231f739fccda06c8b4bb5ed50a63f14387e3cfe0aec45f0d70",
+          "size_bytes": 25162,
+          "source_path": "backtests/baselines/k_stock/olr/round_5/optimized_results.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/olr/round_5/progress.jsonl",
+          "baseline_path": "backtests/baselines/k_stock/olr/round_5/progress.jsonl",
+          "role": "progress",
+          "sha256": "6099d920ad645cd12c8cbaf22f9c1920819706dcb9c39456c2d73ea18bce9089",
+          "size_bytes": 1261,
+          "source_path": "backtests/baselines/k_stock/olr/round_5/progress.jsonl"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/olr/round_5/round_evaluation.txt",
+          "baseline_path": "backtests/baselines/k_stock/olr/round_5/round_evaluation.txt",
+          "role": "round_evaluation",
+          "sha256": "81788d56fa2c7bf387e43fdd73e5100845c424a05634fe0a0f072087803ff2a3",
+          "size_bytes": 959,
+          "source_path": "backtests/baselines/k_stock/olr/round_5/round_evaluation.txt"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/olr/round_5/round_final_diagnostics.txt",
+          "baseline_path": "backtests/baselines/k_stock/olr/round_5/round_final_diagnostics.txt",
+          "role": "round_final_diagnostics",
+          "sha256": "8f2a675c071e79f74dbaee41cc0b464a1d66ecef24434b5c9375e9d7652b8f57",
+          "size_bytes": 2504,
+          "source_path": "backtests/baselines/k_stock/olr/round_5/round_final_diagnostics.txt"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/olr/round_5/round_final_diagnostics_status.json",
+          "baseline_path": "backtests/baselines/k_stock/olr/round_5/round_final_diagnostics_status.json",
+          "canonical_json_sha256": "90596ee3d20fe98cdf0c99135090fee4262aca9aa82911d4c0175af27dda8f34",
+          "role": "round_final_diagnostics_status",
+          "sha256": "b6c9449c7e71533457e9b74a7a156ad315a4e27e2a406e50a9b95fd2ddf903e6",
+          "size_bytes": 772,
+          "source_path": "backtests/baselines/k_stock/olr/round_5/round_final_diagnostics_status.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/olr/round_5/round_final_full_diagnostics.json",
+          "baseline_path": "backtests/baselines/k_stock/olr/round_5/round_final_full_diagnostics.json",
+          "canonical_json_sha256": "bced592a46b4f6c8fee49b1a85cd8153f94df5085c98e055cc44bec442e75f7e",
+          "role": "round_final_full_diagnostics",
+          "sha256": "c150c5e0166d7aa9746540f57cdf115f35a326649de7fa8d8caa8ff9b501a098",
+          "size_bytes": 23940,
+          "source_path": "backtests/baselines/k_stock/olr/round_5/round_final_full_diagnostics.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/olr/round_5/run_summary.json",
+          "baseline_path": "backtests/baselines/k_stock/olr/round_5/run_summary.json",
+          "canonical_json_sha256": "1cb107be6c8ac54f52e2a50e9df15bd41be0a07e231df9ccbc29ec28375d1e1f",
+          "role": "run_summary",
+          "sha256": "7bbf34493ffbad6fef9340c5af98d53e9cfadb5162f9bb498b76f475344b515e",
+          "size_bytes": 4188,
+          "source_path": "backtests/baselines/k_stock/olr/round_5/run_summary.json"
+        }
+      ],
+      "key_metrics": {
+        "profit_factor": 3.0213689546817073,
+        "total_trades": 232.0,
+        "win_rate": 0.5517241379310345
+      },
+      "latest_round": 5,
+      "latest_timestamp": "2026-05-26T00:35:17Z",
+      "notes": [],
+      "promotion_status": "training_only_paper_live_pending",
+      "round_record_canonical_sha256": "c47ccef385cfa590685facb885b81d64d5b6b8696ef2f036bda7555353fae2e6",
+      "source_fingerprint": null,
+      "source_root": "bots/k_stock_trader",
+      "status": "frozen",
+      "strategy": "olr"
+    },
+    {
+      "audit_status": "train_only_source_artifact_proxy_holdout_excluded",
+      "baseline_id": "k_stock:portfolio_synergy",
+      "bot": "k_stock",
+      "candidate_snapshot_hash": "80c0e9c39407fdab24399096b8960dffb1018ac1f463c12fb56dbeedc1af0f11",
+      "feature_manifest_hash": "024152d08794dbbf4f0a2d7ffc1690a6839a03e4276ff8fdf03fad770c4ce59a",
+      "files": [
+        {
+          "archived_source_path": "backtests/baselines/k_stock/portfolio_synergy/rounds_manifest.json",
+          "baseline_path": "backtests/baselines/k_stock/portfolio_synergy/rounds_manifest.json",
+          "canonical_json_sha256": "9793d4ba62d2e5273ccb862acd0553025a8d261d9cd9ede66c1ca86ff10bf69e",
+          "role": "rounds_manifest",
+          "sha256": "75292febae0b7a417640f1a7b1c864c41eeae417b825e3f1f4baa0af5b5eb41b",
+          "size_bytes": 7450,
+          "source_path": "backtests/baselines/k_stock/portfolio_synergy/rounds_manifest.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/optimized_config.json",
+          "baseline_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/optimized_config.json",
+          "canonical_json_sha256": "34e38292df715c5a1ce36f2fe115ebf59a849001d407e7e6ddf795bbd4ab15a0",
+          "role": "optimized_config",
+          "sha256": "7d1b329cf73098af5040ebf3e9f840f0db3ad0cc172883c8d1d5044132363841",
+          "size_bytes": 8083,
+          "source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/optimized_config.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/live_backtest_parity_alignment.json",
+          "baseline_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/live_backtest_parity_alignment.json",
+          "canonical_json_sha256": "1942fe9b0f100b7e0ce605acb08a281afe4b0d9a962c158f30ab49ab93e39ccf",
+          "role": "live_backtest_parity_alignment",
+          "sha256": "8e2ed4e701c6a4eb01d1abc416e9d7e88e18d640da3d1ae74d74a314bf66b02b",
+          "size_bytes": 2364,
+          "source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/live_backtest_parity_alignment.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/live_backtest_parity_alignment.md",
+          "baseline_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/live_backtest_parity_alignment.md",
+          "role": "live_backtest_parity_alignment",
+          "sha256": "1d1d127f7dfab4774b204cfd7e1ecf011ccd0f7bc2c2cd51adb3e851c21d3238",
+          "size_bytes": 1050,
+          "source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/live_backtest_parity_alignment.md"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/phase_activity_log.jsonl",
+          "baseline_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/phase_activity_log.jsonl",
+          "role": "phase_activity_log",
+          "sha256": "29154a9104b3995681ca2f8c4a100f2f7d77bb2c7ba3297b0e515ef0b751efd3",
+          "size_bytes": 21806,
+          "source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/phase_activity_log.jsonl"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/phase_state.json",
+          "baseline_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/phase_state.json",
+          "canonical_json_sha256": "bc3424cf163b36986e4b9ddfd927c531d27559feb4c89a1c3af500135bab0c66",
+          "role": "phase_state",
+          "sha256": "581c9f5e74f992ff838016f26e69e680c6b4e246c5f21ea49d42518528f5ba49",
+          "size_bytes": 151879,
+          "source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/phase_state.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/progress.json",
+          "baseline_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/progress.json",
+          "canonical_json_sha256": "b995b3a1e682fc588ccb2fd74a7a04ee43844b2a8e1b8adb9e9010f22e10ad62",
+          "role": "progress",
+          "sha256": "de692686b676624f0b187f5a6f5ac4c6b3c73a64372b47d5226ce03f00da8cc9",
+          "size_bytes": 3101,
+          "source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/progress.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/round_evaluation.txt",
+          "baseline_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/round_evaluation.txt",
+          "role": "round_evaluation",
+          "sha256": "47f32ec7bbf057a6bc3115603b97e9024ad51bcb2c97dce1c3635af10726c5af",
+          "size_bytes": 2760,
+          "source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/round_evaluation.txt"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_diagnostics.txt",
+          "baseline_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_diagnostics.txt",
+          "role": "round_final_diagnostics",
+          "sha256": "145d4ca383a89b29091652dbb93bfce846b885851adaa584c39116d56b218036",
+          "size_bytes": 741,
+          "source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_diagnostics.txt"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_diagnostics_status.json",
+          "baseline_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_diagnostics_status.json",
+          "canonical_json_sha256": "8b995682718c448f4d3b4ca733c35ec375177d095a19339019168e21641d8502",
+          "role": "round_final_diagnostics_status",
+          "sha256": "d816de9c9ec6ca71c313cc85f6425fb949303c40533aadfbdda0ff8f04252c76",
+          "size_bytes": 1355,
+          "source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_diagnostics_status.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_full_diagnostics.json",
+          "baseline_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_full_diagnostics.json",
+          "canonical_json_sha256": "ca970fb06064fd0d0d3e7dc1484da8d3daf1dc4c7968440e8badcfd588caa207",
+          "role": "round_final_full_diagnostics",
+          "sha256": "e4cfee34d4e46efc589708f155973f5facfa6667762d01b503999bd264bbf81b",
+          "size_bytes": 56653,
+          "source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_full_diagnostics.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_full_diagnostics.md",
+          "baseline_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_full_diagnostics.md",
+          "role": "round_final_full_diagnostics",
+          "sha256": "dd449b57f3d3f705466a5ba2d5c31de671a8b3a0bc681cca052786821b5e8769",
+          "size_bytes": 2466,
+          "source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_full_diagnostics.md"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/run_spec.json",
+          "baseline_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/run_spec.json",
+          "canonical_json_sha256": "585618990adddd955d507bcf3e271b07a305ecd8304e8184b536a938bb52c610",
+          "role": "run_spec",
+          "sha256": "73dfee1a9909e9f129dc15827e9c5ad3e1734c5b6b0c3e25fb3b196494fdd42b",
+          "size_bytes": 5144,
+          "source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/run_spec.json"
+        },
+        {
+          "archived_source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/run_summary.json",
+          "baseline_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/run_summary.json",
+          "canonical_json_sha256": "ef10c63392b8e2c95a5b9bc990597ea4bd0fed4e549e7ed9868081753b5139e9",
+          "role": "run_summary",
+          "sha256": "dc319c7838c30f85268a23eb6a94ea9418fd15fc5d639a7e66c67166992cd9c4",
+          "size_bytes": 18645,
+          "source_path": "backtests/baselines/k_stock/portfolio_synergy/round_1/run_summary.json"
+        }
+      ],
+      "key_metrics": {
+        "max_drawdown_pct": 0.041326505267936325,
+        "net_return_pct": 4.612391226849123,
+        "profit_factor": 4.595862736181888,
+        "sharpe_ratio": null,
+        "total_trades": 473.0,
+        "win_rate": 0.6088794926004228
+      },
+      "latest_round": 1,
+      "latest_timestamp": "2026-05-27T10:52:57.452916+00:00",
+      "notes": [],
+      "promotion_status": "research_only",
+      "round_record_canonical_sha256": "2765fad30235c487e7fd22616a1bc284ca6c5e4bcb695f68c2e16ed85d059599",
+      "source_fingerprint": "2552016603a13acab2d7f86314abd57a7079c36121ef89206ac47d3bded04395",
+      "source_root": "bots/k_stock_trader",
+      "status": "frozen",
+      "strategy": "portfolio_synergy"
+    }
+  ],
+  "duplicate_round_policy": "For each direct rounds_manifest.json, prefer the manifest's explicit latest_round when present; otherwise choose the highest non-archived/non-invalidated round and break same-round ties by latest timestamp. Archive references are recorded and missing latest artifacts are blockers.",
+  "gates": {
+    "A0": {
+      "evidence": "docs/migration_inventory.md",
+      "status": "pass",
+      "summary": "Source inventory generated with selected file hashes and artifact roots."
+    },
+    "A2": {
+      "blockers": [],
+      "status": "pass",
+      "summary": "All direct IBKR latest rounds froze with optimized configs."
+    },
+    "A3": {
+      "blockers": [],
+      "status": "pass",
+      "summary": "Crypto momentum/trend/breakout latest round 3 artifacts froze."
+    },
+    "A4": {
+      "evidence": "backtests/baselines/crypto/portfolio/rounds_manifest.superseded.json",
+      "source_status": "superseded_missing_source_rounds_manifest",
+      "status": "pass",
+      "summary": "Crypto portfolio round 3 bundle has explicit supersession evidence for missing rounds_manifest.json."
+    },
+    "A5_decision": {
+      "baseline_ids": [
+        "k_stock:kalcb",
+        "k_stock:olr",
+        "k_stock:portfolio_synergy"
+      ],
+      "blockers": [],
+      "required_output_root_exists": true,
+      "status": "pass",
+      "summary": "K-stock output root exists and latest accepted KALCB, OLR, and portfolio-synergy artifacts are frozen with source hashes and an output-tree fingerprint."
+    },
+    "KALCB_frontier_size": {
+      "status": "pass",
+      "summary": "No alignment finding."
+    }
+  },
+  "generated_at": "2026-07-03T01:37:43+00:00",
+  "inventory": {
+    "artifact_roots": [
+      {
+        "exists": true,
+        "file_count": 1909,
+        "path": "bots/ibkr_trading/backtests/output",
+        "role": "ibkr_backtest_output"
+      },
+      {
+        "exists": true,
+        "file_count": 1,
+        "path": "bots/ibkr_trading/tests/fixtures/backtest_baselines",
+        "role": "ibkr_baseline_fixture"
+      },
+      {
+        "exists": true,
+        "file_count": 2461,
+        "path": "bots/crypto_trader/output",
+        "role": "crypto_output"
+      },
+      {
+        "exists": true,
+        "file_count": 273,
+        "path": "bots/k_stock_trader/data/backtests/output",
+        "role": "k_stock_backtest_output"
+      },
+      {
+        "exists": true,
+        "file_count": 29,
+        "path": "packages/trading_assistant_backtest/contracts",
+        "role": "assistant_contracts"
+      }
+    ],
+    "generated_at": "2026-07-03T01:38:42+00:00",
+    "schema_version": "migration_inventory.v1",
+    "selected_files": [
+      {
+        "path": "bots/crypto_trader/docker-compose.yml",
+        "role": "compose",
+        "sha256": "edc964ec8dd326a6df3f938ca33977cb43818f7aa87e418a0afc18356ebe1309",
+        "size_bytes": 6122
+      },
+      {
+        "path": "bots/crypto_trader/Dockerfile",
+        "role": "dockerfile",
+        "sha256": "baa9f41fad35d8138c97ce5d5f2b38f576889533b76e72f1afd805c90e7662ae",
+        "size_bytes": 1263
+      },
+      {
+        "path": "bots/crypto_trader/pyproject.toml",
+        "role": "pyproject",
+        "sha256": "7d7d7bbcdd973828d50e436df71522725198da2cf48d36644aa844b4c956ce4e",
+        "size_bytes": 796
+      },
+      {
+        "path": "bots/crypto_trader/config/live_config.example.json",
+        "role": "live_config",
+        "sha256": "6bcb15425c473dadf0fb15fafd68836fbc0b47204d5b637e79a3e8678127e323",
+        "size_bytes": 1361
+      },
+      {
+        "path": "bots/crypto_trader/scripts/analyze_breakout_round2_oos.py",
+        "role": "script",
+        "sha256": "087ebf2e45be34c516dc02f58ec14e5c39b2bba4bbe1504bdafa3d04c5f5c9ab",
+        "size_bytes": 82072
+      },
+      {
+        "path": "bots/crypto_trader/scripts/analyze_momentum_round2_followup.py",
+        "role": "script",
+        "sha256": "ac788a0b7c45b9aae25623728b9a05f88de9bdd2a3e9d0062e0712204dc219af",
+        "size_bytes": 13551
+      },
+      {
+        "path": "bots/crypto_trader/scripts/analyze_oos_repair.py",
+        "role": "script",
+        "sha256": "84b43f8c5e77c32f1b756be04d4032613e9a67c8cc71c2a35b1a76b376320a76",
+        "size_bytes": 75201
+      },
+      {
+        "path": "bots/crypto_trader/scripts/analyze_portfolio_round2_followup.py",
+        "role": "script",
+        "sha256": "68d3ba77a41207ef9d5a6e23cfd25b57ed72a05dc712ab5f1889490ad894ff06",
+        "size_bytes": 25336
+      },
+      {
+        "path": "bots/crypto_trader/scripts/analyze_portfolio_round2_oos.py",
+        "role": "script",
+        "sha256": "bd4da2eb0a32da81998cece344ed4fadb1c08ad06974b4683dd19f23fe7e6379",
+        "size_bytes": 49344
+      },
+      {
+        "path": "bots/crypto_trader/scripts/analyze_trend_round2_oos.py",
+        "role": "script",
+        "sha256": "7b509c26d259fb2d8a2be653c94d6d477ebc474b4bf44fd4d77c739d01c67d17",
+        "size_bytes": 286
+      },
+      {
+        "path": "bots/crypto_trader/scripts/analyze_trend_round2_oos_second_phase.py",
+        "role": "script",
+        "sha256": "5d9c6fa2486f45539b8aa8a3945a42a36321a637ded64a0f806f9681ccaf5079",
+        "size_bytes": 300
+      },
+      {
+        "path": "bots/crypto_trader/scripts/backfill_postgres_from_jsonl.py",
+        "role": "script",
+        "sha256": "297a1fd10b1b9358f1d1aa433a3ffd6f0dc5fc121e4714cb38b56f09529bc918",
+        "size_bytes": 726
+      },
+      {
+        "path": "bots/crypto_trader/scripts/check_health.sh",
+        "role": "script",
+        "sha256": "5b2bdbe163e7d0e89cae3032823c01f8d7adb5d9b5d2e4653f1361fec9a1adc9",
+        "size_bytes": 1472
+      },
+      {
+        "path": "bots/crypto_trader/scripts/correct_portfolio_round3_lineage.py",
+        "role": "script",
+        "sha256": "67154179549240b4972dc6118f8b417f639197e83f317d8879a90a4508b49a66",
+        "size_bytes": 30728
+      },
+      {
+        "path": "bots/crypto_trader/scripts/funnel_analysis.py",
+        "role": "script",
+        "sha256": "32654a9205bb2fbc7c05775eac7e9b2ca1dc03c0359b47358beee01fb6557e74",
+        "size_bytes": 15714
+      },
+      {
+        "path": "bots/crypto_trader/scripts/portfolio_comparison.py",
+        "role": "script",
+        "sha256": "d92b6ab961519a733b33b08f4c064f7db2b4dfbba9aa9bb2b5fb5e29fee3d678",
+        "size_bytes": 13049
+      },
+      {
+        "path": "bots/crypto_trader/scripts/promote_breakout_round3_oos_repair.py",
+        "role": "script",
+        "sha256": "8fd891dab549482967fc7e982f97fd0c7cc33babf0cec158271fe5e3a3288cd1",
+        "size_bytes": 31378
+      },
+      {
+        "path": "bots/crypto_trader/scripts/promote_momentum_round3_oos_repair.py",
+        "role": "script",
+        "sha256": "01d47ace74e82f3739fe425d8c277e27b8465578618e833ac7b0fc023ee4f80e",
+        "size_bytes": 24757
+      },
+      {
+        "path": "bots/crypto_trader/scripts/promote_portfolio_round3_extended.py",
+        "role": "script",
+        "sha256": "7f500e737f5673bd8eef6b83812914ff942530ff9f603ba2dbe67bc34116dfca",
+        "size_bytes": 61563
+      },
+      {
+        "path": "bots/crypto_trader/scripts/promote_revalidated_round1.py",
+        "role": "script",
+        "sha256": "a1bb24e08df189f057e1075e6b445ab0e008b110e4e32bba7a6c0b4f90b9545f",
+        "size_bytes": 4511
+      },
+      {
+        "path": "bots/crypto_trader/scripts/promote_trend_round3_oos_repair.py",
+        "role": "script",
+        "sha256": "bbe0a3ad72d5653fb99f8990e4dd2197b61f321dee2916f268f4b0cc01d990cd",
+        "size_bytes": 18218
+      },
+      {
+        "path": "bots/crypto_trader/scripts/refresh_data.py",
+        "role": "script",
+        "sha256": "be795c7734dec1e686a164c563396e7fc83f179f40c28a5155db34c7e0cf759f",
+        "size_bytes": 6438
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_breakout_round2_alpha.py",
+        "role": "script",
+        "sha256": "8e999c79441c0a860a4ee4df786e52fcf50144ca13fd5a529c115fd3d045aaf9",
+        "size_bytes": 14645
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_breakout_round3_pre_round1.py",
+        "role": "script",
+        "sha256": "482b300734287f4452344ea9544cfd1062f20aba1f61932bffd633e20c9d03e0",
+        "size_bytes": 4272
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_breakout_round4_trade_frequency.py",
+        "role": "script",
+        "sha256": "9933421e87256444800f9cc69f6e26c17966b4ae7bc25a2d1f8fdffdba5b2edb",
+        "size_bytes": 5376
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_breakout_round5_phased.py",
+        "role": "script",
+        "sha256": "dc03c728700bdf7aa32fd5d82640dbd54e9d13602bd717caa0f9b01978a9be75",
+        "size_bytes": 6170
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_breakout_round6_phased.py",
+        "role": "script",
+        "sha256": "9312afc8cfc517382d258dc2efb1017efc6e8e21c9d743d7e1ce844c493e96f2",
+        "size_bytes": 6588
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_breakout_round7_from_round1.py",
+        "role": "script",
+        "sha256": "b84e255c3ac6d7a0ac5da8961b54a71cb8103683098bac782e14950275b00d05",
+        "size_bytes": 6725
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_breakout_round8_from_round2.py",
+        "role": "script",
+        "sha256": "6b27e5f9ffc5f359bb066ad30fd09dae25c24678fdc513faef063fd8e2b79a6b",
+        "size_bytes": 7669
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_momentum_round2_alpha.py",
+        "role": "script",
+        "sha256": "8ad9518a195bdc7460fa60533b3dd31c06bdc343e265cb98e625336da19a39aa",
+        "size_bytes": 15133
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_momentum_round3_exit_phased.py",
+        "role": "script",
+        "sha256": "73b988537a24f854236b62a9e2baf76fb064b391ed8961131f5f502ac54e628d",
+        "size_bytes": 6854
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_momentum_round5_phased.py",
+        "role": "script",
+        "sha256": "c81427c3168627cdd3a95fe9f6d7517b9e7a45bccd95680682db2b5337f2913d",
+        "size_bytes": 6528
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_oos_repair_jsonl.ps1",
+        "role": "script",
+        "sha256": "940ed159f7cc66042ff7cae29b311ac49b4ba2573c51bee91017a93ff94f3d87",
+        "size_bytes": 6036
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_portfolio_phase_auto_round1.py",
+        "role": "script",
+        "sha256": "01d34b1484bd3135c06a9a5cc65840a03b33a0d957b0a339b98e8676346f8c30",
+        "size_bytes": 43765
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_portfolio_phase_auto_round2.py",
+        "role": "script",
+        "sha256": "eab375448474b9a196532163fc3f9d5f3629c23ba70856e9dcc3e693d596b01f",
+        "size_bytes": 5369
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_revalidation_round.py",
+        "role": "script",
+        "sha256": "0f8d80a50ae6b5c009b006911b9dad178a46801f54a1ca0d3fcb7f7942ace5fa",
+        "size_bytes": 2818
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_trend_round2_from_round1.py",
+        "role": "script",
+        "sha256": "d6d4e0c21da0d4d81fc4eddd4e8d7473a843dd0bd10d83c6a18f913dc1eb38c9",
+        "size_bytes": 11180
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_trend_round3_from_round2.py",
+        "role": "script",
+        "sha256": "1cc355806e3a65db76654396f213ee87b87488bd45acddf50c8e05816cfea99b",
+        "size_bytes": 11190
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_trend_round4_from_pre_round1.py",
+        "role": "script",
+        "sha256": "12dae173ae2ffb176a7d2a7a051398e927bfe77e6c6ed5ebc2161b4f227d41ff",
+        "size_bytes": 17661
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_trend_round5_union_greedy.py",
+        "role": "script",
+        "sha256": "ef5e6f78508a31cee4741a48e915549e03b6d195439bf522446ce35b9a8d6a89",
+        "size_bytes": 23796
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_trend_round6_from_round5.py",
+        "role": "script",
+        "sha256": "20ad0e56999b1cd2dc83dbd9a01ee6e56d36e8735f39a09f19fa66c4bc0d4a34",
+        "size_bytes": 11189
+      },
+      {
+        "path": "bots/crypto_trader/scripts/run_trend_round7_from_round6.py",
+        "role": "script",
+        "sha256": "185b0e25f944dc2f5379b73c61bb5be22e2c05a841ca21b14f3584b5a9a0a6c3",
+        "size_bytes": 11192
+      },
+      {
+        "path": "bots/crypto_trader/scripts/setup_scheduler.bat",
+        "role": "script",
+        "sha256": "588a3da76fe9fa465845cab8a75d8fb8e4d51fcde4805e71653aab4a3d152fd5",
+        "size_bytes": 598
+      },
+      {
+        "path": "bots/crypto_trader/scripts/setup_scheduler.ps1",
+        "role": "script",
+        "sha256": "fcc6985a8e498c313d082f07b88188b2363b9f56bce72b68d7b03ea1f71158e3",
+        "size_bytes": 2368
+      },
+      {
+        "path": "bots/crypto_trader/contracts/assistant_bridges/crypto_breakout_v1/strategy_plugin_contract.json",
+        "role": "contract",
+        "sha256": "44618a6321b912fa9947307c15be614aca2e33806f44edbfc8f9a92e4663a792",
+        "size_bytes": 1067
+      },
+      {
+        "path": "bots/crypto_trader/contracts/assistant_bridges/crypto_momentum_v1/strategy_plugin_contract.json",
+        "role": "contract",
+        "sha256": "593f4669656049cb5bea6a4c84fd5a2efeab24548c24849ca24b0c5bf9e9f277",
+        "size_bytes": 1067
+      },
+      {
+        "path": "bots/crypto_trader/contracts/assistant_bridges/crypto_trend_v1/strategy_plugin_contract.json",
+        "role": "contract",
+        "sha256": "63348e8b88ace88a5a904668ea96318cb00d927985a589fa4543d70389031d3e",
+        "size_bytes": 1061
+      },
+      {
+        "path": "bots/crypto_trader/infra/dashboard/Dockerfile",
+        "role": "dockerfile",
+        "sha256": "e52270ec2660049c0d33677ff7e011ff136a38e5857fd29f70affb46a7c0ac0e",
+        "size_bytes": 772
+      },
+      {
+        "path": "bots/k_stock_trader/docker-compose.yml",
+        "role": "compose",
+        "sha256": "681ed809392dd51dad349ab73b61db1fd4bd1f2e7032d59eb5aa185f4934e99e",
+        "size_bytes": 6146
+      },
+      {
+        "path": "bots/k_stock_trader/pytest.ini",
+        "role": "pytest",
+        "sha256": "f225a5507772d34cd5cf3b00a8a19b506d5a30976f87625f83219d99c8c0caa3",
+        "size_bytes": 131
+      },
+      {
+        "path": "bots/k_stock_trader/requirements.txt",
+        "role": "requirements",
+        "sha256": "c9f35fde778e22747791d030883e992590578b4aa9b584a7ba02a1e11dea1850",
+        "size_bytes": 508
+      },
+      {
+        "path": "bots/k_stock_trader/config/kalcb.yaml",
+        "role": "live_config",
+        "sha256": "6f135df38301d4dcd7cd9d22762d108d360e3f6a9decd5088230296964ba0ee5",
+        "size_bytes": 2514
+      },
+      {
+        "path": "bots/k_stock_trader/oms/Dockerfile",
+        "role": "dockerfile",
+        "sha256": "9e23b666e06752a01902063672696f5d95546cc4f30bda7103d561106ae43a54",
+        "size_bytes": 452
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/apply_db_migrations.sh",
+        "role": "script",
+        "sha256": "8258bffc57b0010039f8208d16ff0adfe084eaa5c5bd1ae391fc498f22156a09",
+        "size_bytes": 1046
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/backfill_lrs.py",
+        "role": "script",
+        "sha256": "ddd19f6436711fa8a171908a01cca0fde90da8cc42ece96f8e96a0ae898d059e",
+        "size_bytes": 19625
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/backup_db.sh",
+        "role": "script",
+        "sha256": "2ddabe721ec55c28cb98397de39ae69e5cad449ff0980d25a56f57a6d0d52602",
+        "size_bytes": 908
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/check_live_readiness_manifest.py",
+        "role": "script",
+        "sha256": "a9092fff6776630794599aad4c775f445fcf48c4c4321348b17dbd5a3695a127",
+        "size_bytes": 2837
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/export_lrs_to_parquet.py",
+        "role": "script",
+        "sha256": "3104a826cb123e60b9b1a7424863897014cd2fb723281166e9310eba21ea8d70",
+        "size_bytes": 352
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/generate_olr_kalcb_artifacts.py",
+        "role": "script",
+        "sha256": "41013fa22a93ec46bd40e7dfb079c9334067e10d0b79c3ee8788e8847869c574",
+        "size_bytes": 37374
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/generate_olr_kalcb_bridge_contract.py",
+        "role": "script",
+        "sha256": "d0777201e383f34c974ad023b71ae4362fe152ea1dc5f81809209342783df4c9",
+        "size_bytes": 1338
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/health_check.sh",
+        "role": "script",
+        "sha256": "decd90cc4c800cea76b7089767fd06717f83970a3caeb8ffd9f75dcc9c4c2417",
+        "size_bytes": 2007
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_fast_extensive_search.py",
+        "role": "script",
+        "sha256": "4295cf4b16eab8cd3601ee7a91681075918ab25a24e2a51511bab932f77caddf",
+        "size_bytes": 38772
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_holdout_round5_mutation_eval.py",
+        "role": "script",
+        "sha256": "4db2109a3bf833f0fe36e608a49b3cbe87bc850cc00f024627d7db6de2ebff71",
+        "size_bytes": 14144
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_hot_market_root_cause.py",
+        "role": "script",
+        "sha256": "990468f93592505db895a8c74214665756d716ef2a1e152a015c80471796bbc6",
+        "size_bytes": 39208
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_interaction_route_conversion_optimizer.py",
+        "role": "script",
+        "sha256": "0f81587551e895b4a3334a49e58444f52b77920c2307de1b14dbe54b6bc616ba",
+        "size_bytes": 49282
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_local_minimum_recovery.py",
+        "role": "script",
+        "sha256": "1221e76dc57351ceade09ded2900a88df6aba39fe800f9ffae303b656c6b7167",
+        "size_bytes": 141990
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_oof_interaction_route_optimizer.py",
+        "role": "script",
+        "sha256": "56cbcddb71fe1129c5a8e85da17c7cf309224146c65aedc83eb31432df75aec7",
+        "size_bytes": 24066
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_optimal_next_steps.py",
+        "role": "script",
+        "sha256": "0afce5a80f3857780a1728552ef7fb712709bca259c38014a58fc89dc15d74ba",
+        "size_bytes": 29609
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_original_champion_route_conversion.py",
+        "role": "script",
+        "sha256": "1476bcb4a481faa230be54a3e2e3e46e9bb87cf344b534d8f50a9cb2990858de",
+        "size_bytes": 26382
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_path_quality_sweep.py",
+        "role": "script",
+        "sha256": "07322c075ae5ff0e04b77837e04f23a9ee32273a9eec3384cf65e086ae344308",
+        "size_bytes": 29741
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_positive_r_pipeline_breakdown.py",
+        "role": "script",
+        "sha256": "637cd11f473dd6cc8b648a321334931632790652fb74b8638e56678c24ef4ba9",
+        "size_bytes": 47126
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_q3_incremental_guard_search.py",
+        "role": "script",
+        "sha256": "d81be4e98218f4a9d84e621d0de0dc791277bded8f6103c8116066f15e3785b4",
+        "size_bytes": 41722
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_risk_discrimination_sweep.py",
+        "role": "script",
+        "sha256": "d3f6beda552c1cae17c2d5448447eec0a6b99fc48fa6f5d0014325c1088c348a",
+        "size_bytes": 14752
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_round3_oos_ablation.py",
+        "role": "script",
+        "sha256": "bc20b18cb31f7a5f470a93f42284e9e0f129b4b6da0c6b675254e16d974ace56",
+        "size_bytes": 50760
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_round3_oos_targeted_phase.py",
+        "role": "script",
+        "sha256": "68d559cfc4f9b3024b36b01702fed65e39751ed81c0c06f582498a94a757d40e",
+        "size_bytes": 15048
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_round4_capped_route_phase9_probe.py",
+        "role": "script",
+        "sha256": "153e7c15ee50a93ba80dd46ffe96c3f1a4031d3aaea77a0cc5ab65c6268dd18a",
+        "size_bytes": 7713
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_round4_redesigned_phase_probe.py",
+        "role": "script",
+        "sha256": "bc55f6518c93e78945b92fa1c86226350e5e8354b1ec153ee71e4c8797875081",
+        "size_bytes": 20129
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_round5_all_candidate_audit.py",
+        "role": "script",
+        "sha256": "bb0ae046cbf46f6cfc318b87640247b22aa604d02948a3142d4d1cb57e3270a7",
+        "size_bytes": 19400
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_round5_all_candidate_baseline_audit.py",
+        "role": "script",
+        "sha256": "5faf7e979428f67f98168f50b4a03ab370f368476704dd3e690687feac61534c",
+        "size_bytes": 15437
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_round5_structural_rerun.py",
+        "role": "script",
+        "sha256": "3c557e9750b0d76704da6c228073b6cce3c9cec1e6647dd30ca1d6a2b9168b56",
+        "size_bytes": 16207
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_r_capture_optimizer.py",
+        "role": "script",
+        "sha256": "5d12e81b46493732f19b7455ff492ef5f55aad5d2c21b27f3f12ae6173378043",
+        "size_bytes": 35967
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_r_capture_route_repair_sweep.py",
+        "role": "script",
+        "sha256": "15a74216039a3ef59a6a4c540d4bff6034eaee9aafb56d807186a2842a7cc03b",
+        "size_bytes": 13738
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_r_capture_shared_core_replay.py",
+        "role": "script",
+        "sha256": "7b346d5d1918fd3806ecdb72b89d8a44adb8c6cb75c817c0a91b6ce35b4a8952",
+        "size_bytes": 18744
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_train_alpha_capture_optimizer.py",
+        "role": "script",
+        "sha256": "9cdce1f33b56521e97e2ecdfab3eb3cb1557470f6ff0e2f7bc18e069ee0c694f",
+        "size_bytes": 29045
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/kalcb_train_stability_route_optimizer.py",
+        "role": "script",
+        "sha256": "f3c0196e7d7791924af327b83f31f1d96ce5967b875f2c24e08cfef85910322b",
+        "size_bytes": 31824
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/olr_nonmonotone_score_band_search.py",
+        "role": "script",
+        "sha256": "0388dbddf19d8b5bb5847c99ec12683bdc391f67b53393a70a3779dbd1ab2ca4",
+        "size_bytes": 36043
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/olr_reject500_filter_analysis.py",
+        "role": "script",
+        "sha256": "12f486622aaf501f3bfe60b8378ecaa72fc0d17dce9d9b641e159f2371453bff",
+        "size_bytes": 26635
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/olr_round2_oos_deep_ablation.py",
+        "role": "script",
+        "sha256": "c98dbb9672de0c24207a7c1fc505a22784fa984261ada656b3e4b02b45d1e2e9",
+        "size_bytes": 51210
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/olr_sector_data_alpha_sweep.py",
+        "role": "script",
+        "sha256": "b6339429c4a268838732436026c27f340e429db209583fa9d81b10d4e365afdf",
+        "size_bytes": 66398
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/olr_targeted_score_band_train_eval.py",
+        "role": "script",
+        "sha256": "43938184f1890779eb2f74fd570b4cf3295e4d8f19ba595981f76485b51a6862",
+        "size_bytes": 3946
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/promote_kalcb_guarded_q3_round1.py",
+        "role": "script",
+        "sha256": "2c0158ada6d20199e0e485e2af2ac5653bc7efe2a49351aed4b2ef0df95f8d44",
+        "size_bytes": 35482
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/promote_kalcb_round3_hn_target55.py",
+        "role": "script",
+        "sha256": "e419135b1227b920a466b5cccd0048e5ccf1e370d6e321f8332e4a4af7d37aa4",
+        "size_bytes": 28032
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/promote_olr_round3_reject_score_min300.py",
+        "role": "script",
+        "sha256": "3805f399c989e08a59469288d0f94428d59482b13a87216f72ace17b6c8eb01d",
+        "size_bytes": 32528
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/promote_olr_round4_score_band_rule.py",
+        "role": "script",
+        "sha256": "19dac9a9b95c02b26f61a1e6b01c465253b2be1c72b06b3f3d08ae70edd0ccc0",
+        "size_bytes": 33863
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/promote_olr_round4_soft_combo.py",
+        "role": "script",
+        "sha256": "7aa44c976da50bca8b9816467b687a89b0975355f7d892e63f4c54b829101e52",
+        "size_bytes": 42105
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/promote_olr_round5_dynamic_sector.py",
+        "role": "script",
+        "sha256": "4e9a47771c3d5add1baca924ffe7119deb06af7dc1cdbceae73823d51ff77f54",
+        "size_bytes": 25893
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/refresh_olr_round5_final_artifacts.py",
+        "role": "script",
+        "sha256": "f7e35edb491d392ab2017141108097838ef43cbffce9484ca5e5a6cdeee02b24",
+        "size_bytes": 15652
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/replay_paper_session.py",
+        "role": "script",
+        "sha256": "1ee5202001b84832df9739c07120525db5208975f8a779550083f0104c6f6b61",
+        "size_bytes": 2346
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/rewrite_olr_round3_diagnostics_text.py",
+        "role": "script",
+        "sha256": "4000d959f93071f28d42b21f495e9239dba8948620dcbc7a41b23bd76838c23b",
+        "size_bytes": 2027
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/run_olr_kalcb_runtime_session.py",
+        "role": "script",
+        "sha256": "c01003e0f1cd5d46797244d1f608631d5df396d70a1f3ece5abe7f13b0935c30",
+        "size_bytes": 34827
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/run_olr_round4_shadow_ledger_validation.py",
+        "role": "script",
+        "sha256": "68034c3d6531091366f5fa51c8095e1036d1eae28b58e68bd94514f8d75f31d3",
+        "size_bytes": 17956
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/strategy_healthcheck.sh",
+        "role": "script",
+        "sha256": "7453cf76f1ed941a20baec5e32a7761a545b8ab19f60a60f148d23ae1fedd2df",
+        "size_bytes": 729
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/summarize_paper_parity.py",
+        "role": "script",
+        "sha256": "b27d6360778d202a58b652d773cd55d43e9cf6100e66feddd7f1bf3e81da8278",
+        "size_bytes": 648
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/update_kis_intraday.py",
+        "role": "script",
+        "sha256": "4cc30eb727ec5955d0c5f96300fe4ddff0a4eca75b82d21810b04d028e4967cb",
+        "size_bytes": 45123
+      },
+      {
+        "path": "bots/k_stock_trader/scripts/update_krx_daily.py",
+        "role": "script",
+        "sha256": "a4031fdfb9e119e2ce4db9482084d5726be56b8dadc8257e21a10bd12b312e5b",
+        "size_bytes": 11817
+      },
+      {
+        "path": "bots/k_stock_trader/strategy_pcim/Dockerfile",
+        "role": "dockerfile",
+        "sha256": "3e42c615bb2dc02bc2dc8ab2fbe063a59d70792e914a9c0436df8383c5bce36f",
+        "size_bytes": 885
+      },
+      {
+        "path": "bots/k_stock_trader/config/olr_kalcb/olr_deployment_universe_103.yaml",
+        "role": "live_config",
+        "sha256": "a4dcae06993ba60ff4fa0adaa92450285656f85df3116aa2b1c941695b9f7a9e",
+        "size_bytes": 1960
+      },
+      {
+        "path": "bots/k_stock_trader/config/optimization/kalcb.yaml",
+        "role": "live_config",
+        "sha256": "92e67604d77367271856c4bd812fbfbe195491fb40e264c1d649e75401fc3b28",
+        "size_bytes": 4522
+      },
+      {
+        "path": "bots/k_stock_trader/config/optimization/olr.yaml",
+        "role": "live_config",
+        "sha256": "0abd0d245d350ee619e808b5b4b2fdb3aed03020727907804f0115ef83ce9210",
+        "size_bytes": 4811
+      },
+      {
+        "path": "bots/k_stock_trader/deployment/olr_kalcb/Dockerfile",
+        "role": "dockerfile",
+        "sha256": "ba4e1ce8d5f1cfb92062e9b1865889f084a54ac28da938d8cee1d744db522439",
+        "size_bytes": 1403
+      },
+      {
+        "path": "bots/k_stock_trader/infra/dashboard/Dockerfile",
+        "role": "dockerfile",
+        "sha256": "9daa2e367ac5f2aeb62aa3a2b3d9b8f0bfbc15d9d1f62142e320faff8ffd046f",
+        "size_bytes": 758
+      },
+      {
+        "path": "contracts/strategy_plugins/k_stock_olr_kalcb/strategy_plugin_contract.json",
+        "role": "contract",
+        "sha256": "5f19dd83e889504c90aa3e954fb06c0a45d61f0f94b6e817809d18f2952a41ad",
+        "size_bytes": 406845
+      },
+      {
+        "path": "bots/ibkr_trading/docker-compose.yml",
+        "role": "compose",
+        "sha256": "4edff4c4e6ca7ccc6720b446f529e34ab29e393d8f728eeca60d7c578b095c8e",
+        "size_bytes": 5353
+      },
+      {
+        "path": "bots/ibkr_trading/pyproject.toml",
+        "role": "pyproject",
+        "sha256": "a21525faa2217673a4d550c17e2a28385730019bbf4900399ccdb54f8585bcb3",
+        "size_bytes": 1330
+      },
+      {
+        "path": "bots/ibkr_trading/requirements.txt",
+        "role": "requirements",
+        "sha256": "6ff29ae83b9eb91fbe89ce64b17ff3f94d03932ec19c166bc960f10f00c3110a",
+        "size_bytes": 256
+      },
+      {
+        "path": "bots/ibkr_trading/config/strategies.yaml",
+        "role": "live_config",
+        "sha256": "12e8b04198925c6f3438f700edd0cdcdd59fd8bc5cd4a25d962a45e3f6806c2d",
+        "size_bytes": 9093
+      },
+      {
+        "path": "bots/ibkr_trading/scripts/capture_alignment_optimization_timings.py",
+        "role": "script",
+        "sha256": "6f33f92bb710915a5dd0ee5c2ec4e712804e7188fd87578d14e3152c1b7198a4",
+        "size_bytes": 6751
+      },
+      {
+        "path": "bots/ibkr_trading/scripts/collect_paper_trading_evidence.py",
+        "role": "script",
+        "sha256": "d3e0ead525b08c3a3b4295075d75b1f54887c307df85e23ea7dc2640ab486189",
+        "size_bytes": 5920
+      },
+      {
+        "path": "bots/ibkr_trading/scripts/verify_backtest_baseline_regeneration.py",
+        "role": "script",
+        "sha256": "8519312778c84aac4a0cea271fa6047388ed4264bef59ad5d2779521937ddbd3",
+        "size_bytes": 2074
+      },
+      {
+        "path": "bots/ibkr_trading/apps/dashboard/Dockerfile",
+        "role": "dockerfile",
+        "sha256": "2408a1b749e67afd95d5207ed0fa5d9c66c0ac71ba3e2b9032e0057fc3fd8849",
+        "size_bytes": 759
+      },
+      {
+        "path": "bots/ibkr_trading/backtests/scripts/atrss_strict_exact_sweep.py",
+        "role": "script",
+        "sha256": "3a1e750abe213039b294b81417239c96456e9822301d36b48085e276850b60f5",
+        "size_bytes": 17839
+      },
+      {
+        "path": "bots/ibkr_trading/backtests/scripts/challenger_ablation_reopt.py",
+        "role": "script",
+        "sha256": "b8433d08143fffb1b32be99831f23a0acc57272e0753ce7e4f895e33ddee4aa8",
+        "size_bytes": 21406
+      },
+      {
+        "path": "bots/ibkr_trading/backtests/scripts/helix_round2_low_quality_ablation.py",
+        "role": "script",
+        "sha256": "62ecff44d2e26b1d87436ef397e0cb2ebfae0e20dda32a7fdcd66715d2c48c68",
+        "size_bytes": 17678
+      },
+      {
+        "path": "bots/ibkr_trading/backtests/scripts/iaric_oos_ablation_perturbation.py",
+        "role": "script",
+        "sha256": "252a37db2784feadde8dba4d36c2661e0ded7c4bd89682b3ba33cd32682b1143",
+        "size_bytes": 29883
+      },
+      {
+        "path": "bots/ibkr_trading/backtests/scripts/iaric_walkforward_reopt.py",
+        "role": "script",
+        "sha256": "3c2fdd82fab3c95c3d7677680d33addca18f279a6dd73051c76251b5bb895b0e",
+        "size_bytes": 56709
+      },
+      {
+        "path": "bots/ibkr_trading/backtests/scripts/__init__.py",
+        "role": "script",
+        "sha256": "0b3aa2e0b4041ebf02ddefee26cdbabee5d741689a83089130d064455b5648f3",
+        "size_bytes": 46
+      },
+      {
+        "path": "packages/trading_assistant/pyproject.toml",
+        "role": "pyproject",
+        "sha256": "00186cd96eba929a74b0821fbbdc060891c925e56d76bf4be32122104a68bcdf",
+        "size_bytes": 1305
+      },
+      {
+        "path": "packages/trading_assistant/pyproject.toml",
+        "role": "pyproject",
+        "sha256": "c322f35850ea684d108340a2faa7850bc8da77201b92f79db0760b6ff768c887",
+        "size_bytes": 1159
+      },
+      {
+        "path": "packages/trading_assistant_backtest/pyproject.toml",
+        "role": "pyproject",
+        "sha256": "671fdbb2dd0afe15ab35d543f753ca1fdb5fee274a1e9349328b2108e248eb47",
+        "size_bytes": 2099
+      },
+      {
+        "path": "packages/trading_assistant_data/pyproject.toml",
+        "role": "pyproject",
+        "sha256": "eea5d9227c35c3a4e4ab1b7aed42a736b806eede806e5c924afe335d7b9c29c2",
+        "size_bytes": 938
+      },
+      {
+        "path": "packages/trading_assistant/scripts/install-startup.ps1",
+        "role": "script",
+        "sha256": "9adcfca621f3b76fd7759795c40b39575718398a4b9a01a8b49b69a4ff251fd3",
+        "size_bytes": 1811
+      },
+      {
+        "path": "packages/trading_assistant/scripts/migrate_jsonl_schema.py",
+        "role": "script",
+        "sha256": "f2e0473d51921c205c9d1c79a9a844010856f8c20212960fffc2700e1b0ed94b",
+        "size_bytes": 5802
+      },
+      {
+        "path": "packages/trading_assistant/scripts/start-common.ps1",
+        "role": "script",
+        "sha256": "636e62e7917e624c139959c89a74e6e33b0a18ff85937fab3716720f921efd0e",
+        "size_bytes": 6886
+      },
+      {
+        "path": "packages/trading_assistant/scripts/start.ps1",
+        "role": "script",
+        "sha256": "32b68f2f687c77d65776030397945a528469442addfd21bb547fad0f5679bbd3",
+        "size_bytes": 4078
+      },
+      {
+        "path": "packages/trading_assistant/src/trading_assistant/contracts/monthly_runner_contract.py",
+        "role": "contract",
+        "sha256": "1ad787c3ad0ca8cded5e4be0305b5129bf42e389be14f83a7468accb5690175c",
+        "size_bytes": 3021
+      },
+      {
+        "path": "packages/trading_assistant/src/trading_assistant/contracts/validate_monthly_runner.py",
+        "role": "contract",
+        "sha256": "bc7703041d7ebcbecb4dbf37579bebdf4a6bcc3c85b47a00ab1b6c6459aa0b1c",
+        "size_bytes": 2178
+      },
+      {
+        "path": "packages/trading_assistant/src/trading_assistant/contracts/__init__.py",
+        "role": "contract",
+        "sha256": "434217369869ef013761d62e3e77b25b7e38f96bf6d91310729451294fcd6e63",
+        "size_bytes": 49
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_breakout_v1/deployment_metadata.json",
+        "role": "contract",
+        "sha256": "c57999b88625cae6bec5f2e90015b236fca94e553deaed8f45f09aaecda34908",
+        "size_bytes": 814
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_breakout_v1/strategy_plugin_contract.json",
+        "role": "contract",
+        "sha256": "728d26d4107d4550dd049e446ff66ecc0f02c0bd7fd517f0ae8effae2ed33d0f",
+        "size_bytes": 1021
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_momentum_v1/deployment_metadata.json",
+        "role": "contract",
+        "sha256": "43753873068193be5981148fe656c5be163c3f89ab842aa9a8fe7f7b05f3a6a1",
+        "size_bytes": 814
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_momentum_v1/strategy_plugin_contract.json",
+        "role": "contract",
+        "sha256": "8bacd5445b45b614f896304a00faa7b59b60630f5aa5a1d40161ae47aea8ef48",
+        "size_bytes": 1033
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_trend_v1/deployment_metadata.json",
+        "role": "contract",
+        "sha256": "d267dd0925c87c7da5117df86e4dc8d13357dc2875d5f9c2ace901f2d5431e38",
+        "size_bytes": 790
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_trend_v1/README.md",
+        "role": "contract",
+        "sha256": "929558927199c780950070a7b8f203cf10ee093127d8267af0482acef17d9db8",
+        "size_bytes": 1020
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_trend_v1/strategy_plugin_contract.json",
+        "role": "contract",
+        "sha256": "c5cae4bb6b28a23372ad35be2ec0c30a693ce985e8bb9a779f103d4f2dd84677",
+        "size_bytes": 1044
+      },
+      {
+        "path": "contracts/strategy_plugins/k_stock_olr_kalcb/deployment_metadata.json",
+        "role": "contract",
+        "sha256": "83a4e48b664c8b1f12fe93d3aa99e051a1a7514a1c956f4b1cba00c0d5a60c73",
+        "size_bytes": 775
+      },
+      {
+        "path": "contracts/strategy_plugins/k_stock_olr_kalcb/README.md",
+        "role": "contract",
+        "sha256": "b962e0f23eeec46916d114ddf1c6827198b825c7b65eb8df9fb0b4c62a71e96e",
+        "size_bytes": 628
+      },
+      {
+        "path": "contracts/strategy_plugins/k_stock_olr_kalcb/strategy_plugin_contract.json",
+        "role": "contract",
+        "sha256": "581f14f6f2c8e5158a6081161ce33583e9abbb7efae188f1f7795cc9809aefe8",
+        "size_bytes": 1090
+      },
+      {
+        "path": "contracts/strategy_plugins/trading_momentum_family/deployment_metadata.json",
+        "role": "contract",
+        "sha256": "4287b00fabe3ca94e31bf40e3a51351dd7136fb2d3759d4f611f442f9b5e12d9",
+        "size_bytes": 919
+      },
+      {
+        "path": "contracts/strategy_plugins/trading_momentum_family/strategy_plugin_contract.json",
+        "role": "contract",
+        "sha256": "bc61a10db382775542532b06a3d580915b9dcf2d4b188b2917bf6bee21a0cfab",
+        "size_bytes": 1073
+      },
+      {
+        "path": "contracts/strategy_plugins/trading_stock_family/deployment_metadata.json",
+        "role": "contract",
+        "sha256": "9e44184c84dd7d77ba1422d3deb9cafcd2d824cf7e7cad6656d55631d7f61b0e",
+        "size_bytes": 785
+      },
+      {
+        "path": "contracts/strategy_plugins/trading_stock_family/README.md",
+        "role": "contract",
+        "sha256": "77c7c7e25f11189a38b239dde3c72da0812acab834a60afc80a4c2dc87d90e67",
+        "size_bytes": 674
+      },
+      {
+        "path": "contracts/strategy_plugins/trading_stock_family/strategy_plugin_contract.json",
+        "role": "contract",
+        "sha256": "7224cc0bdb018db78e4cdad0059d65e73a15fc55432b9572dab0d6a479fbfb66",
+        "size_bytes": 1029
+      },
+      {
+        "path": "contracts/strategy_plugins/trading_swing_family/deployment_metadata.json",
+        "role": "contract",
+        "sha256": "901c19f8c822c7f9dde1df556bb41926e2adaddee2d755fcb14e3d71e71bd32a",
+        "size_bytes": 907
+      },
+      {
+        "path": "contracts/strategy_plugins/trading_swing_family/strategy_plugin_contract.json",
+        "role": "contract",
+        "sha256": "91e59982dbd686fe0858847e72d881253678c4e3505acd6477afafb53459e98a",
+        "size_bytes": 1065
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_breakout_v1/parity_fixtures/breakout_a_plus.json",
+        "role": "contract",
+        "sha256": "54d6113d8cbb1e3ebcc59acbbd278feeada853198b0488fd69ead513c7fe3caa",
+        "size_bytes": 560
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_breakout_v1/parity_fixtures/breakout_entry_model1.json",
+        "role": "contract",
+        "sha256": "56a448406f2221d16c67a317a4081b1a425349a4afa37c60a94f0110c625cfd6",
+        "size_bytes": 314
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_breakout_v1/parity_fixtures/breakout_model1_disabled.json",
+        "role": "contract",
+        "sha256": "48bd874fb80ee5f71d4fcd793e898a010677425ad426d65d553efbfdf03a7d5d",
+        "size_bytes": 388
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_breakout_v1/parity_fixtures/breakout_short_risk_reduced.json",
+        "role": "contract",
+        "sha256": "1c94b82954eaccc9529a16af46ca6bcdc70bcf1725a118dae42f5ed1b9f4febf",
+        "size_bytes": 913
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_momentum_v1/parity_fixtures/momentum_chase_expired.json",
+        "role": "contract",
+        "sha256": "ee0bd74a0de5f61d1b45203730b9cfbc3b974bba2ff1661fff7baee20fbfee31",
+        "size_bytes": 342
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_momentum_v1/parity_fixtures/momentum_entry_market.json",
+        "role": "contract",
+        "sha256": "76aa64adcbb3c0b249c7d58b9f6a3dfa5304128de0f023fc55def9f051daa4a6",
+        "size_bytes": 314
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_momentum_v1/parity_fixtures/momentum_exit_state.json",
+        "role": "contract",
+        "sha256": "7e0adb6f40012b2efbb8ba6b63b6d90eef5b4a6a71347d8b6150c6e36fee530d",
+        "size_bytes": 433
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_momentum_v1/parity_fixtures/momentum_short_risk_reduced.json",
+        "role": "contract",
+        "sha256": "f54e1001406c3991b55338766d1d45bbabb7aba17dcf9d24db49a929c1cf727c",
+        "size_bytes": 715
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_trend_v1/parity_fixtures/trend_blocked_no_trigger.json",
+        "role": "contract",
+        "sha256": "8f2ffa03ee1908beaa08b3348372aa37477c82689795c116bb5c72aea630f921",
+        "size_bytes": 947
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_trend_v1/parity_fixtures/trend_entry_market.json",
+        "role": "contract",
+        "sha256": "204b07b4836e75f328b496974283745a4592775d9e5e201623b88b2b873e8132",
+        "size_bytes": 1152
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_trend_v1/parity_fixtures/trend_exit_time_stop.json",
+        "role": "contract",
+        "sha256": "9ea6c7720f7b5046f397ee9d50c5941b85f7b2eb700a58d6a94b693a16611e60",
+        "size_bytes": 1306
+      },
+      {
+        "path": "contracts/strategy_plugins/crypto_trend_v1/parity_fixtures/trend_short_risk_cap.json",
+        "role": "contract",
+        "sha256": "c0fe1ad41dd187e77d0fb3cd126c46d6bc709455b07bf552339fff655b708375",
+        "size_bytes": 1430
+      }
+    ],
+    "source_roots": [
+      {
+        "file_count": 2913,
+        "git_head": "8f9ce0bfce2cc038c42f677d0532c155650d3578",
+        "nested_git": true,
+        "path": "bots/crypto_trader"
+      },
+      {
+        "file_count": 2405,
+        "git_head": "cb5148933307d9ec2a1de6acee8d3b50ed4b00c3",
+        "nested_git": true,
+        "path": "bots/k_stock_trader"
+      },
+      {
+        "file_count": 3936,
+        "git_head": "b2dfba08c324d981883c5674fe3fb56a2419ab67",
+        "nested_git": true,
+        "path": "bots/ibkr_trading"
+      },
+      {
+        "file_count": 11283,
+        "git_head": "a7c0f4db79dc4199281360e0fc71cf92044f5c34",
+        "nested_git": true,
+        "path": "packages/trading_assistant"
+      }
+    ]
+  },
+  "k_stock_decision": {
+    "baseline_ids": [
+      "k_stock:kalcb",
+      "k_stock:olr",
+      "k_stock:portfolio_synergy"
+    ],
+    "blockers": [],
+    "decision": "K-stock output root exists and latest accepted KALCB, OLR, and portfolio-synergy artifacts are frozen with source hashes and an output-tree fingerprint.",
+    "kalcb_alignment": {
+      "decision": "No alignment finding.",
+      "deployment_universe_path": "bots/k_stock_trader/config/olr_kalcb/olr_deployment_universe_103.yaml",
+      "deployment_universe_sha256": "a4dcae06993ba60ff4fa0adaa92450285656f85df3116aa2b1c941695b9f7a9e",
+      "deployment_universe_size": 103,
+      "live_config_path": "bots/k_stock_trader/config/kalcb.yaml",
+      "live_config_sha256": "6f135df38301d4dcd7cd9d22762d108d360e3f6a9decd5088230296964ba0ee5",
+      "live_frontier_size": 103,
+      "optimizer_config_path": "bots/k_stock_trader/config/optimization/kalcb.yaml",
+      "optimizer_config_sha256": "92e67604d77367271856c4bd812fbfbe195491fb40e264c1d649e75401fc3b28",
+      "optimizer_frontier_size": 103,
+      "phase_optimizer_base_frontier_size": 103,
+      "phase_optimizer_base_path": "bots/k_stock_trader/backtests/strategies/kalcb/phase_candidates.py",
+      "phase_optimizer_base_sha256": "06893f66e27ae0a62738ddb6607a02fccb0289df8c04c71063050d1f17c1d954",
+      "status": "aligned",
+      "strategy_default_frontier_size": 103,
+      "strategy_default_path": "bots/k_stock_trader/strategy_kalcb/config.py",
+      "strategy_default_sha256": "e9b5cbb8781aa9f6c81df59bb4255f58d134b513b97786c26481d12db31dddac"
+    },
+    "output_fingerprint": {
+      "canonical_tree_sha256": "34601710830a7f26168b0fe62af7c8acb122d68e60f533ff29742659a017b9c2",
+      "file_count": 273
+    },
+    "required_output_root": "bots/k_stock_trader/data/backtests/output",
+    "required_output_root_exists": true,
+    "restoration_provenance": "local_reference_checkout_restored_or_present_before_phase0_freeze",
+    "status": "restored_frozen"
+  },
+  "live_configs": {
+    "crypto_live_example": {
+      "path": "bots/crypto_trader/config/live_config.example.json",
+      "sha256": "6bcb15425c473dadf0fb15fafd68836fbc0b47204d5b637e79a3e8678127e323"
+    },
+    "crypto_strategy_configs": [
+      {
+        "canonical_json_sha256": "6bc50cfb7f0b73de691c3e3a134268a64c49d882280d05ac3c7579b15e203bda",
+        "path": "bots/crypto_trader/config/strategies/breakout.json",
+        "sha256": "ce03056a60408f3d20c8bcd115dad6ec33c4d2ef29ae2dfe549526e74729cb8e"
+      },
+      {
+        "canonical_json_sha256": "6bc50cfb7f0b73de691c3e3a134268a64c49d882280d05ac3c7579b15e203bda",
+        "path": "bots/crypto_trader/config/strategies/breakout.pre_portfolio_round3_adoption.json",
+        "sha256": "ce03056a60408f3d20c8bcd115dad6ec33c4d2ef29ae2dfe549526e74729cb8e"
+      },
+      {
+        "canonical_json_sha256": "035d95cdadea393550839ee4c10cf7873df08b19005f303eb35b9921267b7690",
+        "path": "bots/crypto_trader/config/strategies/momentum.json",
+        "sha256": "654768582f51f3c004251d57b7af70df1346c27ac2f7fd7c60079a280bb0fceb"
+      },
+      {
+        "canonical_json_sha256": "035d95cdadea393550839ee4c10cf7873df08b19005f303eb35b9921267b7690",
+        "path": "bots/crypto_trader/config/strategies/momentum.pre_portfolio_round3_adoption.json",
+        "sha256": "654768582f51f3c004251d57b7af70df1346c27ac2f7fd7c60079a280bb0fceb"
+      },
+      {
+        "canonical_json_sha256": "c50870d05177d96c6b2dcbe63a54049e228c7b52f9e784b03f7e9ee920089388",
+        "path": "bots/crypto_trader/config/strategies/trend.json",
+        "sha256": "ebad6cd20c78f0abe0f451fb39d78f238d1ddf354f9134452a9be628fe120934"
+      },
+      {
+        "canonical_json_sha256": "c50870d05177d96c6b2dcbe63a54049e228c7b52f9e784b03f7e9ee920089388",
+        "path": "bots/crypto_trader/config/strategies/trend.pre_portfolio_round3_adoption.json",
+        "sha256": "ebad6cd20c78f0abe0f451fb39d78f238d1ddf354f9134452a9be628fe120934"
+      }
+    ],
+    "ibkr_strategies": {
+      "path": "bots/ibkr_trading/config/strategies.yaml",
+      "sha256": "12e8b04198925c6f3438f700edd0cdcdd59fd8bc5cd4a25d962a45e3f6806c2d"
+    },
+    "k_stock_kalcb": {
+      "path": "bots/k_stock_trader/config/kalcb.yaml",
+      "sha256": "6f135df38301d4dcd7cd9d22762d108d360e3f6a9decd5088230296964ba0ee5"
+    },
+    "k_stock_olr_universe": {
+      "path": "bots/k_stock_trader/config/olr_kalcb/olr_deployment_universe_103.yaml",
+      "sha256": "a4dcae06993ba60ff4fa0adaa92450285656f85df3116aa2b1c941695b9f7a9e"
+    }
+  },
+  "phase": "0",
+  "portfolio_bundle": {
+    "deployment_manifest": {
+      "archived_source_path": "backtests/baselines/crypto/portfolio/round_3/deployment_manifest.json",
+      "baseline_path": "backtests/baselines/crypto/portfolio/round_3/deployment_manifest.json",
+      "canonical_json_sha256": "d5e77835ca40be818089cbe0ac76dfa6e259de5aaf45f45437f964e81c995382",
+      "role": "deployment_manifest",
+      "sha256": "dbc22a9963ecbc42f7da2690ec90e5670200689c60d67d6d46404aba0e8161bb",
+      "size_bytes": 806,
+      "source_path": "backtests/baselines/crypto/portfolio/round_3/deployment_manifest.json"
+    },
+    "files": [
+      {
+        "archived_source_path": "backtests/baselines/crypto/portfolio/round_3/deployment_manifest.json",
+        "baseline_path": "backtests/baselines/crypto/portfolio/round_3/deployment_manifest.json",
+        "canonical_json_sha256": "d5e77835ca40be818089cbe0ac76dfa6e259de5aaf45f45437f964e81c995382",
+        "role": "deployment_manifest",
+        "sha256": "dbc22a9963ecbc42f7da2690ec90e5670200689c60d67d6d46404aba0e8161bb",
+        "size_bytes": 806,
+        "source_path": "backtests/baselines/crypto/portfolio/round_3/deployment_manifest.json"
+      },
+      {
+        "archived_source_path": "backtests/baselines/crypto/portfolio/round_3/recommended_portfolio_config.json",
+        "baseline_path": "backtests/baselines/crypto/portfolio/round_3/recommended_portfolio_config.json",
+        "canonical_json_sha256": "7faa6556e49d45ef4b8f1de45c80e11288e59d6f3591ac24f7e5f50ac79d6924",
+        "role": "portfolio_bundle_artifact",
+        "sha256": "df0a18fd352cc77427efadd36fc18285988180adba9163b5b66adf5bbb4a3680",
+        "size_bytes": 1073,
+        "source_path": "backtests/baselines/crypto/portfolio/round_3/recommended_portfolio_config.json"
+      },
+      {
+        "archived_source_path": "backtests/baselines/crypto/portfolio/round_3/parity_alignment.json",
+        "baseline_path": "backtests/baselines/crypto/portfolio/round_3/parity_alignment.json",
+        "canonical_json_sha256": "ec4525571746c6364c4c031412fc3c1520a185b4f92770ad65479bef14cd2c16",
+        "role": "portfolio_bundle_artifact",
+        "sha256": "b90ff6d468d61ea9f751c921d0ec52b8b2e26f4de714ade0237dc2431fd4f551",
+        "size_bytes": 3196,
+        "source_path": "backtests/baselines/crypto/portfolio/round_3/parity_alignment.json"
+      },
+      {
+        "archived_source_path": "backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/momentum.json",
+        "baseline_path": "backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/momentum.json",
+        "canonical_json_sha256": "5cb7ffc27b03298f3622a83cbf33ec89130dad60d843661be2767e7cc9b72736",
+        "role": "portfolio_bundle_artifact",
+        "sha256": "7078cc4032eeec91c928387aec0e2093a5cc96e27cf8cd4c31c3c522b17d2923",
+        "size_bytes": 5915,
+        "source_path": "backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/momentum.json"
+      },
+      {
+        "archived_source_path": "backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/trend.json",
+        "baseline_path": "backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/trend.json",
+        "canonical_json_sha256": "aa8852e1ff583994bd75e2a2df32326a634984094d2b36a5ad8b0608e8c4640f",
+        "role": "portfolio_bundle_artifact",
+        "sha256": "3feeba43dd2332a93c5c695c314f72b6b58254cd12312072cffe92e8bb90af14",
+        "size_bytes": 5086,
+        "source_path": "backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/trend.json"
+      },
+      {
+        "archived_source_path": "backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/breakout.json",
+        "baseline_path": "backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/breakout.json",
+        "canonical_json_sha256": "afb00a8e9817afd7a7ea20e2e591c07872d03c24edff06077a70a582e0d34be4",
+        "role": "portfolio_bundle_artifact",
+        "sha256": "6622dd6a61d45b94e56f64ffad52db5cf8dfa209fab1724f48fbe5bc5fc850a6",
+        "size_bytes": 4896,
+        "source_path": "backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/breakout.json"
+      }
+    ],
+    "missing_artifacts": [],
+    "required_source_rounds_manifest": "backtests/baselines/crypto/portfolio/rounds_manifest.json",
+    "required_source_rounds_manifest_exists": false,
+    "source_root": "backtests/baselines/crypto/portfolio",
+    "status": "superseded_missing_source_rounds_manifest",
+    "superseded_rounds_manifest": {
+      "canonical_json_sha256": "b89dd5c8241c06cca704fa501da9cfaa443e10e337b0b3b52df7f215ae5299e4",
+      "path": "backtests/baselines/crypto/portfolio/rounds_manifest.superseded.json",
+      "sha256": "8d3d73ea27499166c4d00d7f579812eef0f734933f01544a8c33caea692ce1ec"
+    },
+    "supersession_note": "The reference deployment manifest points at output/portfolio/rounds_manifest.json, which is absent. Phase 0 creates a small superseding evidence manifest from the available round_3 deployment, parity, recommended configs, and portfolio config."
+  },
+  "schema_version": "phase0_baseline_index.v1",
+  "strategy_plugin_contracts": [
+    {
+      "canonical_json_sha256": "913ceb99a2a916d726ca51d2a0baef01a12ace7a2c0fe4dee53e4f279e694993",
+      "sha256": "44618a6321b912fa9947307c15be614aca2e33806f44edbfc8f9a92e4663a792",
+      "source_path": "bots/crypto_trader/contracts/assistant_bridges/crypto_breakout_v1/strategy_plugin_contract.json"
+    },
+    {
+      "canonical_json_sha256": "ab683a56083d982116c73345bd90de1c54d4272b7c7c42395a70ae400541e2e1",
+      "sha256": "593f4669656049cb5bea6a4c84fd5a2efeab24548c24849ca24b0c5bf9e9f277",
+      "source_path": "bots/crypto_trader/contracts/assistant_bridges/crypto_momentum_v1/strategy_plugin_contract.json"
+    },
+    {
+      "canonical_json_sha256": "86cc62770aa6e37a6a09d03596e53e3fe6d074d5ccae5ff7c999046375a1a461",
+      "sha256": "63348e8b88ace88a5a904668ea96318cb00d927985a589fa4543d70389031d3e",
+      "source_path": "bots/crypto_trader/contracts/assistant_bridges/crypto_trend_v1/strategy_plugin_contract.json"
+    },
+    {
+      "canonical_json_sha256": "0e903612eb43fd35652383d1edc36dea157edba8ab19198bad2834e45ad7d21a",
+      "sha256": "5f19dd83e889504c90aa3e954fb06c0a45d61f0f94b6e817809d18f2952a41ad",
+      "source_path": "contracts/strategy_plugins/k_stock_olr_kalcb/strategy_plugin_contract.json"
+    },
+    {
+      "canonical_json_sha256": "70c0307e5f1f12200f567323ea51696fd8af362f8649211ca1bdcafdcb4d4252",
+      "sha256": "728d26d4107d4550dd049e446ff66ecc0f02c0bd7fd517f0ae8effae2ed33d0f",
+      "source_path": "contracts/strategy_plugins/crypto_breakout_v1/strategy_plugin_contract.json"
+    },
+    {
+      "canonical_json_sha256": "cc5216c22412888ab750a9eb888ceaf8afa239c3c2efab76f29fa8668ccc2936",
+      "sha256": "8bacd5445b45b614f896304a00faa7b59b60630f5aa5a1d40161ae47aea8ef48",
+      "source_path": "contracts/strategy_plugins/crypto_momentum_v1/strategy_plugin_contract.json"
+    },
+    {
+      "canonical_json_sha256": "427e5bdc803b756bf79c7d1ed828c9060632d0fee89435cc2d9a42ac88547c2a",
+      "sha256": "c5cae4bb6b28a23372ad35be2ec0c30a693ce985e8bb9a779f103d4f2dd84677",
+      "source_path": "contracts/strategy_plugins/crypto_trend_v1/strategy_plugin_contract.json"
+    },
+    {
+      "canonical_json_sha256": "41d3a89bab40130c05be5d06d84e0ba70656bf0f5b3bcb1e5888b102d29cb3f6",
+      "sha256": "581f14f6f2c8e5158a6081161ce33583e9abbb7efae188f1f7795cc9809aefe8",
+      "source_path": "contracts/strategy_plugins/k_stock_olr_kalcb/strategy_plugin_contract.json"
+    },
+    {
+      "canonical_json_sha256": "0f73530fc2c0efea41e7e1e52ca55788cc308deac7828055e68b3f3a02af8a28",
+      "sha256": "bc61a10db382775542532b06a3d580915b9dcf2d4b188b2917bf6bee21a0cfab",
+      "source_path": "contracts/strategy_plugins/trading_momentum_family/strategy_plugin_contract.json"
+    },
+    {
+      "canonical_json_sha256": "182e12adf7957d76cdc7d19c0872bbf9d0b321ba42c8d1744ae948fb3da8b6c3",
+      "sha256": "7224cc0bdb018db78e4cdad0059d65e73a15fc55432b9572dab0d6a479fbfb66",
+      "source_path": "contracts/strategy_plugins/trading_stock_family/strategy_plugin_contract.json"
+    },
+    {
+      "canonical_json_sha256": "eaa5c3e85a796e74820412aae4df5de60c022aa83a25526950102932d96014dc",
+      "sha256": "91e59982dbd686fe0858847e72d881253678c4e3505acd6477afafb53459e98a",
+      "source_path": "contracts/strategy_plugins/trading_swing_family/strategy_plugin_contract.json"
+    }
+  ]
+}

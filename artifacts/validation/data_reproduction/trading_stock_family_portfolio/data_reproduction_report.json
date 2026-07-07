@@ -1,0 +1,28 @@
+{
+  "artifact_paths": [
+    "backtests/data_portability_manifest.json",
+    "artifacts/validation/backtest_data_portability_report.json",
+    "backtests/baselines/baseline_index.json",
+    "artifacts/validation/decision_parity_matrix/trading_stock_family/decision_parity/decision_parity_report.json"
+  ],
+  "bundle_checksum": "f3819adc86612638415b0dd6b603babaeaa12ab5d37076ccff04bfa23486ca59",
+  "bundle_id": "trading_stock_family_portfolio",
+  "full_family_authority": {
+    "artifact_paths": [
+      "backtests/data_portability_manifest.json",
+      "artifacts/validation/backtest_data_portability_report.json",
+      "backtests/baselines/baseline_index.json",
+      "artifacts/validation/decision_parity_matrix/trading_stock_family/decision_parity/decision_parity_report.json"
+    ],
+    "details": "The authoritative acceptance bundle is the monorepo data portability manifest, frozen baseline, and canonical decision-parity report for this promoted scope.",
+    "reason": "monorepo_frozen_baseline_and_parity_evidence",
+    "status": "pass"
+  },
+  "generated_at": "2026-07-06T21:04:29Z",
+  "missing_artifact_paths": [],
+  "ok": true,
+  "recomputed_bundle_checksum": "f3819adc86612638415b0dd6b603babaeaa12ab5d37076ccff04bfa23486ca59",
+  "scope_id": "trading_stock_family",
+  "slice_count": 4,
+  "status": "pass"
+}

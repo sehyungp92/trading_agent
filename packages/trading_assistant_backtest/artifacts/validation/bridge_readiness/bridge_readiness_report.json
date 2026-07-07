@@ -1,0 +1,344 @@
+{
+  "approval_ready_bridges": [],
+  "artifact_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\bridge_readiness\\bridge_readiness_report.json",
+  "bridges": [
+    {
+      "approval_blockers": [
+        "plugin_maturity_is_shadow_validated_not_approval_ready"
+      ],
+      "approval_ready": false,
+      "audit_passed": false,
+      "commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+      "eligible_for_optimizer": true,
+      "errors": [
+        "formal crypto decision parity summary is missing or not passing",
+        "formal crypto decision parity report is missing"
+      ],
+      "evidence": [
+        {
+          "exists": true,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\strategy_plugin_contract.json",
+          "relative_path": "contracts/strategy_plugins/crypto_trend_v1/strategy_plugin_contract.json"
+        },
+        {
+          "exists": false,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\crypto_trend_v1\\decision_parity\\decision_parity_validation_summary.json",
+          "relative_path": "trading_assistant_backtest/artifacts/validation/crypto_trend_v1/decision_parity/decision_parity_validation_summary.json"
+        },
+        {
+          "exists": false,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\crypto_trend_v1\\decision_parity\\decision_parity_report.json",
+          "relative_path": "trading_assistant_backtest/artifacts/validation/crypto_trend_v1/decision_parity/decision_parity_report.json"
+        }
+      ],
+      "maturity": "shadow_validated",
+      "recommended_next_step": "Keep crypto_trend_v1 in shadow validation until live deployment metadata and broader shadow cycles justify promotion.",
+      "repo_id": "crypto_trend_v1",
+      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\crypto_trader",
+      "source_checkout_clean": false,
+      "status": "formal_decision_parity_missing_or_failed"
+    },
+    {
+      "approval_blockers": [
+        "plugin_maturity_is_shadow_validated_not_approval_ready"
+      ],
+      "approval_ready": false,
+      "audit_passed": false,
+      "commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+      "eligible_for_optimizer": true,
+      "errors": [
+        "formal decision parity summary is missing or not passing",
+        "formal decision parity report is missing"
+      ],
+      "evidence": [
+        {
+          "exists": true,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\strategy_plugin_contract.json",
+          "relative_path": "contracts/strategy_plugins/crypto_momentum_v1/strategy_plugin_contract.json"
+        },
+        {
+          "exists": false,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\crypto_momentum_v1\\decision_parity\\decision_parity_validation_summary.json",
+          "relative_path": "trading_assistant_backtest/artifacts/validation/crypto_momentum_v1/decision_parity/decision_parity_validation_summary.json"
+        },
+        {
+          "exists": false,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\crypto_momentum_v1\\decision_parity\\decision_parity_report.json",
+          "relative_path": "trading_assistant_backtest/artifacts/validation/crypto_momentum_v1/decision_parity/decision_parity_report.json"
+        }
+      ],
+      "maturity": "shadow_validated",
+      "recommended_next_step": "Keep crypto_momentum_v1 in shadow validation while expanding fixtures against live runtime telemetry.",
+      "repo_id": "crypto_momentum_v1",
+      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\crypto_trader",
+      "source_checkout_clean": false,
+      "status": "formal_decision_parity_missing_or_failed",
+      "supported_scope": [
+        "portfolio:crypto_portfolio",
+        "strategy:momentum"
+      ],
+      "weekly_focus_week": 4
+    },
+    {
+      "approval_blockers": [
+        "plugin_maturity_is_shadow_validated_not_approval_ready"
+      ],
+      "approval_ready": false,
+      "audit_passed": false,
+      "commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+      "eligible_for_optimizer": true,
+      "errors": [
+        "formal decision parity summary is missing or not passing",
+        "formal decision parity report is missing"
+      ],
+      "evidence": [
+        {
+          "exists": true,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_breakout_v1\\strategy_plugin_contract.json",
+          "relative_path": "contracts/strategy_plugins/crypto_breakout_v1/strategy_plugin_contract.json"
+        },
+        {
+          "exists": false,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\crypto_breakout_v1\\decision_parity\\decision_parity_validation_summary.json",
+          "relative_path": "trading_assistant_backtest/artifacts/validation/crypto_breakout_v1/decision_parity/decision_parity_validation_summary.json"
+        },
+        {
+          "exists": false,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\crypto_breakout_v1\\decision_parity\\decision_parity_report.json",
+          "relative_path": "trading_assistant_backtest/artifacts/validation/crypto_breakout_v1/decision_parity/decision_parity_report.json"
+        }
+      ],
+      "maturity": "shadow_validated",
+      "recommended_next_step": "Keep crypto_breakout_v1 in shadow validation while expanding fixtures against live runtime telemetry.",
+      "repo_id": "crypto_breakout_v1",
+      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\crypto_trader",
+      "source_checkout_clean": false,
+      "status": "formal_decision_parity_missing_or_failed",
+      "supported_scope": [
+        "portfolio:crypto_portfolio",
+        "strategy:breakout"
+      ],
+      "weekly_focus_week": 4
+    },
+    {
+      "approval_blockers": [
+        "plugin_maturity_is_shadow_validated_not_approval_ready"
+      ],
+      "approval_ready": false,
+      "audit_passed": false,
+      "commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+      "eligible_for_optimizer": true,
+      "errors": [
+        "formal decision parity summary is missing or not passing",
+        "formal decision parity report is missing"
+      ],
+      "evidence": [
+        {
+          "exists": true,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\strategy_plugin_contract.json",
+          "relative_path": "contracts/strategy_plugins/trading_stock_family/strategy_plugin_contract.json"
+        },
+        {
+          "exists": false,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\week1\\trading_stock_family\\decision_parity\\decision_parity_validation_summary.json",
+          "relative_path": "trading_assistant_backtest/artifacts/validation/week1/trading_stock_family/decision_parity/decision_parity_validation_summary.json"
+        },
+        {
+          "exists": false,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\week1\\trading_stock_family\\decision_parity\\decision_parity_report.json",
+          "relative_path": "trading_assistant_backtest/artifacts/validation/week1/trading_stock_family/decision_parity/decision_parity_report.json"
+        }
+      ],
+      "maturity": "shadow_validated",
+      "recommended_next_step": "Keep the stock-family bridge in shadow validation while expanding fixtures beyond IARIC entry/family collision cases.",
+      "repo_id": "trading_stock_family",
+      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading",
+      "source_checkout_clean": false,
+      "status": "formal_decision_parity_missing_or_failed",
+      "supported_scope": [
+        "portfolio:stock",
+        "strategy:IARIC_v1",
+        "strategy:ALCB_v1"
+      ],
+      "weekly_focus_week": 1
+    },
+    {
+      "approval_blockers": [
+        "plugin_maturity_is_shadow_validated_not_approval_ready"
+      ],
+      "approval_ready": false,
+      "audit_passed": false,
+      "commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+      "eligible_for_optimizer": true,
+      "errors": [
+        "formal decision parity summary is missing or not passing",
+        "formal decision parity report is missing"
+      ],
+      "evidence": [
+        {
+          "exists": true,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\k_stock_olr_kalcb\\strategy_plugin_contract.json",
+          "relative_path": "contracts/strategy_plugins/k_stock_olr_kalcb/strategy_plugin_contract.json"
+        },
+        {
+          "exists": false,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\week1\\k_stock_olr_kalcb\\decision_parity\\decision_parity_validation_summary.json",
+          "relative_path": "trading_assistant_backtest/artifacts/validation/week1/k_stock_olr_kalcb/decision_parity/decision_parity_validation_summary.json"
+        },
+        {
+          "exists": false,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\week1\\k_stock_olr_kalcb\\decision_parity\\decision_parity_report.json",
+          "relative_path": "trading_assistant_backtest/artifacts/validation/week1/k_stock_olr_kalcb/decision_parity/decision_parity_report.json"
+        }
+      ],
+      "maturity": "shadow_validated",
+      "recommended_next_step": "Keep OLR/KALCB in shadow validation while adding runtime-session fixtures covering fills, exits, non-candidate bars, and portfolio arbitration.",
+      "repo_id": "k_stock_olr_kalcb",
+      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader",
+      "source_checkout_clean": false,
+      "status": "formal_decision_parity_missing_or_failed",
+      "supported_scope": [
+        "strategy:OLR",
+        "strategy:KALCB",
+        "portfolio:OLR_KALCB"
+      ],
+      "weekly_focus_week": 1
+    },
+    {
+      "approval_blockers": [
+        "plugin_maturity_is_shadow_validated_not_approval_ready"
+      ],
+      "approval_ready": false,
+      "audit_passed": false,
+      "commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+      "eligible_for_optimizer": true,
+      "errors": [
+        "formal decision parity summary is missing or not passing",
+        "formal decision parity report is missing"
+      ],
+      "evidence": [
+        {
+          "exists": true,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_momentum_family\\strategy_plugin_contract.json",
+          "relative_path": "contracts/strategy_plugins/trading_momentum_family/strategy_plugin_contract.json"
+        },
+        {
+          "exists": false,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\week2\\trading_momentum_family\\decision_parity\\decision_parity_validation_summary.json",
+          "relative_path": "trading_assistant_backtest/artifacts/validation/week2/trading_momentum_family/decision_parity/decision_parity_validation_summary.json"
+        },
+        {
+          "exists": false,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\week2\\trading_momentum_family\\decision_parity\\decision_parity_report.json",
+          "relative_path": "trading_assistant_backtest/artifacts/validation/week2/trading_momentum_family/decision_parity/decision_parity_report.json"
+        }
+      ],
+      "maturity": "shadow_validated",
+      "recommended_next_step": "Keep trading momentum in shadow validation while broadening fixtures beyond NQ_REGIME entry and family shared-risk cases.",
+      "repo_id": "trading_momentum_family",
+      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading",
+      "source_checkout_clean": false,
+      "status": "formal_decision_parity_missing_or_failed",
+      "supported_scope": [
+        "portfolio:momentum",
+        "asset:futures",
+        "strategy:NQDTC_v2.1",
+        "strategy:NQ_REGIME",
+        "strategy:VdubusNQ_v4",
+        "strategy:DownturnDominator_v1"
+      ],
+      "weekly_focus_week": 2
+    },
+    {
+      "approval_blockers": [
+        "plugin_maturity_is_shadow_validated_not_approval_ready"
+      ],
+      "approval_ready": false,
+      "audit_passed": false,
+      "commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+      "eligible_for_optimizer": true,
+      "errors": [
+        "formal decision parity summary is missing or not passing",
+        "formal decision parity report is missing"
+      ],
+      "evidence": [
+        {
+          "exists": true,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_swing_family\\strategy_plugin_contract.json",
+          "relative_path": "contracts/strategy_plugins/trading_swing_family/strategy_plugin_contract.json"
+        },
+        {
+          "exists": false,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\week3\\trading_swing_family\\decision_parity\\decision_parity_validation_summary.json",
+          "relative_path": "trading_assistant_backtest/artifacts/validation/week3/trading_swing_family/decision_parity/decision_parity_validation_summary.json"
+        },
+        {
+          "exists": false,
+          "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\week3\\trading_swing_family\\decision_parity\\decision_parity_report.json",
+          "relative_path": "trading_assistant_backtest/artifacts/validation/week3/trading_swing_family/decision_parity/decision_parity_report.json"
+        }
+      ],
+      "maturity": "shadow_validated",
+      "recommended_next_step": "Keep trading swing in shadow validation while adding blocked-trade, exit, and overlay rebalance edge fixtures.",
+      "repo_id": "trading_swing_family",
+      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading",
+      "source_checkout_clean": false,
+      "status": "formal_decision_parity_missing_or_failed",
+      "supported_scope": [
+        "portfolio:swing",
+        "strategy:ATRSS",
+        "strategy:AKC_HELIX",
+        "strategy:TPC",
+        "strategy:OVERLAY"
+      ],
+      "weekly_focus_week": 3
+    }
+  ],
+  "configured_shadow_validated_bridges": [
+    "crypto_trend_v1",
+    "crypto_momentum_v1",
+    "crypto_breakout_v1",
+    "trading_stock_family",
+    "k_stock_olr_kalcb",
+    "trading_momentum_family",
+    "trading_swing_family"
+  ],
+  "formal_bridge_backlog": [],
+  "generated_at": "2026-07-03T03:04:54.051451+00:00",
+  "ok": false,
+  "recommended_next_bridge": "replay_backed_evaluator_and_fixture_coverage",
+  "shadow_validated_bridges": [],
+  "weekly_focus_rotation": [
+    {
+      "bridge_ids": [
+        "k_stock_olr_kalcb",
+        "trading_stock_family"
+      ],
+      "cycle_week": 1,
+      "focus_id": "k_stock_and_trading_stock"
+    },
+    {
+      "bridge_ids": [
+        "trading_momentum_family"
+      ],
+      "cycle_week": 2,
+      "focus_id": "trading_momentum"
+    },
+    {
+      "bridge_ids": [
+        "trading_swing_family"
+      ],
+      "cycle_week": 3,
+      "focus_id": "trading_swing"
+    },
+    {
+      "bridge_ids": [
+        "crypto_trend_v1",
+        "crypto_momentum_v1",
+        "crypto_breakout_v1"
+      ],
+      "cycle_week": 4,
+      "focus_id": "crypto_trader"
+    }
+  ]
+}

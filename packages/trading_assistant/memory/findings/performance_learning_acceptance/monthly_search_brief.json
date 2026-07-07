@@ -1,0 +1,19 @@
+{
+  "monthly_search_brief_id": "brief-2026-06-acceptance",
+  "run_month": "2026-06",
+  "authority": "search_order_only",
+  "source_weekly_signal_ids": [
+    "weekly-signal-breakout",
+    "weekly-signal-allocation"
+  ],
+  "attribution": {
+    "brief-2026-06-acceptance": [
+      "weekly-signal-breakout",
+      "weekly-signal-allocation"
+    ]
+  },
+  "notes": [
+    "Acceptance fixture for AM-14 weekly-to-monthly attribution.",
+    "This artifact is advisory and cannot satisfy monthly approval gates."
+  ]
+}

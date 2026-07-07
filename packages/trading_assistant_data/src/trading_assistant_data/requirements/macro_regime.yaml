@@ -1,0 +1,6 @@
+market: global_macro
+source: seed
+models: [regime_seed_v1]
+authority_notes:
+  - Macro/regime source panels are context inputs, not first monthly optimizer blockers.
+

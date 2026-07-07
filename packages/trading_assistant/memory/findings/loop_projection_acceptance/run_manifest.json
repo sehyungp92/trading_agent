@@ -1,0 +1,13 @@
+{
+  "acceptance_evidence": true,
+  "artifact_root": "packages/trading_assistant/memory/findings/loop_projection_acceptance",
+  "bot_id": "loop_acceptance_bot",
+  "latest_month_end": "2026-06-30",
+  "latest_month_start": "2026-06-01",
+  "proposal_ids": [
+    "loop_acceptance_proposal"
+  ],
+  "run_id": "monthly-loop-projection-acceptance-2026-06",
+  "run_month": "2026-06",
+  "strategy_id": "loop_acceptance_strategy"
+}

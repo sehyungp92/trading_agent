@@ -1,0 +1,28 @@
+{
+  "backtest_adapter_commit_sha": "4dc5fabb10fc9b0e963f012646252ff037b66acd12b3cfce306938b6b9ca0dfb",
+  "backtest_adapter_path": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/trading/momentum.py",
+  "config_schema_version": "trading_momentum_family_shadow_config_v1",
+  "contract_version": "strategy_plugin_contract_v1",
+  "decision_api_version": "trading_momentum_live_shadow_decision_api_v1",
+  "generated_at": "2026-05-31T14:13:11Z",
+  "live_repo_commit_sha": "5a901bc9547cf90fd2beaa8b820994feb384e6d6",
+  "live_repo_path": "bots/ibkr_trading",
+  "maturity": "shadow_validated",
+  "parity_fixture_set": [
+    "bots/ibkr_trading/tests/fixtures/parity/layer2/nq_regime_entry_fill.json",
+    "bots/ibkr_trading/tests/fixtures/parity/layer3/momentum_family_shared_risk.json"
+  ],
+  "plugin_id": "trading-momentum-family",
+  "required_telemetry_schemas": [
+    "trading_live_shadow_contract_v1",
+    "trading_momentum_family_state_v1"
+  ],
+  "supported_symbols": [
+    "MNQ",
+    "NQ"
+  ],
+  "supported_timeframes": [
+    "5m",
+    "15m"
+  ]
+}

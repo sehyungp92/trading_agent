@@ -1,0 +1,26 @@
+{
+  "actual_bridge_approval_ready": false,
+  "actual_bridge_maturity": "shadow_validated",
+  "actual_structural_adoption_blocked": true,
+  "fixture_scoped_approval_readiness_simulated": true,
+  "fixture_scoped_status": "evidence_complete",
+  "pilot_bridge_id": "trading_stock_family",
+  "production_blockers": [
+    "actual bridge contract remains shadow_validated, not approval_ready",
+    "live VPS deployment metadata is not promotion-grade",
+    "learning sufficiency is not learning_authoritative for the pilot bridge",
+    "no real non-fixture monthly outcome is available to update priors"
+  ],
+  "production_contract_mutated": false,
+  "production_promotion_allowed": false,
+  "promotion_conditions": {
+    "approval_grade_optimizer_manifest": true,
+    "formal_decision_parity": true,
+    "learning_sufficiency_authoritative": false,
+    "live_deployment_metadata": false,
+    "production_derived_fixture_window": true,
+    "real_non_fixture_monthly_outcome": false,
+    "scheduled_shadow_cycles": true
+  },
+  "schema_version": "ptg7_approval_ready_bridge_pilot_v1"
+}

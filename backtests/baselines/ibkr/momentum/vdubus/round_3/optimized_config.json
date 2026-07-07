@@ -1,0 +1,43 @@
+{
+  "flags.plus_1r_partial": false,
+  "param_overrides.CHOP_THRESHOLD": 28,
+  "flags.hourly_bypass_quality": true,
+  "param_overrides.HOURLY_BYPASS_ALLOWED_WINDOWS": [
+    "OPEN",
+    "CLOSE"
+  ],
+  "param_overrides.HOURLY_BYPASS_EQS_MIN": 2,
+  "param_overrides.HOURLY_BYPASS_MAX_CHOP": 33.6,
+  "param_overrides.HOURLY_BYPASS_SIZE_MULT": 0.72,
+  "flags.slope_bypass_quality": true,
+  "param_overrides.SLOPE_BYPASS_ALLOWED_WINDOWS": [
+    "OPEN",
+    "CORE",
+    "CLOSE"
+  ],
+  "param_overrides.SLOPE_BYPASS_EQS_MIN": 4,
+  "param_overrides.SLOPE_BYPASS_MAX_CHOP": 36.0,
+  "param_overrides.SLOPE_BYPASS_SIZE_MULT": 1.0,
+  "flags.stale_mfe_exempt": true,
+  "flags.type_c_enabled": true,
+  "param_overrides.USE_TYPE_C": true,
+  "param_overrides.TYPE_C_ALLOWED_WINDOWS": [
+    "OPEN"
+  ],
+  "param_overrides.TYPE_C_MAX_VWAP_DIST_ATR": 2.4,
+  "flags.dow_sizing": true,
+  "param_overrides.DOW_SIZE_MULT": {
+    "0": 0.5,
+    "3": 0.65
+  },
+  "flags.evening_vwap_cap": true,
+  "param_overrides.VWAP_CAP_EVENING": 0.35,
+  "flags.late_trail": true,
+  "param_overrides.STALE_MFE_EXEMPT_R": 0.5,
+  "param_overrides.LATE_TRAIL_ACTIVATE_R": 1.5,
+  "flags.mfe_rescue_stop": true,
+  "param_overrides.MFE_RESCUE_MIN_R": 0.75,
+  "param_overrides.MFE_RESCUE_AFTER_BARS": 8.4,
+  "param_overrides.MFE_RESCUE_TRIGGER_R": 0.0,
+  "param_overrides.MFE_RESCUE_LOCK_R": 0.05
+}

@@ -1,0 +1,123 @@
+{
+  "run_id": "decision-parity-matrix-crypto_momentum_v1",
+  "candidate_id": "strategy-plugin-contract",
+  "strategy_plugin_id": "crypto-momentum-v1",
+  "live_repo_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "backtest_adapter_commit_sha": "d2daaecb56abec357f4fc2d84b454c15b5a7e8f8f30e15e585a247c59b4dd14e",
+  "checks": [
+    {
+      "dimension": "entries",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_entry_market.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_chase_expired.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_short_risk_reduced.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_exit_state.json"
+      ]
+    },
+    {
+      "dimension": "exits",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_entry_market.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_chase_expired.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_short_risk_reduced.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_exit_state.json"
+      ]
+    },
+    {
+      "dimension": "filters",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_entry_market.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_chase_expired.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_short_risk_reduced.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_exit_state.json"
+      ]
+    },
+    {
+      "dimension": "order_intent",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_entry_market.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_chase_expired.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_short_risk_reduced.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_exit_state.json"
+      ]
+    },
+    {
+      "dimension": "risk_caps",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_entry_market.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_chase_expired.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_short_risk_reduced.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_exit_state.json"
+      ]
+    },
+    {
+      "dimension": "signals",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_entry_market.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_chase_expired.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_short_risk_reduced.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_exit_state.json"
+      ]
+    },
+    {
+      "dimension": "sizing",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_entry_market.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_chase_expired.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_short_risk_reduced.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_exit_state.json"
+      ]
+    },
+    {
+      "dimension": "stops",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_entry_market.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_chase_expired.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_short_risk_reduced.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_exit_state.json"
+      ]
+    }
+  ],
+  "status": "pass",
+  "min_required_match_rate": 1.0,
+  "evidence_paths": [
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_entry_market.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_chase_expired.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_short_risk_reduced.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_momentum_v1\\parity_fixtures\\momentum_exit_state.json"
+  ],
+  "report_version": "decision_parity_report_v1",
+  "generated_at": "2026-07-04T00:17:02.654590Z"
+}

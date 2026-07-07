@@ -1,0 +1,123 @@
+{
+  "run_id": "decision-parity-matrix-crypto_trend_v1",
+  "candidate_id": "strategy-plugin-contract",
+  "strategy_plugin_id": "crypto-trend-v1",
+  "live_repo_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "backtest_adapter_commit_sha": "8ad44417c2752cff80c85865b579fd632c7e91c60bbf31b0d2efd999d157af8a",
+  "checks": [
+    {
+      "dimension": "entries",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_entry_market.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_blocked_no_trigger.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_exit_time_stop.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_short_risk_cap.json"
+      ]
+    },
+    {
+      "dimension": "exits",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_entry_market.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_blocked_no_trigger.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_exit_time_stop.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_short_risk_cap.json"
+      ]
+    },
+    {
+      "dimension": "filters",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_entry_market.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_blocked_no_trigger.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_exit_time_stop.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_short_risk_cap.json"
+      ]
+    },
+    {
+      "dimension": "order_intent",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_entry_market.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_blocked_no_trigger.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_exit_time_stop.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_short_risk_cap.json"
+      ]
+    },
+    {
+      "dimension": "risk_caps",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_entry_market.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_blocked_no_trigger.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_exit_time_stop.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_short_risk_cap.json"
+      ]
+    },
+    {
+      "dimension": "signals",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_entry_market.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_blocked_no_trigger.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_exit_time_stop.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_short_risk_cap.json"
+      ]
+    },
+    {
+      "dimension": "sizing",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_entry_market.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_blocked_no_trigger.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_exit_time_stop.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_short_risk_cap.json"
+      ]
+    },
+    {
+      "dimension": "stops",
+      "status": "pass",
+      "match_rate": 1.0,
+      "mismatch_count": 0,
+      "notes": "live_events=4; adapter_events=4",
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_entry_market.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_blocked_no_trigger.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_exit_time_stop.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_short_risk_cap.json"
+      ]
+    }
+  ],
+  "status": "pass",
+  "min_required_match_rate": 1.0,
+  "evidence_paths": [
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_entry_market.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_blocked_no_trigger.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_exit_time_stop.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\crypto_trend_v1\\parity_fixtures\\trend_short_risk_cap.json"
+  ],
+  "report_version": "decision_parity_report_v1",
+  "generated_at": "2026-07-04T00:17:04.072143Z"
+}

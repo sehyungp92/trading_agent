@@ -1,0 +1,109 @@
+{
+  "generated_at": "2026-07-06T21:04:29Z",
+  "ok": true,
+  "scope_id": "trading_swing_family",
+  "tests": {
+    "historical_walk_forward": {
+      "artifact_paths": [
+        "backtests/data_portability_manifest.json",
+        "artifacts/validation/backtest_data_portability_report.json",
+        "backtests/baselines/baseline_index.json",
+        "artifacts/validation/decision_parity_matrix/trading_swing_family/decision_parity/decision_parity_report.json",
+        "artifacts/validation/backtest_integrity/invariant_report.json"
+      ],
+      "commands": [
+        [
+          "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/verify_backtest_data_portability.py",
+          "--bot",
+          "all"
+        ],
+        [
+          "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/verify_latest_round_no_drift.py",
+          "--bot",
+          "all",
+          "--baseline",
+          "backtests/baselines/baseline_index.json",
+          "--strict"
+        ],
+        [
+          "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/run_decision_parity_matrix.py",
+          "--promoted-only"
+        ]
+      ],
+      "missing_artifact_paths": [],
+      "ok": true,
+      "status": "pass"
+    },
+    "incumbent_replay": {
+      "artifact_paths": [
+        "backtests/data_portability_manifest.json",
+        "artifacts/validation/backtest_data_portability_report.json",
+        "backtests/baselines/baseline_index.json",
+        "artifacts/validation/decision_parity_matrix/trading_swing_family/decision_parity/decision_parity_report.json",
+        "artifacts/validation/backtest_integrity/invariant_report.json"
+      ],
+      "commands": [
+        [
+          "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/verify_backtest_data_portability.py",
+          "--bot",
+          "all"
+        ],
+        [
+          "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/verify_latest_round_no_drift.py",
+          "--bot",
+          "all",
+          "--baseline",
+          "backtests/baselines/baseline_index.json",
+          "--strict"
+        ],
+        [
+          "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/run_decision_parity_matrix.py",
+          "--promoted-only"
+        ]
+      ],
+      "missing_artifact_paths": [],
+      "ok": true,
+      "status": "pass"
+    },
+    "round_reproduction": {
+      "artifact_paths": [
+        "backtests/data_portability_manifest.json",
+        "artifacts/validation/backtest_data_portability_report.json",
+        "backtests/baselines/baseline_index.json",
+        "artifacts/validation/decision_parity_matrix/trading_swing_family/decision_parity/decision_parity_report.json",
+        "artifacts/validation/backtest_integrity/invariant_report.json"
+      ],
+      "commands": [
+        [
+          "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/verify_backtest_data_portability.py",
+          "--bot",
+          "all"
+        ],
+        [
+          "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/verify_latest_round_no_drift.py",
+          "--bot",
+          "all",
+          "--baseline",
+          "backtests/baselines/baseline_index.json",
+          "--strict"
+        ],
+        [
+          "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/run_decision_parity_matrix.py",
+          "--promoted-only"
+        ]
+      ],
+      "missing_artifact_paths": [],
+      "ok": true,
+      "status": "pass"
+    }
+  }
+}

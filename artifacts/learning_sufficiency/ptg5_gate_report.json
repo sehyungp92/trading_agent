@@ -1,0 +1,509 @@
+{
+  "checks": [
+    {
+      "details": [
+        {
+          "item_count": 29,
+          "section": "Phase 7",
+          "unchecked_count": 1,
+          "unchecked_items": [
+            "Add a clean-output regression proving generated runtime support capability rows contain only learning-authority consumed runtime classes or approved learning-authority aliases for monthly authority checks."
+          ]
+        },
+        {
+          "item_count": 23,
+          "section": "Phase 8",
+          "unchecked_count": 2,
+          "unchecked_items": [
+            "Remove expected-blocked tolerance from the blocking CI path for PTG-3/PTG-4/PTG-5/PTG-6 once linked checklist sections are complete.",
+            "Add CI regression assertion proving a PTG-3/PTG-4/PTG-5/PTG-6 script failure fails the workflow, not only writes a blocked report."
+          ]
+        }
+      ],
+      "name": "required_finite_checklist_sections_complete",
+      "passed": false
+    },
+    {
+      "details": [
+        {
+          "exists": true,
+          "path": "artifacts/learning_sufficiency/ptg3_gate_report.json",
+          "status": "blocked"
+        },
+        {
+          "exists": true,
+          "path": "artifacts/learning_sufficiency/ptg4_gate_report.json",
+          "status": "pass"
+        }
+      ],
+      "name": "prior_phase_gate_reports_pass",
+      "passed": false
+    },
+    {
+      "details": {
+        "failures": [],
+        "index_path": "artifacts/learning_sufficiency/phase2_manifests/manifest_index.json",
+        "manifest_count": 7,
+        "manifests": [
+          {
+            "blocked_learning_capabilities": [
+              "approval_grade_strategy_change",
+              "execution_learning",
+              "filter_threshold_learning",
+              "new_strategy_discovery",
+              "portfolio_interaction_learning",
+              "sizing_learning"
+            ],
+            "event_coverage_keys": [
+              "filter_decision_coverage",
+              "missed_opportunity_lineage",
+              "orderbook_context_coverage",
+              "portfolio_rule_coverage",
+              "trade_outcome_lineage"
+            ],
+            "known_gap_count": 28,
+            "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_breakout_v1/learning_sufficiency_manifest.json",
+            "runtime_support_states": {
+              "deployment_metadata": "observed",
+              "fill": "supported_but_unobserved",
+              "filter_decision": "supported_but_unobserved",
+              "missed_opportunity": "supported_but_unobserved",
+              "order": "supported_but_unobserved",
+              "orderbook_context": "unsupported",
+              "pipeline_funnel": "supported_but_unobserved",
+              "portfolio_rule": "supported_but_unobserved",
+              "trade": "supported_but_unobserved"
+            }
+          },
+          {
+            "blocked_learning_capabilities": [
+              "approval_grade_strategy_change",
+              "execution_learning",
+              "filter_threshold_learning",
+              "new_strategy_discovery",
+              "portfolio_interaction_learning",
+              "sizing_learning"
+            ],
+            "event_coverage_keys": [
+              "filter_decision_coverage",
+              "missed_opportunity_lineage",
+              "orderbook_context_coverage",
+              "portfolio_rule_coverage",
+              "trade_outcome_lineage"
+            ],
+            "known_gap_count": 28,
+            "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_momentum_v1/learning_sufficiency_manifest.json",
+            "runtime_support_states": {
+              "deployment_metadata": "observed",
+              "fill": "supported_but_unobserved",
+              "filter_decision": "supported_but_unobserved",
+              "missed_opportunity": "supported_but_unobserved",
+              "order": "supported_but_unobserved",
+              "orderbook_context": "unsupported",
+              "pipeline_funnel": "supported_but_unobserved",
+              "portfolio_rule": "supported_but_unobserved",
+              "trade": "supported_but_unobserved"
+            }
+          },
+          {
+            "blocked_learning_capabilities": [
+              "approval_grade_strategy_change",
+              "execution_learning",
+              "filter_threshold_learning",
+              "new_strategy_discovery",
+              "portfolio_interaction_learning",
+              "sizing_learning"
+            ],
+            "event_coverage_keys": [
+              "filter_decision_coverage",
+              "missed_opportunity_lineage",
+              "orderbook_context_coverage",
+              "portfolio_rule_coverage",
+              "trade_outcome_lineage"
+            ],
+            "known_gap_count": 28,
+            "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_trend_v1/learning_sufficiency_manifest.json",
+            "runtime_support_states": {
+              "deployment_metadata": "observed",
+              "fill": "supported_but_unobserved",
+              "filter_decision": "supported_but_unobserved",
+              "missed_opportunity": "supported_but_unobserved",
+              "order": "supported_but_unobserved",
+              "orderbook_context": "unsupported",
+              "pipeline_funnel": "supported_but_unobserved",
+              "portfolio_rule": "supported_but_unobserved",
+              "trade": "supported_but_unobserved"
+            }
+          },
+          {
+            "blocked_learning_capabilities": [
+              "approval_grade_strategy_change",
+              "execution_learning",
+              "filter_threshold_learning",
+              "new_strategy_discovery",
+              "portfolio_interaction_learning",
+              "sizing_learning"
+            ],
+            "event_coverage_keys": [
+              "filter_decision_coverage",
+              "missed_opportunity_lineage",
+              "orderbook_context_coverage",
+              "portfolio_rule_coverage",
+              "trade_outcome_lineage"
+            ],
+            "known_gap_count": 28,
+            "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/k_stock/2026-06/k_stock_olr_kalcb/learning_sufficiency_manifest.json",
+            "runtime_support_states": {
+              "deployment_metadata": "observed",
+              "fill": "supported_but_unobserved",
+              "filter_decision": "supported_but_unobserved",
+              "missed_opportunity": "supported_but_unobserved",
+              "order": "supported_but_unobserved",
+              "orderbook_context": "unsupported",
+              "pipeline_funnel": "unsupported",
+              "portfolio_rule": "supported_but_unobserved",
+              "trade": "supported_but_unobserved"
+            }
+          },
+          {
+            "blocked_learning_capabilities": [
+              "approval_grade_strategy_change",
+              "execution_learning",
+              "filter_threshold_learning",
+              "new_strategy_discovery",
+              "portfolio_interaction_learning",
+              "sizing_learning"
+            ],
+            "event_coverage_keys": [
+              "filter_decision_coverage",
+              "missed_opportunity_lineage",
+              "orderbook_context_coverage",
+              "portfolio_rule_coverage",
+              "trade_outcome_lineage"
+            ],
+            "known_gap_count": 28,
+            "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_momentum_family/learning_sufficiency_manifest.json",
+            "runtime_support_states": {
+              "deployment_metadata": "observed",
+              "fill": "supported_but_unobserved",
+              "filter_decision": "supported_but_unobserved",
+              "missed_opportunity": "supported_but_unobserved",
+              "order": "supported_but_unobserved",
+              "orderbook_context": "unsupported",
+              "pipeline_funnel": "supported_but_unobserved",
+              "portfolio_rule": "supported_but_unobserved",
+              "trade": "supported_but_unobserved"
+            }
+          },
+          {
+            "blocked_learning_capabilities": [
+              "approval_grade_strategy_change",
+              "execution_learning",
+              "filter_threshold_learning",
+              "new_strategy_discovery",
+              "portfolio_interaction_learning",
+              "sizing_learning"
+            ],
+            "event_coverage_keys": [
+              "filter_decision_coverage",
+              "missed_opportunity_lineage",
+              "orderbook_context_coverage",
+              "portfolio_rule_coverage",
+              "trade_outcome_lineage"
+            ],
+            "known_gap_count": 28,
+            "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_stock_family/learning_sufficiency_manifest.json",
+            "runtime_support_states": {
+              "deployment_metadata": "observed",
+              "fill": "supported_but_unobserved",
+              "filter_decision": "supported_but_unobserved",
+              "missed_opportunity": "supported_but_unobserved",
+              "order": "supported_but_unobserved",
+              "orderbook_context": "unsupported",
+              "pipeline_funnel": "supported_but_unobserved",
+              "portfolio_rule": "supported_but_unobserved",
+              "trade": "supported_but_unobserved"
+            }
+          },
+          {
+            "blocked_learning_capabilities": [
+              "approval_grade_strategy_change",
+              "execution_learning",
+              "filter_threshold_learning",
+              "new_strategy_discovery",
+              "portfolio_interaction_learning",
+              "sizing_learning"
+            ],
+            "event_coverage_keys": [
+              "filter_decision_coverage",
+              "missed_opportunity_lineage",
+              "orderbook_context_coverage",
+              "portfolio_rule_coverage",
+              "trade_outcome_lineage"
+            ],
+            "known_gap_count": 28,
+            "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_swing_family/learning_sufficiency_manifest.json",
+            "runtime_support_states": {
+              "deployment_metadata": "observed",
+              "fill": "supported_but_unobserved",
+              "filter_decision": "supported_but_unobserved",
+              "missed_opportunity": "supported_but_unobserved",
+              "order": "supported_but_unobserved",
+              "orderbook_context": "unsupported",
+              "pipeline_funnel": "supported_but_unobserved",
+              "portfolio_rule": "supported_but_unobserved",
+              "trade": "supported_but_unobserved"
+            }
+          }
+        ]
+      },
+      "name": "runtime_evidence_coverage_and_gap_records",
+      "passed": true
+    },
+    {
+      "details": {
+        "gate_names": [
+          "learning_sufficiency_manifest_present",
+          "learning_capability_authority",
+          "causal_join_completeness",
+          "denominator_coverage",
+          "after_cost_outcome_coverage",
+          "proposal_trace_coverage",
+          "counterfactual_backfill_coverage",
+          "runtime_evidence_coverage",
+          "instrumentation_gap_impact"
+        ],
+        "gate_results": [
+          {
+            "evidence_paths": [
+              "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp80xqtyzr\\learning_sufficiency_manifest.json"
+            ],
+            "name": "learning_sufficiency_manifest_present",
+            "passed": true,
+            "reason": "",
+            "severity": "hard"
+          },
+          {
+            "evidence_paths": [
+              "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp80xqtyzr\\learning_sufficiency_manifest.json"
+            ],
+            "name": "learning_capability_authority",
+            "passed": false,
+            "reason": "required learning capability is not authoritative: execution_learning:blocked (decision_to_order_join:missing, order_to_fill_join:missing, orderbook_context_coverage:missing)",
+            "severity": "hard"
+          },
+          {
+            "evidence_paths": [
+              "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp80xqtyzr\\learning_sufficiency_manifest.json"
+            ],
+            "name": "causal_join_completeness",
+            "passed": false,
+            "reason": "decision_to_order_join:missing (missing_fields=decision_id,order_id; observed=0; required=1); order_to_fill_join:missing (observed=0; required=1)",
+            "severity": "hard"
+          },
+          {
+            "evidence_paths": [
+              "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp80xqtyzr\\learning_sufficiency_manifest.json"
+            ],
+            "name": "denominator_coverage",
+            "passed": true,
+            "reason": "not required for candidate learning capability",
+            "severity": "hard"
+          },
+          {
+            "evidence_paths": [
+              "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp80xqtyzr\\learning_sufficiency_manifest.json"
+            ],
+            "name": "after_cost_outcome_coverage",
+            "passed": true,
+            "reason": "",
+            "severity": "hard"
+          },
+          {
+            "evidence_paths": [
+              "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp80xqtyzr\\learning_sufficiency_manifest.json"
+            ],
+            "name": "proposal_trace_coverage",
+            "passed": true,
+            "reason": "not required for candidate learning capability",
+            "severity": "hard"
+          },
+          {
+            "evidence_paths": [
+              "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp80xqtyzr\\learning_sufficiency_manifest.json"
+            ],
+            "name": "counterfactual_backfill_coverage",
+            "passed": true,
+            "reason": "not required for candidate learning capability",
+            "severity": "hard"
+          },
+          {
+            "evidence_paths": [
+              "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp80xqtyzr\\learning_sufficiency_manifest.json"
+            ],
+            "name": "runtime_evidence_coverage",
+            "passed": false,
+            "reason": "orderbook_context_coverage:missing (observed=0; required=1); runtime_evidence_support:missing",
+            "severity": "hard"
+          },
+          {
+            "evidence_paths": [
+              "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp80xqtyzr\\learning_sufficiency_manifest.json"
+            ],
+            "name": "instrumentation_gap_impact",
+            "passed": false,
+            "reason": "instrumentation gaps block requested learning capability: execution_learning:order:decision_id,order_id:high",
+            "severity": "hard"
+          }
+        ]
+      },
+      "name": "monthly_sufficiency_gates_fail_closed",
+      "passed": true
+    },
+    {
+      "details": {
+        "instruction_contract_present": false,
+        "learning_sufficiency": {
+          "blocked_capabilities_by_scope": [
+            {
+              "bot_id": "bot1",
+              "capabilities": [
+                "filter_threshold_learning",
+                "runtime_source_classification_violation"
+              ],
+              "eligibility": "diagnostics_only",
+              "manifest_path": "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp4rwrvzc1\\runs\\monthly-bot1-strat1-2026-05\\learning_sufficiency_manifest.json",
+              "strategy_id": "strat1"
+            }
+          ],
+          "scope_count": 1,
+          "supported_capabilities_by_scope": [],
+          "top_learning_gaps": [
+            {
+              "blocked_learning_capability": "filter_threshold_learning",
+              "bot_id": "bot1",
+              "event_type": "pipeline_funnel",
+              "expected_learning_value": "critical",
+              "manifest_path": "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp4rwrvzc1\\runs\\monthly-bot1-strat1-2026-05\\learning_sufficiency_manifest.json",
+              "missing_field": "denominator_coverage",
+              "remediation": "Emit funnel snapshots for bot1/strat1.",
+              "strategy_id": "strat1"
+            }
+          ]
+        }
+      },
+      "name": "weekly_prompt_sufficiency_contract",
+      "passed": false
+    },
+    {
+      "details": {
+        "authoritative_valid": true,
+        "diagnostics_issues": [
+          {
+            "item_id": "candidate-1",
+            "item_type": "candidate_review",
+            "message": "diagnostics-only evidence cannot be presented as approval-grade",
+            "severity": "error"
+          }
+        ],
+        "diagnostics_valid": false
+      },
+      "name": "model_review_authority_label_validation",
+      "passed": true
+    }
+  ],
+  "failures": [
+    {
+      "details": [
+        {
+          "item_count": 29,
+          "section": "Phase 7",
+          "unchecked_count": 1,
+          "unchecked_items": [
+            "Add a clean-output regression proving generated runtime support capability rows contain only learning-authority consumed runtime classes or approved learning-authority aliases for monthly authority checks."
+          ]
+        },
+        {
+          "item_count": 23,
+          "section": "Phase 8",
+          "unchecked_count": 2,
+          "unchecked_items": [
+            "Remove expected-blocked tolerance from the blocking CI path for PTG-3/PTG-4/PTG-5/PTG-6 once linked checklist sections are complete.",
+            "Add CI regression assertion proving a PTG-3/PTG-4/PTG-5/PTG-6 script failure fails the workflow, not only writes a blocked report."
+          ]
+        }
+      ],
+      "name": "required_finite_checklist_sections_complete",
+      "passed": false
+    },
+    {
+      "details": [
+        {
+          "exists": true,
+          "path": "artifacts/learning_sufficiency/ptg3_gate_report.json",
+          "status": "blocked"
+        },
+        {
+          "exists": true,
+          "path": "artifacts/learning_sufficiency/ptg4_gate_report.json",
+          "status": "pass"
+        }
+      ],
+      "name": "prior_phase_gate_reports_pass",
+      "passed": false
+    },
+    {
+      "details": {
+        "instruction_contract_present": false,
+        "learning_sufficiency": {
+          "blocked_capabilities_by_scope": [
+            {
+              "bot_id": "bot1",
+              "capabilities": [
+                "filter_threshold_learning",
+                "runtime_source_classification_violation"
+              ],
+              "eligibility": "diagnostics_only",
+              "manifest_path": "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp4rwrvzc1\\runs\\monthly-bot1-strat1-2026-05\\learning_sufficiency_manifest.json",
+              "strategy_id": "strat1"
+            }
+          ],
+          "scope_count": 1,
+          "supported_capabilities_by_scope": [],
+          "top_learning_gaps": [
+            {
+              "blocked_learning_capability": "filter_threshold_learning",
+              "bot_id": "bot1",
+              "event_type": "pipeline_funnel",
+              "expected_learning_value": "critical",
+              "manifest_path": "C:\\Users\\sehyu\\AppData\\Local\\Temp\\tmp4rwrvzc1\\runs\\monthly-bot1-strat1-2026-05\\learning_sufficiency_manifest.json",
+              "missing_field": "denominator_coverage",
+              "remediation": "Emit funnel snapshots for bot1/strat1.",
+              "strategy_id": "strat1"
+            }
+          ]
+        }
+      },
+      "name": "weekly_prompt_sufficiency_contract",
+      "passed": false
+    }
+  ],
+  "gate": "PTG-5",
+  "generated_at": "2026-07-05T16:35:55Z",
+  "promotion_criteria": "Monthly candidate gates consume sufficiency manifests, runtime evidence coverage and ranked gap records are emitted, and prompt/output validators enforce evidence authority labels.",
+  "required_acceptance_rows": [
+    "AM-14",
+    "AM-15",
+    "AM-16",
+    "AM-17",
+    "AM-18",
+    "AM-19",
+    "AM-25"
+  ],
+  "required_finite_checklist_sections": [
+    "Phase 7",
+    "Phase 8"
+  ],
+  "schema_version": "learning_sufficiency_ptg5_gate_report_v1",
+  "status": "blocked"
+}

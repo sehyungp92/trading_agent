@@ -1,0 +1,21 @@
+{
+  "strategy_change_record_id": "change-acceptance-1",
+  "run_id": "monthly-acceptance-run-1",
+  "run_month": "2026-06",
+  "verdict": "improved",
+  "objective_delta": 0.091,
+  "return_delta": 0.028,
+  "drawdown_delta": -0.011,
+  "cost_delta": -0.004,
+  "strategy_slice": {
+    "regime": "risk_on",
+    "symbol": "BTC",
+    "session": "us",
+    "side": "long",
+    "liquidity": "high",
+    "sample_size": 240,
+    "trade_count": 132,
+    "cost_bps": 6.4,
+    "failure_mode": "late_breakout_noise"
+  }
+}

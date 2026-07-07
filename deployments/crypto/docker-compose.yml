@@ -1,0 +1,161 @@
+name: trading-agent-crypto
+
+x-optional-env-file: &optional-env-file
+  - path: .env
+    required: false
+
+x-json-logging: &json-logging
+  driver: json-file
+  options:
+    max-size: "50m"
+    max-file: "5"
+
+x-crypto-build: &crypto-build
+  image: trading-agent/crypto-trader:local
+  build:
+    context: ../..
+    dockerfile: bots/crypto_trader/Dockerfile
+
+x-crypto-env: &crypto-env
+  PYTHONUNBUFFERED: "1"
+  TZ: ${TZ:-UTC}
+  POSTGRES_DSN: postgresql://trading_writer:${POSTGRES_WRITER_PASSWORD:-changeme}@postgres:5432/${POSTGRES_DB:-trading}
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    env_file: *optional-env-file
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-trading}
+      POSTGRES_USER: ${POSTGRES_USER:-trading_admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      POSTGRES_WRITER_PASSWORD: ${POSTGRES_WRITER_PASSWORD:-changeme}
+      POSTGRES_READER_PASSWORD: ${POSTGRES_READER_PASSWORD:-changeme}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - crypto-postgres-data:/var/lib/postgresql/data
+      - ../../bots/crypto_trader/infra/postgres/init-db.sh:/docker-entrypoint-initdb.d/00-init-db.sh:ro
+      - ../../bots/crypto_trader/infra/postgres/migrations:/docker-entrypoint-initdb.d/migrations:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-trading_admin} -d ${POSTGRES_DB:-trading}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    logging: *json-logging
+
+  crypto-trader:
+    <<: *crypto-build
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    env_file: *optional-env-file
+    environment: *crypto-env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command:
+      - sh
+      - -c
+      - >
+        crypto-trader deployment-preflight
+        --config config/live_config.json
+        --effective-config /app/deployments/crypto/generated/live_config.effective.json
+        --runtime-root .
+        && exec crypto-trader paper --config config/live_config.json
+    volumes:
+      - crypto-data:/app/bots/crypto_trader/data
+      - crypto-output:/app/bots/crypto_trader/output
+      - ${CRYPTO_LIVE_CONFIG_PATH:-./secrets/live_config.json}:/app/bots/crypto_trader/config/live_config.json:ro
+      - ../../backtests/baselines/crypto/portfolio/round_3:/app/bots/crypto_trader/output/portfolio/round_3:ro
+      - ../../deployments/crypto/generated:/app/deployments/crypto/generated:ro
+      - ../../contracts:/app/contracts:ro
+    stop_grace_period: 60s
+    healthcheck:
+      test: ["CMD", "python", "-c", "import crypto_trader, crypto_trader.cli; print('ok')"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 45s
+    logging: *json-logging
+
+  crypto-preflight:
+    <<: *crypto-build
+    profiles: ["preflight"]
+    restart: "no"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    env_file: *optional-env-file
+    environment: *crypto-env
+    command:
+      - crypto-trader
+      - deployment-preflight
+      - --config
+      - config/live_config.json
+      - --effective-config
+      - /app/deployments/crypto/generated/live_config.effective.json
+      - --runtime-root
+      - .
+    volumes:
+      - crypto-data:/app/bots/crypto_trader/data
+      - crypto-output:/app/bots/crypto_trader/output
+      - ${CRYPTO_LIVE_CONFIG_PATH:-./secrets/live_config.json}:/app/bots/crypto_trader/config/live_config.json:ro
+      - ../../backtests/baselines/crypto/portfolio/round_3:/app/bots/crypto_trader/output/portfolio/round_3:ro
+      - ../../deployments/crypto/generated:/app/deployments/crypto/generated:ro
+      - ../../contracts:/app/contracts:ro
+    logging: *json-logging
+
+  data-refresh:
+    <<: *crypto-build
+    profiles: ["maintenance"]
+    restart: "no"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    env_file: *optional-env-file
+    environment:
+      PYTHONUNBUFFERED: "1"
+      TZ: ${TZ:-UTC}
+    command:
+      - crypto-trader
+      - download
+      - --coin
+      - ${DOWNLOAD_COINS:-BTC,ETH,SOL}
+      - --interval
+      - ${DOWNLOAD_INTERVALS:-15m,1h,4h,1d}
+      - --days
+      - ${DOWNLOAD_DAYS:-90}
+      - --data-dir
+      - data
+    volumes:
+      - crypto-data:/app/bots/crypto_trader/data
+    logging: *json-logging
+
+  crypto-status:
+    <<: *crypto-build
+    profiles: ["tools"]
+    restart: "no"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    env_file: *optional-env-file
+    environment:
+      PYTHONUNBUFFERED: "1"
+      TZ: ${TZ:-UTC}
+    command: ["crypto-trader", "status", "--state-dir", "data/live_state"]
+    volumes:
+      - crypto-data:/app/bots/crypto_trader/data
+    logging: *json-logging
+
+volumes:
+  crypto-postgres-data:
+  crypto-data:
+  crypto-output:

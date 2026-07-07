@@ -1,0 +1,9 @@
+{
+  "verification_id": "verification-2026-06-acceptance",
+  "verifier_version": "monthly_evidence_verifier_v1",
+  "verdict": "pass",
+  "authority_notes": [
+    "Approval evidence is limited to monthly replay-authority artifacts.",
+    "Search brief remains advisory search-order context."
+  ]
+}

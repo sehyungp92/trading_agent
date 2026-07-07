@@ -1,0 +1,64 @@
+{
+  "fixture_id": "trend_exit_time_stop",
+  "symbol": "BTC",
+  "timeframe": "15m",
+  "timestamp": "2026-05-17T12:00:00+00:00",
+  "direction": "LONG",
+  "entry_price": 50000.0,
+  "atr": 220.0,
+  "bar": {
+    "open": 50020.0,
+    "high": 50060.0,
+    "low": 49880.0,
+    "close": 49920.0,
+    "volume": 160.0
+  },
+  "trigger": {
+    "pattern": "ema_reclaim",
+    "trigger_price": 50000.0,
+    "bar_offset": 1,
+    "valid": true
+  },
+  "setup": {
+    "grade": "A",
+    "direction": "LONG",
+    "impulse_start": 49200.0,
+    "impulse_end": 50600.0,
+    "impulse_atr_move": 2.4,
+    "pullback_depth": 0.4,
+    "confluences": [
+      "h1_ema_zone",
+      "volume_confirm",
+      "structure"
+    ],
+    "zone_price": 50000.0,
+    "room_r": 3.2,
+    "stop_level": 49550.0,
+    "setup_score": 3.1
+  },
+  "sizing": {
+    "qty": 0.12,
+    "leverage": 4.0,
+    "liquidation_price": 41000.0,
+    "risk_pct_actual": 0.006,
+    "notional": 6000.0,
+    "was_reduced": false,
+    "reduction_reason": null
+  },
+  "exit_state": {
+    "entry_price": 50000.0,
+    "stop_distance": 450.0,
+    "qty": 0.12,
+    "bars_since_entry": 20,
+    "mfe_r": 0.05,
+    "peak_r": 0.05,
+    "ema_fast": 50150.0
+  },
+  "exit_bar": {
+    "open": 50020.0,
+    "high": 50050.0,
+    "low": 49860.0,
+    "close": 49890.0,
+    "volume": 170.0
+  }
+}

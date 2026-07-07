@@ -1,0 +1,90 @@
+{
+  "additionalProperties": true,
+  "description": "Deployment identity required before paper/live runtime startup.",
+  "properties": {
+    "bot_id": {
+      "title": "Bot Id",
+      "type": "string"
+    },
+    "config_hash": {
+      "title": "Config Hash",
+      "type": "string"
+    },
+    "contract_hash": {
+      "default": "",
+      "title": "Contract Hash",
+      "type": "string"
+    },
+    "environment": {
+      "default": "development",
+      "title": "Environment",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "git_branch": {
+      "default": "",
+      "title": "Git Branch",
+      "type": "string"
+    },
+    "git_commit": {
+      "title": "Git Commit",
+      "type": "string"
+    },
+    "image_digest": {
+      "default": "",
+      "title": "Image Digest",
+      "type": "string"
+    },
+    "image_version": {
+      "default": "",
+      "title": "Image Version",
+      "type": "string"
+    },
+    "promotion_hash": {
+      "default": "",
+      "title": "Promotion Hash",
+      "type": "string"
+    },
+    "runtime_entrypoint": {
+      "title": "Runtime Entrypoint",
+      "type": "string"
+    },
+    "runtime_mode": {
+      "default": "dry_run",
+      "title": "Runtime Mode",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "deployment_metadata_v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "strategy_id": {
+      "default": "",
+      "title": "Strategy Id",
+      "type": "string"
+    },
+    "strategy_version": {
+      "default": "",
+      "title": "Strategy Version",
+      "type": "string"
+    },
+    "telemetry_schema_version": {
+      "default": "",
+      "title": "Telemetry Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "bot_id",
+    "git_commit",
+    "config_hash",
+    "runtime_entrypoint"
+  ],
+  "title": "DeploymentMetadata",
+  "type": "object"
+}

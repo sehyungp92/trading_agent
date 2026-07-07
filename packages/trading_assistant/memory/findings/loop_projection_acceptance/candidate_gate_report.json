@@ -1,0 +1,18 @@
+[
+  {
+    "acceptance_evidence": true,
+    "candidate_id": "acceptance-candidate",
+    "checks": [
+      {
+        "evidence_paths": [
+          "packages/trading_assistant/memory/findings/loop_projection_acceptance\\model_review_validation.json",
+          "packages/trading_assistant/memory/findings/loop_projection_acceptance\\monthly_evidence_verification_acceptance.json"
+        ],
+        "name": "approval_evidence_projection",
+        "passed": true,
+        "severity": "hard"
+      }
+    ],
+    "passed": true
+  }
+]

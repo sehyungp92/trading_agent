@@ -1,0 +1,48 @@
+# Process quality scoring rules
+# Adapted for NQ/MNQ multi-strategy futures bot
+
+global:
+  max_entry_latency_ms: 5000
+  max_slippage_multiplier: 2.0
+  min_signal_strength: 0.3
+  strong_signal_threshold: 0.7
+  expected_slippage_bps: 3
+
+strategies:
+  # NQDTC v2.1 — box breakout
+  nqdtc:
+    preferred_regimes:
+      - trending_up
+      - trending_down
+      - volatile
+    adverse_regimes:
+      - ranging
+    max_hold_bars: 100
+    expected_slippage_bps: 2
+    min_signal_strength: 0.33     # evidence_score normalized: 1.5/4.5 ≈ 0.33
+    strong_signal_threshold: 0.67
+
+  # VdubusNQ v4.2 — VWAP pullback
+  vdubus:
+    preferred_regimes:
+      - trending_up
+      - trending_down
+    adverse_regimes:
+      - volatile
+    max_hold_bars: 128
+    expected_slippage_bps: 2
+    min_signal_strength: 0.3
+    strong_signal_threshold: 0.7
+
+  # Downturn Dominator v1 — short-only regime scalper
+  downturn:
+    preferred_regimes:
+      - trending_down
+      - volatile
+    adverse_regimes:
+      - trending_up
+      - ranging
+    max_hold_bars: 150
+    expected_slippage_bps: 2
+    min_signal_strength: 0.3
+    strong_signal_threshold: 0.6

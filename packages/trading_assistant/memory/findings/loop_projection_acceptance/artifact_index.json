@@ -1,0 +1,16 @@
+{
+  "acceptance_evidence": true,
+  "artifact_root": "packages/trading_assistant/memory/findings/loop_projection_acceptance",
+  "artifacts": {
+    "approval_packet_acceptance.json": "packages/trading_assistant/memory/findings/loop_projection_acceptance\\approval_packet_acceptance.json",
+    "artifact_index.json": "packages/trading_assistant/memory/findings/loop_projection_acceptance\\artifact_index.json",
+    "candidate_gate_report.json": "packages/trading_assistant/memory/findings/loop_projection_acceptance\\candidate_gate_report.json",
+    "candidate_generation_summary.json": "packages/trading_assistant/memory/findings/loop_projection_acceptance\\candidate_generation_summary.json",
+    "model_review_validation.json": "packages/trading_assistant/memory/findings/loop_projection_acceptance\\model_review_validation.json",
+    "monthly_evidence_verification_acceptance.json": "packages/trading_assistant/memory/findings/loop_projection_acceptance\\monthly_evidence_verification_acceptance.json",
+    "monthly_validation_result.json": "packages/trading_assistant/memory/findings/loop_projection_acceptance\\monthly_validation_result.json",
+    "runner_observability.json": "packages/trading_assistant/memory/findings/loop_projection_acceptance\\runner_observability.json"
+  },
+  "index_version": "loop_projection_acceptance_v1",
+  "run_id": "monthly-loop-projection-acceptance-2026-06"
+}

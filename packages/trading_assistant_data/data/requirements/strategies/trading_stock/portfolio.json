@@ -1,0 +1,5550 @@
+{
+  "schema_version": "strategy_data_requirements_v1",
+  "source_request_manifest": "data/source_requests/reference_snapshot_2026-05-30/requests/ibkr_us_equity_historical_bars.json",
+  "ownership_policy": "explicit_stock_family_allowlist_v1",
+  "approval_scope": {
+    "scope_id": "trading_stock_family_live_approval_v1",
+    "live_universe_authority": "bots/ibkr_trading/strategies/stock/live_universe.py::LIVE_STOCK_UNIVERSE_SYMBOLS",
+    "live_intraday_symbol_count": 98,
+    "live_intraday_timeframes": [
+      "1d",
+      "5m",
+      "30m"
+    ],
+    "live_intraday_requirement_count": 294,
+    "daily_reference_context_symbol_count": 317,
+    "daily_reference_context_timeframes": [
+      "1d"
+    ],
+    "daily_reference_context_requirement_count": 317,
+    "declared_requirement_count": 611,
+    "approval_note": "611 is the declared slice/evidence count, not the live tradable-symbol count."
+  },
+  "archive_evidence_scope": {
+    "scope_id": "trading_stock_family_archived_source_parity_v1",
+    "legacy_archive_source_comparison_count": 611,
+    "legacy_archive_source": "backtests/stock/data/update_intraday.py plain OHLCV parquet cache",
+    "live_approval_interpretation": "Useful for legacy archive/source parity; live stock approval is scoped to the 98-symbol intraday universe plus declared daily/reference context."
+  },
+  "requirements": [
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "A",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "A",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "A",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AAPL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true",
+      "primary_exchange": "NASDAQ"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AAPL",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false",
+      "primary_exchange": "NASDAQ"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AAPL",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false",
+      "primary_exchange": "NASDAQ"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ABBV",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ABBV",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ABBV",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ABT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ABT",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ABT",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ACN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ACN",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ACN",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ADBE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ADBE",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ADBE",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ADI",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ADI",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ADI",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ADM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ADP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AEE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AEP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AFL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AIG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AJG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ALB",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ALGN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ALL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AMAT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AMAT",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AMAT",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AMCR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AMD",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AMD",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AMD",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AME",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AMGN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AMGN",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AMGN",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AMP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AMT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AMZN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AMZN",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AMZN",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AON",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "APA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "APD",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "APTV",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ARE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ATO",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AVB",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AVGO",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AVGO",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AVGO",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AVY",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AWK",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AXP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "AZO",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BAC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BAC",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BAC",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BALL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BAX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BBY",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BDX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BDX",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BDX",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BEN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BIO",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BIO",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BIO",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BK",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BKNG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BKR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BLK",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BLK",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BLK",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BRK B",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BRK B",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BRK B",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BRO",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BSX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BSX",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BSX",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BWA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "BXP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "C",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CAG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CARR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CAT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CAT",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CAT",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CB",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CBOE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CBRE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CCI",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CCL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CDNS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CDNS",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CDNS",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CDW",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CDW",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CDW",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CEG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CF",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CFG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CHD",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CHTR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CI",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CI",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CI",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CINF",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CLX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CMCSA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CME",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CMG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CMI",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CMS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CNP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "COF",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "COP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "COR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "COR",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "COR",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "COST",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CPB",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CPRT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CPT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CRL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CRM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CRM",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CRM",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CRWD",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CRWD",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CRWD",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CSCO",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CSCO",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CSCO",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CSX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CTAS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CTRA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CTVA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CVX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "CZR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "D",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DAL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DD",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DHI",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DHR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DHR",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DHR",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DIS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DKNG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DLR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DOV",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DOW",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DPZ",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DRI",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DTE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DUK",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DVN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DXCM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DXCM",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "DXCM",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EBAY",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ECL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ED",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EFX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EIX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ELV",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ELV",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ELV",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EMN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EMR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EOG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EPAM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EPAM",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EPAM",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EQIX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EQR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EQT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ES",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ESS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ETN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ETR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ETSY",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EVRG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EW",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EW",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EW",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EXC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "EXR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "F",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FANG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FAST",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FCX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FDX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FIS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FITB",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FMC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FOX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FOXA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FRT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FSLR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FSLR",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FSLR",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FTNT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FTNT",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "FTNT",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GD",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GEN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GEN",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GEN",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GILD",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GILD",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GILD",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GIS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GOOG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GOOG",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GOOG",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GOOGL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GOOGL",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GOOGL",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GPC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GPN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GRMN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GS",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GS",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "GWW",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HAL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HAS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HBAN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HCA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HCA",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HCA",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HD",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HD",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HD",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HLT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HOLX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HON",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HPE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HPE",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HPE",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HPQ",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HPQ",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HPQ",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HRL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HSIC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HSIC",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HSIC",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HST",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HSY",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HUBB",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HWM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "HYG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true",
+      "primary_exchange": "ARCA"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IBM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IBM",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IBM",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ICE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IDXX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IDXX",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IDXX",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IEX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IFF",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "INCY",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "INTU",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "INTU",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "INTU",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IQV",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IQV",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IQV",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IRM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ISRG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ISRG",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ISRG",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IT",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IT",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ITW",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "IVZ",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "J",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "JCI",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "JNJ",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "JNJ",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "JNJ",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "JPM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "JPM",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "JPM",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "KDP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "KEY",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "KEYS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "KEYS",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "KEYS",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "KIM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "KLAC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "KLAC",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "KLAC",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "KMB",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "KMI",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "KMX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "KO",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "KR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "L",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LDOS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LEN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LH",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LH",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LH",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LIN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LKQ",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LLY",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LLY",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LLY",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LMT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LNT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LOW",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LRCX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LRCX",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LRCX",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LUV",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LVS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "LYV",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MA",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MA",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MAA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MAR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MAS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MCD",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MCHP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MCHP",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MCHP",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MCK",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MCK",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MCK",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MCO",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MDLZ",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MDT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MDT",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MDT",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MET",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "META",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "META",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "META",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MGM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MHK",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MKC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MKTX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MLM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MMM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MNST",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MO",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MOH",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MPC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MPWR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MPWR",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MPWR",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MRK",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MRK",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MRK",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MSCI",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MSFT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true",
+      "primary_exchange": "NASDAQ"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MSFT",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false",
+      "primary_exchange": "NASDAQ"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MSFT",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false",
+      "primary_exchange": "NASDAQ"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MSI",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MSI",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MSI",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MTB",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MTCH",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MTD",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MTD",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MTD",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MU",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MU",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MU",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NCLH",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NDAQ",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NDSN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NEE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NEM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NFLX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NFLX",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NFLX",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NI",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NKE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NOC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NOW",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NOW",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NOW",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NSC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NTAP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NTAP",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NTAP",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NTRS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NUE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NVDA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NVDA",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NVDA",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NVR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NWS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NWSA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NXPI",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NXPI",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "NXPI",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "O",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "OKE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "OMC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ON",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ON",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ON",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ORCL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ORCL",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ORCL",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ORLY",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "OTIS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "OXY",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PANW",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PANW",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PANW",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PAYX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PCAR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PCG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PEP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PFE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PFE",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PFE",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PGR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PH",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PHM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PKG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PLD",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PNC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PNW",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PODD",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "POOL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PPG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PPL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PRU",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PSA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PSX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PTC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PTC",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PTC",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "PWR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "QCOM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "QCOM",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "QCOM",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "QRVO",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "QRVO",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "QRVO",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "RCL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "REG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "REGN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "REGN",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "REGN",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "RF",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "RJF",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "RL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "RMD",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "RMD",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "RMD",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ROK",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ROL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ROP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ROP",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ROP",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ROST",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "RSG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "RTX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "RVTY",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SBAC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SBUX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SCHW",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SHW",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SJM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SLB",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SNA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SNPS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SNPS",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SNPS",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SO",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SPG",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SPGI",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SPY",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true",
+      "primary_exchange": "ARCA"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SRE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "STLD",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "STT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "STZ",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SWK",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SWKS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SWKS",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SWKS",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SYF",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SYK",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SYK",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SYK",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "SYY",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "T",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TAP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TDY",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TDY",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TDY",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TECH",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TECH",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TECH",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TER",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TER",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TER",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TFC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TJX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TMO",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TMO",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TMO",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TMUS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TPR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TRGP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TRMB",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TRMB",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TRMB",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TRV",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TSCO",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TSLA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TSLA",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TSLA",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TSN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TTWO",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TXN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TXN",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TXN",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "TXT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "UAL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "UDR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ULTA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "UNH",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "UNH",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "UNH",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "UNP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "UPS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "USB",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "V",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "V",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "V",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "VICI",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "VIX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "VLO",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "VMC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "VRSK",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "VRTX",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "VRTX",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "VRTX",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "VTR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "VTRS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "VZ",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "WAB",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "WAT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "WBD",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "WEC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "WELL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "WFC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "WHR",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "WM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "WMB",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "WMT",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "WMT",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "WMT",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "WRB",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "WY",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "WYNN",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "XEL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "XLB",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true",
+      "primary_exchange": "ARCA"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "XLC",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true",
+      "primary_exchange": "ARCA"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "XLE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true",
+      "primary_exchange": "ARCA"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "XLF",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true",
+      "primary_exchange": "ARCA"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "XLI",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true",
+      "primary_exchange": "ARCA"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "XLK",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true",
+      "primary_exchange": "ARCA"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "XLP",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true",
+      "primary_exchange": "ARCA"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "XLRE",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true",
+      "primary_exchange": "ARCA"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "XLU",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true",
+      "primary_exchange": "ARCA"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "XLV",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true",
+      "primary_exchange": "ARCA"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "XLY",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true",
+      "primary_exchange": "ARCA"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "XOM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "XYL",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "YUM",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ZBRA",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ZBRA",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ZBRA",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ZTS",
+      "timeframe": "1d",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_rth_session_0930_1600_new_york_v1",
+      "use_rth": "true"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ZTS",
+      "timeframe": "30m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    },
+    {
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "ZTS",
+      "timeframe": "5m",
+      "strategy_data_family": "trading_stock",
+      "session_policy": "us_equity_extended_session_0400_2000_new_york_v1",
+      "use_rth": "false"
+    }
+  ]
+}
+

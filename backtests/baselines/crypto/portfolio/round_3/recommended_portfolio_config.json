@@ -1,0 +1,56 @@
+{
+  "initial_equity": 25000.0,
+  "strategies": [
+    {
+      "strategy_id": "momentum",
+      "enabled": true,
+      "base_risk_pct": 0.0133,
+      "max_concurrent": 3,
+      "daily_stop_R": 3.0,
+      "priority": 2
+    },
+    {
+      "strategy_id": "trend",
+      "enabled": true,
+      "base_risk_pct": 0.0168,
+      "max_concurrent": 5,
+      "daily_stop_R": 4.0,
+      "priority": 0
+    },
+    {
+      "strategy_id": "breakout",
+      "enabled": true,
+      "base_risk_pct": 0.0147,
+      "max_concurrent": 3,
+      "daily_stop_R": 3.0,
+      "priority": 1
+    }
+  ],
+  "heat_cap_R": 7.5,
+  "directional_cap_R": 5.0,
+  "portfolio_daily_stop_R": 5.0,
+  "max_total_positions": 10,
+  "dd_tiers": [
+    [
+      0.06,
+      0.75
+    ],
+    [
+      0.09,
+      0.5
+    ],
+    [
+      0.12,
+      0.25
+    ],
+    [
+      0.15,
+      0.0
+    ]
+  ],
+  "symbol_collision": "cap",
+  "symbol_exposure_cap_R": 2.5,
+  "terminal_accounting_mode": "terminal_mark",
+  "priority_headroom_R": 0.0,
+  "priority_reserve_threshold": 0
+}

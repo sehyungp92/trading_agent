@@ -1,0 +1,191 @@
+name: trading-agent-k-stock
+
+x-optional-env-file: &optional-env-file
+  - path: .env
+    required: false
+
+x-json-logging: &json-logging
+  driver: json-file
+  options:
+    max-size: "50m"
+    max-file: "5"
+
+x-k-stock-build: &k-stock-build
+  image: trading-agent/k-stock-trader:local
+  build:
+    context: ../..
+    dockerfile: bots/k_stock_trader/Dockerfile
+
+x-k-stock-env: &k-stock-env
+  PYTHONUNBUFFERED: "1"
+  TZ: ${TZ:-Asia/Seoul}
+  DATABASE_URL: postgresql://trading_writer:${POSTGRES_WRITER_PASSWORD:-changeme}@postgres:5432/${POSTGRES_DB:-trading}
+  OMS_URL: ${OMS_URL:-http://oms:8000}
+  OMS_ID: ${OMS_ID:-k_stock_primary}
+  OMS_CONFIG_PATH: ${OMS_CONFIG_PATH:-config/oms_config.yaml}
+  ASSISTANT_EVENT_DATA_DIR: ${ASSISTANT_EVENT_DATA_DIR:-instrumentation/data}
+  OLR_KALCB_DEPLOYMENT_METADATA_PATH: ${OLR_KALCB_DEPLOYMENT_METADATA_PATH:-}
+  OLR_KALCB_DEPLOYMENT_METADATA_ENV: ${OLR_KALCB_DEPLOYMENT_METADATA_ENV:-paper_vps}
+  KIS_IS_PAPER: ${KIS_IS_PAPER:-true}
+  KIS_APP_KEY: ${KIS_APP_KEY:-}
+  KIS_APP_SECRET: ${KIS_APP_SECRET:-}
+  KIS_ACCOUNT_NO: ${KIS_ACCOUNT_NO:-}
+  KIS_PAPER_APP_KEY: ${KIS_PAPER_APP_KEY:-}
+  KIS_PAPER_APP_SECRET: ${KIS_PAPER_APP_SECRET:-}
+  KIS_PAPER_ACCOUNT_NO: ${KIS_PAPER_ACCOUNT_NO:-}
+  KIS_HTS_ID: ${KIS_HTS_ID:-}
+  KIS_MY_AGENT: ${KIS_MY_AGENT:-Mozilla/5.0}
+  KIS_WS_LEDGER_PATH: ${KIS_WS_LEDGER_PATH:-data/rate_budget/kis_ws_ledger.json}
+  RELAY_URL: ${RELAY_URL:-}
+  SIDECAR_RELAY_URL: ${SIDECAR_RELAY_URL:-}
+  INSTRUMENTATION_HMAC_SECRET: ${INSTRUMENTATION_HMAC_SECRET:-}
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    env_file: *optional-env-file
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-trading}
+      POSTGRES_USER: ${POSTGRES_USER:-trading_admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      POSTGRES_WRITER_PASSWORD: ${POSTGRES_WRITER_PASSWORD:-changeme}
+      POSTGRES_READER_PASSWORD: ${POSTGRES_READER_PASSWORD:-changeme}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - k-stock-postgres-data:/var/lib/postgresql/data
+      - ../../bots/k_stock_trader/infra/postgres/init/001_extensions.sql:/docker-entrypoint-initdb.d/001_extensions.sql:ro
+      - ../../bots/k_stock_trader/infra/postgres/init/002_tables.sql:/docker-entrypoint-initdb.d/002_tables.sql:ro
+      - ../../bots/k_stock_trader/infra/postgres/init/003_views.sql:/docker-entrypoint-initdb.d/003_views.sql:ro
+      - ./postgres-init/004_roles_env.sh:/docker-entrypoint-initdb.d/004_roles_env.sh:ro
+      - ../../bots/k_stock_trader/infra/postgres/init/005_oms_scoping.sql:/docker-entrypoint-initdb.d/005_oms_scoping.sql:ro
+      - ../../bots/k_stock_trader/infra/postgres/init/006_views_oms_scoped.sql:/docker-entrypoint-initdb.d/006_views_oms_scoped.sql:ro
+      - ../../bots/k_stock_trader/infra/postgres/init/007_oms_scope_finalize.sql:/docker-entrypoint-initdb.d/007_oms_scope_finalize.sql:ro
+      - ../../bots/k_stock_trader/infra/postgres/init/008_protective_stops.sql:/docker-entrypoint-initdb.d/008_protective_stops.sql:ro
+      - ../../bots/k_stock_trader/infra/postgres/init/009_idempotency_hardening.sql:/docker-entrypoint-initdb.d/009_idempotency_hardening.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-trading_admin} -d ${POSTGRES_DB:-trading}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    logging: *json-logging
+
+  oms:
+    <<: *k-stock-build
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    env_file: *optional-env-file
+    environment:
+      <<: *k-stock-env
+      OMS_ALLOW_MISSING_STRATEGY_BUDGETS: ${OMS_ALLOW_MISSING_STRATEGY_BUDGETS:-}
+      OMS_ALLOW_MISSING_SECTOR_MAP: ${OMS_ALLOW_MISSING_SECTOR_MAP:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: ["python", "-m", "oms.server"]
+    ports:
+      - "127.0.0.1:${OMS_HOST_PORT:-8000}:8000"
+    volumes:
+      - k-stock-logs:/app/data/logs
+      - k-stock-instrumentation-data:/app/bots/k_stock_trader/instrumentation/data
+      - ../../deployments/k_stock/generated:/app/deployments/k_stock/generated:ro
+      - ../../contracts:/app/contracts:ro
+    stop_grace_period: 60s
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import json, urllib.request; r=urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5); s=json.load(r).get('status'); raise SystemExit(0 if s in {'ok','warn','degraded'} else 1)"
+      interval: 30s
+      timeout: 10s
+      retries: 6
+      start_period: 45s
+    logging: *json-logging
+
+  k-stock-trader:
+    <<: *k-stock-build
+    profiles: ["runtime"]
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    env_file: *optional-env-file
+    environment: *k-stock-env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      oms:
+        condition: service_healthy
+    command: ["sh", "/app/deployments/k_stock/runtime-entrypoint.sh"]
+    volumes:
+      - k-stock-paper-live:/app/bots/k_stock_trader/data/paper_live
+      - k-stock-rate-budget:/app/bots/k_stock_trader/data/rate_budget
+      - k-stock-instrumentation-data:/app/bots/k_stock_trader/instrumentation/data
+      - ./runtime-entrypoint.sh:/app/deployments/k_stock/runtime-entrypoint.sh:ro
+      - ../../deployments/k_stock/generated:/app/deployments/k_stock/generated:ro
+      - ../../contracts:/app/contracts:ro
+    stop_grace_period: 60s
+    healthcheck:
+      test: ["CMD", "python", "-c", "import k_stock_trader, deployment.olr_kalcb.runtime; print('ok')"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 45s
+    logging: *json-logging
+
+  k-stock-sidecar:
+    <<: *k-stock-build
+    profiles: ["runtime"]
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    env_file: *optional-env-file
+    environment:
+      <<: *k-stock-env
+      K_STOCK_SIDECAR_BOT_ID: ${K_STOCK_SIDECAR_BOT_ID:-k_stock_trader}
+      K_STOCK_SIDECAR_BATCH_SIZE: ${K_STOCK_SIDECAR_BATCH_SIZE:-50}
+      K_STOCK_SIDECAR_RETRY_MAX: ${K_STOCK_SIDECAR_RETRY_MAX:-5}
+      K_STOCK_SIDECAR_RETRY_BACKOFF_SECONDS: ${K_STOCK_SIDECAR_RETRY_BACKOFF_SECONDS:-10}
+      K_STOCK_SIDECAR_BUFFER_DIR: ${K_STOCK_SIDECAR_BUFFER_DIR:-instrumentation/data/.sidecar_buffer}
+      K_STOCK_SIDECAR_POLL_SECONDS: ${K_STOCK_SIDECAR_POLL_SECONDS:-15}
+    command: ["k-stock-instrumentation-sidecar"]
+    volumes:
+      - k-stock-instrumentation-data:/app/bots/k_stock_trader/instrumentation/data
+    stop_grace_period: 30s
+    logging: *json-logging
+
+  k-stock-preflight:
+    <<: *k-stock-build
+    profiles: ["preflight"]
+    restart: "no"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    env_file: *optional-env-file
+    environment: *k-stock-env
+    command: ["sh", "/app/deployments/k_stock/preflight-entrypoint.sh"]
+    volumes:
+      - k-stock-paper-live:/app/bots/k_stock_trader/data/paper_live
+      - k-stock-rate-budget:/app/bots/k_stock_trader/data/rate_budget
+      - k-stock-instrumentation-data:/app/bots/k_stock_trader/instrumentation/data
+      - ./preflight-entrypoint.sh:/app/deployments/k_stock/preflight-entrypoint.sh:ro
+      - ../../deployments/k_stock/generated:/app/deployments/k_stock/generated:ro
+      - ../../contracts:/app/contracts:ro
+    logging: *json-logging
+
+volumes:
+  k-stock-postgres-data:
+  k-stock-logs:
+  k-stock-paper-live:
+  k-stock-rate-budget:
+  k-stock-instrumentation-data:

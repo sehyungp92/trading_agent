@@ -1,0 +1,1457 @@
+{
+  "manifest_id": "245e461770b15146",
+  "bot_id": "ibkr",
+  "strategy_id": "trading_momentum_family",
+  "family_id": "trading_momentum_family",
+  "portfolio_id": "ibkr",
+  "run_month": "2026-06",
+  "window_start": "2026-06-01",
+  "window_end": "2026-06-30",
+  "telemetry_manifest_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\learning_sufficiency\\phase2_manifests\\ibkr\\2026-06\\trading_momentum_family\\telemetry_manifest.json",
+  "telemetry_authoritative_eligibility": "insufficient_data",
+  "eligibility": "diagnostics_only",
+  "event_counts_by_type": {
+    "deployment_metadata": 1,
+    "fill": 0,
+    "filter_decision": 0,
+    "indicator_snapshot": 0,
+    "missed_opportunity": 0,
+    "order": 0,
+    "orderbook_context": 0,
+    "pipeline_funnel": 0,
+    "portfolio_rule": 0,
+    "post_exit": 0,
+    "trade": 0
+  },
+  "required_event_coverage": {
+    "trade_outcome_lineage": {
+      "check_id": "trade_outcome_lineage",
+      "status": "missing",
+      "observed_count": 0,
+      "required_count": 1,
+      "coverage_ratio": 0.0,
+      "min_required_ratio": 1.0,
+      "required_fields": [
+        "strategy_version",
+        "config_version",
+        "deployment_id"
+      ],
+      "observed_fields": [],
+      "missing_fields": [
+        "strategy_version",
+        "config_version",
+        "deployment_id"
+      ],
+      "missing_event_types": [],
+      "evidence_paths": [],
+      "reason": "",
+      "declared_not_applicable": false,
+      "details": {}
+    },
+    "missed_opportunity_lineage": {
+      "check_id": "missed_opportunity_lineage",
+      "status": "missing",
+      "observed_count": 0,
+      "required_count": 1,
+      "coverage_ratio": 0.0,
+      "min_required_ratio": 1.0,
+      "required_fields": [
+        "strategy_version",
+        "config_version",
+        "deployment_id"
+      ],
+      "observed_fields": [],
+      "missing_fields": [
+        "strategy_version",
+        "config_version",
+        "deployment_id"
+      ],
+      "missing_event_types": [],
+      "evidence_paths": [],
+      "reason": "",
+      "declared_not_applicable": false,
+      "details": {}
+    },
+    "filter_decision_coverage": {
+      "check_id": "filter_decision_coverage",
+      "status": "missing",
+      "observed_count": 0,
+      "required_count": 1,
+      "coverage_ratio": 0.0,
+      "min_required_ratio": 1.0,
+      "required_fields": [
+        "filter_name",
+        "threshold",
+        "actual_value",
+        "passed"
+      ],
+      "observed_fields": [],
+      "missing_fields": [
+        "filter_name",
+        "threshold",
+        "actual_value",
+        "passed"
+      ],
+      "missing_event_types": [],
+      "evidence_paths": [],
+      "reason": "",
+      "declared_not_applicable": false,
+      "details": {}
+    },
+    "orderbook_context_coverage": {
+      "check_id": "orderbook_context_coverage",
+      "status": "missing",
+      "observed_count": 0,
+      "required_count": 1,
+      "coverage_ratio": 0.0,
+      "min_required_ratio": 1.0,
+      "required_fields": [],
+      "observed_fields": [],
+      "missing_fields": [],
+      "missing_event_types": [],
+      "evidence_paths": [],
+      "reason": "",
+      "declared_not_applicable": false,
+      "details": {}
+    },
+    "portfolio_rule_coverage": {
+      "check_id": "portfolio_rule_coverage",
+      "status": "missing",
+      "observed_count": 0,
+      "required_count": 1,
+      "coverage_ratio": 0.0,
+      "min_required_ratio": 1.0,
+      "required_fields": [],
+      "observed_fields": [],
+      "missing_fields": [],
+      "missing_event_types": [],
+      "evidence_paths": [],
+      "reason": "",
+      "declared_not_applicable": false,
+      "details": {}
+    }
+  },
+  "lineage_coverage": {
+    "check_id": "lineage_coverage",
+    "status": "missing",
+    "observed_count": 0,
+    "required_count": 1,
+    "coverage_ratio": 1.0,
+    "min_required_ratio": 1.0,
+    "required_fields": [
+      "strategy_version",
+      "config_version",
+      "deployment_id"
+    ],
+    "observed_fields": [],
+    "missing_fields": [
+      "strategy_version",
+      "config_version",
+      "deployment_id"
+    ],
+    "missing_event_types": [],
+    "evidence_paths": [],
+    "reason": "composed_from_telemetry_manifest",
+    "declared_not_applicable": false,
+    "details": {}
+  },
+  "join_coverage": {
+    "decision_to_trade_join": {
+      "check_id": "decision_to_trade_join",
+      "status": "missing",
+      "observed_count": 0,
+      "required_count": 1,
+      "coverage_ratio": 0.0,
+      "min_required_ratio": 0.95,
+      "required_fields": [
+        "entry_decision_id",
+        "exit_decision_id",
+        "decision_id",
+        "decision_ref",
+        "signal_id",
+        "source_signal_id",
+        "entry_signal_id",
+        "action_ref",
+        "bar_id"
+      ],
+      "observed_fields": [],
+      "missing_fields": [
+        "entry_decision_id",
+        "exit_decision_id",
+        "decision_id",
+        "decision_ref",
+        "signal_id",
+        "source_signal_id",
+        "entry_signal_id",
+        "action_ref",
+        "bar_id"
+      ],
+      "missing_event_types": [],
+      "evidence_paths": [],
+      "reason": "missing_or_mismatched_join_ids",
+      "declared_not_applicable": false,
+      "details": {
+        "source_record_count": 0,
+        "target_record_count": 0,
+        "source_join_id_count": 0,
+        "joined_target_count": 0,
+        "missing_join_ref_count": 0,
+        "orphan_join_ref_count": 0,
+        "orphan_join_refs": [],
+        "consumed_runtime_event_classes": []
+      }
+    },
+    "decision_to_order_join": {
+      "check_id": "decision_to_order_join",
+      "status": "missing",
+      "observed_count": 0,
+      "required_count": 1,
+      "coverage_ratio": 0.0,
+      "min_required_ratio": 0.95,
+      "required_fields": [
+        "entry_decision_id",
+        "exit_decision_id",
+        "decision_id",
+        "decision_ref",
+        "signal_id",
+        "source_signal_id",
+        "entry_signal_id",
+        "action_ref",
+        "bar_id"
+      ],
+      "observed_fields": [],
+      "missing_fields": [
+        "entry_decision_id",
+        "exit_decision_id",
+        "decision_id",
+        "decision_ref",
+        "signal_id",
+        "source_signal_id",
+        "entry_signal_id",
+        "action_ref",
+        "bar_id"
+      ],
+      "missing_event_types": [],
+      "evidence_paths": [],
+      "reason": "missing_or_mismatched_join_ids",
+      "declared_not_applicable": false,
+      "details": {
+        "source_record_count": 0,
+        "target_record_count": 0,
+        "source_join_id_count": 0,
+        "joined_target_count": 0,
+        "missing_join_ref_count": 0,
+        "orphan_join_ref_count": 0,
+        "orphan_join_refs": [],
+        "consumed_runtime_event_classes": []
+      }
+    },
+    "order_to_fill_join": {
+      "check_id": "order_to_fill_join",
+      "status": "missing",
+      "observed_count": 0,
+      "required_count": 1,
+      "coverage_ratio": 0.0,
+      "min_required_ratio": 1.0,
+      "required_fields": [
+        "order_id",
+        "fill_id"
+      ],
+      "observed_fields": [],
+      "missing_fields": [
+        "order_id",
+        "fill_id"
+      ],
+      "missing_event_types": [],
+      "evidence_paths": [],
+      "reason": "missing_or_mismatched_order_fill_ids",
+      "declared_not_applicable": false,
+      "details": {
+        "matched_fill_order_count": 0,
+        "order_lifecycle_row_count": 0,
+        "order_identity_group_count": 0,
+        "terminal_order_count": 0,
+        "terminal_no_fill_order_count": 0,
+        "terminal_no_fill_order_with_id_count": 0,
+        "fill_required_order_count": 0,
+        "fill_record_count": 0,
+        "fill_id_count": 0,
+        "orphan_fill_count": 0,
+        "orphan_fill_refs": [],
+        "missing_fill_order_ref_count": 0,
+        "missing_fill_id_count": 0,
+        "missing_fill_required_order_id_count": 0,
+        "terminal_order_missing_id_count": 0,
+        "unfilled_required_order_count": 0,
+        "consumed_runtime_event_classes": []
+      }
+    },
+    "risk_portfolio_join": {
+      "check_id": "risk_portfolio_join",
+      "status": "missing",
+      "observed_count": 0,
+      "required_count": 1,
+      "coverage_ratio": 0.0,
+      "min_required_ratio": 0.95,
+      "required_fields": [
+        "portfolio_rule_event_id",
+        "risk_decision_id",
+        "risk_decision_ref",
+        "portfolio_decision_ref",
+        "portfolio_rule_id",
+        "portfolio_rule",
+        "rule_id"
+      ],
+      "observed_fields": [],
+      "missing_fields": [
+        "portfolio_rule_event_id",
+        "risk_decision_id",
+        "risk_decision_ref",
+        "portfolio_decision_ref",
+        "portfolio_rule_id",
+        "portfolio_rule",
+        "rule_id"
+      ],
+      "missing_event_types": [],
+      "evidence_paths": [],
+      "reason": "missing_or_mismatched_join_ids",
+      "declared_not_applicable": false,
+      "details": {
+        "source_record_count": 0,
+        "target_record_count": 0,
+        "source_join_id_count": 0,
+        "joined_target_count": 0,
+        "missing_join_ref_count": 0,
+        "orphan_join_ref_count": 0,
+        "orphan_join_refs": [],
+        "consumed_runtime_event_classes": []
+      }
+    }
+  },
+  "denominator_coverage": {
+    "denominator_coverage": {
+      "check_id": "denominator_coverage",
+      "status": "missing",
+      "observed_count": 0,
+      "required_count": 22,
+      "coverage_ratio": 0.0,
+      "min_required_ratio": 0.9,
+      "required_fields": [],
+      "observed_fields": [],
+      "missing_fields": [],
+      "missing_event_types": [],
+      "evidence_paths": [
+        "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_momentum_family/expected_active_sessions.json"
+      ],
+      "reason": "",
+      "declared_not_applicable": false,
+      "details": {
+        "expected_session_count": 22,
+        "active_session_count": 0,
+        "denominator_session_count": 0,
+        "required_session_coverage_ratio": 0.9,
+        "expected_session_source_paths": [
+          "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_momentum_family/expected_active_sessions.json"
+        ],
+        "missing_expected_session_days": [
+          "2026-06-01",
+          "2026-06-02",
+          "2026-06-03",
+          "2026-06-04",
+          "2026-06-05",
+          "2026-06-08",
+          "2026-06-09",
+          "2026-06-10",
+          "2026-06-11",
+          "2026-06-12",
+          "2026-06-15",
+          "2026-06-16",
+          "2026-06-17",
+          "2026-06-18",
+          "2026-06-19",
+          "2026-06-22",
+          "2026-06-23",
+          "2026-06-24",
+          "2026-06-25",
+          "2026-06-26",
+          "2026-06-29",
+          "2026-06-30"
+        ],
+        "expected_session_days": [
+          "2026-06-01",
+          "2026-06-02",
+          "2026-06-03",
+          "2026-06-04",
+          "2026-06-05",
+          "2026-06-08",
+          "2026-06-09",
+          "2026-06-10",
+          "2026-06-11",
+          "2026-06-12",
+          "2026-06-15",
+          "2026-06-16",
+          "2026-06-17",
+          "2026-06-18",
+          "2026-06-19",
+          "2026-06-22",
+          "2026-06-23",
+          "2026-06-24",
+          "2026-06-25",
+          "2026-06-26",
+          "2026-06-29",
+          "2026-06-30"
+        ],
+        "active_session_days": [],
+        "denominator_session_days": []
+      }
+    }
+  },
+  "after_cost_coverage": {
+    "check_id": "after_cost_coverage",
+    "status": "missing",
+    "observed_count": 0,
+    "required_count": 1,
+    "coverage_ratio": 0.0,
+    "min_required_ratio": 1.0,
+    "required_fields": [
+      "net_pnl",
+      "net_pnl_source",
+      "after_cost_status"
+    ],
+    "observed_fields": [],
+    "missing_fields": [
+      "net_pnl_source",
+      "after_cost_status"
+    ],
+    "missing_event_types": [],
+    "evidence_paths": [],
+    "reason": "",
+    "declared_not_applicable": false,
+    "details": {
+      "observed_after_cost_count": 0,
+      "inferred_after_cost_count": 0,
+      "status_only_without_net_count": 0,
+      "unavailable_after_cost_count": 0
+    }
+  },
+  "counterfactual_coverage": {
+    "check_id": "counterfactual_coverage",
+    "status": "missing",
+    "observed_count": 0,
+    "required_count": 1,
+    "coverage_ratio": 0.0,
+    "min_required_ratio": 1.0,
+    "required_fields": [
+      "would_have_pnl",
+      "would_have_won",
+      "estimated_pnl",
+      "counterfactual_outcome",
+      "post_exit_backfill_status"
+    ],
+    "observed_fields": [],
+    "missing_fields": [
+      "would_have_pnl",
+      "would_have_won",
+      "estimated_pnl",
+      "counterfactual_outcome",
+      "post_exit_backfill_status"
+    ],
+    "missing_event_types": [],
+    "evidence_paths": [],
+    "reason": "",
+    "declared_not_applicable": false,
+    "details": {}
+  },
+  "proposal_trace_coverage": {
+    "check_id": "proposal_trace_coverage",
+    "status": "pass",
+    "observed_count": 1,
+    "required_count": 1,
+    "coverage_ratio": 1.0,
+    "min_required_ratio": 1.0,
+    "required_fields": [
+      "weekly_signal_ids",
+      "source_weekly_signal_ids",
+      "monthly_search_brief_id",
+      "suggestion_id",
+      "suggestion_ids",
+      "proposal_id",
+      "proposal_ids",
+      "hypothesis_id",
+      "hypothesis_ids",
+      "experiment_id",
+      "deployment_id",
+      "strategy_change_record_id",
+      "strategy_change_record_ids",
+      "monthly_outcome_id"
+    ],
+    "observed_fields": [
+      "weekly_signal_ids",
+      "source_weekly_signal_ids",
+      "monthly_search_brief_id",
+      "suggestion_id",
+      "suggestion_ids",
+      "proposal_id",
+      "proposal_ids",
+      "hypothesis_id",
+      "hypothesis_ids",
+      "experiment_id",
+      "deployment_id",
+      "strategy_change_record_id",
+      "strategy_change_record_ids",
+      "monthly_outcome_id"
+    ],
+    "missing_fields": [],
+    "missing_event_types": [],
+    "evidence_paths": [],
+    "reason": "",
+    "declared_not_applicable": false,
+    "details": {}
+  },
+  "deployment_metadata_coverage": {
+    "check_id": "deployment_metadata_coverage",
+    "status": "pass",
+    "observed_count": 1,
+    "required_count": 1,
+    "coverage_ratio": 1.0,
+    "min_required_ratio": 1.0,
+    "required_fields": [],
+    "observed_fields": [],
+    "missing_fields": [],
+    "missing_event_types": [],
+    "evidence_paths": [
+      "C:/Users/sehyu/Documents/Other/Projects/trading_agent/deployments/ibkr/generated/runtime_deployment_metadata/trading_momentum_family/deployment_metadata.json"
+    ],
+    "reason": "",
+    "declared_not_applicable": false,
+    "details": {}
+  },
+  "runtime_evidence_support": {
+    "trade": {
+      "evidence_class": "trade",
+      "support_state": "supported_but_unobserved",
+      "configured_event_types": [
+        "trade"
+      ],
+      "observed_event_count": 0,
+      "support_source_paths": [
+        "bots/ibkr_trading/strategies/momentum/instrumentation/src/sidecar.py"
+      ],
+      "observed_evidence_paths": [],
+      "event_value_classifications": {
+        "trade": "learning_authority"
+      },
+      "declared_unavailable": false,
+      "reason": "configured_runtime_support_has_no_observed_window_evidence"
+    },
+    "missed_opportunity": {
+      "evidence_class": "missed_opportunity",
+      "support_state": "supported_but_unobserved",
+      "configured_event_types": [
+        "missed_opportunity"
+      ],
+      "observed_event_count": 0,
+      "support_source_paths": [
+        "bots/ibkr_trading/strategies/momentum/instrumentation/src/sidecar.py"
+      ],
+      "observed_evidence_paths": [],
+      "event_value_classifications": {
+        "missed_opportunity": "learning_authority"
+      },
+      "declared_unavailable": false,
+      "reason": "configured_runtime_support_has_no_observed_window_evidence"
+    },
+    "filter_decision": {
+      "evidence_class": "filter_decision",
+      "support_state": "supported_but_unobserved",
+      "configured_event_types": [
+        "filter_decision"
+      ],
+      "observed_event_count": 0,
+      "support_source_paths": [
+        "bots/ibkr_trading/strategies/momentum/instrumentation/src/sidecar.py"
+      ],
+      "observed_evidence_paths": [],
+      "event_value_classifications": {
+        "filter_decision": "learning_authority"
+      },
+      "declared_unavailable": false,
+      "reason": "configured_runtime_support_has_no_observed_window_evidence"
+    },
+    "orderbook_context": {
+      "evidence_class": "orderbook_context",
+      "support_state": "unsupported",
+      "configured_event_types": [],
+      "observed_event_count": 0,
+      "support_source_paths": [
+        "bots/ibkr_trading/strategies/momentum/instrumentation/src/sidecar.py"
+      ],
+      "observed_evidence_paths": [],
+      "event_value_classifications": {
+        "orderbook_context": "learning_authority"
+      },
+      "declared_unavailable": false,
+      "reason": "not_configured_by_runtime_support_source"
+    },
+    "portfolio_rule": {
+      "evidence_class": "portfolio_rule",
+      "support_state": "supported_but_unobserved",
+      "configured_event_types": [
+        "portfolio_rule_check",
+        "risk_decision"
+      ],
+      "observed_event_count": 0,
+      "support_source_paths": [
+        "bots/ibkr_trading/strategies/momentum/instrumentation/src/sidecar.py"
+      ],
+      "observed_evidence_paths": [],
+      "event_value_classifications": {
+        "portfolio_rule_check": "learning_authority",
+        "risk_decision": "learning_authority"
+      },
+      "declared_unavailable": false,
+      "reason": "configured_runtime_support_has_no_observed_window_evidence"
+    },
+    "order": {
+      "evidence_class": "order",
+      "support_state": "supported_but_unobserved",
+      "configured_event_types": [
+        "order"
+      ],
+      "observed_event_count": 0,
+      "support_source_paths": [
+        "bots/ibkr_trading/strategies/momentum/instrumentation/src/sidecar.py"
+      ],
+      "observed_evidence_paths": [],
+      "event_value_classifications": {
+        "order": "learning_authority"
+      },
+      "declared_unavailable": false,
+      "reason": "configured_runtime_support_has_no_observed_window_evidence"
+    },
+    "fill": {
+      "evidence_class": "fill",
+      "support_state": "supported_but_unobserved",
+      "configured_event_types": [
+        "inferred_fill"
+      ],
+      "observed_event_count": 0,
+      "support_source_paths": [
+        "bots/ibkr_trading/strategies/momentum/instrumentation/src/sidecar.py"
+      ],
+      "observed_evidence_paths": [],
+      "event_value_classifications": {
+        "inferred_fill": "learning_authority"
+      },
+      "declared_unavailable": false,
+      "reason": "configured_runtime_support_has_no_observed_window_evidence"
+    },
+    "pipeline_funnel": {
+      "evidence_class": "pipeline_funnel",
+      "support_state": "supported_but_unobserved",
+      "configured_event_types": [
+        "pipeline_funnel"
+      ],
+      "observed_event_count": 0,
+      "support_source_paths": [
+        "bots/ibkr_trading/strategies/momentum/instrumentation/src/sidecar.py"
+      ],
+      "observed_evidence_paths": [],
+      "event_value_classifications": {
+        "pipeline_funnel": "learning_authority"
+      },
+      "declared_unavailable": false,
+      "reason": "configured_runtime_support_has_no_observed_window_evidence"
+    },
+    "deployment_metadata": {
+      "evidence_class": "deployment_metadata",
+      "support_state": "observed",
+      "configured_event_types": [
+        "deployment"
+      ],
+      "observed_event_count": 1,
+      "support_source_paths": [
+        "bots/ibkr_trading/strategies/momentum/instrumentation/src/sidecar.py"
+      ],
+      "observed_evidence_paths": [
+        "C:/Users/sehyu/Documents/Other/Projects/trading_agent/deployments/ibkr/generated/runtime_deployment_metadata/trading_momentum_family/deployment_metadata.json"
+      ],
+      "event_value_classifications": {
+        "deployment": "learning_authority"
+      },
+      "declared_unavailable": false,
+      "reason": ""
+    }
+  },
+  "capability_status": {
+    "approval_grade_strategy_change": {
+      "capability_id": "approval_grade_strategy_change",
+      "status": "blocked",
+      "required_checks": [
+        "trade_outcome_lineage",
+        "missed_opportunity_lineage",
+        "decision_to_trade_join",
+        "decision_to_order_join",
+        "order_to_fill_join",
+        "risk_portfolio_join",
+        "denominator_coverage",
+        "after_cost_coverage",
+        "proposal_trace_coverage",
+        "deployment_metadata_coverage"
+      ],
+      "satisfied_checks": [
+        "proposal_trace_coverage",
+        "deployment_metadata_coverage"
+      ],
+      "blocking_checks": [
+        "trade_outcome_lineage",
+        "missed_opportunity_lineage",
+        "decision_to_trade_join",
+        "decision_to_order_join",
+        "order_to_fill_join",
+        "risk_portfolio_join",
+        "denominator_coverage",
+        "after_cost_coverage"
+      ],
+      "evidence_paths": [
+        "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_momentum_family/expected_active_sessions.json",
+        "C:/Users/sehyu/Documents/Other/Projects/trading_agent/deployments/ibkr/generated/runtime_deployment_metadata/trading_momentum_family/deployment_metadata.json",
+        "bots/ibkr_trading/strategies/momentum/instrumentation/src/sidecar.py"
+      ],
+      "blocking_reasons": [
+        "trade_outcome_lineage:missing",
+        "missed_opportunity_lineage:missing",
+        "decision_to_trade_join:missing",
+        "decision_to_order_join:missing",
+        "order_to_fill_join:missing",
+        "risk_portfolio_join:missing",
+        "denominator_coverage:missing",
+        "after_cost_coverage:missing"
+      ],
+      "details": {}
+    },
+    "execution_learning": {
+      "capability_id": "execution_learning",
+      "status": "blocked",
+      "required_checks": [
+        "decision_to_order_join",
+        "order_to_fill_join",
+        "orderbook_context_coverage",
+        "after_cost_coverage"
+      ],
+      "satisfied_checks": [],
+      "blocking_checks": [
+        "decision_to_order_join",
+        "order_to_fill_join",
+        "orderbook_context_coverage",
+        "after_cost_coverage"
+      ],
+      "evidence_paths": [],
+      "blocking_reasons": [
+        "decision_to_order_join:missing",
+        "order_to_fill_join:missing",
+        "orderbook_context_coverage:missing",
+        "after_cost_coverage:missing"
+      ],
+      "details": {}
+    },
+    "filter_threshold_learning": {
+      "capability_id": "filter_threshold_learning",
+      "status": "blocked",
+      "required_checks": [
+        "trade_outcome_lineage",
+        "decision_to_trade_join",
+        "filter_decision_coverage",
+        "denominator_coverage",
+        "counterfactual_coverage",
+        "after_cost_coverage"
+      ],
+      "satisfied_checks": [],
+      "blocking_checks": [
+        "trade_outcome_lineage",
+        "decision_to_trade_join",
+        "filter_decision_coverage",
+        "denominator_coverage",
+        "counterfactual_coverage",
+        "after_cost_coverage"
+      ],
+      "evidence_paths": [
+        "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_momentum_family/expected_active_sessions.json"
+      ],
+      "blocking_reasons": [
+        "trade_outcome_lineage:missing",
+        "decision_to_trade_join:missing",
+        "filter_decision_coverage:missing",
+        "denominator_coverage:missing",
+        "counterfactual_coverage:missing",
+        "after_cost_coverage:missing"
+      ],
+      "details": {}
+    },
+    "new_strategy_discovery": {
+      "capability_id": "new_strategy_discovery",
+      "status": "blocked",
+      "required_checks": [
+        "missed_opportunity_lineage",
+        "denominator_coverage",
+        "counterfactual_coverage",
+        "after_cost_coverage"
+      ],
+      "satisfied_checks": [],
+      "blocking_checks": [
+        "missed_opportunity_lineage",
+        "denominator_coverage",
+        "counterfactual_coverage",
+        "after_cost_coverage"
+      ],
+      "evidence_paths": [
+        "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_momentum_family/expected_active_sessions.json"
+      ],
+      "blocking_reasons": [
+        "missed_opportunity_lineage:missing",
+        "denominator_coverage:missing",
+        "counterfactual_coverage:missing",
+        "after_cost_coverage:missing"
+      ],
+      "details": {}
+    },
+    "portfolio_interaction_learning": {
+      "capability_id": "portfolio_interaction_learning",
+      "status": "blocked",
+      "required_checks": [
+        "risk_portfolio_join",
+        "portfolio_rule_coverage",
+        "denominator_coverage"
+      ],
+      "satisfied_checks": [],
+      "blocking_checks": [
+        "risk_portfolio_join",
+        "portfolio_rule_coverage",
+        "denominator_coverage"
+      ],
+      "evidence_paths": [
+        "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_momentum_family/expected_active_sessions.json"
+      ],
+      "blocking_reasons": [
+        "risk_portfolio_join:missing",
+        "portfolio_rule_coverage:missing",
+        "denominator_coverage:missing"
+      ],
+      "details": {}
+    },
+    "sizing_learning": {
+      "capability_id": "sizing_learning",
+      "status": "blocked",
+      "required_checks": [
+        "trade_outcome_lineage",
+        "risk_portfolio_join",
+        "after_cost_coverage"
+      ],
+      "satisfied_checks": [],
+      "blocking_checks": [
+        "trade_outcome_lineage",
+        "risk_portfolio_join",
+        "after_cost_coverage"
+      ],
+      "evidence_paths": [],
+      "blocking_reasons": [
+        "trade_outcome_lineage:missing",
+        "risk_portfolio_join:missing",
+        "after_cost_coverage:missing"
+      ],
+      "details": {}
+    }
+  },
+  "artifact_paths": {
+    "telemetry_manifest": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\learning_sufficiency\\phase2_manifests\\ibkr\\2026-06\\trading_momentum_family\\telemetry_manifest.json",
+    "learning_sufficiency_manifest": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\learning_sufficiency\\phase2_manifests\\ibkr\\2026-06\\trading_momentum_family\\learning_sufficiency_manifest.json"
+  },
+  "known_gaps": [
+    {
+      "gap_id": "a48e9151cddc4eba",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "pipeline_funnel",
+      "missing_field": "denominator_coverage",
+      "blocked_learning_capability": "approval_grade_strategy_change",
+      "expected_learning_value": "critical",
+      "frequency": 22,
+      "evidence_paths": [
+        "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_momentum_family/expected_active_sessions.json"
+      ],
+      "remediation": "Provide denominator_coverage evidence for approval_grade_strategy_change.",
+      "details": {
+        "check_id": "denominator_coverage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 22
+      }
+    },
+    {
+      "gap_id": "83192962e72bbce5",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "fill",
+      "missing_field": "order_id,fill_id",
+      "blocked_learning_capability": "approval_grade_strategy_change",
+      "expected_learning_value": "critical",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide order_to_fill_join evidence for approval_grade_strategy_change.",
+      "details": {
+        "check_id": "order_to_fill_join",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "9e4984dc67550b99",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "missed_opportunity",
+      "missing_field": "strategy_version,config_version,deployment_id",
+      "blocked_learning_capability": "approval_grade_strategy_change",
+      "expected_learning_value": "critical",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide missed_opportunity_lineage evidence for approval_grade_strategy_change.",
+      "details": {
+        "check_id": "missed_opportunity_lineage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "7c450fa505f29010",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "order",
+      "missing_field": "entry_decision_id,exit_decision_id,decision_id",
+      "blocked_learning_capability": "approval_grade_strategy_change",
+      "expected_learning_value": "critical",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide decision_to_order_join evidence for approval_grade_strategy_change.",
+      "details": {
+        "check_id": "decision_to_order_join",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "5d7a66d2b3b2d170",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "portfolio_rule",
+      "missing_field": "portfolio_rule_event_id,risk_decision_id,risk_decision_ref",
+      "blocked_learning_capability": "approval_grade_strategy_change",
+      "expected_learning_value": "critical",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide risk_portfolio_join evidence for approval_grade_strategy_change.",
+      "details": {
+        "check_id": "risk_portfolio_join",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "f888da5922a13659",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "trade",
+      "missing_field": "entry_decision_id,exit_decision_id,decision_id",
+      "blocked_learning_capability": "approval_grade_strategy_change",
+      "expected_learning_value": "critical",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide decision_to_trade_join evidence for approval_grade_strategy_change.",
+      "details": {
+        "check_id": "decision_to_trade_join",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "1cc019e6d88f9507",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "trade",
+      "missing_field": "net_pnl_source,after_cost_status",
+      "blocked_learning_capability": "approval_grade_strategy_change",
+      "expected_learning_value": "critical",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide after_cost_coverage evidence for approval_grade_strategy_change.",
+      "details": {
+        "check_id": "after_cost_coverage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "bc7a6eba031e1763",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "trade",
+      "missing_field": "strategy_version,config_version,deployment_id",
+      "blocked_learning_capability": "approval_grade_strategy_change",
+      "expected_learning_value": "critical",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide trade_outcome_lineage evidence for approval_grade_strategy_change.",
+      "details": {
+        "check_id": "trade_outcome_lineage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "ec31ee0ec0194c4f",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "pipeline_funnel",
+      "missing_field": "denominator_coverage",
+      "blocked_learning_capability": "filter_threshold_learning",
+      "expected_learning_value": "high",
+      "frequency": 22,
+      "evidence_paths": [
+        "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_momentum_family/expected_active_sessions.json"
+      ],
+      "remediation": "Provide denominator_coverage evidence for filter_threshold_learning.",
+      "details": {
+        "check_id": "denominator_coverage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 22
+      }
+    },
+    {
+      "gap_id": "3c350e2681861d80",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "pipeline_funnel",
+      "missing_field": "denominator_coverage",
+      "blocked_learning_capability": "new_strategy_discovery",
+      "expected_learning_value": "high",
+      "frequency": 22,
+      "evidence_paths": [
+        "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_momentum_family/expected_active_sessions.json"
+      ],
+      "remediation": "Provide denominator_coverage evidence for new_strategy_discovery.",
+      "details": {
+        "check_id": "denominator_coverage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 22
+      }
+    },
+    {
+      "gap_id": "78b539060c1521c5",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "fill",
+      "missing_field": "order_id,fill_id",
+      "blocked_learning_capability": "execution_learning",
+      "expected_learning_value": "high",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide order_to_fill_join evidence for execution_learning.",
+      "details": {
+        "check_id": "order_to_fill_join",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "5ddbc289c702bce4",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "order",
+      "missing_field": "entry_decision_id,exit_decision_id,decision_id",
+      "blocked_learning_capability": "execution_learning",
+      "expected_learning_value": "high",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide decision_to_order_join evidence for execution_learning.",
+      "details": {
+        "check_id": "decision_to_order_join",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "78ddcf17b40423a6",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "orderbook_context",
+      "missing_field": "orderbook_context_coverage",
+      "blocked_learning_capability": "execution_learning",
+      "expected_learning_value": "high",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide orderbook_context_coverage evidence for execution_learning.",
+      "details": {
+        "check_id": "orderbook_context_coverage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "8b215d3410327427",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "trade",
+      "missing_field": "net_pnl_source,after_cost_status",
+      "blocked_learning_capability": "execution_learning",
+      "expected_learning_value": "high",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide after_cost_coverage evidence for execution_learning.",
+      "details": {
+        "check_id": "after_cost_coverage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "437dcf233d990d1d",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "filter_decision",
+      "missing_field": "filter_name,threshold,actual_value",
+      "blocked_learning_capability": "filter_threshold_learning",
+      "expected_learning_value": "high",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide filter_decision_coverage evidence for filter_threshold_learning.",
+      "details": {
+        "check_id": "filter_decision_coverage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "22dbe8c47619562e",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "missed_opportunity",
+      "missing_field": "would_have_pnl,would_have_won,estimated_pnl",
+      "blocked_learning_capability": "filter_threshold_learning",
+      "expected_learning_value": "high",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide counterfactual_coverage evidence for filter_threshold_learning.",
+      "details": {
+        "check_id": "counterfactual_coverage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "10d9be51e8c5f8b4",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "trade",
+      "missing_field": "entry_decision_id,exit_decision_id,decision_id",
+      "blocked_learning_capability": "filter_threshold_learning",
+      "expected_learning_value": "high",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide decision_to_trade_join evidence for filter_threshold_learning.",
+      "details": {
+        "check_id": "decision_to_trade_join",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "dc4feafc0323b41a",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "trade",
+      "missing_field": "net_pnl_source,after_cost_status",
+      "blocked_learning_capability": "filter_threshold_learning",
+      "expected_learning_value": "high",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide after_cost_coverage evidence for filter_threshold_learning.",
+      "details": {
+        "check_id": "after_cost_coverage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "3fe70bd2e3de6750",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "trade",
+      "missing_field": "strategy_version,config_version,deployment_id",
+      "blocked_learning_capability": "filter_threshold_learning",
+      "expected_learning_value": "high",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide trade_outcome_lineage evidence for filter_threshold_learning.",
+      "details": {
+        "check_id": "trade_outcome_lineage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "f63a711cbd7dbd95",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "missed_opportunity",
+      "missing_field": "strategy_version,config_version,deployment_id",
+      "blocked_learning_capability": "new_strategy_discovery",
+      "expected_learning_value": "high",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide missed_opportunity_lineage evidence for new_strategy_discovery.",
+      "details": {
+        "check_id": "missed_opportunity_lineage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "a3502dc1ff871bf5",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "missed_opportunity",
+      "missing_field": "would_have_pnl,would_have_won,estimated_pnl",
+      "blocked_learning_capability": "new_strategy_discovery",
+      "expected_learning_value": "high",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide counterfactual_coverage evidence for new_strategy_discovery.",
+      "details": {
+        "check_id": "counterfactual_coverage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "ef758297bd96edcf",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "trade",
+      "missing_field": "net_pnl_source,after_cost_status",
+      "blocked_learning_capability": "new_strategy_discovery",
+      "expected_learning_value": "high",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide after_cost_coverage evidence for new_strategy_discovery.",
+      "details": {
+        "check_id": "after_cost_coverage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "456a2f7d245f631e",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "pipeline_funnel",
+      "missing_field": "denominator_coverage",
+      "blocked_learning_capability": "portfolio_interaction_learning",
+      "expected_learning_value": "medium",
+      "frequency": 22,
+      "evidence_paths": [
+        "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_momentum_family/expected_active_sessions.json"
+      ],
+      "remediation": "Provide denominator_coverage evidence for portfolio_interaction_learning.",
+      "details": {
+        "check_id": "denominator_coverage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 22
+      }
+    },
+    {
+      "gap_id": "afc23e470950bbce",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "portfolio_rule",
+      "missing_field": "portfolio_rule_coverage",
+      "blocked_learning_capability": "portfolio_interaction_learning",
+      "expected_learning_value": "medium",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide portfolio_rule_coverage evidence for portfolio_interaction_learning.",
+      "details": {
+        "check_id": "portfolio_rule_coverage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "29fc689ad6300322",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "portfolio_rule",
+      "missing_field": "portfolio_rule_event_id,risk_decision_id,risk_decision_ref",
+      "blocked_learning_capability": "portfolio_interaction_learning",
+      "expected_learning_value": "medium",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide risk_portfolio_join evidence for portfolio_interaction_learning.",
+      "details": {
+        "check_id": "risk_portfolio_join",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "abf17bd1505b0afd",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "portfolio_rule",
+      "missing_field": "portfolio_rule_event_id,risk_decision_id,risk_decision_ref",
+      "blocked_learning_capability": "sizing_learning",
+      "expected_learning_value": "medium",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide risk_portfolio_join evidence for sizing_learning.",
+      "details": {
+        "check_id": "risk_portfolio_join",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "3ea605d79b66af02",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "trade",
+      "missing_field": "net_pnl_source,after_cost_status",
+      "blocked_learning_capability": "sizing_learning",
+      "expected_learning_value": "medium",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide after_cost_coverage evidence for sizing_learning.",
+      "details": {
+        "check_id": "after_cost_coverage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    },
+    {
+      "gap_id": "0b1e05ca345d2423",
+      "bot_id": "ibkr",
+      "strategy_id": "trading_momentum_family",
+      "family_id": "trading_momentum_family",
+      "portfolio_id": "ibkr",
+      "event_type": "trade",
+      "missing_field": "strategy_version,config_version,deployment_id",
+      "blocked_learning_capability": "sizing_learning",
+      "expected_learning_value": "medium",
+      "frequency": 1,
+      "evidence_paths": [],
+      "remediation": "Provide trade_outcome_lineage evidence for sizing_learning.",
+      "details": {
+        "check_id": "trade_outcome_lineage",
+        "status": "missing",
+        "observed_count": 0,
+        "required_count": 1
+      }
+    }
+  ],
+  "blocked_learning_capabilities": [
+    "approval_grade_strategy_change",
+    "execution_learning",
+    "filter_threshold_learning",
+    "new_strategy_discovery",
+    "portfolio_interaction_learning",
+    "sizing_learning"
+  ],
+  "supported_learning_capabilities": [],
+  "evidence_paths": [
+    "C:/Users/sehyu/Documents/Other/Projects/trading_agent/deployments/ibkr/generated/runtime_deployment_metadata/trading_momentum_family/deployment_metadata.json",
+    "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_momentum_family/telemetry_manifest.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\learning_sufficiency\\phase2_manifests\\ibkr\\2026-06\\trading_momentum_family\\telemetry_manifest.json",
+    "bots/ibkr_trading/strategies/momentum/instrumentation/src/sidecar.py"
+  ],
+  "total_events": 1,
+  "generated_at": "2026-07-05T16:34:50.512951Z",
+  "manifest_version": "learning_sufficiency_manifest_v1"
+}

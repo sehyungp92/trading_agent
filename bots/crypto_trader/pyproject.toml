@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crypto-trader"
+version = "0.1.0"
+description = "Hyperliquid perpetual futures trading system"
+requires-python = ">=3.11"
+dependencies = [
+    "hyperliquid-python-sdk>=0.4",
+    "pandas>=2.1",
+    "pyarrow>=15.0",
+    "numpy>=1.26",
+    "click>=8.1",
+    "pydantic>=2.6",
+    "structlog>=24.0",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.0",
+]
+live = [
+    "psycopg[binary]>=3.1",
+    "psycopg-pool>=3.1",
+]
+
+[project.scripts]
+crypto-trader = "crypto_trader.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

@@ -1,0 +1,558 @@
+{
+  "checks": [
+    {
+      "details": [
+        {
+          "item_count": 22,
+          "section": "Phase 6",
+          "unchecked_count": 0,
+          "unchecked_items": []
+        }
+      ],
+      "name": "required_finite_checklist_sections_complete",
+      "passed": true
+    },
+    {
+      "details": {
+        "canonical_runtime_lineage_source": {
+          "assistant_lineage_block": "assistant_lineage",
+          "kind": "runtime_deployment_metadata",
+          "path_patterns": [
+            "deployments/*/generated/runtime_deployment_metadata/*/deployment_metadata.json"
+          ],
+          "source": "deployment metadata generated from the bot LineageContext or active config lineage block"
+        },
+        "inventory_path": "artifacts/learning_sufficiency/assistant_lineage_source_inventory.json",
+        "missing_id_locations": [],
+        "runtime_lineage_seed_source_path": "packages/trading_assistant/memory/findings/strategy_change_ledger.jsonl",
+        "runtime_metadata_path_count": 7,
+        "runtime_metadata_without_assistant_lineage": [],
+        "seed_missing_fields": []
+      },
+      "name": "assistant_lineage_source_inventory",
+      "passed": true
+    },
+    {
+      "details": {
+        "deployment_id": "dep1",
+        "experiment_id": "",
+        "hypothesis_ids": [],
+        "monthly_outcome_id": "",
+        "monthly_search_brief_id": "brief-1",
+        "parameter_set_id": "ps1",
+        "proposal_ids": [
+          "proposal-1"
+        ],
+        "strategy_change_record_ids": [],
+        "suggestion_ids": [
+          "suggestion-1"
+        ],
+        "variant_id": "",
+        "weekly_signal_ids": [
+          "weekly-1"
+        ]
+      },
+      "name": "monthly_run_manifest_assistant_lineage",
+      "passed": true
+    },
+    {
+      "details": {
+        "candidate": {
+          "deployment_id": "",
+          "experiment_id": "",
+          "hypothesis_ids": [],
+          "monthly_outcome_id": "",
+          "monthly_search_brief_id": "",
+          "parameter_set_id": "",
+          "proposal_ids": [
+            "proposal-2"
+          ],
+          "strategy_change_record_ids": [],
+          "suggestion_ids": [
+            "suggestion-2"
+          ],
+          "variant_id": "",
+          "weekly_signal_ids": [
+            "weekly-2"
+          ]
+        },
+        "outcome": {
+          "deployment_id": "dep3",
+          "experiment_id": "",
+          "hypothesis_ids": [],
+          "monthly_outcome_id": "91e1f7120e87672d",
+          "monthly_search_brief_id": "",
+          "parameter_set_id": "",
+          "proposal_ids": [
+            "proposal-3"
+          ],
+          "strategy_change_record_ids": [
+            "change-1"
+          ],
+          "suggestion_ids": [],
+          "variant_id": "",
+          "weekly_signal_ids": []
+        },
+        "result": {
+          "deployment_id": "",
+          "experiment_id": "",
+          "hypothesis_ids": [],
+          "monthly_outcome_id": "",
+          "monthly_search_brief_id": "",
+          "parameter_set_id": "",
+          "proposal_ids": [
+            "proposal-4"
+          ],
+          "strategy_change_record_ids": [
+            "change-2"
+          ],
+          "suggestion_ids": [],
+          "variant_id": "",
+          "weekly_signal_ids": []
+        }
+      },
+      "name": "candidate_outcome_result_assistant_lineage",
+      "passed": true
+    },
+    {
+      "details": {
+        "complete_errors": [],
+        "missing_errors": [
+          "assistant-driven deployment metadata requires assistant_lineage"
+        ]
+      },
+      "name": "assistant_driven_deployment_metadata_fail_closed",
+      "passed": true
+    },
+    {
+      "details": {
+        "messages": [
+          "AM-14 performance_learning_ledger: missing portfolio learning records.",
+          "AM-14 performance_learning_ledger: no expected delta fields are preserved.",
+          "AM-14 performance_learning_ledger: weekly-to-monthly signal attribution is absent.",
+          "AM-14 performance_learning_ledger: intended learning effects are absent.",
+          "AM-14 performance_learning_ledger: strategy slice context is absent.",
+          "AM-14 performance_learning_ledger: portfolio interaction context is absent.",
+          "AM-20 performance_learning_ledger: measured assistant-driven record f40e991c136da69e is missing proposal or strategy-change trace.",
+          "AM-20 performance_learning_ledger: measured assistant-driven record f40e991c136da69e is missing learning-sufficiency context."
+        ]
+      },
+      "name": "performance_ledger_measured_trace_required",
+      "passed": true
+    },
+    {
+      "details": {
+        "assistant_lineage_property": {
+          "$ref": "#/$defs/AssistantLineage"
+        },
+        "schema_path": "contracts/schemas/monthly_run_manifest.schema.json"
+      },
+      "name": "monthly_run_manifest_contract_schema",
+      "passed": true
+    },
+    {
+      "details": {
+        "event_classes": {
+          "fill": {
+            "assistant_trace_present": true,
+            "event_type": "inferred_fill",
+            "proposal_ids": [
+              "proposal-ptg4"
+            ],
+            "scoped": true
+          },
+          "missed_opportunity": {
+            "assistant_trace_present": true,
+            "event_type": "missed_opportunity",
+            "proposal_ids": [
+              "proposal-ptg4"
+            ],
+            "scoped": true
+          },
+          "order": {
+            "assistant_trace_present": true,
+            "event_type": "order",
+            "proposal_ids": [
+              "proposal-ptg4"
+            ],
+            "scoped": true
+          },
+          "portfolio_rule": {
+            "assistant_trace_present": true,
+            "event_type": "portfolio_rule_check",
+            "proposal_ids": [
+              "proposal-ptg4"
+            ],
+            "scoped": true
+          },
+          "trade": {
+            "assistant_trace_present": true,
+            "event_type": "trade",
+            "proposal_ids": [
+              "proposal-ptg4"
+            ],
+            "scoped": true
+          },
+          "wrong_scope_generic_record_rejected": true
+        },
+        "failures": [],
+        "fixture_source": "bots/ibkr_trading/libs/instrumentation/event_contract.py"
+      },
+      "name": "bot_side_runtime_event_lineage_fixtures",
+      "passed": true
+    },
+    {
+      "details": {
+        "event_classes": {
+          "fill": {
+            "path": "artifacts/learning_sufficiency/ptg4_runtime_lineage_evidence/bot_runtime_emitters/inferred_fills/inferred_fills_2026-07-05.jsonl",
+            "record_count": 1,
+            "records_with_assistant_lineage": 1,
+            "scoped_record_count": 1
+          },
+          "missed_opportunity": {
+            "path": "artifacts/learning_sufficiency/ptg4_runtime_lineage_evidence/bot_runtime_emitters/missed/missed_2026-07-05.jsonl",
+            "record_count": 1,
+            "records_with_assistant_lineage": 1,
+            "scoped_record_count": 1
+          },
+          "order": {
+            "path": "artifacts/learning_sufficiency/ptg4_runtime_lineage_evidence/bot_runtime_emitters/orders/orders_2026-07-05.jsonl",
+            "record_count": 1,
+            "records_with_assistant_lineage": 1,
+            "scoped_record_count": 1
+          },
+          "portfolio_rule": {
+            "path": "artifacts/learning_sufficiency/ptg4_runtime_lineage_evidence/bot_runtime_emitters/portfolio_rules/rules_2026-07-05.jsonl",
+            "record_count": 1,
+            "records_with_assistant_lineage": 1,
+            "scoped_record_count": 1
+          },
+          "trade": {
+            "path": "artifacts/learning_sufficiency/ptg4_runtime_lineage_evidence/bot_runtime_emitters/trades/trades_2026-07-05.jsonl",
+            "record_count": 2,
+            "records_with_assistant_lineage": 2,
+            "scoped_record_count": 2
+          }
+        },
+        "failures": [],
+        "manifest_path": "artifacts/learning_sufficiency/ptg4_runtime_lineage_evidence/runtime_lineage_evidence_manifest.json"
+      },
+      "name": "production_like_runtime_lineage_evidence",
+      "passed": true
+    },
+    {
+      "details": {
+        "failures": [],
+        "index_path": "artifacts/learning_sufficiency/phase2_manifests/manifest_index.json",
+        "manifests": [
+          {
+            "event_classes": {
+              "fill": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "missed_opportunity": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "order": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "portfolio_rule": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "trade": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              }
+            },
+            "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_breakout_v1/learning_sufficiency_manifest.json"
+          },
+          {
+            "event_classes": {
+              "fill": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "missed_opportunity": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "order": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "portfolio_rule": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "trade": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              }
+            },
+            "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_momentum_v1/learning_sufficiency_manifest.json"
+          },
+          {
+            "event_classes": {
+              "fill": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "missed_opportunity": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "order": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "portfolio_rule": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "trade": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              }
+            },
+            "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_trend_v1/learning_sufficiency_manifest.json"
+          },
+          {
+            "event_classes": {
+              "fill": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "missed_opportunity": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "order": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "portfolio_rule": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "trade": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              }
+            },
+            "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/k_stock/2026-06/k_stock_olr_kalcb/learning_sufficiency_manifest.json"
+          },
+          {
+            "event_classes": {
+              "fill": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "missed_opportunity": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "order": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "portfolio_rule": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "trade": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              }
+            },
+            "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_momentum_family/learning_sufficiency_manifest.json"
+          },
+          {
+            "event_classes": {
+              "fill": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "missed_opportunity": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "order": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "portfolio_rule": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "trade": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              }
+            },
+            "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_stock_family/learning_sufficiency_manifest.json"
+          },
+          {
+            "event_classes": {
+              "fill": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "missed_opportunity": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "order": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "portfolio_rule": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              },
+              "trade": {
+                "loadable_record_count": 0,
+                "observed_path_count": 0,
+                "record_count": 0,
+                "records_with_assistant_lineage": 0,
+                "wrong_scope_record_count": 0
+              }
+            },
+            "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_swing_family/learning_sufficiency_manifest.json"
+          }
+        ],
+        "required_event_classes": [
+          "trade",
+          "missed_opportunity",
+          "order",
+          "fill",
+          "portfolio_rule"
+        ]
+      },
+      "name": "runtime_event_assistant_lineage",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "gate": "PTG-4",
+  "generated_at": "2026-07-05T16:35:43Z",
+  "promotion_criteria": "Proposal lineage is traceable through monthly artifacts, runtime metadata, runtime events, outcome measurement, and performance-learning validation.",
+  "required_acceptance_rows": [
+    "AM-12",
+    "AM-13",
+    "AM-20",
+    "AM-25"
+  ],
+  "required_finite_checklist_sections": [
+    "Phase 6"
+  ],
+  "schema_version": "assistant_lineage_ptg4_gate_report_v1",
+  "scope_note": "PTG-4 validates assistant-lineage propagation mechanics. Active manifests with zero observed core runtime event paths remain diagnostics-only for learning sufficiency.",
+  "status": "pass"
+}

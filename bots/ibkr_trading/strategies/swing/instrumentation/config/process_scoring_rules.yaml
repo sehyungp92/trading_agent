@@ -1,0 +1,31 @@
+# instrumentation/config/process_scoring_rules.yaml
+# Deterministic rules for scoring trade process quality.
+
+global:
+  max_entry_latency_ms: 5000
+  max_slippage_multiplier: 2.0
+  min_signal_strength: 0.3
+  strong_signal_threshold: 0.7
+  expected_slippage_bps: 5
+
+strategies:
+  ATRSS:
+    preferred_regimes:
+      - trending_up
+      - trending_down
+    adverse_regimes:
+      - ranging
+    max_hold_bars: 480
+    expected_slippage_bps: 5
+    min_signal_strength: 0.4       # maps to quality score 3/7 ≈ 0.43
+    strong_signal_threshold: 0.7   # maps to quality score 5/7 ≈ 0.71
+
+  AKC_HELIX:
+    preferred_regimes:
+      - volatile
+      - trending_down
+    adverse_regimes: []
+    max_hold_bars: 200
+    expected_slippage_bps: 5
+    min_signal_strength: 0.35
+    strong_signal_threshold: 0.7

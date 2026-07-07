@@ -1,0 +1,84 @@
+download:
+  rate_limit: 0.2          # seconds between API requests
+  max_retries: 5
+  backoff_base: 1.0        # exponential backoff base (seconds)
+  backoff_max: 60.0        # max backoff (seconds)
+
+sim_broker:
+  initial_equity: 100000.0
+  taker_fee_bps: 3.5
+  maker_fee_bps: 1.0
+  slippage_bps: 2.0
+  spread_bps: 2.0
+  default_leverage: 10
+
+engine:
+  primary_timeframe: "15m"
+  max_bars_history: 500
+
+data:
+  base_dir: "data"
+  candles_subdir: "candles"
+  funding_subdir: "funding"
+
+strategy:
+  symbols: ["BTC", "ETH", "SOL"]
+  indicators:
+    ema_fast: 20
+    ema_mid: 50
+    ema_slow: 200
+    adx_period: 14
+    atr_period: 14
+    rsi_period: 14
+    volume_ma_period: 20
+  bias:
+    min_4h_conditions: 2
+    min_1h_conditions: 2
+    h1_adx_threshold: 20.0
+  setup:
+    min_confluences_a: 2
+    min_confluences_b: 1
+    min_room_a: 2.0
+    min_room_b: 1.6
+  confirmation:
+    enable_engulfing: true
+    enable_hammer: true
+    enable_inside_bar: true
+    enable_micro_shift: true
+    enable_base_break: true
+    require_volume_confirm: true
+  entry:
+    entry_on_close: true
+    entry_on_break: false
+    max_bars_after_confirmation: 1
+  stops:
+    atr_buffer_mult: 0.3
+    alt_atr_buffer_mult: 0.5
+  exits:
+    tp1_r: 1.0
+    tp1_frac: 0.30
+    tp2_r: 2.0
+    tp2_frac: 0.30
+    be_acceptance_bars: 2
+    soft_time_stop_bars: 12
+    hard_time_stop_bars: 20
+  trail:
+    trail_behind_structure: true
+    trail_behind_ema: true
+    trail_ema_period: 20
+  risk:
+    risk_pct_a: 0.0075
+    risk_pct_b: 0.004
+    max_leverage_major: 5.0
+    max_leverage_alt: 4.0
+    max_concurrent_positions: 3
+    max_correlated_risk: 0.015
+  filters:
+    atr_expansion_mult: 2.5
+    atr_compression_mult: 0.3
+    adx_chop_threshold: 15.0
+    funding_extreme_threshold: 0.01
+  daily_limits:
+    max_consecutive_losses: 2
+    max_daily_loss_pct: 0.015
+    max_trades_per_day: 4

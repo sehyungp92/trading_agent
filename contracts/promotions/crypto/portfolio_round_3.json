@@ -1,0 +1,21 @@
+{
+  "approval": {
+    "notes": [
+      "The reference deployment manifest points at output/portfolio/rounds_manifest.json, which is absent. Phase 0 creates a small superseding evidence manifest from the available round_3 deployment, parity, recommended configs, and portfolio config."
+    ],
+    "source": "phase3_verifier_evidence",
+    "status": "phase3_supersession_recorded"
+  },
+  "baseline_status": "superseded_missing_source_rounds_manifest",
+  "bot_id": "crypto_trader",
+  "generated_at": "2026-07-03T00:16:03+00:00",
+  "portfolio_round": {
+    "deployment_manifest_path": "backtests/baselines/crypto/portfolio/round_3/deployment_manifest.json",
+    "round_id": 3,
+    "superseded_rounds_manifest_path": "backtests/baselines/crypto/portfolio/rounds_manifest.superseded.json"
+  },
+  "promotion_state": "approved",
+  "schema_version": "strategy_promotion_manifest.v1",
+  "strategy_id": "portfolio_round_3",
+  "venue": "hyperliquid"
+}

@@ -1,0 +1,22 @@
+{
+  "approval_grade_optimizer_run": true,
+  "fixture_scoped": true,
+  "pilot_bridge_id": "trading_stock_family",
+  "required_artifacts": [
+    "fold_score_matrix.json",
+    "selection_oos_evaluation.json",
+    "confirmatory_rerank.json",
+    "round_n_plus_1_recommendation.json"
+  ],
+  "schema_version": "ptg7_approval_grade_optimizer_manifest_v1",
+  "source_hashes": {
+    "bridge_readiness_report": "71e2a39aa0286332c6e1587b0d1067042af49575348da6dcde067fa378aca61a",
+    "decision_parity_report": "7d36e85a5b9405b58693a3eb98404be347f1cfa00e3bc1bc3ef9e60eb8c59610",
+    "decision_parity_summary": "4120975383220326a21d6321e2f285cae1b44447d290cf1a269375f5ba032420",
+    "deployment_metadata": "8f23e10523257c901572690a641b489b4ef1d3c840e1edd6b921a5779380b205",
+    "learning_sufficiency_manifest": "104442b24a821c65936154f8153aab90bd6a3326525e8f85ccfe924794acd430",
+    "performance_learning_ledger": "45012bdf77f2cc8b6f44d02c694b15d07ccae69c29e803f7cd23e3e721c93cb7",
+    "strategy_plugin_contract": "feec4e326885ef4e3608507f76058cb7ce2ca033f72fc07b5144e12538da8a21"
+  },
+  "status": "pass"
+}

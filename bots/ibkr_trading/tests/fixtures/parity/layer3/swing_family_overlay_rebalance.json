@@ -1,0 +1,608 @@
+{
+  "schema_version": 2,
+  "surface": "swing_family",
+  "family": "swing",
+  "timezone": "UTC",
+  "clock_start": "2026-05-20T14:30:00+00:00",
+  "market_calendar": {
+    "name": "XNYS",
+    "is_open": true
+  },
+  "instruments": [
+    {
+      "symbol": "QQQ",
+      "trade_symbol": "QQQ",
+      "root": "QQQ",
+      "venue": "SMART",
+      "primary_exchange": "NASDAQ",
+      "sec_type": "STK",
+      "tick_size": 0.01,
+      "point_value": 1.0,
+      "currency": "USD"
+    }
+  ],
+  "bars": [
+    {
+      "symbol": "QQQ",
+      "timeframe": "15m",
+      "timestamp": "2026-05-20T13:15:00+00:00",
+      "open": 101.9,
+      "high": 102.5,
+      "low": 101.5,
+      "close": 102.0,
+      "volume": 1000
+    },
+    {
+      "symbol": "QQQ",
+      "timeframe": "15m",
+      "timestamp": "2026-05-20T13:30:00+00:00",
+      "open": 102.1,
+      "high": 102.7,
+      "low": 101.7,
+      "close": 102.2,
+      "volume": 1000
+    },
+    {
+      "symbol": "QQQ",
+      "timeframe": "15m",
+      "timestamp": "2026-05-20T13:45:00+00:00",
+      "open": 102.3,
+      "high": 102.9,
+      "low": 101.9,
+      "close": 102.4,
+      "volume": 1000
+    },
+    {
+      "symbol": "QQQ",
+      "timeframe": "15m",
+      "timestamp": "2026-05-20T14:00:00+00:00",
+      "open": 102.0,
+      "high": 102.6,
+      "low": 101.6,
+      "close": 102.1,
+      "volume": 1000
+    },
+    {
+      "symbol": "QQQ",
+      "timeframe": "15m",
+      "timestamp": "2026-05-20T14:15:00+00:00",
+      "open": 102.2,
+      "high": 102.8,
+      "low": 101.8,
+      "close": 102.3,
+      "volume": 1000
+    },
+    {
+      "symbol": "QQQ",
+      "timeframe": "15m",
+      "timestamp": "2026-05-20T14:30:00+00:00",
+      "open": 103.9,
+      "high": 104.5,
+      "low": 103.5,
+      "close": 104.0,
+      "volume": 1000
+    }
+  ],
+  "higher_timeframe_bars": {
+    "QQQ": [
+      {
+        "timeframe": "1d",
+        "timestamp": "2026-05-18T20:00:00+00:00",
+        "open": 99.5,
+        "high": 100.5,
+        "low": 99.0,
+        "close": 100.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "1d",
+        "timestamp": "2026-05-19T20:00:00+00:00",
+        "open": 101.5,
+        "high": 102.5,
+        "low": 101.0,
+        "close": 102.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "1d",
+        "timestamp": "2026-05-20T14:30:00+00:00",
+        "open": 103.5,
+        "high": 104.5,
+        "low": 103.0,
+        "close": 104.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "1h",
+        "timestamp": "2026-05-20T01:30:00+00:00",
+        "open": 94.9,
+        "high": 95.5,
+        "low": 94.5,
+        "close": 95.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "1h",
+        "timestamp": "2026-05-20T02:30:00+00:00",
+        "open": 96.9,
+        "high": 97.5,
+        "low": 96.5,
+        "close": 97.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "1h",
+        "timestamp": "2026-05-20T03:30:00+00:00",
+        "open": 98.9,
+        "high": 99.5,
+        "low": 98.5,
+        "close": 99.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "1h",
+        "timestamp": "2026-05-20T04:30:00+00:00",
+        "open": 100.9,
+        "high": 101.5,
+        "low": 100.5,
+        "close": 101.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "1h",
+        "timestamp": "2026-05-20T05:30:00+00:00",
+        "open": 102.9,
+        "high": 103.5,
+        "low": 102.5,
+        "close": 103.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "1h",
+        "timestamp": "2026-05-20T06:30:00+00:00",
+        "open": 104.9,
+        "high": 105.5,
+        "low": 104.5,
+        "close": 105.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "1h",
+        "timestamp": "2026-05-20T07:30:00+00:00",
+        "open": 106.9,
+        "high": 107.5,
+        "low": 106.5,
+        "close": 107.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "1h",
+        "timestamp": "2026-05-20T08:30:00+00:00",
+        "open": 108.9,
+        "high": 109.5,
+        "low": 108.5,
+        "close": 109.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "1h",
+        "timestamp": "2026-05-20T09:30:00+00:00",
+        "open": 107.9,
+        "high": 108.5,
+        "low": 107.5,
+        "close": 108.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "1h",
+        "timestamp": "2026-05-20T10:30:00+00:00",
+        "open": 106.9,
+        "high": 107.5,
+        "low": 106.5,
+        "close": 107.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "1h",
+        "timestamp": "2026-05-20T11:30:00+00:00",
+        "open": 105.9,
+        "high": 106.5,
+        "low": 105.5,
+        "close": 106.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "1h",
+        "timestamp": "2026-05-20T12:30:00+00:00",
+        "open": 104.9,
+        "high": 105.5,
+        "low": 104.5,
+        "close": 105.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "1h",
+        "timestamp": "2026-05-20T13:30:00+00:00",
+        "open": 103.9,
+        "high": 104.5,
+        "low": 103.5,
+        "close": 104.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "1h",
+        "timestamp": "2026-05-20T14:30:00+00:00",
+        "open": 102.9,
+        "high": 103.5,
+        "low": 102.5,
+        "close": 103.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "4h",
+        "timestamp": "2026-05-18T06:30:00+00:00",
+        "open": 89.9,
+        "high": 90.5,
+        "low": 89.5,
+        "close": 90.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "4h",
+        "timestamp": "2026-05-18T10:30:00+00:00",
+        "open": 90.9,
+        "high": 91.5,
+        "low": 90.5,
+        "close": 91.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "4h",
+        "timestamp": "2026-05-18T14:30:00+00:00",
+        "open": 91.9,
+        "high": 92.5,
+        "low": 91.5,
+        "close": 92.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "4h",
+        "timestamp": "2026-05-18T18:30:00+00:00",
+        "open": 92.9,
+        "high": 93.5,
+        "low": 92.5,
+        "close": 93.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "4h",
+        "timestamp": "2026-05-18T22:30:00+00:00",
+        "open": 93.9,
+        "high": 94.5,
+        "low": 93.5,
+        "close": 94.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "4h",
+        "timestamp": "2026-05-19T02:30:00+00:00",
+        "open": 94.9,
+        "high": 95.5,
+        "low": 94.5,
+        "close": 95.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "4h",
+        "timestamp": "2026-05-19T06:30:00+00:00",
+        "open": 95.9,
+        "high": 96.5,
+        "low": 95.5,
+        "close": 96.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "4h",
+        "timestamp": "2026-05-19T10:30:00+00:00",
+        "open": 96.9,
+        "high": 97.5,
+        "low": 96.5,
+        "close": 97.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "4h",
+        "timestamp": "2026-05-19T14:30:00+00:00",
+        "open": 97.9,
+        "high": 98.5,
+        "low": 97.5,
+        "close": 98.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "4h",
+        "timestamp": "2026-05-19T18:30:00+00:00",
+        "open": 98.9,
+        "high": 99.5,
+        "low": 98.5,
+        "close": 99.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "4h",
+        "timestamp": "2026-05-19T22:30:00+00:00",
+        "open": 99.9,
+        "high": 100.5,
+        "low": 99.5,
+        "close": 100.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "4h",
+        "timestamp": "2026-05-20T02:30:00+00:00",
+        "open": 100.9,
+        "high": 101.5,
+        "low": 100.5,
+        "close": 101.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "4h",
+        "timestamp": "2026-05-20T06:30:00+00:00",
+        "open": 101.9,
+        "high": 102.5,
+        "low": 101.5,
+        "close": 102.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "4h",
+        "timestamp": "2026-05-20T10:30:00+00:00",
+        "open": 102.9,
+        "high": 103.5,
+        "low": 102.5,
+        "close": 103.0,
+        "volume": 1000
+      },
+      {
+        "timeframe": "4h",
+        "timestamp": "2026-05-20T14:30:00+00:00",
+        "open": 103.9,
+        "high": 104.5,
+        "low": 103.5,
+        "close": 104.0,
+        "volume": 1000
+      }
+    ]
+  },
+  "artifacts": {
+    "tpc": {
+      "indicators": {
+        "ma50_4h": 103.0,
+        "ma100_4h": 95.0,
+        "rsi_4h": 60.0,
+        "atr_4h": 2.0,
+        "ema20_1h": 104.0,
+        "ema50_1h": 100.0,
+        "vwap_1h": 104.0,
+        "vwap_15m": 103.0,
+        "ema20_15m": 103.0,
+        "volume_sma_15m": 500.0,
+        "atr_15m": 1.0
+      }
+    },
+    "atrss": {
+      "idle_market_input": {
+        "symbol": "QQQ",
+        "timeframe": "1h",
+        "bars": [
+          {
+            "symbol": "QQQ",
+            "timeframe": "1h",
+            "timestamp": "2026-05-20T14:30:00+00:00",
+            "open": 103.5,
+            "high": 104.5,
+            "low": 103.0,
+            "close": 104.0,
+            "volume": 1000
+          }
+        ],
+        "reason": "fixture_child_idle"
+      }
+    },
+    "akc_helix": {
+      "idle_market_input": {
+        "symbol": "QQQ",
+        "timeframe": "1h",
+        "bars": [
+          {
+            "symbol": "QQQ",
+            "timeframe": "1h",
+            "timestamp": "2026-05-20T14:30:00+00:00",
+            "open": 103.5,
+            "high": 104.5,
+            "low": 103.0,
+            "close": 104.0,
+            "volume": 1000
+          }
+        ],
+        "reason": "fixture_child_idle"
+      }
+    },
+    "overlay_rebalance": {
+      "target_weights": {
+        "QQQ": 1.0
+      },
+      "ema_overrides": {
+        "QQQ": [
+          1,
+          2
+        ]
+      },
+      "rebalance_reason": "fixture_noop"
+    }
+  },
+  "strategy_config": {
+    "config_overrides": {
+      "all": {
+        "ma_100_period": 10,
+        "require_di_alignment": false,
+        "min_ma100_slope_atr_4h": 0.0,
+        "max_extension_atr_mult": 5.0,
+        "pullback_min_bars_1h": 2,
+        "pullback_max_bars_1h": 4,
+        "fib_a_high": 1.1,
+        "confirmation_required": 0,
+        "daily_room_min_r": 0.0,
+        "asset_context_enabled": false,
+        "entry_order_model": "confirmation_close",
+        "initial_stop_source": "pullback",
+        "min_stop_atr_mult": 0.1,
+        "max_stop_atr_mult": 10.0,
+        "risk_a_pct": 0.0002,
+        "risk_b_pct": 0.0002,
+        "risk_a_plus_pct": 0.0002,
+        "score_a_min": 0,
+        "score_b_min": 0,
+        "score_a_plus_min": 0,
+        "pb30_pullback_enabled": false,
+        "type_b_enabled": true,
+        "type_b_requires_a_plus": false
+      }
+    }
+  },
+  "family_config": {
+    "family": "swing",
+    "heat_cap_R": 5.5,
+    "portfolio_daily_stop_R": 3.75,
+    "portfolio_weekly_stop_R": 9.0,
+    "strategies": [
+      {
+        "id": "ATRSS",
+        "family": "swing",
+        "unit_risk_dollars": 1650.0,
+        "daily_stop_R": 2.25,
+        "priority": 0,
+        "max_heat_R": 2.15,
+        "max_working_orders": 4
+      },
+      {
+        "id": "AKC_HELIX",
+        "family": "swing",
+        "unit_risk_dollars": 1300.0,
+        "daily_stop_R": 2.5,
+        "priority": 2,
+        "max_heat_R": 2.1,
+        "max_working_orders": 4
+      },
+      {
+        "id": "TPC",
+        "family": "swing",
+        "unit_risk_dollars": 500.0,
+        "daily_stop_R": 2.0,
+        "priority": 1,
+        "max_heat_R": 4.0,
+        "max_working_orders": 3
+      },
+      {
+        "id": "OVERLAY",
+        "family": "swing",
+        "unit_risk_dollars": 500.0,
+        "daily_stop_R": 2.0,
+        "priority": 99,
+        "max_heat_R": 4.0,
+        "max_working_orders": 3
+      }
+    ],
+    "portfolio_rules": {
+      "directional_cap_R": 5.5,
+      "directional_cap_long_R": 4.0,
+      "directional_cap_short_R": 4.0,
+      "initial_equity": 33333.33333333333,
+      "symbol_collision_action": "half_size",
+      "strategy_priorities": [
+        [
+          "ATRSS",
+          0
+        ],
+        [
+          "TPC",
+          1
+        ],
+        [
+          "AKC_HELIX",
+          2
+        ],
+        [
+          "OVERLAY",
+          99
+        ]
+      ],
+      "priority_headroom_R": 0.75,
+      "priority_reserve_threshold": 1,
+      "reference_unit_risk_dollars": 1650.0,
+      "dd_tiers": [
+        [
+          0.04,
+          0.9
+        ],
+        [
+          0.07,
+          0.7
+        ],
+        [
+          0.1,
+          0.5
+        ],
+        [
+          0.14,
+          0.25
+        ],
+        [
+          0.18,
+          0.0
+        ]
+      ]
+    }
+  },
+  "initial_repository_state": {},
+  "initial_strategy_state": {
+    "TPC": {}
+  },
+  "initial_family_state": {
+    "overlay": {
+      "starting_holdings": {
+        "QQQ": 0
+      },
+      "rebalance_due": true
+    }
+  },
+  "account_state": {
+    "account_id": "ACCT-PARITY",
+    "equity": 100000.0,
+    "currency": "USD"
+  },
+  "expected_fill_model": {
+    "mode": "deterministic",
+    "slippage_ticks": 0,
+    "commission": 0.0
+  },
+  "broker_event_script": [
+    {
+      "order_match": {
+        "strategy_id": "TPC",
+        "symbol": "QQQ",
+        "role": "ENTRY",
+        "side": "BUY",
+        "sequence": 1
+      },
+      "event": "fill",
+      "exec_id": "TPC-L2-FILL-1",
+      "price": 104.0,
+      "commission": 0.0,
+      "timestamp": "2026-05-20T14:31:00+00:00"
+    }
+  ],
+  "expected_normalized_outputs": {},
+  "expected_trade_count": 1
+}

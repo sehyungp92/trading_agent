@@ -1,0 +1,1 @@
+"""Scalp strategy package."""

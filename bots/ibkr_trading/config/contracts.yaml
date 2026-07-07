@@ -1,0 +1,149 @@
+MNQ:
+  symbol: MNQ
+  sec_type: FUT
+  exchange: CME
+  currency: USD
+  multiplier: 2.0
+  tick_size: 0.25
+  tick_value: 0.50
+  trading_class: MNQ
+
+MYM:
+  symbol: MYM
+  sec_type: FUT
+  exchange: CBOT
+  currency: USD
+  multiplier: 0.50
+  tick_size: 1.0
+  tick_value: 0.50
+  trading_class: MYM
+
+MCL:
+  symbol: MCL
+  sec_type: FUT
+  exchange: NYMEX
+  currency: USD
+  multiplier: 100.0
+  tick_size: 0.01
+  tick_value: 1.00
+  trading_class: MCL
+
+MGC:
+  symbol: MGC
+  sec_type: FUT
+  exchange: COMEX
+  currency: USD
+  multiplier: 10.0
+  tick_size: 0.10
+  tick_value: 1.00
+  trading_class: MGC
+
+MBT:
+  symbol: MBT
+  sec_type: FUT
+  exchange: CME
+  currency: USD
+  multiplier: 0.1
+  tick_size: 5.0
+  tick_value: 0.50
+  trading_class: MBT
+
+NQ:
+  symbol: NQ
+  sec_type: FUT
+  exchange: CME
+  currency: USD
+  multiplier: 20.0
+  tick_size: 0.25
+  tick_value: 5.00
+  trading_class: NQ
+
+ES:
+  symbol: ES
+  sec_type: FUT
+  exchange: CME
+  currency: USD
+  multiplier: 50.0
+  tick_size: 0.25
+  tick_value: 12.50
+  trading_class: ES
+
+CL:
+  symbol: CL
+  sec_type: FUT
+  exchange: NYMEX
+  currency: USD
+  multiplier: 1000.0
+  tick_size: 0.01
+  tick_value: 10.00
+  trading_class: CL
+
+GC:
+  symbol: GC
+  sec_type: FUT
+  exchange: COMEX
+  currency: USD
+  multiplier: 100.0
+  tick_size: 0.10
+  tick_value: 10.00
+  trading_class: GC
+
+BT:
+  symbol: BT
+  sec_type: FUT
+  exchange: CME
+  currency: USD
+  multiplier: 5.0
+  tick_size: 5.0
+  tick_value: 25.00
+  trading_class: BT
+
+SPY:
+  symbol: SPY
+  sec_type: STK
+  exchange: SMART
+  currency: USD
+  multiplier: 1.0
+  tick_size: 0.01
+  tick_value: 0.01
+  primary_exchange: ARCA
+
+QQQ:
+  symbol: QQQ
+  sec_type: STK
+  exchange: SMART
+  currency: USD
+  multiplier: 1.0
+  tick_size: 0.01
+  tick_value: 0.01
+  primary_exchange: NASDAQ
+
+IWM:
+  symbol: IWM
+  sec_type: STK
+  exchange: SMART
+  currency: USD
+  multiplier: 1.0
+  tick_size: 0.01
+  tick_value: 0.01
+  primary_exchange: ARCA
+
+USO:
+  symbol: USO
+  sec_type: STK
+  exchange: SMART
+  currency: USD
+  multiplier: 1.0
+  tick_size: 0.01
+  tick_value: 0.01
+  primary_exchange: ARCA
+
+GLD:
+  symbol: GLD
+  sec_type: STK
+  exchange: SMART
+  currency: USD
+  multiplier: 1.0
+  tick_size: 0.01
+  tick_value: 0.01
+  primary_exchange: ARCA

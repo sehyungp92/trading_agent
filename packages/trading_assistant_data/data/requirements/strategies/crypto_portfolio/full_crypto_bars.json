@@ -1,0 +1,133 @@
+{
+  "schema_version": "strategy_data_requirements_v1",
+  "bot_id": "crypto_portfolio",
+  "strategy_id": "full_crypto_bars",
+  "requirements": [
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "BTC",
+      "timeframe": "1m"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "BTC",
+      "timeframe": "5m"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "BTC",
+      "timeframe": "15m"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "BTC",
+      "timeframe": "30m"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "BTC",
+      "timeframe": "1h"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "BTC",
+      "timeframe": "4h"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "BTC",
+      "timeframe": "1d"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "ETH",
+      "timeframe": "1m"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "ETH",
+      "timeframe": "5m"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "ETH",
+      "timeframe": "15m"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "ETH",
+      "timeframe": "30m"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "ETH",
+      "timeframe": "1h"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "ETH",
+      "timeframe": "4h"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "ETH",
+      "timeframe": "1d"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "SOL",
+      "timeframe": "1m"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "SOL",
+      "timeframe": "5m"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "SOL",
+      "timeframe": "15m"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "SOL",
+      "timeframe": "30m"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "SOL",
+      "timeframe": "1h"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "SOL",
+      "timeframe": "4h"
+    },
+    {
+      "source": "hyperliquid",
+      "market": "crypto_perp",
+      "symbol": "SOL",
+      "timeframe": "1d"
+    }
+  ]
+}

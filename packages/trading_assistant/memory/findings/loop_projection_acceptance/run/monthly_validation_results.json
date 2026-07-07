@@ -1,0 +1,61 @@
+[
+  {
+    "adopted_candidate_id": "",
+    "approval_packet_paths": [
+      "packages/trading_assistant/memory/findings/loop_projection_acceptance\\approval_packet_acceptance.json"
+    ],
+    "approval_ready_candidate_count": 0,
+    "approval_request_ids": [],
+    "artifact_index_path": "packages/trading_assistant/memory/findings/loop_projection_acceptance\\artifact_index.json",
+    "blocking_reasons": [
+      "integration acceptance projection, not live trading evidence"
+    ],
+    "bot_id": "loop_acceptance_bot",
+    "candidate_gate_report_path": "packages/trading_assistant/memory/findings/loop_projection_acceptance\\candidate_gate_report.json",
+    "candidate_summary_path": "packages/trading_assistant/memory/findings/loop_projection_acceptance\\candidate_generation_summary.json",
+    "evidence_paths": [],
+    "gap_attribution": {
+      "confidence": 0.0,
+      "evidence_paths": [],
+      "primary_category": "none",
+      "summary": "",
+      "supporting_categories": []
+    },
+    "gate_passed_candidate_count": 0,
+    "generated_at": "2026-06-21T16:40:08.867684Z",
+    "market_data_manifest_path": "",
+    "model_review_cost_usd": 0.37,
+    "model_review_issues": [],
+    "model_review_model": "acceptance_model_v1",
+    "model_review_path": "",
+    "model_review_provider": "acceptance_provider",
+    "model_review_runtime": "acceptance_runtime",
+    "model_review_valid": null,
+    "model_review_validation_path": "packages/trading_assistant/memory/findings/loop_projection_acceptance\\model_review_validation.json",
+    "monthly_evidence_verification_paths": [
+      "packages/trading_assistant/memory/findings/loop_projection_acceptance\\monthly_evidence_verification_acceptance.json"
+    ],
+    "monthly_report_path": "packages/trading_assistant/memory/findings/loop_projection_acceptance\\monthly_report.md",
+    "objective_version": "objective_weights_v1",
+    "optimizer_no_adoption_reason": "",
+    "optimizer_sequence_result_path": "",
+    "optimizer_sequence_status": "",
+    "proposal_ids": [
+      "loop_acceptance_proposal"
+    ],
+    "proposed_strategy_change_record_ids": [],
+    "rejected_candidate_count": 0,
+    "repair_request_path": "",
+    "repair_required": false,
+    "replay_parity_path": "",
+    "run_id": "monthly-loop-projection-acceptance-2026-06",
+    "run_manifest_path": "packages/trading_assistant/memory/findings/loop_projection_acceptance\\run_manifest.json",
+    "run_month": "2026-06",
+    "selected_candidate_count": 0,
+    "shadow": true,
+    "status": "repair",
+    "strategy_change_record_id": "",
+    "strategy_id": "loop_acceptance_strategy",
+    "telemetry_manifest_path": ""
+  }
+]

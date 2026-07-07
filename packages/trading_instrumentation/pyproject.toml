@@ -1,0 +1,17 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "trading-instrumentation"
+version = "0.1.0"
+description = "Shared runtime instrumentation interfaces for the trading workspace."
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/trading_instrumentation"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+

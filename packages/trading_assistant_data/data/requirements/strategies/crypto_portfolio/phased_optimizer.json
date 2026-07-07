@@ -1,0 +1,26 @@
+{
+  "schema_version": "strategy_data_requirements_v1",
+  "bot_id": "crypto_portfolio",
+  "strategy_id": "phased_optimizer",
+  "notes": "Crypto phased optimizer requirements from crypto_trader optimize/contracts.py required_timeframes(): trend=15m/1h/1d, momentum=15m/1h/4h, breakout=30m/4h. The refreshed 1m/5m intervals are inventory, not optimizer-gating inputs.",
+  "requirements": [
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "BTC", "timeframe": "15m", "data_role": "optimizer_candles"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "BTC", "timeframe": "30m", "data_role": "optimizer_candles"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "BTC", "timeframe": "1h", "data_role": "optimizer_candles"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "BTC", "timeframe": "4h", "data_role": "optimizer_candles"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "BTC", "timeframe": "1d", "data_role": "optimizer_candles"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "BTC", "timeframe": "funding_1h", "data_role": "funding"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "ETH", "timeframe": "15m", "data_role": "optimizer_candles"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "ETH", "timeframe": "30m", "data_role": "optimizer_candles"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "ETH", "timeframe": "1h", "data_role": "optimizer_candles"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "ETH", "timeframe": "4h", "data_role": "optimizer_candles"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "ETH", "timeframe": "1d", "data_role": "optimizer_candles"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "ETH", "timeframe": "funding_1h", "data_role": "funding"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "SOL", "timeframe": "15m", "data_role": "optimizer_candles"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "SOL", "timeframe": "30m", "data_role": "optimizer_candles"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "SOL", "timeframe": "1h", "data_role": "optimizer_candles"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "SOL", "timeframe": "4h", "data_role": "optimizer_candles"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "SOL", "timeframe": "1d", "data_role": "optimizer_candles"},
+    {"source": "hyperliquid", "market": "crypto_perp", "symbol": "SOL", "timeframe": "funding_1h", "data_role": "funding"}
+  ]
+}

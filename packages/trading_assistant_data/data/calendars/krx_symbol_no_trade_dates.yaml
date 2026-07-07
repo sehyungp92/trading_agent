@@ -1,0 +1,71 @@
+schema_version: krx_symbol_no_trade_dates_v1
+authority_id: lrs_daily_flow_zero_net_cross_panel_v1
+generated_at_utc: "2026-06-01T00:00:00Z"
+description: >
+  Symbol-level KRX no-trade dates used by OLR/KALCB daily and KIS intraday
+  validation. Each date is either present in the local LRS daily-flow panels
+  with zero foreign and institutional net flow and absent from daily OHLCV, or
+  present in daily OHLCV as a zero-volume flat-price bar with zero flow. These
+  dates are treated as expected no-trade dates rather than unexplained missing
+  OHLCV or intraday bars.
+symbols:
+  "012450":
+    reason: lrs_zero_flow_no_ohlcv
+    dates:
+      - "2024-08-29"
+      - "2024-08-30"
+      - "2024-09-02"
+      - "2024-09-03"
+      - "2024-09-04"
+      - "2024-09-05"
+      - "2024-09-06"
+      - "2024-09-09"
+      - "2024-09-10"
+      - "2024-09-11"
+      - "2024-09-12"
+      - "2024-09-13"
+      - "2024-09-19"
+      - "2024-09-20"
+      - "2024-09-23"
+      - "2024-09-24"
+      - "2024-09-25"
+      - "2024-09-26"
+  "010120":
+    reason: lrs_zero_volume_flat_ohlcv_zero_flow_no_kis_intraday
+    dates:
+      - "2026-04-08"
+      - "2026-04-09"
+      - "2026-04-10"
+  "058470":
+    reason: lrs_zero_flow_no_ohlcv
+    dates:
+      - "2025-04-10"
+      - "2025-04-11"
+      - "2025-04-14"
+      - "2025-04-15"
+      - "2025-04-16"
+      - "2025-04-17"
+      - "2025-04-18"
+      - "2025-04-21"
+      - "2025-04-22"
+      - "2025-04-23"
+      - "2025-04-24"
+  "086520":
+    reason: lrs_zero_flow_no_ohlcv
+    dates:
+      - "2024-04-09"
+      - "2024-04-11"
+      - "2024-04-12"
+      - "2024-04-15"
+      - "2024-04-16"
+      - "2024-04-17"
+      - "2024-04-18"
+      - "2024-04-19"
+      - "2024-04-22"
+      - "2024-04-23"
+      - "2024-04-24"
+  "377300":
+    reason: lrs_zero_flow_no_ohlcv
+    dates:
+      - "2025-06-24"
+      - "2025-06-26"

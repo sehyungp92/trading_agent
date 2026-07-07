@@ -1,0 +1,138 @@
+{
+  "assistant_packages_present": false,
+  "bot": "k_stock",
+  "compose": "deployments/k_stock/docker-compose.yml",
+  "dependencies": [
+    "aiohttp>=3.9.0",
+    "asyncpg>=0.29.0",
+    "beautifulsoup4>=4.12",
+    "fastapi>=0.100.0",
+    "feedparser>=6.0.0",
+    "google-genai>=0.5.0",
+    "loguru>=0.7.0",
+    "pandas>=2.0.0",
+    "pyarrow>=15.0.0",
+    "pydantic>=2.0.0",
+    "pykrx>=1.0.0",
+    "pytz>=2024.1",
+    "PyYAML>=6.0",
+    "requests>=2.31.0",
+    "rich>=13.0.0",
+    "uvicorn>=0.23.0",
+    "websockets>=11.0",
+    "yt-dlp>=2024.1.0"
+  ],
+  "dockerfile": "bots/k_stock_trader/Dockerfile",
+  "image_build": {
+    "build": {
+      "command": [
+        "docker",
+        "build",
+        "-f",
+        "bots/k_stock_trader/Dockerfile",
+        "-t",
+        "trading-agent-k_stock:acceptance",
+        "."
+      ],
+      "returncode": 0,
+      "stderr_tail": [
+        "#23 DONE 69.8s",
+        "",
+        "#24 [19/19] WORKDIR /app/bots/k_stock_trader",
+        "#24 DONE 1.7s",
+        "",
+        "#25 exporting to image",
+        "#25 exporting layers",
+        "#25 exporting layers 110.3s done",
+        "#25 exporting manifest sha256:f46ab9a99e33bc97604f30c731053b652b35a360b0c524b05457866078881a7b",
+        "#25 exporting manifest sha256:f46ab9a99e33bc97604f30c731053b652b35a360b0c524b05457866078881a7b 0.2s done",
+        "#25 exporting config sha256:09209f6b0e256ac8395f44e0d4946dcf9e51ad70d152f7bf9daf1b436512095c",
+        "#25 exporting config sha256:09209f6b0e256ac8395f44e0d4946dcf9e51ad70d152f7bf9daf1b436512095c 0.2s done",
+        "#25 exporting attestation manifest sha256:3e67db9aa9f326f4c94a114c3c286257d7b837c0b2589fb9a05583da3c2d9228",
+        "#25 exporting attestation manifest sha256:3e67db9aa9f326f4c94a114c3c286257d7b837c0b2589fb9a05583da3c2d9228 0.2s done",
+        "#25 exporting manifest list sha256:0d03f7cb2de02ce4935dd33da190301e26a23eb3b10beda7df5235d53baf0626",
+        "#25 exporting manifest list sha256:0d03f7cb2de02ce4935dd33da190301e26a23eb3b10beda7df5235d53baf0626 0.1s done",
+        "#25 naming to docker.io/library/trading-agent-k_stock:acceptance 0.0s done",
+        "#25 unpacking to docker.io/library/trading-agent-k_stock:acceptance",
+        "#25 unpacking to docker.io/library/trading-agent-k_stock:acceptance 44.6s done",
+        "#25 DONE 155.9s"
+      ],
+      "stdout_tail": []
+    },
+    "build_command": [
+      "docker",
+      "build",
+      "-f",
+      "bots/k_stock_trader/Dockerfile",
+      "-t",
+      "trading-agent-k_stock:acceptance",
+      "."
+    ],
+    "entrypoint_smoke": {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "trading-agent-k_stock:acceptance",
+        "k-stock-olr-kalcb-runtime",
+        "--help"
+      ],
+      "returncode": 1,
+      "stderr_tail": [
+        "Traceback (most recent call last):",
+        "  File \"/usr/local/bin/k-stock-olr-kalcb-runtime\", line 10, in <module>",
+        "    sys.exit(main())",
+        "             ^^^^^^",
+        "  File \"/usr/local/lib/python3.12/site-packages/k_stock_trader/olr_kalcb_runtime.py\", line 18, in main",
+        "    return int(runtime_session_main(argv))",
+        "               ^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "  File \"/usr/local/lib/python3.12/site-packages/k_stock_trader/runtime_session.py\", line 35, in main",
+        "    return int(_load_legacy_module().main(argv))",
+        "               ^^^^^^^^^^^^^^^^^^^^^",
+        "  File \"/usr/local/lib/python3.12/site-packages/k_stock_trader/runtime_session.py\", line 30, in _load_legacy_module",
+        "    spec.loader.exec_module(module)",
+        "  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module",
+        "  File \"<frozen importlib._bootstrap_external>\", line 1132, in get_code",
+        "  File \"<frozen importlib._bootstrap_external>\", line 1190, in get_data",
+        "FileNotFoundError: [Errno 2] No such file or directory: '/app/bots/k_stock_trader/scripts/run_olr_kalcb_runtime_session.py'"
+      ],
+      "stdout_tail": []
+    },
+    "entrypoint_smoke_command": [
+      "docker",
+      "run",
+      "--rm",
+      "trading-agent-k_stock:acceptance",
+      "k-stock-olr-kalcb-runtime",
+      "--help"
+    ],
+    "runtime_import_smoke": {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "trading-agent-k_stock:acceptance",
+        "python",
+        "-c",
+        "import k_stock_trader; import deployment.olr_kalcb.runtime"
+      ],
+      "returncode": 0,
+      "stderr_tail": [
+        "2026-07-06 21:14:40.869 | INFO     | kis_core.kis_client:<module>:170 - Per-process HTTP rate limiter: 2 req/sec"
+      ],
+      "stdout_tail": []
+    },
+    "runtime_import_smoke_command": [
+      "docker",
+      "run",
+      "--rm",
+      "trading-agent-k_stock:acceptance",
+      "python",
+      "-c",
+      "import k_stock_trader; import deployment.olr_kalcb.runtime"
+    ],
+    "status": "failed",
+    "tag": "trading-agent-k_stock:acceptance"
+  },
+  "package": "k-stock-trader"
+}

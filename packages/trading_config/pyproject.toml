@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "trading-config"
+version = "0.1.0"
+description = "Materialized live config promotion artifacts and verification for the trading workspace."
+requires-python = ">=3.12"
+dependencies = [
+  "pydantic>=2.7",
+  "PyYAML>=6.0",
+  "trading-contracts",
+]
+
+[project.scripts]
+trading-config = "trading_config.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/trading_config"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"

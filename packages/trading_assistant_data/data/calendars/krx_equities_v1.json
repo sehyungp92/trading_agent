@@ -1,0 +1,15 @@
+{
+  "calendar_id": "krx_equities_v1",
+  "version": "v1",
+  "market": "krx_equity",
+  "timezone": "Asia/Seoul",
+  "session_open": "09:00",
+  "session_close": "15:20",
+  "breaks": [],
+  "weekdays": [0, 1, 2, 3, 4],
+  "holidays_file": "data/calendars/krx_holidays.yaml",
+  "holidays": [],
+  "holiday_source": "KRX market closing calendar; no weekday-only fallback is authoritative",
+  "generated_at": "2026-05-30T00:00:00+00:00"
+}
+

@@ -1,0 +1,1096 @@
+{
+  "bot": "all",
+  "errors": [
+    "A2: C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/verify_latest_round_no_drift.py --bot ibkr --baseline backtests/baselines/baseline_index.json --strict",
+    "A3: C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/verify_latest_round_no_drift.py --bot crypto --baseline backtests/baselines/baseline_index.json --strict",
+    "A5: C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/verify_latest_round_no_drift.py --bot k_stock --baseline backtests/baselines/baseline_index.json --strict",
+    "A6: C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/verify_live_config_promotions.py --bot ibkr --require-latest-round --require-effective-configs --strict",
+    "A11: C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/run_workspace_checks.py deployment-gate",
+    "A13: C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/verify_optimizer_compatibility.py --bot all --fixture-set smoke",
+    "A14: C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/run_backtest_integrity_matrix.py --promoted-only",
+    "A15: C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/build_bot_image.py --bot all --emit-dependency-reports",
+    "A16: C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/verify_deployment_metadata.py --bot all",
+    "A17: C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/verify_operational_deployment_evidence.py",
+    "A17: blocked by failing row A2",
+    "A17: blocked by failing row A3",
+    "A17: blocked by failing row A5",
+    "A17: blocked by failing row A6",
+    "A17: blocked by failing row A11",
+    "A17: blocked by failing row A13",
+    "A17: blocked by failing row A14",
+    "A17: blocked by failing row A15",
+    "A17: blocked by failing row A16",
+    "A17: missing evidence path deployments/operational_evidence.json"
+  ],
+  "rows": [
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/check_repo_bootstrap.py"
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "PASS file..gitignore",
+            "PASS file.docs/repo-bootstrap-decisions.md",
+            "PASS file.pyproject.toml",
+            "PASS file.tools/check_repo_bootstrap.py",
+            "PASS file.tools/workspace_lock_check.py",
+            "PASS file.tools/workspace_import_smoke.py",
+            "PASS file.tools/detect_affected_images.py",
+            "PASS file.uv.lock",
+            "PASS pyproject.python - live-image target >=3.12",
+            "PASS pyproject.uv.workspace - packages/*, bots/*",
+            "PASS bootstrap.ci_provider - github-actions",
+            "PASS bootstrap.branch_protection - required checks selected",
+            "PASS bootstrap.ci_required_jobs - required checks are present in CI",
+            "PASS bootstrap.artifact_policy - docs/repo-bootstrap-decisions.md",
+            "PASS artifact_policy.Source control",
+            "PASS artifact_policy.Git LFS",
+            "PASS artifact_policy.Object storage",
+            "PASS artifact_policy.Generated local-only outputs",
+            "",
+            "Bootstrap gate passed."
+          ]
+        },
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/workspace_lock_check.py"
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "PASS uv - uv 0.10.4 (079e3fd05 2026-02-17)",
+            "PASS project.requires-python - >=3.12",
+            "PASS tool.uv.workspace - packages/*, bots/*",
+            "PASS uv.lock - matches pyproject.toml for Python 3.12"
+          ]
+        },
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/detect_affected_images.py",
+            "--explain-only"
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "Affected-image rules:",
+            "- packages/trading_contracts/ -> crypto-trader, ibkr-trading, k-stock-trader",
+            "- packages/trading_config/ -> crypto-trader, ibkr-trading, k-stock-trader",
+            "- packages/trading_deployment/ -> crypto-trader, ibkr-trading, k-stock-trader",
+            "- packages/trading_instrumentation/ -> crypto-trader, ibkr-trading, k-stock-trader",
+            "- contracts/ -> crypto-trader, ibkr-trading, k-stock-trader",
+            "- bots/ibkr_trading/ -> ibkr-trading",
+            "- deployments/ibkr/ -> ibkr-trading",
+            "- bots/k_stock_trader/ -> k-stock-trader",
+            "- deployments/k_stock/ -> k-stock-trader",
+            "- bots/crypto_trader/ -> crypto-trader",
+            "- deployments/crypto/ -> crypto-trader",
+            "- packages/trading_assistant* -> assistant gates only unless shared artifacts changed",
+            "- root underscore-prefixed archive dirs -> no image; source has been ported",
+            "- docs/ and tools/ -> no image by default; CI gates still run"
+          ]
+        }
+      ],
+      "errors": [],
+      "evidence_paths": [
+        "docs/repo-bootstrap-decisions.md",
+        "pyproject.toml",
+        "uv.lock",
+        ".github/workflows/ci.yml"
+      ],
+      "gate": "Repository and tooling bootstrap",
+      "missing_evidence": [],
+      "row": "A00",
+      "skip_reason": "",
+      "status": "pass"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/freeze_optimization_baselines.py",
+            "--inventory-only"
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "Wrote docs/migration_inventory.md"
+          ]
+        }
+      ],
+      "errors": [],
+      "evidence_paths": [
+        "docs/migration_inventory.md",
+        "backtests/baselines/baseline_index.json"
+      ],
+      "gate": "Workspace starting-state inventory",
+      "missing_evidence": [],
+      "row": "A0",
+      "skip_reason": "",
+      "status": "pass"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/workspace_import_smoke.py",
+            "--all-packages",
+            "--run-commands"
+          ],
+          "returncode": 0,
+          "stderr_tail": [
+            "2026-07-06 21:48:15.137 | INFO     | kis_core.kis_client:<module>:170 - Per-process HTTP rate limiter: 2 req/sec"
+          ],
+          "stdout_tail": [
+            "PASS crypto-trader:python -m crypto_trader.cli --help",
+            "PASS trading-assistant:trading_assistant",
+            "PASS trading-assistant-data:trading_assistant_data",
+            "PASS trading-assistant-data:trading_assistant_data.cli",
+            "PASS trading-assistant-backtest:trading_assistant_backtest",
+            "PASS trading-assistant-backtest:trading_assistant_backtest.monthly",
+            "PASS trading-contracts:trading_contracts",
+            "PASS trading-contracts:trading_contracts.cli",
+            "PASS trading-contracts:python -m trading_contracts.cli --help",
+            "PASS trading-config:trading_config",
+            "PASS trading-config:trading_config.cli",
+            "PASS trading-config:python -m trading_config.cli --help",
+            "PASS trading-backtest:trading_backtest",
+            "PASS trading-backtest:trading_backtest.invariants",
+            "PASS trading-optimizer:trading_optimizer",
+            "PASS trading-instrumentation:trading_instrumentation",
+            "PASS trading-instrumentation:trading_instrumentation.approval_metadata",
+            "PASS trading-deployment:trading_deployment",
+            "PASS trading-deployment:trading_deployment.metadata",
+            "Workspace import smoke passed."
+          ]
+        }
+      ],
+      "errors": [],
+      "evidence_paths": [
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "gate": "Python/package metadata",
+      "missing_evidence": [],
+      "row": "A1",
+      "skip_reason": "",
+      "status": "pass"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_backtest_data_portability.py",
+            "--bot",
+            "ibkr"
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "      \"storage_class\": \"git_lfs\",",
+            "      \"tree_sha256\": \"ed2457e0cd901c90b48de38db0bcb6fa10ec88f5faea4a5f2b6fa033e55175dd\"",
+            "    }",
+            "  ],",
+            "  \"errors\": [],",
+            "  \"generated_at_utc\": \"2026-07-06T20:49:33Z\",",
+            "  \"manifest_path\": \"backtests/data_portability_manifest.json\",",
+            "  \"policy_checks\": {",
+            "    \"dockerignore_required\": [",
+            "      \"bots/*/backtests/*/data/raw/\",",
+            "      \"bots/crypto_trader/data/\",",
+            "      \"bots/*/data/backtests/output/\"",
+            "    ],",
+            "    \"gitignore_required\": [",
+            "      \"bots/*/data/backtests/output/\"",
+            "    ],",
+            "    \"parquet_lfs_required\": true",
+            "  },",
+            "  \"valid\": true",
+            "}"
+          ]
+        },
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_latest_round_no_drift.py",
+            "--bot",
+            "ibkr",
+            "--baseline",
+            "backtests/baselines/baseline_index.json",
+            "--strict"
+          ],
+          "returncode": 1,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "- ibkr:stock:portfolio_synergy: source hash drift in backtests/baselines/ibkr/stock/portfolio_synergy/rounds_manifest.json",
+            "- ibkr:stock:portfolio_synergy: archived source hash drift in backtests/baselines/ibkr/stock/portfolio_synergy/rounds_manifest.json",
+            "- ibkr:stock:portfolio_synergy: source hash drift in backtests/baselines/ibkr/stock/portfolio_synergy/round_3/optimized_config.json",
+            "- ibkr:stock:portfolio_synergy: archived source hash drift in backtests/baselines/ibkr/stock/portfolio_synergy/round_3/optimized_config.json",
+            "- ibkr:swing:atrss: source hash drift in backtests/baselines/ibkr/swing/atrss/rounds_manifest.json",
+            "- ibkr:swing:atrss: archived source hash drift in backtests/baselines/ibkr/swing/atrss/rounds_manifest.json",
+            "- ibkr:swing:atrss: source hash drift in backtests/baselines/ibkr/swing/atrss/round_3/optimized_config.json",
+            "- ibkr:swing:atrss: archived source hash drift in backtests/baselines/ibkr/swing/atrss/round_3/optimized_config.json",
+            "- ibkr:swing:helix: source hash drift in backtests/baselines/ibkr/swing/helix/rounds_manifest.json",
+            "- ibkr:swing:helix: archived source hash drift in backtests/baselines/ibkr/swing/helix/rounds_manifest.json",
+            "- ibkr:swing:helix: source hash drift in backtests/baselines/ibkr/swing/helix/round_5/optimized_config.json",
+            "- ibkr:swing:helix: archived source hash drift in backtests/baselines/ibkr/swing/helix/round_5/optimized_config.json",
+            "- ibkr:swing:portfolio_synergy: source hash drift in backtests/baselines/ibkr/swing/portfolio_synergy/rounds_manifest.json",
+            "- ibkr:swing:portfolio_synergy: archived source hash drift in backtests/baselines/ibkr/swing/portfolio_synergy/rounds_manifest.json",
+            "- ibkr:swing:portfolio_synergy: source hash drift in backtests/baselines/ibkr/swing/portfolio_synergy/round_3/optimized_config.json",
+            "- ibkr:swing:portfolio_synergy: archived source hash drift in backtests/baselines/ibkr/swing/portfolio_synergy/round_3/optimized_config.json",
+            "- ibkr:swing:tpc: source hash drift in backtests/baselines/ibkr/swing/tpc/rounds_manifest.json",
+            "- ibkr:swing:tpc: archived source hash drift in backtests/baselines/ibkr/swing/tpc/rounds_manifest.json",
+            "- ibkr:swing:tpc: source hash drift in backtests/baselines/ibkr/swing/tpc/round_8/optimized_config.json",
+            "- ibkr:swing:tpc: archived source hash drift in backtests/baselines/ibkr/swing/tpc/round_8/optimized_config.json"
+          ]
+        }
+      ],
+      "errors": [
+        "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/verify_latest_round_no_drift.py --bot ibkr --baseline backtests/baselines/baseline_index.json --strict"
+      ],
+      "evidence_paths": [
+        "backtests/data_portability_manifest.json",
+        "backtests/baselines/baseline_index.json"
+      ],
+      "gate": "IBKR latest round freeze",
+      "missing_evidence": [],
+      "row": "A2",
+      "skip_reason": "",
+      "status": "fail"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_backtest_data_portability.py",
+            "--bot",
+            "crypto"
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "      \"storage_class\": \"git_lfs\",",
+            "      \"tree_sha256\": \"36f11b6b0b12dbb659a2a5fea36d67f588bf808949620ac9e297090e9d8cc899\"",
+            "    }",
+            "  ],",
+            "  \"errors\": [],",
+            "  \"generated_at_utc\": \"2026-07-06T20:49:50Z\",",
+            "  \"manifest_path\": \"backtests/data_portability_manifest.json\",",
+            "  \"policy_checks\": {",
+            "    \"dockerignore_required\": [",
+            "      \"bots/*/backtests/*/data/raw/\",",
+            "      \"bots/crypto_trader/data/\",",
+            "      \"bots/*/data/backtests/output/\"",
+            "    ],",
+            "    \"gitignore_required\": [",
+            "      \"bots/*/data/backtests/output/\"",
+            "    ],",
+            "    \"parquet_lfs_required\": true",
+            "  },",
+            "  \"valid\": true",
+            "}"
+          ]
+        },
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_latest_round_no_drift.py",
+            "--bot",
+            "crypto",
+            "--baseline",
+            "backtests/baselines/baseline_index.json",
+            "--strict"
+          ],
+          "returncode": 1,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "- crypto:momentum: archived source hash drift in backtests/baselines/crypto/momentum/round_3/parity_alignment.json",
+            "- crypto:trend: source hash drift in backtests/baselines/crypto/trend/rounds_manifest.json",
+            "- crypto:trend: archived source hash drift in backtests/baselines/crypto/trend/rounds_manifest.json",
+            "- crypto:trend: source hash drift in backtests/baselines/crypto/trend/round_3/optimized_config.json",
+            "- crypto:trend: archived source hash drift in backtests/baselines/crypto/trend/round_3/optimized_config.json",
+            "- crypto:trend: source hash drift in backtests/baselines/crypto/trend/round_3/parity_alignment.json",
+            "- crypto:trend: archived source hash drift in backtests/baselines/crypto/trend/round_3/parity_alignment.json",
+            "- crypto:portfolio_round_3: source hash drift in backtests/baselines/crypto/portfolio/round_3/deployment_manifest.json",
+            "- crypto:portfolio_round_3: archived source hash drift in backtests/baselines/crypto/portfolio/round_3/deployment_manifest.json",
+            "- crypto:portfolio_round_3: source hash drift in backtests/baselines/crypto/portfolio/round_3/recommended_portfolio_config.json",
+            "- crypto:portfolio_round_3: archived source hash drift in backtests/baselines/crypto/portfolio/round_3/recommended_portfolio_config.json",
+            "- crypto:portfolio_round_3: source hash drift in backtests/baselines/crypto/portfolio/round_3/parity_alignment.json",
+            "- crypto:portfolio_round_3: archived source hash drift in backtests/baselines/crypto/portfolio/round_3/parity_alignment.json",
+            "- crypto:portfolio_round_3: source hash drift in backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/momentum.json",
+            "- crypto:portfolio_round_3: archived source hash drift in backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/momentum.json",
+            "- crypto:portfolio_round_3: source hash drift in backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/trend.json",
+            "- crypto:portfolio_round_3: archived source hash drift in backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/trend.json",
+            "- crypto:portfolio_round_3: source hash drift in backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/breakout.json",
+            "- crypto:portfolio_round_3: archived source hash drift in backtests/baselines/crypto/portfolio/round_3/recommended_strategy_configs/breakout.json",
+            "- crypto:portfolio_round_3: source hash drift in backtests/baselines/crypto/portfolio/rounds_manifest.superseded.json"
+          ]
+        }
+      ],
+      "errors": [
+        "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/verify_latest_round_no_drift.py --bot crypto --baseline backtests/baselines/baseline_index.json --strict"
+      ],
+      "evidence_paths": [
+        "backtests/data_portability_manifest.json",
+        "backtests/baselines/baseline_index.json"
+      ],
+      "gate": "Crypto latest round freeze",
+      "missing_evidence": [],
+      "row": "A3",
+      "skip_reason": "",
+      "status": "fail"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_live_config_promotions.py",
+            "--bot",
+            "crypto",
+            "--require-portfolio-bundle"
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "PASS crypto:momentum - promotion manifest contracts/promotions/crypto/momentum.json",
+            "PASS crypto:trend - promotion manifest contracts/promotions/crypto/trend.json",
+            "PASS crypto:breakout - promotion manifest contracts/promotions/crypto/breakout.json",
+            "PASS crypto:portfolio - round 3 bundle supersession evidence present",
+            "Live-config promotion check passed."
+          ]
+        }
+      ],
+      "errors": [],
+      "evidence_paths": [
+        "contracts/promotions/crypto",
+        "deployments/crypto/generated/live_config.effective.json"
+      ],
+      "gate": "Crypto portfolio bundle integrity",
+      "missing_evidence": [],
+      "row": "A4",
+      "skip_reason": "",
+      "status": "pass"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_backtest_data_portability.py",
+            "--bot",
+            "k_stock"
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "      \"storage_class\": \"local_generated_excluded\",",
+            "      \"tree_sha256\": \"5015493cc8ca1e3a9c958b41aeeee717b3865a45856642adc88f6050da0c4bee\"",
+            "    }",
+            "  ],",
+            "  \"errors\": [],",
+            "  \"generated_at_utc\": \"2026-07-06T20:50:13Z\",",
+            "  \"manifest_path\": \"backtests/data_portability_manifest.json\",",
+            "  \"policy_checks\": {",
+            "    \"dockerignore_required\": [",
+            "      \"bots/*/backtests/*/data/raw/\",",
+            "      \"bots/crypto_trader/data/\",",
+            "      \"bots/*/data/backtests/output/\"",
+            "    ],",
+            "    \"gitignore_required\": [",
+            "      \"bots/*/data/backtests/output/\"",
+            "    ],",
+            "    \"parquet_lfs_required\": true",
+            "  },",
+            "  \"valid\": true",
+            "}"
+          ]
+        },
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_latest_round_no_drift.py",
+            "--bot",
+            "k_stock",
+            "--baseline",
+            "backtests/baselines/baseline_index.json",
+            "--strict"
+          ],
+          "returncode": 1,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "- k_stock:portfolio_synergy: source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/phase_activity_log.jsonl",
+            "- k_stock:portfolio_synergy: archived source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/phase_activity_log.jsonl",
+            "- k_stock:portfolio_synergy: source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/phase_state.json",
+            "- k_stock:portfolio_synergy: archived source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/phase_state.json",
+            "- k_stock:portfolio_synergy: source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/progress.json",
+            "- k_stock:portfolio_synergy: archived source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/progress.json",
+            "- k_stock:portfolio_synergy: source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/round_evaluation.txt",
+            "- k_stock:portfolio_synergy: archived source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/round_evaluation.txt",
+            "- k_stock:portfolio_synergy: source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_diagnostics.txt",
+            "- k_stock:portfolio_synergy: archived source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_diagnostics.txt",
+            "- k_stock:portfolio_synergy: source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_diagnostics_status.json",
+            "- k_stock:portfolio_synergy: archived source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_diagnostics_status.json",
+            "- k_stock:portfolio_synergy: source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_full_diagnostics.json",
+            "- k_stock:portfolio_synergy: archived source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_full_diagnostics.json",
+            "- k_stock:portfolio_synergy: source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_full_diagnostics.md",
+            "- k_stock:portfolio_synergy: archived source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/round_final_full_diagnostics.md",
+            "- k_stock:portfolio_synergy: source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/run_spec.json",
+            "- k_stock:portfolio_synergy: archived source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/run_spec.json",
+            "- k_stock:portfolio_synergy: source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/run_summary.json",
+            "- k_stock:portfolio_synergy: archived source hash drift in backtests/baselines/k_stock/portfolio_synergy/round_1/run_summary.json"
+          ]
+        }
+      ],
+      "errors": [
+        "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/verify_latest_round_no_drift.py --bot k_stock --baseline backtests/baselines/baseline_index.json --strict"
+      ],
+      "evidence_paths": [
+        "backtests/data_portability_manifest.json",
+        "backtests/baselines/baseline_index.json",
+        "backtests/baselines/k_stock"
+      ],
+      "gate": "K-stock latest baseline decision",
+      "missing_evidence": [],
+      "row": "A5",
+      "skip_reason": "",
+      "status": "fail"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_live_config_promotions.py",
+            "--bot",
+            "ibkr",
+            "--require-latest-round",
+            "--require-effective-configs",
+            "--strict"
+          ],
+          "returncode": 1,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "FAIL ibkr:NQDTC_v2.1 - source_live_config hash drift",
+            "FAIL ibkr:NQ_REGIME - source_live_config hash drift",
+            "FAIL ibkr:VdubusNQ_v4 - source_live_config hash drift",
+            "FAIL ibkr:DownturnDominator_v1 - source_live_config hash drift",
+            "PASS ibkr:SCALP_IVB_AUCTION - disabled strategy tagged in promotion manifest",
+            "PASS ibkr:SCALP_PO3_REVERSAL - disabled strategy tagged in promotion manifest",
+            "PASS effective:ibkr - artifact deployments/ibkr/generated/strategies.effective.json ebe47c92380ca88a403ba297f8a37b804d2731d78cbfd985495556950d88f75d",
+            "PASS effective:crypto - artifact deployments/crypto/generated/live_config.effective.json 11dafa0c0aba877ea62290f3b257116732cde72ba32303d4125132bfb7d79316",
+            "PASS effective:k_stock - artifact deployments/k_stock/generated/olr_kalcb.effective.json 43a0ce3c52efbb9af375eb893b02c558ab2391bc9c4db2624d85aaea5ad65b9e",
+            "",
+            "Live-config promotion check failed:",
+            "- ibkr:ATRSS source_live_config hash drift",
+            "- ibkr:AKC_HELIX source_live_config hash drift",
+            "- ibkr:TPC source_live_config hash drift",
+            "- ibkr:IARIC_v1 source_live_config hash drift",
+            "- ibkr:ALCB_v1 source_live_config hash drift",
+            "- ibkr:NQDTC_v2.1 source_live_config hash drift",
+            "- ibkr:NQ_REGIME source_live_config hash drift",
+            "- ibkr:VdubusNQ_v4 source_live_config hash drift",
+            "- ibkr:DownturnDominator_v1 source_live_config hash drift"
+          ]
+        }
+      ],
+      "errors": [
+        "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/verify_live_config_promotions.py --bot ibkr --require-latest-round --require-effective-configs --strict"
+      ],
+      "evidence_paths": [
+        "contracts/promotions/ibkr",
+        "deployments/ibkr/generated/strategies.effective.json"
+      ],
+      "gate": "Live config alignment: IBKR",
+      "missing_evidence": [],
+      "row": "A6",
+      "skip_reason": "",
+      "status": "fail"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_live_config_promotions.py",
+            "--bot",
+            "crypto",
+            "--require-latest-round",
+            "--require-effective-configs",
+            "--strict"
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "PASS crypto:momentum - promotion manifest contracts/promotions/crypto/momentum.json",
+            "PASS crypto:trend - promotion manifest contracts/promotions/crypto/trend.json",
+            "PASS crypto:breakout - promotion manifest contracts/promotions/crypto/breakout.json",
+            "PASS crypto:portfolio - round 3 bundle supersession evidence present",
+            "PASS effective:ibkr - artifact deployments/ibkr/generated/strategies.effective.json ebe47c92380ca88a403ba297f8a37b804d2731d78cbfd985495556950d88f75d",
+            "PASS effective:crypto - artifact deployments/crypto/generated/live_config.effective.json 11dafa0c0aba877ea62290f3b257116732cde72ba32303d4125132bfb7d79316",
+            "PASS effective:k_stock - artifact deployments/k_stock/generated/olr_kalcb.effective.json 43a0ce3c52efbb9af375eb893b02c558ab2391bc9c4db2624d85aaea5ad65b9e",
+            "Live-config promotion check passed."
+          ]
+        }
+      ],
+      "errors": [],
+      "evidence_paths": [
+        "contracts/promotions/crypto",
+        "deployments/crypto/generated/live_config.effective.json"
+      ],
+      "gate": "Live config alignment: crypto",
+      "missing_evidence": [],
+      "row": "A7",
+      "skip_reason": "",
+      "status": "pass"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_live_config_promotions.py",
+            "--bot",
+            "k_stock",
+            "--require-latest-round",
+            "--require-effective-configs",
+            "--strict"
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "PASS k_stock:kalcb - promotion manifest contracts/promotions/k_stock/kalcb.json",
+            "PASS k_stock:olr - promotion manifest contracts/promotions/k_stock/olr.json",
+            "PASS k_stock:olr_kalcb_portfolio - promotion manifest contracts/promotions/k_stock/olr_kalcb_portfolio.json",
+            "PASS k_stock:kalcb-frontier - active source frontier.size values are 103",
+            "PASS effective:ibkr - artifact deployments/ibkr/generated/strategies.effective.json ebe47c92380ca88a403ba297f8a37b804d2731d78cbfd985495556950d88f75d",
+            "PASS effective:crypto - artifact deployments/crypto/generated/live_config.effective.json 11dafa0c0aba877ea62290f3b257116732cde72ba32303d4125132bfb7d79316",
+            "PASS effective:k_stock - artifact deployments/k_stock/generated/olr_kalcb.effective.json 43a0ce3c52efbb9af375eb893b02c558ab2391bc9c4db2624d85aaea5ad65b9e",
+            "Live-config promotion check passed."
+          ]
+        }
+      ],
+      "errors": [],
+      "evidence_paths": [
+        "contracts/promotions/k_stock",
+        "deployments/k_stock/generated/olr_kalcb.effective.json"
+      ],
+      "gate": "Live config alignment: K-stock",
+      "missing_evidence": [],
+      "row": "A8",
+      "skip_reason": "",
+      "status": "pass"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_strategy_plugin_contracts.py",
+            "--all"
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "PASS contracts\\strategy_plugins\\crypto_breakout_v1\\strategy_plugin_contract.json - crypto-breakout-v1 (shadow_validated)",
+            "PASS contracts\\strategy_plugins\\crypto_momentum_v1\\strategy_plugin_contract.json - crypto-momentum-v1 (shadow_validated)",
+            "PASS contracts\\strategy_plugins\\crypto_trend_v1\\strategy_plugin_contract.json - crypto-trend-v1 (shadow_validated)",
+            "PASS contracts\\strategy_plugins\\k_stock_olr_kalcb\\strategy_plugin_contract.json - k-stock-olr-kalcb (shadow_validated)",
+            "PASS contracts\\strategy_plugins\\trading_momentum_family\\strategy_plugin_contract.json - trading-momentum-family (shadow_validated)",
+            "PASS contracts\\strategy_plugins\\trading_stock_family\\strategy_plugin_contract.json - trading-stock-family (shadow_validated)",
+            "PASS contracts\\strategy_plugins\\trading_swing_family\\strategy_plugin_contract.json - trading-swing-family (shadow_validated)",
+            "PASS runtime metadata defaults - canonical strategy plugin contract paths",
+            "Strategy plugin contract verification passed."
+          ]
+        }
+      ],
+      "errors": [],
+      "evidence_paths": [
+        "contracts/strategy_plugins"
+      ],
+      "gate": "Strategy plugin contracts",
+      "missing_evidence": [],
+      "row": "A9",
+      "skip_reason": "",
+      "status": "pass"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/run_decision_parity_matrix.py",
+            "--promoted-only"
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "          \"      \\\"decision_parity_report_path\\\": \\\"C:\\\\\\\\Users\\\\\\\\sehyu\\\\\\\\Documents\\\\\\\\Other\\\\\\\\Projects\\\\\\\\trading_agent\\\\\\\\artifacts\\\\\\\\validation\\\\\\\\decision_parity_matrix\\\\\\\\k_stock_olr_kalcb\\\\\\\\decision_parity\\\\\\\\decision_parity_report.json\\\",\",",
+            "          \"      \\\"decision_parity_status\\\": \\\"pass\\\",\",",
+            "          \"      \\\"eligible_for_approval\\\": false,\",",
+            "          \"      \\\"eligible_for_optimizer\\\": true,\",",
+            "          \"      \\\"fixture_count\\\": 2,\",",
+            "          \"      \\\"live_repo_commit_sha\\\": \\\"3c6441d81d8ab1fab379a3234399b747e847abda\\\",\",",
+            "          \"      \\\"ok\\\": true,\",",
+            "          \"      \\\"run_id\\\": \\\"archived-a10-week1-k_stock_olr_kalcb\\\",\",",
+            "          \"      \\\"strategy_plugin_id\\\": \\\"k-stock-olr-kalcb\\\",\",",
+            "          \"      \\\"summary_path\\\": \\\"C:\\\\\\\\Users\\\\\\\\sehyu\\\\\\\\Documents\\\\\\\\Other\\\\\\\\Projects\\\\\\\\trading_agent\\\\\\\\artifacts\\\\\\\\validation\\\\\\\\decision_parity_matrix\\\\\\\\k_stock_olr_kalcb\\\\\\\\decision_parity\\\\\\\\decision_parity_validation_summary.json\\\",\",",
+            "          \"      \\\"validated_live_repo_path\\\": \\\"C:\\\\\\\\Users\\\\\\\\sehyu\\\\\\\\Documents\\\\\\\\Other\\\\\\\\Projects\\\\\\\\trading_agent\\\\\\\\bots\\\\\\\\k_stock_trader\\\"\",",
+            "          \"    }\",",
+            "          \"  ]\",",
+            "          \"}\"",
+            "        ]",
+            "      }",
+            "    }",
+            "  ],",
+            "  \"errors\": []",
+            "}"
+          ]
+        }
+      ],
+      "errors": [],
+      "evidence_paths": [
+        "artifacts/validation/decision_parity_matrix"
+      ],
+      "gate": "Decision parity",
+      "missing_evidence": [],
+      "row": "A10",
+      "skip_reason": "",
+      "status": "pass"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/run_workspace_checks.py",
+            "deployment-gate"
+          ],
+          "returncode": 1,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "....s.s.............................................................     [100%]",
+            "+ (packages/trading_assistant_data) C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m pytest tests/test_contracts.py -q",
+            "[monthly-data-backtest] exit=0; duration=52.1s; command=C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/run_workspace_checks.py data-contracts",
+            "[monthly-data-backtest] + (.) C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/run_workspace_checks.py loop-ledger",
+            "bringing up nodes...",
+            "bringing up nodes...",
+            "",
+            ".............                                                            [100%]",
+            "13 passed in 32.03s",
+            "+ (packages/trading_assistant) C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m pytest tests/test_loop_run_ledger.py tests/test_scheduled_runs.py -q",
+            "[monthly-data-backtest] exit=0; duration=46.7s; command=C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/run_workspace_checks.py loop-ledger",
+            "[monthly-data-backtest] + (.) C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/run_workspace_checks.py performance-learning-ledger",
+            "performance-learning-ledger checks failed:",
+            "AM-20 performance_learning_ledger: measured assistant-driven record 5064e0e097ccdba9 is missing learning-sufficiency context.",
+            "  remediation: regenerate a non-placeholder performance_learning_ledger.jsonl from proposal, strategy-change, portfolio-outcome, monthly artifact, and loop-run sources.",
+            "AM-20 performance_learning_ledger: measured assistant-driven record 143c8521bf44e2df is missing learning-sufficiency context.",
+            "  remediation: regenerate a non-placeholder performance_learning_ledger.jsonl from proposal, strategy-change, portfolio-outcome, monthly artifact, and loop-run sources.",
+            "+ (.) C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/check_performance_learning_ledger.py",
+            "[monthly-data-backtest] exit=1; duration=10.2s; command=C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/run_workspace_checks.py performance-learning-ledger",
+            "[monthly-data-backtest] failed after 338.3s"
+          ]
+        }
+      ],
+      "errors": [
+        "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/run_workspace_checks.py deployment-gate"
+      ],
+      "evidence_paths": [
+        "artifacts/validation/backtest_integrity/validation_matrix"
+      ],
+      "gate": "Assistant workspace checks",
+      "missing_evidence": [],
+      "row": "A11",
+      "skip_reason": "",
+      "status": "fail"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "-m",
+            "trading_contracts.cli",
+            "validate",
+            "--all-known-reference-artifacts",
+            "--repo-root",
+            "."
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "    {",
+            "      \"model\": \"StrategyPromotionManifest\",",
+            "      \"path\": \"contracts\\\\promotions\\\\k_stock\\\\olr.json\",",
+            "      \"role\": \"promotion_manifest\"",
+            "    },",
+            "    {",
+            "      \"model\": \"StrategyPromotionManifest\",",
+            "      \"path\": \"contracts\\\\promotions\\\\k_stock\\\\olr_kalcb_portfolio.json\",",
+            "      \"role\": \"promotion_manifest\"",
+            "    },",
+            "    {",
+            "      \"model\": \"CryptoDeploymentManifestV1\",",
+            "      \"path\": \"backtests\\\\baselines\\\\crypto\\\\portfolio\\\\round_3\\\\deployment_manifest.json\",",
+            "      \"role\": \"deployment_manifest\"",
+            "    }",
+            "  ],",
+            "  \"repo_root\": \"C:\\\\Users\\\\sehyu\\\\Documents\\\\Other\\\\Projects\\\\trading_agent\",",
+            "  \"valid\": true,",
+            "  \"validated_count\": 63",
+            "}"
+          ]
+        },
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_dependency_boundaries.py"
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "Dependency boundary check passed."
+          ]
+        }
+      ],
+      "errors": [],
+      "evidence_paths": [
+        "packages/trading_contracts",
+        "contracts/schemas"
+      ],
+      "gate": "Shared contracts compatibility",
+      "missing_evidence": [],
+      "row": "A12",
+      "skip_reason": "",
+      "status": "pass"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_optimizer_compatibility.py",
+            "--bot",
+            "all",
+            "--fixture-set",
+            "smoke"
+          ],
+          "returncode": 1,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "          \"  ]\",",
+            "          \"}\"",
+            "        ]",
+            "      },",
+            "      \"legacy_runner\": \"backtests.auto.shared.phase_runner.PhaseRunner\",",
+            "      \"scope\": \"k_stock_olr_kalcb\",",
+            "      \"status\": \"pass\",",
+            "      \"wrapped_legacy_runners\": [",
+            "        {",
+            "          \"bot\": \"k_stock\",",
+            "          \"class_name\": \"PhaseRunner\",",
+            "          \"module_path\": \"backtests.auto.shared.phase_runner\",",
+            "          \"source_path\": \"bots/k_stock_trader/backtests/auto/shared/phase_runner.py\",",
+            "          \"source_sha256\": \"df77a3df9b81cf21e825dc8bbb88dc76308c4a99e3de1b149453965a7af616bf\"",
+            "        }",
+            "      ]",
+            "    }",
+            "  ],",
+            "  \"valid\": false",
+            "}"
+          ]
+        }
+      ],
+      "errors": [
+        "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/verify_optimizer_compatibility.py --bot all --fixture-set smoke"
+      ],
+      "evidence_paths": [
+        "artifacts/validation/optimizer_compatibility"
+      ],
+      "gate": "Optimizer compatibility",
+      "missing_evidence": [],
+      "row": "A13",
+      "skip_reason": "",
+      "status": "fail"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/run_backtest_integrity_matrix.py",
+            "--promoted-only"
+          ],
+          "returncode": 1,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "      }",
+            "    },",
+            "    {",
+            "      \"kind\": \"thin_adapter_audit\",",
+            "      \"path\": \"artifacts/validation/backtest_integrity/thin_adapter_audit.json\",",
+            "      \"statuses\": {",
+            "        \"contracts/strategy_plugins/crypto_breakout_v1/strategy_plugin_contract.json\": \"pass\",",
+            "        \"contracts/strategy_plugins/crypto_momentum_v1/strategy_plugin_contract.json\": \"pass\",",
+            "        \"contracts/strategy_plugins/crypto_trend_v1/strategy_plugin_contract.json\": \"pass\",",
+            "        \"contracts/strategy_plugins/k_stock_olr_kalcb/strategy_plugin_contract.json\": \"pass\",",
+            "        \"contracts/strategy_plugins/trading_momentum_family/strategy_plugin_contract.json\": \"pass\",",
+            "        \"contracts/strategy_plugins/trading_stock_family/strategy_plugin_contract.json\": \"pass\",",
+            "        \"contracts/strategy_plugins/trading_swing_family/strategy_plugin_contract.json\": \"pass\"",
+            "      }",
+            "    }",
+            "  ],",
+            "  \"errors\": [",
+            "    \"C:\\\\Users\\\\sehyu\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe tools/verify_latest_round_no_drift.py --bot all --baseline backtests/baselines/baseline_index.json --strict\"",
+            "  ]",
+            "}"
+          ]
+        }
+      ],
+      "errors": [
+        "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/run_backtest_integrity_matrix.py --promoted-only"
+      ],
+      "evidence_paths": [
+        "artifacts/validation/backtest_data_portability_report.json",
+        "artifacts/validation/backtest_integrity/invariant_report.json",
+        "artifacts/validation/backtest_integrity/thin_adapter_audit.json"
+      ],
+      "gate": "Backtest integrity invariants",
+      "missing_evidence": [],
+      "row": "A14",
+      "skip_reason": "",
+      "status": "fail"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/build_bot_image.py",
+            "--bot",
+            "all",
+            "--emit-dependency-reports"
+          ],
+          "returncode": 1,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "          ],",
+            "          \"stdout_tail\": []",
+            "        },",
+            "        \"runtime_import_smoke_command\": [",
+            "          \"docker\",",
+            "          \"run\",",
+            "          \"--rm\",",
+            "          \"trading-agent-k_stock:acceptance\",",
+            "          \"python\",",
+            "          \"-c\",",
+            "          \"import k_stock_trader; import deployment.olr_kalcb.runtime\"",
+            "        ],",
+            "        \"status\": \"failed\",",
+            "        \"tag\": \"trading-agent-k_stock:acceptance\"",
+            "      },",
+            "      \"package\": \"k-stock-trader\"",
+            "    }",
+            "  ],",
+            "  \"valid\": false",
+            "}"
+          ]
+        }
+      ],
+      "errors": [
+        "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/build_bot_image.py --bot all --emit-dependency-reports"
+      ],
+      "evidence_paths": [
+        "deployments/ibkr/generated/dependency_report.json",
+        "deployments/crypto/generated/dependency_report.json",
+        "deployments/k_stock/generated/dependency_report.json"
+      ],
+      "gate": "Deployment image build",
+      "missing_evidence": [],
+      "row": "A15",
+      "skip_reason": "",
+      "status": "fail"
+    },
+    {
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_deployment_metadata.py",
+            "--bot",
+            "all"
+          ],
+          "returncode": 1,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "        \"tools/run_runtime_deployment_metadata_matrix.py\",",
+            "        \"--bot\",",
+            "        \"all\"",
+            "      ],",
+            "      \"kind\": \"runtime_metadata_orchestration\",",
+            "      \"returncode\": 1,",
+            "      \"stderr_tail\": [],",
+            "      \"stdout_tail\": [",
+            "        \"{\",",
+            "        \"  \\\"errors\\\": [\",",
+            "        \"    \\\"source control worktree is dirty; runtime deployment metadata must be emitted from a clean checkout\\\"\",",
+            "        \"  ],\",",
+            "        \"  \\\"records\\\": [],\",",
+            "        \"  \\\"worktree_clean\\\": false\",",
+            "        \"}\"",
+            "      ]",
+            "    }",
+            "  ],",
+            "  \"valid\": false",
+            "}"
+          ]
+        }
+      ],
+      "errors": [
+        "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/verify_deployment_metadata.py --bot all"
+      ],
+      "evidence_paths": [
+        "deployments",
+        "contracts/strategy_plugins"
+      ],
+      "gate": "Deployment metadata",
+      "missing_evidence": [],
+      "row": "A16",
+      "skip_reason": "",
+      "status": "fail"
+    },
+    {
+      "allowed_reference_mentions": [],
+      "blocked_by_rows": [
+        "A2",
+        "A3",
+        "A5",
+        "A6",
+        "A11",
+        "A13",
+        "A14",
+        "A15",
+        "A16"
+      ],
+      "checklist_failures": [],
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_backtest_data_portability.py",
+            "--bot",
+            "all"
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "      \"storage_class\": \"local_generated_excluded\",",
+            "      \"tree_sha256\": \"5015493cc8ca1e3a9c958b41aeeee717b3865a45856642adc88f6050da0c4bee\"",
+            "    }",
+            "  ],",
+            "  \"errors\": [],",
+            "  \"generated_at_utc\": \"2026-07-06T21:15:15Z\",",
+            "  \"manifest_path\": \"backtests/data_portability_manifest.json\",",
+            "  \"policy_checks\": {",
+            "    \"dockerignore_required\": [",
+            "      \"bots/*/backtests/*/data/raw/\",",
+            "      \"bots/crypto_trader/data/\",",
+            "      \"bots/*/data/backtests/output/\"",
+            "    ],",
+            "    \"gitignore_required\": [",
+            "      \"bots/*/data/backtests/output/\"",
+            "    ],",
+            "    \"parquet_lfs_required\": true",
+            "  },",
+            "  \"valid\": true",
+            "}"
+          ]
+        },
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/check_workspace_structure.py",
+            "--layout",
+            "final"
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "workspace structure OK (final layout)"
+          ]
+        },
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_cutover_plan.py"
+          ],
+          "returncode": 0,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "{",
+            "  \"errors\": [],",
+            "  \"plan\": \"deployments/cutover_plan.json\",",
+            "  \"valid\": true",
+            "}"
+          ]
+        },
+        {
+          "command": [
+            "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/verify_operational_deployment_evidence.py"
+          ],
+          "returncode": 1,
+          "stderr_tail": [],
+          "stdout_tail": [
+            "{",
+            "  \"errors\": [",
+            "    \"missing operational evidence deployments/operational_evidence.json\",",
+            "    \"collect VPS and local assistant evidence after deployment before marking completion\"",
+            "  ],",
+            "  \"evidence\": \"deployments/operational_evidence.json\",",
+            "  \"plan\": \"deployments/cutover_plan.json\",",
+            "  \"valid\": false",
+            "}"
+          ]
+        }
+      ],
+      "errors": [
+        "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe tools/verify_operational_deployment_evidence.py",
+        "blocked by failing row A2",
+        "blocked by failing row A3",
+        "blocked by failing row A5",
+        "blocked by failing row A6",
+        "blocked by failing row A11",
+        "blocked by failing row A13",
+        "blocked by failing row A14",
+        "blocked by failing row A15",
+        "blocked by failing row A16",
+        "missing evidence path deployments/operational_evidence.json"
+      ],
+      "evidence_paths": [
+        "migration_acceptance_report.json",
+        "backtests/data_portability_manifest.json",
+        "artifacts/validation/backtest_data_portability_report.json",
+        "deployments/cutover_plan.json",
+        "deployments/operational_evidence.json"
+      ],
+      "gate": "Final refactor acceptance",
+      "missing_evidence": [],
+      "reference_failures": [],
+      "row": "A17",
+      "skip_reason": "",
+      "status": "fail"
+    }
+  ],
+  "strict": true,
+  "valid": false
+}

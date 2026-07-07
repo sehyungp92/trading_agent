@@ -1,0 +1,204 @@
+{
+  "strategy": {
+    "symbols": [
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "indicators": {
+      "ema_fast": 20,
+      "ema_mid": 50,
+      "ema_slow": 200,
+      "adx_period": 14,
+      "atr_period": 14,
+      "rsi_period": 14,
+      "volume_ma_period": 20,
+      "atr_avg_period": 20
+    },
+    "bias": {
+      "min_4h_conditions": 2,
+      "min_1h_conditions": 2,
+      "h4_ema_slope_lookback": 2,
+      "h4_structure_lookback": 20,
+      "h1_adx_threshold": 10.0
+    },
+    "setup": {
+      "min_confluences_a": 2,
+      "min_confluences_b": 1,
+      "min_room_a": 2.0,
+      "min_room_b": 0.0,
+      "fib_low": 0.382,
+      "fib_high": 0.618,
+      "use_vwap": false,
+      "reject_mid_nowhere": true,
+      "reject_parabolic_extension": false,
+      "reject_impulsive_breakdown": true,
+      "reject_extended_reaction": true,
+      "impulse_lookback": 20,
+      "swing_lookback": 10,
+      "use_rsi_pullback_filter": true,
+      "rsi_pullback_threshold": 40.0
+    },
+    "confirmation": {
+      "enable_engulfing": true,
+      "enable_hammer": true,
+      "enable_inside_bar": true,
+      "enable_micro_shift": true,
+      "enable_base_break": true,
+      "require_volume_confirm": true,
+      "enforce_volume_on_trigger": false,
+      "enforce_volume_on_weak_confirmations": true,
+      "volume_threshold_mult": 1.1,
+      "require_zone_proximity": false,
+      "zone_proximity_atr": 0.5,
+      "hammer_wick_ratio": 2.0,
+      "micro_shift_min_bars": 3,
+      "base_break_min_bars": 2,
+      "base_break_max_bars": 4,
+      "min_confluences_for_weak": 2,
+      "weak_confirmations": [
+        "micro_structure_shift",
+        "shooting_star"
+      ]
+    },
+    "entry": {
+      "entry_on_close": true,
+      "entry_on_break": false,
+      "max_bars_after_confirmation": 3,
+      "mode": "legacy"
+    },
+    "stops": {
+      "atr_buffer_mult": 0.3,
+      "alt_atr_buffer_mult": 0.5,
+      "atr_buffer_min": 0.15,
+      "atr_buffer_max": 0.6,
+      "min_stop_atr_mult": 2.0,
+      "swing_lookback": 10,
+      "major_symbols": [
+        "BTC",
+        "ETH"
+      ]
+    },
+    "exits": {
+      "tp1_r": 1.2,
+      "tp1_frac": 0.16,
+      "tp2_r": 2.5,
+      "tp2_frac": 0.2,
+      "be_acceptance_bars": 2,
+      "proof_lock_enabled": true,
+      "proof_lock_trigger_r": 0.55,
+      "proof_lock_stop_r": 0.0,
+      "proof_lock_min_bars": 3,
+      "followthrough_exit_enabled": true,
+      "followthrough_peak_r": 0.35,
+      "followthrough_bars": 4,
+      "followthrough_floor_r": 0.0,
+      "followthrough_scope": "inflection",
+      "mfe_retrace_exit_enabled": true,
+      "mfe_retrace_trigger_r": 1.25,
+      "mfe_retrace_giveback_r": 0.75,
+      "mfe_retrace_min_r": 0.5,
+      "mfe_retrace_min_bars": 5,
+      "mfe_retrace_scope": "inflection",
+      "soft_time_stop_bars": 12,
+      "soft_time_stop_min_r": 0.5,
+      "hard_time_stop_bars": 20,
+      "hard_time_stop_min_r": 1.0,
+      "enable_structure_break_exit": true,
+      "enable_reversal_candle_exit": true,
+      "enable_counter_volume_exit": true,
+      "enable_h1_thesis_exit": true,
+      "enable_disorderly_exit": true,
+      "enable_funding_exit": true,
+      "structure_break_body_atr_mult": 1.5,
+      "reversal_body_atr_mult": 1.0,
+      "reversal_volume_mult": 1.5,
+      "be_buffer_r": 0.2,
+      "quick_exit_enabled": true,
+      "quick_exit_bars": 6,
+      "quick_exit_max_mfe_r": 0.15,
+      "quick_exit_max_r": -0.3
+    },
+    "trail": {
+      "trail_mode": "components",
+      "trail_behind_structure": false,
+      "trail_behind_ema": true,
+      "trail_ema_period": 25,
+      "trail_chandelier_lookback": 20,
+      "trail_chandelier_atr_mult": 2.5,
+      "trail_atr_buffer": 0.5,
+      "trail_use_tightest": true,
+      "trail_activation_bars": 6,
+      "trail_activation_r": 0.35,
+      "trail_warmup_bars": 5,
+      "trail_warmup_buffer_mult": 1.0,
+      "trail_r_adaptive": true,
+      "trail_r_basis": "current",
+      "trail_buffer_wide": 1.5,
+      "trail_buffer_tight": 0.3,
+      "trail_r_ceiling": 1.5,
+      "runner_trail_enabled": true,
+      "runner_trail_scope": "all",
+      "runner_trigger_r": 1.5,
+      "runner_trail_r_basis": "mfe",
+      "runner_trail_buffer_wide": 1.25,
+      "runner_trail_buffer_tight": 0.25,
+      "runner_trail_r_ceiling": 1.25,
+      "trail_mfe_floor_enabled": false,
+      "trail_mfe_floor_threshold": 0.8,
+      "trail_mfe_floor_buffer": 0.5
+    },
+    "risk": {
+      "risk_pct_a": 0.0266,
+      "risk_pct_b": 0.021,
+      "max_leverage_major": 10.0,
+      "min_leverage": 1.5,
+      "max_leverage_alt": 8.0,
+      "min_liquidation_buffer_atr": 3.0,
+      "max_correlated_risk": 0.028,
+      "max_gross_risk": 0.056,
+      "max_concurrent_positions": 3,
+      "major_symbols": [
+        "BTC",
+        "ETH"
+      ]
+    },
+    "session": {
+      "london_start": 8,
+      "london_end": 16,
+      "ny_start": 13,
+      "ny_end": 21,
+      "overlap_start": 13,
+      "overlap_end": 16,
+      "reduced_window_require_a": false
+    },
+    "filters": {
+      "atr_expansion_mult": 2.5,
+      "atr_compression_mult": 0.3,
+      "adx_chop_threshold": 10.0,
+      "funding_extreme_threshold": 0.01,
+      "funding_moderate_threshold": 0.005
+    },
+    "daily_limits": {
+      "max_consecutive_losses": 2,
+      "max_daily_loss_pct": 0.015,
+      "max_trades_per_day": 5
+    },
+    "funding_hold": {
+      "avoid_adverse_funding": true,
+      "funding_exit_threshold": 0.01
+    },
+    "symbol_filter": {
+      "btc_direction": "long_only",
+      "eth_direction": "long_only",
+      "sol_direction": "short_only"
+    },
+    "reentry": {
+      "enabled": true,
+      "cooldown_bars": 3,
+      "max_loss_r": 1.5,
+      "max_reentries": 2,
+      "min_confluences_override": 0
+    }
+  }
+}

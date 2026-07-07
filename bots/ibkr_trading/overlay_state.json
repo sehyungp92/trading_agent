@@ -1,0 +1,10 @@
+{
+  "shares": {
+    "QQQ": 100
+  },
+  "last_rebalance_date": "2026-07-02",
+  "entry_trade_ids": {},
+  "last_signals": {
+    "QQQ": true
+  }
+}

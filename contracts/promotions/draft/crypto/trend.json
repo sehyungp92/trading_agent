@@ -1,0 +1,20 @@
+{
+  "approval": {
+    "notes": [],
+    "status": "phase3_alignment_passed"
+  },
+  "baseline_id": "crypto:trend",
+  "baseline_status": "frozen",
+  "bot_id": "crypto_trader",
+  "generated_at": "2026-07-03T01:39:38+00:00",
+  "optimizer_round": {
+    "optimized_config_path": "backtests/baselines/crypto/trend/round_3/optimized_config.json",
+    "parity_alignment_path": "backtests/baselines/crypto/trend/round_3/parity_alignment.json",
+    "round_id": 3,
+    "rounds_manifest_path": "backtests/baselines/crypto/trend/rounds_manifest.json"
+  },
+  "promotion_state": "draft",
+  "schema_version": "strategy_promotion_manifest.v1.draft",
+  "strategy_id": "trend",
+  "venue": "hyperliquid"
+}

@@ -1,0 +1,12 @@
+{
+  "acceptance_evidence": true,
+  "approval_packet_paths": [
+    "packages/trading_assistant/memory/findings/loop_projection_acceptance\\approval_packet_acceptance.json"
+  ],
+  "gate_passed_candidate_count": 1,
+  "proposal_ids": [
+    "loop_acceptance_proposal"
+  ],
+  "run_id": "monthly-loop-projection-acceptance-2026-06",
+  "selected_candidate_count": 1
+}

@@ -1,0 +1,174 @@
+{
+  "$defs": {
+    "DataBundleSlice": {
+      "additionalProperties": true,
+      "properties": {
+        "authoritative": {
+          "default": false,
+          "title": "Authoritative",
+          "type": "boolean"
+        },
+        "calendar": {
+          "default": "",
+          "title": "Calendar",
+          "type": "string"
+        },
+        "checksum": {
+          "default": "",
+          "title": "Checksum",
+          "type": "string"
+        },
+        "end_ts": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End Ts"
+        },
+        "manifest_id": {
+          "default": "",
+          "title": "Manifest Id",
+          "type": "string"
+        },
+        "manifest_path": {
+          "title": "Manifest Path",
+          "type": "string"
+        },
+        "market": {
+          "default": "",
+          "title": "Market",
+          "type": "string"
+        },
+        "source": {
+          "default": "",
+          "title": "Source",
+          "type": "string"
+        },
+        "start_ts": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start Ts"
+        },
+        "symbol": {
+          "title": "Symbol",
+          "type": "string"
+        },
+        "timeframe": {
+          "title": "Timeframe",
+          "type": "string"
+        }
+      },
+      "required": [
+        "manifest_path",
+        "symbol",
+        "timeframe"
+      ],
+      "title": "DataBundleSlice",
+      "type": "object"
+    },
+    "DataBundleStatus": {
+      "enum": [
+        "authoritative",
+        "diagnostics_only",
+        "blocked"
+      ],
+      "title": "DataBundleStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": true,
+  "properties": {
+    "adjustment_policy": {
+      "default": "",
+      "title": "Adjustment Policy",
+      "type": "string"
+    },
+    "bundle_checksum": {
+      "default": "",
+      "title": "Bundle Checksum",
+      "type": "string"
+    },
+    "bundle_id": {
+      "default": "",
+      "title": "Bundle Id",
+      "type": "string"
+    },
+    "calendars": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Calendars",
+      "type": "array"
+    },
+    "data_repo_branch": {
+      "default": "",
+      "title": "Data Repo Branch",
+      "type": "string"
+    },
+    "data_repo_commit_sha": {
+      "default": "",
+      "title": "Data Repo Commit Sha",
+      "type": "string"
+    },
+    "data_repo_path": {
+      "default": "",
+      "title": "Data Repo Path",
+      "type": "string"
+    },
+    "diagnostics_only_reason": {
+      "default": "",
+      "title": "Diagnostics Only Reason",
+      "type": "string"
+    },
+    "fee_model_version": {
+      "default": "",
+      "title": "Fee Model Version",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "data_bundle_manifest_v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "slice_manifests": {
+      "items": {
+        "$ref": "#/$defs/DataBundleSlice"
+      },
+      "title": "Slice Manifests",
+      "type": "array"
+    },
+    "slippage_model_version": {
+      "default": "",
+      "title": "Slippage Model Version",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/DataBundleStatus",
+      "default": "diagnostics_only"
+    }
+  },
+  "required": [
+    "slice_manifests"
+  ],
+  "title": "DataBundleManifest",
+  "type": "object"
+}

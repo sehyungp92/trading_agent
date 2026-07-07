@@ -1,0 +1,610 @@
+{
+  "$defs": {
+    "AssistantLineage": {
+      "properties": {
+        "deployment_id": {
+          "default": "",
+          "title": "Deployment Id",
+          "type": "string"
+        },
+        "experiment_id": {
+          "default": "",
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "hypothesis_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Hypothesis Ids",
+          "type": "array"
+        },
+        "monthly_outcome_id": {
+          "default": "",
+          "title": "Monthly Outcome Id",
+          "type": "string"
+        },
+        "monthly_search_brief_id": {
+          "default": "",
+          "title": "Monthly Search Brief Id",
+          "type": "string"
+        },
+        "parameter_set_id": {
+          "default": "",
+          "title": "Parameter Set Id",
+          "type": "string"
+        },
+        "proposal_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Proposal Ids",
+          "type": "array"
+        },
+        "strategy_change_record_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Strategy Change Record Ids",
+          "type": "array"
+        },
+        "suggestion_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Suggestion Ids",
+          "type": "array"
+        },
+        "variant_id": {
+          "default": "",
+          "title": "Variant Id",
+          "type": "string"
+        },
+        "weekly_signal_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Weekly Signal Ids",
+          "type": "array"
+        }
+      },
+      "title": "AssistantLineage",
+      "type": "object"
+    },
+    "MonthlyApprovalMode": {
+      "enum": [
+        "none",
+        "experiment",
+        "manual_required"
+      ],
+      "title": "MonthlyApprovalMode",
+      "type": "string"
+    },
+    "MonthlyRunMode": {
+      "enum": [
+        "incumbent_validation",
+        "smoke_repair",
+        "phased_auto",
+        "structural_review",
+        "outcome_measurement"
+      ],
+      "title": "MonthlyRunMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": true,
+  "properties": {
+    "approval_mode": {
+      "$ref": "#/$defs/MonthlyApprovalMode",
+      "default": "none"
+    },
+    "artifact_root": {
+      "title": "Artifact Root",
+      "type": "string"
+    },
+    "assistant_lineage": {
+      "$ref": "#/$defs/AssistantLineage"
+    },
+    "backtest_command": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Backtest Command",
+      "type": "array"
+    },
+    "backtest_repo_commit_sha": {
+      "default": "",
+      "title": "Backtest Repo Commit Sha",
+      "type": "string"
+    },
+    "backtest_repo_path": {
+      "default": "",
+      "title": "Backtest Repo Path",
+      "type": "string"
+    },
+    "blocked_learning_capabilities": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Blocked Learning Capabilities",
+      "type": "array"
+    },
+    "bot_id": {
+      "title": "Bot Id",
+      "type": "string"
+    },
+    "bridge_contract_paths": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Bridge Contract Paths",
+      "type": "object"
+    },
+    "bridge_deployment_metadata_paths": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Bridge Deployment Metadata Paths",
+      "type": "object"
+    },
+    "cache_path": {
+      "default": "",
+      "title": "Cache Path",
+      "type": "string"
+    },
+    "calibration_end": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Calibration End"
+    },
+    "calibration_start": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Calibration Start"
+    },
+    "candidate_attempt_id": {
+      "default": "",
+      "title": "Candidate Attempt Id",
+      "type": "string"
+    },
+    "candidate_attempt_number": {
+      "default": 0,
+      "title": "Candidate Attempt Number",
+      "type": "integer"
+    },
+    "candidate_attempt_status": {
+      "default": "",
+      "title": "Candidate Attempt Status",
+      "type": "string"
+    },
+    "candidate_workspace_key": {
+      "default": "",
+      "title": "Candidate Workspace Key",
+      "type": "string"
+    },
+    "candidate_workspace_manifest_path": {
+      "default": "",
+      "title": "Candidate Workspace Manifest Path",
+      "type": "string"
+    },
+    "candidate_workspace_root": {
+      "default": "",
+      "title": "Candidate Workspace Root",
+      "type": "string"
+    },
+    "checkpoint_path": {
+      "default": "",
+      "title": "Checkpoint Path",
+      "type": "string"
+    },
+    "config_hash": {
+      "default": "",
+      "title": "Config Hash",
+      "type": "string"
+    },
+    "config_version": {
+      "default": "",
+      "title": "Config Version",
+      "type": "string"
+    },
+    "control_plane_commit_sha": {
+      "default": "",
+      "title": "Control Plane Commit Sha",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "data_bundle_checksum": {
+      "default": "",
+      "title": "Data Bundle Checksum",
+      "type": "string"
+    },
+    "data_bundle_manifest_path": {
+      "default": "",
+      "title": "Data Bundle Manifest Path",
+      "type": "string"
+    },
+    "data_manifest_checksum": {
+      "default": "",
+      "title": "Data Manifest Checksum",
+      "type": "string"
+    },
+    "deployment_id": {
+      "default": "",
+      "title": "Deployment Id",
+      "type": "string"
+    },
+    "deployment_metadata_path": {
+      "default": "",
+      "title": "Deployment Metadata Path",
+      "type": "string"
+    },
+    "deployment_metadata_paths": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Deployment Metadata Paths",
+      "type": "object"
+    },
+    "expected_session_paths": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Expected Session Paths",
+      "type": "array"
+    },
+    "end_of_round_diagnostics_path": {
+      "default": "",
+      "title": "End Of Round Diagnostics Path",
+      "type": "string"
+    },
+    "expected_outputs": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Expected Outputs",
+      "type": "array"
+    },
+    "fold_manifest_path": {
+      "default": "",
+      "title": "Fold Manifest Path",
+      "type": "string"
+    },
+    "in_sample_end": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "In Sample End"
+    },
+    "in_sample_start": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "In Sample Start"
+    },
+    "latest_month_end": {
+      "format": "date",
+      "title": "Latest Month End",
+      "type": "string"
+    },
+    "latest_month_start": {
+      "format": "date",
+      "title": "Latest Month Start",
+      "type": "string"
+    },
+    "learning_sufficiency_manifest_path": {
+      "default": "",
+      "title": "Learning Sufficiency Manifest Path",
+      "type": "string"
+    },
+    "learning_sufficiency_status": {
+      "default": "",
+      "title": "Learning Sufficiency Status",
+      "type": "string"
+    },
+    "manifest_version": {
+      "default": "monthly_run_manifest_v1",
+      "title": "Manifest Version",
+      "type": "string"
+    },
+    "market_data_manifest_path": {
+      "title": "Market Data Manifest Path",
+      "type": "string"
+    },
+    "max_workers": {
+      "default": 2,
+      "title": "Max Workers",
+      "type": "integer"
+    },
+    "mode": {
+      "$ref": "#/$defs/MonthlyRunMode",
+      "default": "incumbent_validation"
+    },
+    "monthly_search_brief_id": {
+      "default": "",
+      "title": "Monthly Search Brief Id",
+      "type": "string"
+    },
+    "monthly_search_brief_path": {
+      "default": "",
+      "title": "Monthly Search Brief Path",
+      "type": "string"
+    },
+    "monthly_search_guidance": {
+      "additionalProperties": true,
+      "title": "Monthly Search Guidance",
+      "type": "object"
+    },
+    "next_round_id": {
+      "default": "",
+      "title": "Next Round Id",
+      "type": "string"
+    },
+    "objective_version": {
+      "default": "objective_weights_v1",
+      "title": "Objective Version",
+      "type": "string"
+    },
+    "outcome_prior_snapshot_path": {
+      "default": "",
+      "title": "Outcome Prior Snapshot Path",
+      "type": "string"
+    },
+    "output_artifact_names": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Output Artifact Names",
+      "type": "array"
+    },
+    "parameter_set_id": {
+      "default": "",
+      "title": "Parameter Set Id",
+      "type": "string"
+    },
+    "prior_round_id": {
+      "default": "",
+      "title": "Prior Round Id",
+      "type": "string"
+    },
+    "proposal_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Proposal Ids",
+      "type": "array"
+    },
+    "required_json_schemas": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Required Json Schemas",
+      "type": "array"
+    },
+    "retry_reason": {
+      "default": "",
+      "title": "Retry Reason",
+      "type": "string"
+    },
+    "round_id": {
+      "default": "",
+      "title": "Round Id",
+      "type": "string"
+    },
+    "round_n_portfolio_config_path": {
+      "default": "",
+      "title": "Round N Portfolio Config Path",
+      "type": "string"
+    },
+    "round_n_portfolio_config_version": {
+      "default": "",
+      "title": "Round N Portfolio Config Version",
+      "type": "string"
+    },
+    "round_n_strategy_config_path": {
+      "default": "",
+      "title": "Round N Strategy Config Path",
+      "type": "string"
+    },
+    "round_n_strategy_config_version": {
+      "default": "",
+      "title": "Round N Strategy Config Version",
+      "type": "string"
+    },
+    "rounds_manifest_path": {
+      "default": "",
+      "title": "Rounds Manifest Path",
+      "type": "string"
+    },
+    "runtime_support_paths": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Runtime Support Paths",
+      "type": "array"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "run_month": {
+      "title": "Run Month",
+      "type": "string"
+    },
+    "score_component_cap": {
+      "default": 7,
+      "title": "Score Component Cap",
+      "type": "integer"
+    },
+    "selection_oos_end": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Selection Oos End"
+    },
+    "selection_oos_start": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Selection Oos Start"
+    },
+    "source_runner_contract_versions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Source Runner Contract Versions",
+      "type": "array"
+    },
+    "source_weekly_signal_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Source Weekly Signal Ids",
+      "type": "array"
+    },
+    "stall_timeout_seconds": {
+      "default": 0,
+      "title": "Stall Timeout Seconds",
+      "type": "integer"
+    },
+    "strategy_discovery_packet_path": {
+      "default": "",
+      "title": "Strategy Discovery Packet Path",
+      "type": "string"
+    },
+    "strategy_id": {
+      "title": "Strategy Id",
+      "type": "string"
+    },
+    "strategy_plugin_contract_path": {
+      "default": "",
+      "title": "Strategy Plugin Contract Path",
+      "type": "string"
+    },
+    "strategy_plugin_contract_paths": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Strategy Plugin Contract Paths",
+      "type": "object"
+    },
+    "strategy_plugin_contract_version": {
+      "default": "",
+      "title": "Strategy Plugin Contract Version",
+      "type": "string"
+    },
+    "strategy_plugin_id": {
+      "default": "",
+      "title": "Strategy Plugin Id",
+      "type": "string"
+    },
+    "strategy_version": {
+      "default": "",
+      "title": "Strategy Version",
+      "type": "string"
+    },
+    "suggestion_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Suggestion Ids",
+      "type": "array"
+    },
+    "supported_learning_capabilities": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Supported Learning Capabilities",
+      "type": "array"
+    },
+    "telemetry_manifest_path": {
+      "title": "Telemetry Manifest Path",
+      "type": "string"
+    },
+    "trading_repo_branch": {
+      "default": "",
+      "title": "Trading Repo Branch",
+      "type": "string"
+    },
+    "trading_repo_commit_sha": {
+      "default": "",
+      "title": "Trading Repo Commit Sha",
+      "type": "string"
+    },
+    "trading_repo_path": {
+      "default": "",
+      "title": "Trading Repo Path",
+      "type": "string"
+    },
+    "workflow_contract_path": {
+      "default": "",
+      "title": "Workflow Contract Path",
+      "type": "string"
+    },
+    "workflow_contract_version": {
+      "default": "monthly_incumbent_validation_v1",
+      "title": "Workflow Contract Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "run_month",
+    "bot_id",
+    "strategy_id",
+    "latest_month_start",
+    "latest_month_end",
+    "market_data_manifest_path",
+    "telemetry_manifest_path",
+    "artifact_root"
+  ],
+  "title": "MonthlyRunManifest",
+  "type": "object"
+}

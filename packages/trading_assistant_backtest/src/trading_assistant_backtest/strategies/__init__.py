@@ -1,0 +1,1 @@
+"""Strategy plugin registry namespace."""

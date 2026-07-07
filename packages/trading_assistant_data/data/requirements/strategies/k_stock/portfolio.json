@@ -1,0 +1,5182 @@
+{
+  "schema_version": "strategy_data_requirements_v1",
+  "source_universe_file": "bots/k_stock_trader/config/olr_kalcb/olr_deployment_universe_103.yaml",
+  "source_daily_manifest": "data/krx_daily_parquet/manifest.json",
+  "source_strategy_configs": [
+    "bots/k_stock_trader/config/optimization/olr.yaml",
+    "bots/k_stock_trader/config/optimization/kalcb.yaml"
+  ],
+  "source_request_manifests": [
+    "data/source_requests/reference_snapshot_2026-05-30/requests/kis_krx_intraday_bars.json",
+    "data/source_requests/reference_snapshot_2026-05-30/requests/lrs_krx_daily_export.json",
+    "data/source_requests/reference_snapshot_2026-05-30/requests/lrs_krx_flow_export.json",
+    "data/source_requests/reference_snapshot_2026-05-30/requests/lrs_krx_table_export.json"
+  ],
+  "ownership_policy": "explicit_k_stock_olr_kalcb_universe_103_allowlist_v1",
+  "symbol_count": 103,
+  "symbols_sha256": "143a7feecc48515d9d2dbaccc10aef7b583cb5b06680a05e737703388342a18e",
+  "required_intraday_timeframe": "5m",
+  "requirements": [
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000100",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000100",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000100",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000100",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "000100",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000270",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000270",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000270",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000270",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "000270",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000660",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000660",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000660",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000660",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "000660",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000720",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000720",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000720",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000720",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "000720",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000810",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000810",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000810",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "000810",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "000810",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "001040",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "001040",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "001040",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "001040",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "001040",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "003490",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "003490",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "003490",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "003490",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "003490",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "003550",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "003550",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "003550",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "003550",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "003550",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "003670",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "003670",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "003670",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "003670",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "003670",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "004020",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "004020",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "004020",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "004020",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "004020",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "004170",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "004170",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "004170",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "004170",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "004170",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "004990",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "004990",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "004990",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "004990",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "004990",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005300",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005300",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005300",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005300",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "005300",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005380",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005380",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005380",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005380",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "005380",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005490",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005490",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005490",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005490",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "005490",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005830",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005830",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005830",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005830",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "005830",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005930",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005930",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005930",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "005930",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "005930",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "006260",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "006260",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "006260",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "006260",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "006260",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "006360",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "006360",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "006360",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "006360",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "006360",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "006400",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "006400",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "006400",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "006400",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "006400",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "009150",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "009150",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "009150",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "009150",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "009150",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "009540",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "009540",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "009540",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "009540",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "009540",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "010120",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "010120",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "010120",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "010120",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "010120",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "010130",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "010130",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "010130",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "010130",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "010130",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "010950",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "010950",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "010950",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "010950",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "010950",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "011170",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "011170",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "011170",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "011170",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "011170",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "011790",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "011790",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "011790",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "011790",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "011790",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "012330",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "012330",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "012330",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "012330",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "012330",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "012450",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "012450",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "012450",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "012450",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "012450",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "015760",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "015760",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "015760",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "015760",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "015760",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "017670",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "017670",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "017670",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "017670",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "017670",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "018880",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "018880",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "018880",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "018880",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "018880",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "020560",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "020560",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "020560",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "020560",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "020560",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "024110",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "024110",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "024110",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "024110",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "024110",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "028050",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "028050",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "028050",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "028050",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "028050",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "028260",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "028260",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "028260",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "028260",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "028260",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "030200",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "030200",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "030200",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "030200",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "030200",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "032640",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "032640",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "032640",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "032640",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "032640",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "032830",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "032830",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "032830",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "032830",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "032830",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "034020",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "034020",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "034020",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "034020",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "034020",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "034220",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "034220",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "034220",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "034220",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "034220",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "034730",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "034730",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "034730",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "034730",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "034730",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "035420",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "035420",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "035420",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "035420",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "035420",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "035720",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "035720",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "035720",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "035720",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "035720",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "035900",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "035900",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "035900",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "035900",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "035900",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "036460",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "036460",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "036460",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "036460",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "036460",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "036570",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "036570",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "036570",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "036570",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "036570",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "041510",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "041510",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "041510",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "041510",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "041510",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "042660",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "042660",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "042660",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "042660",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "042660",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "042700",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "042700",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "042700",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "042700",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "042700",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "047040",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "047040",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "047040",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "047040",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "047040",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "047810",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "047810",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "047810",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "047810",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "047810",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "051900",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "051900",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "051900",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "051900",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "051900",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "051910",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "051910",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "051910",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "051910",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "051910",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "053800",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "053800",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "053800",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "053800",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "053800",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "055550",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "055550",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "055550",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "055550",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "055550",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "058470",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "058470",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "058470",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "058470",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "058470",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "064350",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "064350",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "064350",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "064350",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "064350",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "066570",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "066570",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "066570",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "066570",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "066570",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "068270",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "068270",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "068270",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "068270",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "068270",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "069960",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "069960",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "069960",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "069960",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "069960",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "079550",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "079550",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "079550",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "079550",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "079550",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "086520",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "086520",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "086520",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "086520",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "086520",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "086790",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "086790",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "086790",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "086790",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "086790",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "090430",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "090430",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "090430",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "090430",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "090430",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "096770",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "096770",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "096770",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "096770",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "096770",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "105560",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "105560",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "105560",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "105560",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "105560",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "108320",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "108320",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "108320",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "108320",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "108320",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "112610",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "112610",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "112610",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "112610",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "112610",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "128940",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "128940",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "128940",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "128940",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "128940",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "138930",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "138930",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "138930",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "138930",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "138930",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "141080",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "141080",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "141080",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "141080",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "141080",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "145020",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "145020",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "145020",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "145020",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "145020",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "161390",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "161390",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "161390",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "161390",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "161390",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "175330",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "175330",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "175330",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "175330",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "175330",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "185750",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "185750",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "185750",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "185750",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "185750",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "196170",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "196170",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "196170",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "196170",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "196170",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "204320",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "204320",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "204320",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "204320",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "204320",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "207940",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "207940",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "207940",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "207940",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "207940",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "214370",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "214370",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "214370",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "214370",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "214370",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "240810",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "240810",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "240810",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "240810",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "240810",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "247540",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "247540",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "247540",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "247540",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "247540",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "251270",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "251270",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "251270",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "251270",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "251270",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "259960",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "259960",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "259960",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "259960",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "259960",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "263750",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "263750",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "263750",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "263750",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "263750",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "267250",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "267250",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "267250",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "267250",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "267250",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "267260",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "267260",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "267260",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "267260",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "267260",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "280360",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "280360",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "280360",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "280360",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "280360",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "293490",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "293490",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "293490",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "293490",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "293490",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "298040",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "298040",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "298040",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "298040",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "298040",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "298050",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "298050",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "298050",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "298050",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "298050",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "302440",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "302440",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "302440",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "302440",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "302440",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "316140",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "316140",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "316140",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "316140",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "316140",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "323410",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "323410",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "323410",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "323410",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "323410",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "326030",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "326030",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "326030",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "326030",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "326030",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "329180",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "329180",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "329180",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "329180",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "329180",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "352820",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "352820",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "352820",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "352820",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "352820",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "357780",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "357780",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "357780",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "357780",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "357780",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "373220",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "373220",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "373220",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "373220",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "373220",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "375500",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "375500",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "375500",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "375500",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "375500",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "377300",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "377300",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "377300",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "377300",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "377300",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "403870",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "403870",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "403870",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "403870",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "403870",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "950160",
+      "timeframe": "1d",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_ohlcv",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "950160",
+      "timeframe": "1d_daily_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "950160",
+      "timeframe": "1d_daily_foreign_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_foreign_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "950160",
+      "timeframe": "1d_daily_institutional_flow",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "daily_institutional_flow",
+      "data_root": "data/krx_daily_parquet",
+      "session_policy": "krx_daily_bar_session_v1"
+    },
+    {
+      "source": "kis",
+      "market": "krx_equity",
+      "symbol": "950160",
+      "timeframe": "5m",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "intraday_5m",
+      "data_root": "data/kis_intraday_parquet",
+      "session_policy": "krx_stock_regular_session_0900_1530_kst_v1"
+    },
+    {
+      "source": "lrs",
+      "market": "krx_equity",
+      "symbol": "ALL",
+      "timeframe": "static_or_daily",
+      "strategy_data_family": "k_stock_olr_kalcb",
+      "data_role": "sector_map",
+      "data_root": "data/krx_daily_parquet",
+      "source_table": "sector_map"
+    }
+  ]
+}
+

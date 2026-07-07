@@ -1,0 +1,62 @@
+{
+  "manifest_id": "learning-sufficiency-acceptance-1",
+  "bot_id": "bot1",
+  "strategy_id": "strat1",
+  "family_id": "strat1",
+  "portfolio_id": "core_portfolio",
+  "run_month": "2026-06",
+  "window_start": "2026-06-01",
+  "window_end": "2026-06-30",
+  "telemetry_authoritative_eligibility": "learning_authoritative",
+  "eligibility": "learning_authoritative",
+  "event_counts_by_type": {
+    "trade": 12,
+    "portfolio_rule": 3,
+    "deployment_metadata": 1
+  },
+  "runtime_evidence_support": {
+    "trade_outcome_lineage": {
+      "evidence_class": "trade_outcome_lineage",
+      "support_state": "observed",
+      "configured_event_types": [
+        "trade"
+      ],
+      "observed_event_count": 12,
+      "support_source_paths": [
+        "packages/trading_assistant/memory/findings/performance_learning_acceptance/strategy_monthly_verdict.json"
+      ],
+      "observed_evidence_paths": [
+        "packages/trading_assistant/memory/findings/performance_learning_acceptance/strategy_monthly_verdict.json"
+      ],
+      "event_value_classifications": {
+        "trade": "learning_authority"
+      }
+    }
+  },
+  "capability_status": {
+    "execution_learning": {
+      "capability_id": "execution_learning",
+      "status": "learning_authoritative",
+      "required_checks": [
+        "trade_outcome_lineage"
+      ],
+      "satisfied_checks": [
+        "trade_outcome_lineage"
+      ],
+      "evidence_paths": [
+        "packages/trading_assistant/memory/findings/performance_learning_acceptance/strategy_monthly_verdict.json"
+      ]
+    }
+  },
+  "blocked_learning_capabilities": [],
+  "supported_learning_capabilities": [
+    "execution_learning"
+  ],
+  "evidence_paths": [
+    "packages/trading_assistant/memory/findings/performance_learning_acceptance/learning_sufficiency_manifest.json",
+    "packages/trading_assistant/memory/findings/performance_learning_acceptance/strategy_monthly_verdict.json"
+  ],
+  "total_events": 16,
+  "generated_at": "2026-06-23T15:39:44Z",
+  "manifest_version": "learning_sufficiency_manifest_v1"
+}

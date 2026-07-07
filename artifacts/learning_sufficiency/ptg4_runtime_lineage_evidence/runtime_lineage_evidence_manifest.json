@@ -1,0 +1,31 @@
+{
+  "bot_id": "bot1",
+  "event_paths": {
+    "fill": "artifacts/learning_sufficiency/ptg4_runtime_lineage_evidence/bot_runtime_emitters/inferred_fills/inferred_fills_2026-07-05.jsonl",
+    "missed_opportunity": "artifacts/learning_sufficiency/ptg4_runtime_lineage_evidence/bot_runtime_emitters/missed/missed_2026-07-05.jsonl",
+    "order": "artifacts/learning_sufficiency/ptg4_runtime_lineage_evidence/bot_runtime_emitters/orders/orders_2026-07-05.jsonl",
+    "portfolio_rule": "artifacts/learning_sufficiency/ptg4_runtime_lineage_evidence/bot_runtime_emitters/portfolio_rules/rules_2026-07-05.jsonl",
+    "trade": "artifacts/learning_sufficiency/ptg4_runtime_lineage_evidence/bot_runtime_emitters/trades/trades_2026-07-05.jsonl"
+  },
+  "evidence_source": "ibkr_stock_runtime_emitters",
+  "generated_at": "2026-07-05T16:35:32Z",
+  "generation_status": "pass",
+  "schema_version": "ptg4_runtime_lineage_evidence_manifest_v1",
+  "source_ids": {
+    "candidate_ids": [
+      "acceptance-candidate"
+    ],
+    "proposal_ids": [
+      "proposal-acceptance-1"
+    ],
+    "source_weekly_signal_ids": [
+      "weekly-signal-breakout"
+    ],
+    "strategy_change_record_ids": [
+      "change-acceptance-1"
+    ]
+  },
+  "source_inventory_path": "artifacts/learning_sufficiency/assistant_lineage_source_inventory.json",
+  "source_seed_path": "packages/trading_assistant/memory/findings/strategy_change_ledger.jsonl",
+  "strategy_id": "strat1"
+}

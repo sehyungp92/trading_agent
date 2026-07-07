@@ -1,0 +1,201 @@
+{
+  "bot_id": "ibkr",
+  "capabilities": {
+    "after_cost_authority": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "trade"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "trade"
+      ],
+      "status": "configured_unobserved"
+    },
+    "counterfactual_coverage": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "missed_opportunity"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "missed_opportunity"
+      ],
+      "status": "configured_unobserved"
+    },
+    "decision_to_order_join": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "filter_decision",
+        "order"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "filter_decision",
+        "order"
+      ],
+      "status": "configured_unobserved"
+    },
+    "denominator_coverage": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "pipeline_funnel"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "pipeline_funnel"
+      ],
+      "status": "configured_unobserved"
+    },
+    "filter_threshold_learning": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "filter_decision",
+        "missed_opportunity",
+        "order",
+        "pipeline_funnel",
+        "trade"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "filter_decision",
+        "missed_opportunity",
+        "order",
+        "pipeline_funnel",
+        "trade"
+      ],
+      "status": "configured_unobserved"
+    },
+    "missed_opportunity_lineage": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "missed_opportunity"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "missed_opportunity"
+      ],
+      "status": "configured_unobserved"
+    },
+    "order_to_fill_join": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "fill",
+        "order"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "fill",
+        "order"
+      ],
+      "status": "configured_unobserved"
+    },
+    "proposal_trace_coverage": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [],
+      "observed": true,
+      "required_event_types": [
+        "deployment_metadata"
+      ],
+      "status": "observed"
+    },
+    "risk_portfolio_join": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "missed_opportunity",
+        "portfolio_rule",
+        "trade"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "missed_opportunity",
+        "portfolio_rule",
+        "trade"
+      ],
+      "status": "configured_unobserved"
+    },
+    "runtime_evidence_coverage": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "missed_opportunity",
+        "trade"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "deployment_metadata",
+        "missed_opportunity",
+        "trade"
+      ],
+      "status": "configured_unobserved"
+    },
+    "trade_outcome_lineage": {
+      "configured": true,
+      "missing_configured_event_types": [],
+      "missing_observed_event_types": [
+        "trade"
+      ],
+      "observed": false,
+      "required_event_types": [
+        "trade"
+      ],
+      "status": "configured_unobserved"
+    }
+  },
+  "declares_complete_runtime_support": true,
+  "event_value_classifications": {
+    "admin_correction": "learning_gap_diagnostic",
+    "allocation_drift": "learning_gap_diagnostic",
+    "allocation_freeze": "operational_health",
+    "allocation_snapshot": "operational_health",
+    "allocation_unfreeze": "operational_health",
+    "bot_error": "operational_health",
+    "config_snapshot": "operational_health",
+    "coordinator_action": "learning_gap_diagnostic",
+    "correlation_snapshot": "learning_gap_diagnostic",
+    "daily_snapshot": "operational_health",
+    "decision_event": "learning_gap_diagnostic",
+    "deployment": "learning_authority",
+    "drift_assignment": "learning_gap_diagnostic",
+    "error": "operational_health",
+    "family_daily_snapshot": "operational_health",
+    "filter_decision": "learning_authority",
+    "heartbeat": "operational_health",
+    "indicator_snapshot": "learning_gap_diagnostic",
+    "inferred_fill": "learning_authority",
+    "market_snapshot": "learning_gap_diagnostic",
+    "missed_opportunity": "learning_authority",
+    "order": "learning_authority",
+    "orderbook_context": "learning_authority",
+    "parameter_change": "learning_gap_diagnostic",
+    "pipeline_funnel": "learning_authority",
+    "portfolio_rule_check": "learning_authority",
+    "portfolio_snapshot": "operational_health",
+    "position_snapshot": "operational_health",
+    "post_exit": "learning_gap_diagnostic",
+    "process_quality": "learning_gap_diagnostic",
+    "reconciliation_alert": "operational_health",
+    "regime_transition": "learning_gap_diagnostic",
+    "risk_decision": "learning_authority",
+    "risk_denial": "learning_authority",
+    "risk_halt": "operational_health",
+    "sector_exposure": "learning_gap_diagnostic",
+    "stop_adjustment": "learning_gap_diagnostic",
+    "trade": "learning_authority",
+    "trade_entry": "learning_authority"
+  },
+  "schema_version": "runtime_evidence_support_v1",
+  "strategy_id": "trading_swing_family",
+  "support_source_paths": [
+    "bots/ibkr_trading/strategies/swing/instrumentation/src/sidecar.py"
+  ]
+}

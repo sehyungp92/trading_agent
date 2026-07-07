@@ -1,6 +1,6 @@
 # Evaluation: contract-first-python-workspace-monorepo-implementation-plan.md
 
-Date: 2026-07-02. Method: full read of the 1,157-line plan plus filesystem verification of its factual claims against `_references/`.
+Date: 2026-07-02. Method: full read of the 1,157-line plan plus filesystem verification of its factual claims against `legacy source snapshots`.
 
 ## Verdict
 
@@ -8,7 +8,7 @@ Date: 2026-07-02. Method: full read of the 1,157-line plan plus filesystem verif
 
 ## Verified factual grounding (all claims checked are TRUE)
 
-- Root contains only `docs/`, `_references/`, `CLAUDE.md`. **Not a git repository.**
+- Root contains only `docs/`, `legacy source snapshots`, `CLAUDE.md`. **Not a git repository.**
 - IBKR: `pyproject.toml`, `apps/runtime/runtime.py`, baseline fixture manifest, `baseline_regeneration.py`, `verify_backtest_baseline_regeneration.py`, `config/strategies.yaml` — all exist.
 - K-stock: no `pyproject.toml`; has `requirements.txt`/`pytest.ini`; `data/backtests/output` **missing** as claimed; runtime + session script exist.
 - Crypto: `src/crypto_trader` layout confirmed; `output/portfolio/rounds_manifest.json` **missing** while `round_3/deployment_manifest.json` and `parity_alignment.json` exist — exactly the integrity blocker the plan flags.

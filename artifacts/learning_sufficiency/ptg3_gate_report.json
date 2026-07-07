@@ -1,0 +1,320 @@
+{
+  "active_scope_count": 7,
+  "checklist_status": "blocked",
+  "checks": [
+    {
+      "details": [
+        {
+          "item_count": 28,
+          "section": "Phase 3",
+          "unchecked_count": 1,
+          "unchecked_items": [
+            "Build missed-opportunity causal graph."
+          ]
+        },
+        {
+          "item_count": 16,
+          "section": "Phase 4",
+          "unchecked_count": 6,
+          "unchecked_items": [
+            "Confirm central `PipelineFunnelSnapshot` is sufficient for target denominator fields.",
+            "Confirm crypto funnel emission and sidecar forwarding.",
+            "Confirm IBKR stock `pipeline_funnel` sidecar forwarding.",
+            "Confirm IBKR momentum `pipeline_funnel` sidecar forwarding.",
+            "Confirm IBKR swing `pipeline_funnel` sidecar forwarding.",
+            "Add or derive K-stock funnel support."
+          ]
+        },
+        {
+          "item_count": 13,
+          "section": "Phase 5",
+          "unchecked_count": 7,
+          "unchecked_items": [
+            "Define canonical `after_cost_outcome`.",
+            "Add `net_pnl_source`.",
+            "Add `after_cost_status`.",
+            "Preserve existing gross/net fields for compatibility.",
+            "Add K-stock tax/fee source mapping.",
+            "Add crypto funding/fee/slippage source mapping.",
+            "Add futures/IBKR commission/slippage source mapping."
+          ]
+        }
+      ],
+      "name": "required_finite_checklist_sections_complete",
+      "passed": false
+    }
+  ],
+  "fail_closed_contract_status": "pass",
+  "failures": [],
+  "gate": "PTG-3",
+  "generated_at": "2026-07-05T16:35:23Z",
+  "manifest_count": 7,
+  "manifests": [
+    {
+      "blocked_learning_capabilities": [
+        "approval_grade_strategy_change",
+        "execution_learning",
+        "filter_threshold_learning",
+        "new_strategy_discovery",
+        "portfolio_interaction_learning",
+        "sizing_learning"
+      ],
+      "bot_id": "crypto",
+      "check_statuses": {
+        "after_cost_coverage": "missing",
+        "decision_to_order_join": "missing",
+        "decision_to_trade_join": "missing",
+        "denominator_coverage": "missing",
+        "order_to_fill_join": "missing",
+        "risk_portfolio_join": "missing"
+      },
+      "eligibility": "diagnostics_only",
+      "failures": [],
+      "known_gap_count": 28,
+      "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_breakout_v1/learning_sufficiency_manifest.json",
+      "readiness_failures": [
+        "denominator_coverage is missing",
+        "after_cost_coverage is missing"
+      ],
+      "strategy_id": "crypto_breakout_v1"
+    },
+    {
+      "blocked_learning_capabilities": [
+        "approval_grade_strategy_change",
+        "execution_learning",
+        "filter_threshold_learning",
+        "new_strategy_discovery",
+        "portfolio_interaction_learning",
+        "sizing_learning"
+      ],
+      "bot_id": "crypto",
+      "check_statuses": {
+        "after_cost_coverage": "missing",
+        "decision_to_order_join": "missing",
+        "decision_to_trade_join": "missing",
+        "denominator_coverage": "missing",
+        "order_to_fill_join": "missing",
+        "risk_portfolio_join": "missing"
+      },
+      "eligibility": "diagnostics_only",
+      "failures": [],
+      "known_gap_count": 28,
+      "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_momentum_v1/learning_sufficiency_manifest.json",
+      "readiness_failures": [
+        "denominator_coverage is missing",
+        "after_cost_coverage is missing"
+      ],
+      "strategy_id": "crypto_momentum_v1"
+    },
+    {
+      "blocked_learning_capabilities": [
+        "approval_grade_strategy_change",
+        "execution_learning",
+        "filter_threshold_learning",
+        "new_strategy_discovery",
+        "portfolio_interaction_learning",
+        "sizing_learning"
+      ],
+      "bot_id": "crypto",
+      "check_statuses": {
+        "after_cost_coverage": "missing",
+        "decision_to_order_join": "missing",
+        "decision_to_trade_join": "missing",
+        "denominator_coverage": "missing",
+        "order_to_fill_join": "missing",
+        "risk_portfolio_join": "missing"
+      },
+      "eligibility": "diagnostics_only",
+      "failures": [],
+      "known_gap_count": 28,
+      "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_trend_v1/learning_sufficiency_manifest.json",
+      "readiness_failures": [
+        "denominator_coverage is missing",
+        "after_cost_coverage is missing"
+      ],
+      "strategy_id": "crypto_trend_v1"
+    },
+    {
+      "blocked_learning_capabilities": [
+        "approval_grade_strategy_change",
+        "execution_learning",
+        "filter_threshold_learning",
+        "new_strategy_discovery",
+        "portfolio_interaction_learning",
+        "sizing_learning"
+      ],
+      "bot_id": "k_stock",
+      "check_statuses": {
+        "after_cost_coverage": "missing",
+        "decision_to_order_join": "missing",
+        "decision_to_trade_join": "missing",
+        "denominator_coverage": "missing",
+        "order_to_fill_join": "missing",
+        "risk_portfolio_join": "missing"
+      },
+      "eligibility": "diagnostics_only",
+      "failures": [],
+      "known_gap_count": 28,
+      "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/k_stock/2026-06/k_stock_olr_kalcb/learning_sufficiency_manifest.json",
+      "readiness_failures": [
+        "denominator_coverage is missing",
+        "after_cost_coverage is missing"
+      ],
+      "strategy_id": "k_stock_olr_kalcb"
+    },
+    {
+      "blocked_learning_capabilities": [
+        "approval_grade_strategy_change",
+        "execution_learning",
+        "filter_threshold_learning",
+        "new_strategy_discovery",
+        "portfolio_interaction_learning",
+        "sizing_learning"
+      ],
+      "bot_id": "ibkr",
+      "check_statuses": {
+        "after_cost_coverage": "missing",
+        "decision_to_order_join": "missing",
+        "decision_to_trade_join": "missing",
+        "denominator_coverage": "missing",
+        "order_to_fill_join": "missing",
+        "risk_portfolio_join": "missing"
+      },
+      "eligibility": "diagnostics_only",
+      "failures": [],
+      "known_gap_count": 28,
+      "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_momentum_family/learning_sufficiency_manifest.json",
+      "readiness_failures": [
+        "denominator_coverage is missing",
+        "after_cost_coverage is missing"
+      ],
+      "strategy_id": "trading_momentum_family"
+    },
+    {
+      "blocked_learning_capabilities": [
+        "approval_grade_strategy_change",
+        "execution_learning",
+        "filter_threshold_learning",
+        "new_strategy_discovery",
+        "portfolio_interaction_learning",
+        "sizing_learning"
+      ],
+      "bot_id": "ibkr",
+      "check_statuses": {
+        "after_cost_coverage": "missing",
+        "decision_to_order_join": "missing",
+        "decision_to_trade_join": "missing",
+        "denominator_coverage": "missing",
+        "order_to_fill_join": "missing",
+        "risk_portfolio_join": "missing"
+      },
+      "eligibility": "diagnostics_only",
+      "failures": [],
+      "known_gap_count": 28,
+      "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_stock_family/learning_sufficiency_manifest.json",
+      "readiness_failures": [
+        "denominator_coverage is missing",
+        "after_cost_coverage is missing"
+      ],
+      "strategy_id": "trading_stock_family"
+    },
+    {
+      "blocked_learning_capabilities": [
+        "approval_grade_strategy_change",
+        "execution_learning",
+        "filter_threshold_learning",
+        "new_strategy_discovery",
+        "portfolio_interaction_learning",
+        "sizing_learning"
+      ],
+      "bot_id": "ibkr",
+      "check_statuses": {
+        "after_cost_coverage": "missing",
+        "decision_to_order_join": "missing",
+        "decision_to_trade_join": "missing",
+        "denominator_coverage": "missing",
+        "order_to_fill_join": "missing",
+        "risk_portfolio_join": "missing"
+      },
+      "eligibility": "diagnostics_only",
+      "failures": [],
+      "known_gap_count": 28,
+      "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_swing_family/learning_sufficiency_manifest.json",
+      "readiness_failures": [
+        "denominator_coverage is missing",
+        "after_cost_coverage is missing"
+      ],
+      "strategy_id": "trading_swing_family"
+    }
+  ],
+  "promotion_criteria": "Join, denominator, funnel, and after-cost authority checks are present, fail closed with gaps when insufficient, and pass readiness only when AM-08 denominator and after-cost authority checks are satisfied.",
+  "readiness_failures": [
+    {
+      "failures": [
+        "denominator_coverage is missing",
+        "after_cost_coverage is missing"
+      ],
+      "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_breakout_v1/learning_sufficiency_manifest.json"
+    },
+    {
+      "failures": [
+        "denominator_coverage is missing",
+        "after_cost_coverage is missing"
+      ],
+      "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_momentum_v1/learning_sufficiency_manifest.json"
+    },
+    {
+      "failures": [
+        "denominator_coverage is missing",
+        "after_cost_coverage is missing"
+      ],
+      "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_trend_v1/learning_sufficiency_manifest.json"
+    },
+    {
+      "failures": [
+        "denominator_coverage is missing",
+        "after_cost_coverage is missing"
+      ],
+      "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/k_stock/2026-06/k_stock_olr_kalcb/learning_sufficiency_manifest.json"
+    },
+    {
+      "failures": [
+        "denominator_coverage is missing",
+        "after_cost_coverage is missing"
+      ],
+      "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_momentum_family/learning_sufficiency_manifest.json"
+    },
+    {
+      "failures": [
+        "denominator_coverage is missing",
+        "after_cost_coverage is missing"
+      ],
+      "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_stock_family/learning_sufficiency_manifest.json"
+    },
+    {
+      "failures": [
+        "denominator_coverage is missing",
+        "after_cost_coverage is missing"
+      ],
+      "manifest_path": "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_swing_family/learning_sufficiency_manifest.json"
+    }
+  ],
+  "readiness_status": "blocked",
+  "required_acceptance_rows": [
+    "AM-06",
+    "AM-07",
+    "AM-08",
+    "AM-09",
+    "AM-10",
+    "AM-11",
+    "AM-25"
+  ],
+  "required_finite_checklist_sections": [
+    "Phase 3",
+    "Phase 4",
+    "Phase 5"
+  ],
+  "schema_version": "learning_sufficiency_ptg3_gate_report_v1",
+  "source_index": "artifacts/learning_sufficiency/phase2_manifests/manifest_index.json",
+  "status": "blocked"
+}

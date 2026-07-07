@@ -1,0 +1,62 @@
+{
+  "backtest_adapter_commit_sha": "4ff1860668ae10df26efff7504cc1c519cf1c48ee02ae2728676f1806c38f50d",
+  "checks": [
+    {
+      "errors": [],
+      "name": "contract_loads_cleanly",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "wired_week1_adapter_available",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "deployment_metadata_loads_cleanly",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "deployment_metadata_matches_contract",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "live_repo_checkout_clean_at_pinned_commit",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "parity_fixtures_available_in_clean_checkout",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "contract_matches_backtest_adapter_hash",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "plugin_remains_shadow_validated_not_approval_ready",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "live_and_adapter_traces_match_required_dimensions",
+      "passed": true
+    }
+  ],
+  "contract_maturity": "shadow_validated",
+  "decision_parity_report_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\week1_probe3\\trading_stock_family\\decision_parity\\decision_parity_report.json",
+  "decision_parity_status": "pass",
+  "eligible_for_approval": false,
+  "eligible_for_optimizer": true,
+  "fixture_count": 2,
+  "live_repo_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "ok": true,
+  "run_id": "decision-parity-week1-shadow-trading_stock_family",
+  "strategy_plugin_id": "trading-stock-family",
+  "summary_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\week1_probe3\\trading_stock_family\\decision_parity\\decision_parity_validation_summary.json",
+  "validated_live_repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading"
+}

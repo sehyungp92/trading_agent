@@ -1,0 +1,16 @@
+{
+  "bot_id": "crypto_portfolio",
+  "config_hash": "9afa0748fe45ec63f59645f4f0aeab7fd41fe6ff2f48af5189412e4216e9c917",
+  "config_path": "config/strategies/trend.json",
+  "config_version": "trend_config_2026-05-31",
+  "deployed_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "deployment_id": "crypto-trend-v1-shadow-3c6441d8",
+  "generated_at": "2026-05-31T00:00:00Z",
+  "metadata_source": "local clean live-repo checkout shadow snapshot",
+  "repo_url": "local://bots/crypto_trader",
+  "strategy_id": "btc_1m",
+  "strategy_plugin_contract_hash": "66aefae0de014fc8e190f67730dd0ada8c4f917a03cde21af936c41182561527",
+  "strategy_plugin_contract_path": "strategy_plugin_contract.json",
+  "strategy_version": "crypto_trend_v1",
+  "telemetry_schema_version": "trade_event_v1"
+}

@@ -1,0 +1,31 @@
+{
+  "backtest_adapter_commit_sha": "d2daaecb56abec357f4fc2d84b454c15b5a7e8f8f30e15e585a247c59b4dd14e",
+  "backtest_adapter_path": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/crypto/momentum.py",
+  "config_schema_version": "crypto_momentum_config_v1",
+  "contract_version": "strategy_plugin_contract_v1",
+  "decision_api_version": "crypto_trader_momentum_decision_api_v1",
+  "generated_at": "2026-05-31T12:10:00Z",
+  "live_repo_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "live_repo_path": "bots/crypto_trader",
+  "maturity": "shadow_validated",
+  "parity_fixture_set": [
+    "parity_fixtures/momentum_entry_market.json",
+    "parity_fixtures/momentum_chase_expired.json",
+    "parity_fixtures/momentum_short_risk_reduced.json",
+    "parity_fixtures/momentum_exit_state.json"
+  ],
+  "plugin_id": "crypto-momentum-v1",
+  "required_telemetry_schemas": [
+    "trade_event_v1"
+  ],
+  "supported_symbols": [
+    "BTC",
+    "ETH",
+    "SOL"
+  ],
+  "supported_timeframes": [
+    "15m",
+    "1h",
+    "4h"
+  ]
+}

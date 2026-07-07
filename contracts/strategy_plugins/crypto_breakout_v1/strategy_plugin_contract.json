@@ -1,0 +1,30 @@
+{
+  "backtest_adapter_commit_sha": "ab6951b6b9bacecdedf4edfcd5cdb13cdcb1ba70bdaf23bbbb8a038303757d9f",
+  "backtest_adapter_path": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/crypto/breakout.py",
+  "config_schema_version": "crypto_breakout_config_v1",
+  "contract_version": "strategy_plugin_contract_v1",
+  "decision_api_version": "crypto_trader_breakout_decision_api_v1",
+  "generated_at": "2026-05-31T12:10:00Z",
+  "live_repo_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "live_repo_path": "bots/crypto_trader",
+  "maturity": "shadow_validated",
+  "parity_fixture_set": [
+    "parity_fixtures/breakout_entry_model1.json",
+    "parity_fixtures/breakout_model1_disabled.json",
+    "parity_fixtures/breakout_short_risk_reduced.json",
+    "parity_fixtures/breakout_a_plus.json"
+  ],
+  "plugin_id": "crypto-breakout-v1",
+  "required_telemetry_schemas": [
+    "trade_event_v1"
+  ],
+  "supported_symbols": [
+    "BTC",
+    "ETH",
+    "SOL"
+  ],
+  "supported_timeframes": [
+    "30m",
+    "4h"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "properties": {
+    "artifact_root": {
+      "title": "Artifact Root",
+      "type": "string"
+    },
+    "artifacts": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Artifacts",
+      "type": "object"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "index_version": {
+      "default": "backtest_artifact_index_v1",
+      "title": "Index Version",
+      "type": "string"
+    },
+    "manifest_id": {
+      "default": "",
+      "title": "Manifest Id",
+      "type": "string"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "artifact_root"
+  ],
+  "title": "BacktestArtifactIndex",
+  "type": "object"
+}

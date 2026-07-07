@@ -10,10 +10,23 @@ dist/
 build/
 *.egg-info/
 
+_[!_]*/
+**/_[!_]*/
+
+# Bot-local runtime/backtest outputs stay out of deployable package trees.
+bots/*/output/
+bots/*/backtests/output/
+bots/*/data/backtests/output/
+data/data/*.db
+*.sqlite
+*.sqlite3
+
 # Local-only generated artifacts. Canonical small indexes and schemas remain tracked.
 artifacts/local/
 backtests/baselines/tmp/
 deployments/**/generated/local/
+deployments/**/generated/runtime_deployment_metadata/
+artifacts/validation/runtime_deployment_metadata/raw/
 
 # Local credentials and environment overlays.
 .env

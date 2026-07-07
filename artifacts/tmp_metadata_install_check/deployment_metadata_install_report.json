@@ -1,0 +1,60 @@
+{
+  "artifact_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\tmp_metadata_install_check\\deployment_metadata_install_report.json",
+  "bridge_id": "k_stock_olr_kalcb",
+  "checks": [
+    {
+      "errors": [],
+      "name": "contract_present",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "metadata_present",
+      "passed": true
+    },
+    {
+      "errors": [
+        "source_control_worktree_clean must be true"
+      ],
+      "name": "live_emission_provenance",
+      "passed": false
+    },
+    {
+      "errors": [],
+      "name": "repo_url_non_local",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "deployed_sha_matches_contract",
+      "passed": true
+    },
+    {
+      "errors": [
+        "strategy_plugin_contract_hash does not match local contract file"
+      ],
+      "name": "contract_hash_matches",
+      "passed": false
+    },
+    {
+      "errors": [],
+      "name": "config_hash_present",
+      "passed": true
+    },
+    {
+      "errors": [
+        "telemetry_schema_version is not listed in the contract"
+      ],
+      "name": "telemetry_schema_matches_contract",
+      "passed": false
+    }
+  ],
+  "contract_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\k_stock_olr_kalcb\\strategy_plugin_contract.json",
+  "generated_at": "2026-07-06T17:13:06Z",
+  "install_requested": false,
+  "installed": false,
+  "installed_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\k_stock_olr_kalcb\\deployment_metadata.json",
+  "metadata_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\deployments\\k_stock\\generated\\runtime_deployment_metadata\\k_stock_olr_kalcb\\deployment_metadata.json",
+  "ok": false,
+  "schema_version": "deployment_metadata_install_report_v1"
+}

@@ -1,0 +1,17 @@
+_[!_]*/
+**/_[!_]*/
+!**/__init__.py
+.git/
+.venv/
+**/__pycache__/
+**/*.py[cod]
+artifacts/local/
+bots/*/output/
+bots/*/backtests/output/
+bots/*/backtests/*/data/raw/
+bots/crypto_trader/data/
+bots/*/data/backtests/output/
+data/data/
+*.db
+*.sqlite
+*.sqlite3

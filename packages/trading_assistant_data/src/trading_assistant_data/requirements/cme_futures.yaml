@@ -1,0 +1,9 @@
+market: cme_futures
+source: ibkr
+symbols: [NQ, ES]
+intervals: [1m, 5m, 1h, 4h, 1d]
+calendar: cme_equity_index_futures_v1
+fee_model_version: fees_v1
+slippage_model_version: slippage_v1
+adjustment_policy: cme_futures_panama_v1
+

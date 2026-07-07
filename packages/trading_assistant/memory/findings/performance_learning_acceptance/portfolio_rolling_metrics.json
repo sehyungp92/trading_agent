@@ -1,0 +1,31 @@
+{
+  "outcome_id": "portfolio-acceptance-1",
+  "portfolio_context": {
+    "allocation_weights": {
+      "strat1": 0.55,
+      "mean_reversion": 0.45
+    },
+    "risk_budgets": {
+      "strat1": 0.6,
+      "mean_reversion": 0.4
+    },
+    "exposure": {
+      "net": 0.72
+    },
+    "correlation": {
+      "strat1:mean_reversion": 0.21
+    },
+    "drawdown_overlap": {
+      "strat1:mean_reversion": 0.08
+    },
+    "crowding": "low",
+    "cannibalization": "none",
+    "marginal_contribution": {
+      "strat1": 0.018
+    },
+    "concentration": "within_limit",
+    "liquidity_constraints": [
+      "btc depth ok"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "approval": {
+    "notes": [],
+    "source": "phase3_verifier_evidence",
+    "status": "phase3_alignment_passed"
+  },
+  "baseline_id": "crypto:breakout",
+  "baseline_status": "frozen",
+  "bot_id": "crypto_trader",
+  "generated_at": "2026-07-03T00:16:03+00:00",
+  "optimizer_round": {
+    "optimized_config_path": "backtests/baselines/crypto/breakout/round_3/optimized_config.json",
+    "parity_alignment_path": "backtests/baselines/crypto/breakout/round_3/parity_alignment.json",
+    "round_id": 3,
+    "rounds_manifest_path": "backtests/baselines/crypto/breakout/rounds_manifest.json"
+  },
+  "promotion_state": "approved",
+  "schema_version": "strategy_promotion_manifest.v1",
+  "strategy_id": "breakout",
+  "venue": "hyperliquid"
+}

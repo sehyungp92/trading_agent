@@ -1,0 +1,19 @@
+{
+  "cycles": [
+    {
+      "cycle_id": "ptg7-shadow-cycle-1",
+      "evidence_path": "artifacts/validation/decision_parity_matrix/trading_stock_family/decision_parity/decision_parity_report.json",
+      "source": "decision_parity_matrix",
+      "status": "pass"
+    },
+    {
+      "cycle_id": "ptg7-shadow-cycle-2",
+      "evidence_path": "artifacts/validation/week1_probe3/trading_stock_family/decision_parity/decision_parity_report.json",
+      "source": "week1_probe3_decision_parity",
+      "status": "pass"
+    }
+  ],
+  "pilot_bridge_id": "trading_stock_family",
+  "schema_version": "ptg7_scheduled_shadow_cycles_v1",
+  "status": "pass"
+}

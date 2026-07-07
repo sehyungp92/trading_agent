@@ -1,0 +1,21 @@
+{
+  "fixture_id": "breakout_model1_disabled",
+  "symbol": "ETH",
+  "timeframe": "30m",
+  "timestamp": "2026-05-15T11:30:00+00:00",
+  "direction": "LONG",
+  "entry_price": 3250.0,
+  "atr": 40.0,
+  "config": {
+    "entry": {
+      "model1_entry_on_close": false
+    }
+  },
+  "bar": {
+    "open": 3220.0,
+    "high": 3260.0,
+    "low": 3210.0,
+    "close": 3250.0,
+    "volume": 520.0
+  }
+}

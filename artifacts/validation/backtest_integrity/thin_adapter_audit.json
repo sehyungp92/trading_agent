@@ -1,0 +1,147 @@
+{
+  "adapters": [
+    {
+      "adapter": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/crypto/breakout.py",
+      "contract": "contracts/strategy_plugins/crypto_breakout_v1/strategy_plugin_contract.json",
+      "evidence_hashes": [
+        {
+          "path": "contracts/strategy_plugins/crypto_breakout_v1/strategy_plugin_contract.json",
+          "sha256": "c313fb3b870da3986aaf39a57702a97cb47aae1c57f326cfeb002495dafd4353"
+        },
+        {
+          "path": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/crypto/breakout.py",
+          "sha256": "ab6951b6b9bacecdedf4edfcd5cdb13cdcb1ba70bdaf23bbbb8a038303757d9f"
+        }
+      ],
+      "evidence_paths": [
+        "contracts/strategy_plugins/crypto_breakout_v1/strategy_plugin_contract.json",
+        "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/crypto/breakout.py"
+      ],
+      "notes": "Formal archived crypto parity report covers the adapter dimensions.",
+      "status": "pass"
+    },
+    {
+      "adapter": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/crypto/momentum.py",
+      "contract": "contracts/strategy_plugins/crypto_momentum_v1/strategy_plugin_contract.json",
+      "evidence_hashes": [
+        {
+          "path": "contracts/strategy_plugins/crypto_momentum_v1/strategy_plugin_contract.json",
+          "sha256": "3ae8e8f7efbb1f8224b11ca0cf38d0442d6535a1614a4c4888912204ee2ac327"
+        },
+        {
+          "path": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/crypto/momentum.py",
+          "sha256": "d2daaecb56abec357f4fc2d84b454c15b5a7e8f8f30e15e585a247c59b4dd14e"
+        }
+      ],
+      "evidence_paths": [
+        "contracts/strategy_plugins/crypto_momentum_v1/strategy_plugin_contract.json",
+        "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/crypto/momentum.py"
+      ],
+      "notes": "Formal archived crypto parity report covers the adapter dimensions.",
+      "status": "pass"
+    },
+    {
+      "adapter": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/crypto/trend.py",
+      "contract": "contracts/strategy_plugins/crypto_trend_v1/strategy_plugin_contract.json",
+      "evidence_hashes": [
+        {
+          "path": "contracts/strategy_plugins/crypto_trend_v1/strategy_plugin_contract.json",
+          "sha256": "ad6011aabc5ba78837a0e16e93d78d6fa91159d3942808a6786da70a49142721"
+        },
+        {
+          "path": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/crypto/trend.py",
+          "sha256": "8ad44417c2752cff80c85865b579fd632c7e91c60bbf31b0d2efd999d157af8a"
+        }
+      ],
+      "evidence_paths": [
+        "contracts/strategy_plugins/crypto_trend_v1/strategy_plugin_contract.json",
+        "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/crypto/trend.py"
+      ],
+      "notes": "Formal archived crypto parity report covers the adapter dimensions.",
+      "status": "pass"
+    },
+    {
+      "adapter": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/krx/olr_kalcb.py",
+      "contract": "contracts/strategy_plugins/k_stock_olr_kalcb/strategy_plugin_contract.json",
+      "evidence_hashes": [
+        {
+          "path": "contracts/strategy_plugins/k_stock_olr_kalcb/strategy_plugin_contract.json",
+          "sha256": "4c5446f351589b1d866cc5cbdb2e372e8ee06748077fe33053f65a534592ce1a"
+        },
+        {
+          "path": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/krx/olr_kalcb.py",
+          "sha256": "1a0b42f3fbb74daeec7a1ac0efbf1bf3c18ee8ca68c09beb468cc1cfdeda8b64"
+        }
+      ],
+      "evidence_paths": [
+        "contracts/strategy_plugins/k_stock_olr_kalcb/strategy_plugin_contract.json",
+        "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/krx/olr_kalcb.py"
+      ],
+      "notes": "Week-1 OLR/KALCB decision parity and KALCB runner checks prove the assistant adapter is a thin replay over production artifacts.",
+      "status": "pass"
+    },
+    {
+      "adapter": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/trading/momentum.py",
+      "contract": "contracts/strategy_plugins/trading_momentum_family/strategy_plugin_contract.json",
+      "evidence_hashes": [
+        {
+          "path": "contracts/strategy_plugins/trading_momentum_family/strategy_plugin_contract.json",
+          "sha256": "03ce434f2a2c59f6df17844a554ebfe552114256ca6999e5bb9969c533025843"
+        },
+        {
+          "path": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/trading/momentum.py",
+          "sha256": "8c5dc11e36a00bcd90faf3c0a4d82559782c822942466e91dc206ba8dce43305"
+        }
+      ],
+      "evidence_paths": [
+        "contracts/strategy_plugins/trading_momentum_family/strategy_plugin_contract.json",
+        "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/trading/momentum.py"
+      ],
+      "notes": "IBKR live-shadow parity bundle proves the assistant adapter is a thin replay over production decision events.",
+      "status": "pass"
+    },
+    {
+      "adapter": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/trading/stock.py",
+      "contract": "contracts/strategy_plugins/trading_stock_family/strategy_plugin_contract.json",
+      "evidence_hashes": [
+        {
+          "path": "contracts/strategy_plugins/trading_stock_family/strategy_plugin_contract.json",
+          "sha256": "e4e0bb924dc5766ab72f8e9b3a86599c98ec9391fd5939b09ff65a6bf2958739"
+        },
+        {
+          "path": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/trading/stock.py",
+          "sha256": "4ff1860668ae10df26efff7504cc1c519cf1c48ee02ae2728676f1806c38f50d"
+        }
+      ],
+      "evidence_paths": [
+        "contracts/strategy_plugins/trading_stock_family/strategy_plugin_contract.json",
+        "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/trading/stock.py"
+      ],
+      "notes": "IBKR live-shadow parity bundle proves the assistant adapter is a thin replay over production decision events.",
+      "status": "pass"
+    },
+    {
+      "adapter": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/trading/swing.py",
+      "contract": "contracts/strategy_plugins/trading_swing_family/strategy_plugin_contract.json",
+      "evidence_hashes": [
+        {
+          "path": "contracts/strategy_plugins/trading_swing_family/strategy_plugin_contract.json",
+          "sha256": "48bf8103d8630911a3d00c0e1383d36f7f06b723382e4bb8cb8aedba45a3ca02"
+        },
+        {
+          "path": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/trading/swing.py",
+          "sha256": "3cf33c9a2ef5d2250cd0f43376d3dbab4bc3a3123b626bc0ede8ecc3c062545b"
+        }
+      ],
+      "evidence_paths": [
+        "contracts/strategy_plugins/trading_swing_family/strategy_plugin_contract.json",
+        "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/trading/swing.py"
+      ],
+      "notes": "IBKR live-shadow parity bundle proves the assistant adapter is a thin replay over production decision events.",
+      "status": "pass"
+    }
+  ],
+  "generated_at": "2026-07-03T13:14:49Z",
+  "schema_version": "thin_backtest_adapter_audit_v1",
+  "status": "pass"
+}

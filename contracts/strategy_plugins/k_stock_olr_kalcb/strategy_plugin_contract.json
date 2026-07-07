@@ -1,0 +1,29 @@
+{
+  "backtest_adapter_commit_sha": "1a0b42f3fbb74daeec7a1ac0efbf1bf3c18ee8ca68c09beb468cc1cfdeda8b64",
+  "backtest_adapter_path": "packages/trading_assistant_backtest/src/trading_assistant_backtest/strategies/krx/olr_kalcb.py",
+  "config_schema_version": "k_stock_olr_kalcb_shadow_config_v1",
+  "contract_version": "strategy_plugin_contract_v1",
+  "decision_api_version": "k_stock_olr_kalcb_artifact_replay_decision_api_v1",
+  "generated_at": "2026-07-03T00:00:00Z",
+  "live_repo_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "live_repo_path": "bots/k_stock_trader",
+  "maturity": "shadow_validated",
+  "parity_fixture_set": [
+    "bots/k_stock_trader/tests/fixtures/live_replay_parity/kalcb/manifest.json",
+    "bots/k_stock_trader/tests/fixtures/live_replay_parity/olr/manifest.json"
+  ],
+  "plugin_id": "k-stock-olr-kalcb",
+  "required_telemetry_schemas": [
+    "olr_kalcb_decision_stream_v1",
+    "olr_kalcb_artifact_generation_v1"
+  ],
+  "supported_symbols": [
+    "005930",
+    "000660",
+    "035420"
+  ],
+  "supported_timeframes": [
+    "1d",
+    "5m"
+  ]
+}

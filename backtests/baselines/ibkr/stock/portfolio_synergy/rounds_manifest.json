@@ -1,0 +1,839 @@
+{
+  "family": "stock",
+  "strategy": "portfolio_synergy",
+  "cleanup_note": "Active history refreshed after live/backtest parity-aligned ALCB round_2 and IARIC round_1 sources. Previous active portfolio round_1 was archived; round_1 was rerun from seed and round_2 was rerun from the archived old round_2 optimized baseline under current source provenance.",
+  "archive_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading\\backtests\\output\\stock\\portfolio_synergy\\archived_rounds\\20260524T010240Z_selection_stale_after_refreshed_alcb_iaric_sources",
+  "latest_alcb_config": "backtests/output/stock/alcb/round_2/optimized_config.json",
+  "latest_iaric_config": "backtests/output/stock/iaric/round_1/optimized_config.json",
+  "rounds": [
+    {
+      "round": 1,
+      "timestamp": "2026-05-06T16:59:27.867007+00:00",
+      "mutations_count": 13,
+      "mutations": {
+        "initial_equity": 25000.0,
+        "risk_stance": "aggressive_controlled",
+        "portfolio_rules": {
+          "reference_risk_pct": 0.006,
+          "heat_cap_R": 6.0,
+          "max_total_active_positions": 12,
+          "max_symbol_heat_R": 2.2,
+          "max_long_heat_R": 6.25,
+          "portfolio_daily_stop_R": 3.5,
+          "portfolio_weekly_stop_R": 8.0,
+          "max_single_strategy_trade_share": 0.72,
+          "max_single_strategy_risk_share": 0.72,
+          "drawdown_tiers": [
+            [
+              0.04,
+              1.0
+            ],
+            [
+              0.07,
+              0.75
+            ],
+            [
+              0.1,
+              0.4
+            ],
+            [
+              0.13,
+              0.0
+            ]
+          ]
+        },
+        "strategy_allocations": {
+          "IARIC_V5R1": {
+            "unit_risk_pct": 0.008,
+            "max_heat_R": 4.6,
+            "max_concurrent": 9,
+            "daily_stop_R": 2.75,
+            "priority": 0,
+            "role": "primary pullback alpha and frequency engine"
+          },
+          "ALCB_R3": {
+            "unit_risk_pct": 0.0065,
+            "max_heat_R": 3.25,
+            "max_concurrent": 6,
+            "daily_stop_R": 2.35,
+            "priority": 1,
+            "role": "intraday momentum complement and early-session alpha sleeve"
+          }
+        },
+        "dynamic_allocation": {
+          "enabled": true,
+          "lookback_trades": 60,
+          "min_mult": 0.65,
+          "max_mult": 1.22,
+          "positive_expectancy_boost": 0.1,
+          "negative_expectancy_cut": 0.18,
+          "drawdown_risk_floor": 0.4
+        },
+        "cross_strategy_rules": {
+          "priority_order": [
+            "IARIC_V5R1",
+            "ALCB_R3"
+          ],
+          "candidate_rank_mode": "diagnostic_alpha_score",
+          "same_symbol_policy": "half_size",
+          "same_symbol_size_mult": 0.5,
+          "same_sector_heat_cap_R": 3.8,
+          "iaric_priority_headroom_R": 1.15
+        },
+        "strategy_filters": {
+          "ALCB_R3": {
+            "financials_size_mult": 0.65,
+            "pdh_size_mult": 1.1,
+            "score5_no_surge_mult": 0.7
+          },
+          "IARIC_V5R1": {
+            "delayed_confirm_min_quality": 0.0,
+            "gap_up_size_mult": 0.85,
+            "carry_route_size_mult": 0.75
+          }
+        },
+        "validation": {
+          "walk_forward_required": true,
+          "min_positive_slices": 4,
+          "completed_bar_and_fee_parity_required": true
+        },
+        "portfolio_rules.max_single_strategy_trade_share": 0.85,
+        "portfolio_rules.max_single_strategy_risk_share": 0.82,
+        "strategy_allocations.IARIC_V5R1.max_heat_R": 5.4,
+        "strategy_allocations.ALCB_R3.max_heat_R": 4.0,
+        "portfolio_rules.heat_cap_R": 6.5
+      },
+      "total_trades": 1391,
+      "win_rate": 74.83824586628324,
+      "profit_factor": 2.3025857715675593,
+      "max_drawdown_pct": 0.03237781124490394,
+      "net_return_pct": 6.76798302608481,
+      "sharpe_ratio": 4.895613994979087,
+      "calmar_ratio": 58.81111371470752,
+      "archived": true,
+      "archived_at_utc": "2026-05-22T19:13:59.732057+00:00",
+      "archive_reason": "selection_stale_after_corrected_portfolio_replay_rules"
+    },
+    {
+      "round": 1,
+      "timestamp": "2026-05-22T22:19:32.052748+00:00",
+      "mutations_count": 8,
+      "mutations": {
+        "initial_equity": 25000.0,
+        "risk_stance": "aggressive_controlled",
+        "portfolio_rules": {
+          "reference_risk_pct": 0.006,
+          "heat_cap_R": 6.0,
+          "max_total_active_positions": 12,
+          "max_symbol_heat_R": 2.2,
+          "max_long_heat_R": 6.25,
+          "portfolio_daily_stop_R": 3.5,
+          "portfolio_weekly_stop_R": 8.0,
+          "max_single_strategy_trade_share": 0.72,
+          "max_single_strategy_risk_share": 0.72,
+          "drawdown_tiers": [
+            [
+              0.04,
+              1.0
+            ],
+            [
+              0.07,
+              0.75
+            ],
+            [
+              0.1,
+              0.4
+            ],
+            [
+              0.13,
+              0.0
+            ]
+          ]
+        },
+        "strategy_allocations": {
+          "IARIC_V5R1": {
+            "unit_risk_pct": 0.008,
+            "max_heat_R": 4.6,
+            "max_concurrent": 9,
+            "daily_stop_R": 2.75,
+            "priority": 0,
+            "role": "primary pullback alpha and frequency engine"
+          },
+          "ALCB_R3": {
+            "unit_risk_pct": 0.0065,
+            "max_heat_R": 3.25,
+            "max_concurrent": 6,
+            "daily_stop_R": 2.35,
+            "priority": 1,
+            "role": "intraday momentum complement and early-session alpha sleeve"
+          }
+        },
+        "dynamic_allocation": {
+          "enabled": true,
+          "lookback_trades": 60,
+          "min_mult": 0.65,
+          "max_mult": 1.22,
+          "positive_expectancy_boost": 0.1,
+          "negative_expectancy_cut": 0.18,
+          "drawdown_risk_floor": 0.4
+        },
+        "cross_strategy_rules": {
+          "priority_order": [
+            "IARIC_V5R1",
+            "ALCB_R3"
+          ],
+          "candidate_rank_mode": "diagnostic_alpha_score",
+          "same_symbol_policy": "half_size",
+          "same_symbol_size_mult": 0.5,
+          "same_sector_heat_cap_R": 3.8,
+          "iaric_priority_headroom_R": 1.15
+        },
+        "strategy_filters": {
+          "ALCB_R3": {
+            "financials_size_mult": 0.65,
+            "pdh_size_mult": 1.1,
+            "score5_no_surge_mult": 0.7
+          },
+          "IARIC_V5R1": {
+            "delayed_confirm_min_quality": 0.0,
+            "gap_up_size_mult": 0.85,
+            "carry_route_size_mult": 0.75
+          }
+        },
+        "validation": {
+          "walk_forward_required": true,
+          "min_positive_slices": 4,
+          "completed_bar_and_fee_parity_required": true
+        }
+      },
+      "total_trades": 888,
+      "win_rate": 55.067567567567565,
+      "profit_factor": 1.6636408659370094,
+      "max_drawdown_pct": 4.695161573385593,
+      "net_return_pct": 1.1149629416564628,
+      "sharpe_ratio": 2.484451699400944,
+      "calmar_ratio": 10.142715561411038,
+      "selection_fingerprint": "1dfa836cd25d8c357d6fa0318ce5ff3571f007565f7b04956289ed4b411f261a",
+      "diagnostics_fingerprint": "1dfa836cd25d8c357d6fa0318ce5ff3571f007565f7b04956289ed4b411f261a",
+      "provenance_schema_version": 1,
+      "provenance_status": "complete",
+      "archived": true,
+      "archived_at_utc": "2026-05-24T01:02:40.070008+00:00",
+      "archive_reason": "selection_stale_after_refreshed_alcb_iaric_sources"
+    },
+    {
+      "round": 1,
+      "timestamp": "2026-05-24T02:18:31.985956+00:00",
+      "mutations_count": 14,
+      "mutations": {
+        "initial_equity": 25000.0,
+        "risk_stance": "aggressive_controlled",
+        "portfolio_rules": {
+          "reference_risk_pct": 0.006,
+          "heat_cap_R": 6.0,
+          "max_total_active_positions": 12,
+          "max_symbol_heat_R": 2.2,
+          "max_long_heat_R": 6.25,
+          "portfolio_daily_stop_R": 3.5,
+          "portfolio_weekly_stop_R": 8.0,
+          "max_single_strategy_trade_share": 0.72,
+          "max_single_strategy_risk_share": 0.72,
+          "drawdown_tiers": [
+            [
+              0.04,
+              1.0
+            ],
+            [
+              0.07,
+              0.75
+            ],
+            [
+              0.1,
+              0.4
+            ],
+            [
+              0.13,
+              0.0
+            ]
+          ]
+        },
+        "strategy_allocations": {
+          "IARIC_V5R1": {
+            "unit_risk_pct": 0.008,
+            "max_heat_R": 4.6,
+            "max_concurrent": 9,
+            "daily_stop_R": 2.75,
+            "priority": 0,
+            "role": "primary pullback alpha and frequency engine"
+          },
+          "ALCB_R3": {
+            "unit_risk_pct": 0.0065,
+            "max_heat_R": 3.25,
+            "max_concurrent": 6,
+            "daily_stop_R": 2.35,
+            "priority": 1,
+            "role": "intraday momentum complement and early-session alpha sleeve"
+          }
+        },
+        "dynamic_allocation": {
+          "enabled": true,
+          "lookback_trades": 60,
+          "min_mult": 0.65,
+          "max_mult": 1.22,
+          "positive_expectancy_boost": 0.1,
+          "negative_expectancy_cut": 0.18,
+          "drawdown_risk_floor": 0.4
+        },
+        "cross_strategy_rules": {
+          "priority_order": [
+            "IARIC_V5R1",
+            "ALCB_R3"
+          ],
+          "candidate_rank_mode": "diagnostic_alpha_score",
+          "same_symbol_policy": "half_size",
+          "same_symbol_size_mult": 0.5,
+          "same_sector_heat_cap_R": 3.8,
+          "iaric_priority_headroom_R": 1.15
+        },
+        "strategy_filters": {
+          "ALCB_R3": {
+            "financials_size_mult": 0.65,
+            "pdh_size_mult": 1.1,
+            "score5_no_surge_mult": 0.7
+          },
+          "IARIC_V5R1": {
+            "delayed_confirm_min_quality": 0.0,
+            "gap_up_size_mult": 0.85,
+            "carry_route_size_mult": 0.75
+          }
+        },
+        "validation": {
+          "walk_forward_required": true,
+          "min_positive_slices": 4,
+          "completed_bar_and_fee_parity_required": true
+        },
+        "portfolio_rules.max_single_strategy_trade_share": 0.85,
+        "portfolio_rules.max_single_strategy_risk_share": 0.82,
+        "strategy_allocations.IARIC_V5R1.max_heat_R": 5.4,
+        "strategy_allocations.ALCB_R3.max_heat_R": 4.0,
+        "strategy_filters.IARIC_V5R1.gap_up_size_mult": 0.6,
+        "strategy_filters.ALCB_R3.score5_no_surge_mult": 0.45
+      },
+      "total_trades": 1607,
+      "win_rate": 74.36216552582452,
+      "profit_factor": 2.2545708700588225,
+      "max_drawdown_pct": 3.534646932456749,
+      "net_return_pct": 6.033984299703158,
+      "sharpe_ratio": 4.3750219594870225,
+      "calmar_ratio": 49.73801246300444,
+      "selection_fingerprint": "7032c5765e1209756b3e0ad1c4b1be4d6bb0d4c0623f2d2ade4f5dab1e2c68c5",
+      "diagnostics_fingerprint": "7032c5765e1209756b3e0ad1c4b1be4d6bb0d4c0623f2d2ade4f5dab1e2c68c5",
+      "provenance_schema_version": 1,
+      "provenance_status": "complete"
+    },
+    {
+      "round": 2,
+      "timestamp": "2026-05-06T18:05:36.447213+00:00",
+      "round_type": "phase5_discriminator_size_calibration",
+      "selected_scalar": 1.08,
+      "mutations_count": 1,
+      "mutations": {
+        "initial_equity": 25000.0,
+        "risk_stance": "aggressive_controlled",
+        "portfolio_rules": {
+          "reference_risk_pct": 0.00648,
+          "heat_cap_R": 6.5,
+          "max_total_active_positions": 12,
+          "max_symbol_heat_R": 2.2,
+          "max_long_heat_R": 6.25,
+          "portfolio_daily_stop_R": 3.5,
+          "portfolio_weekly_stop_R": 8.0,
+          "max_single_strategy_trade_share": 0.85,
+          "max_single_strategy_risk_share": 0.82,
+          "drawdown_tiers": [
+            [
+              0.04,
+              1.0
+            ],
+            [
+              0.07,
+              0.75
+            ],
+            [
+              0.1,
+              0.4
+            ],
+            [
+              0.13,
+              0.0
+            ]
+          ]
+        },
+        "strategy_allocations": {
+          "IARIC_V5R1": {
+            "unit_risk_pct": 0.00864,
+            "max_heat_R": 5.4,
+            "max_concurrent": 9,
+            "daily_stop_R": 2.75,
+            "priority": 0,
+            "role": "primary pullback alpha and frequency engine"
+          },
+          "ALCB_R3": {
+            "unit_risk_pct": 0.00702,
+            "max_heat_R": 4.0,
+            "max_concurrent": 6,
+            "daily_stop_R": 2.35,
+            "priority": 1,
+            "role": "intraday momentum complement and early-session alpha sleeve"
+          }
+        },
+        "dynamic_allocation": {
+          "enabled": true,
+          "lookback_trades": 60,
+          "min_mult": 0.65,
+          "max_mult": 1.22,
+          "positive_expectancy_boost": 0.1,
+          "negative_expectancy_cut": 0.18,
+          "drawdown_risk_floor": 0.4
+        },
+        "cross_strategy_rules": {
+          "priority_order": [
+            "IARIC_V5R1",
+            "ALCB_R3"
+          ],
+          "candidate_rank_mode": "diagnostic_alpha_score",
+          "same_symbol_policy": "half_size",
+          "same_symbol_size_mult": 0.5,
+          "same_sector_heat_cap_R": 3.8,
+          "iaric_priority_headroom_R": 1.15
+        },
+        "strategy_filters": {
+          "ALCB_R3": {
+            "financials_size_mult": 0.65,
+            "pdh_size_mult": 1.1,
+            "score5_no_surge_mult": 0.45
+          },
+          "IARIC_V5R1": {
+            "delayed_confirm_min_quality": 0.0,
+            "gap_up_size_mult": 0.6,
+            "carry_route_size_mult": 0.75
+          }
+        },
+        "validation": {
+          "walk_forward_required": true,
+          "min_positive_slices": 4,
+          "completed_bar_and_fee_parity_required": true,
+          "size_calibration_source": "phase5_discriminator_blend",
+          "size_calibration_scalar": 1.08,
+          "size_calibration_gate": "smallest global scalar beating active round_1 dollar PnL on IS, 2026-03-02 validation, and 2026-03-21 validation while preserving phase-5 routing metrics"
+        }
+      },
+      "total_trades": 1506,
+      "win_rate": 74.7675962815405,
+      "profit_factor": 2.433101055998164,
+      "max_drawdown_pct": 0.03200665564758572,
+      "net_return_pct": 6.999592279250704,
+      "sharpe_ratio": 4.749429322142086,
+      "calmar_ratio": 60.89017144569652,
+      "optimized_config": "backtests/output/stock/portfolio_synergy/round_2/optimized_config.json",
+      "archived": true,
+      "archived_at_utc": "2026-05-22T19:13:59.732057+00:00",
+      "archive_reason": "selection_stale_after_corrected_portfolio_replay_rules"
+    },
+    {
+      "round": 2,
+      "timestamp": "2026-05-24T03:13:08.186107+00:00",
+      "mutations_count": 8,
+      "mutations": {
+        "initial_equity": 25000.0,
+        "risk_stance": "aggressive_controlled",
+        "portfolio_rules": {
+          "reference_risk_pct": 0.00648,
+          "heat_cap_R": 6.5,
+          "max_total_active_positions": 12,
+          "max_symbol_heat_R": 2.2,
+          "max_long_heat_R": 6.25,
+          "portfolio_daily_stop_R": 3.5,
+          "portfolio_weekly_stop_R": 8.0,
+          "max_single_strategy_trade_share": 0.85,
+          "max_single_strategy_risk_share": 0.82,
+          "drawdown_tiers": [
+            [
+              0.04,
+              1.0
+            ],
+            [
+              0.07,
+              0.75
+            ],
+            [
+              0.1,
+              0.4
+            ],
+            [
+              0.13,
+              0.0
+            ]
+          ]
+        },
+        "strategy_allocations": {
+          "IARIC_V5R1": {
+            "unit_risk_pct": 0.00864,
+            "max_heat_R": 5.4,
+            "max_concurrent": 9,
+            "daily_stop_R": 2.75,
+            "priority": 0,
+            "role": "primary pullback alpha and frequency engine"
+          },
+          "ALCB_R3": {
+            "unit_risk_pct": 0.00702,
+            "max_heat_R": 4.0,
+            "max_concurrent": 6,
+            "daily_stop_R": 2.35,
+            "priority": 1,
+            "role": "intraday momentum complement and early-session alpha sleeve"
+          }
+        },
+        "dynamic_allocation": {
+          "enabled": true,
+          "lookback_trades": 60,
+          "min_mult": 0.65,
+          "max_mult": 1.22,
+          "positive_expectancy_boost": 0.1,
+          "negative_expectancy_cut": 0.18,
+          "drawdown_risk_floor": 0.4
+        },
+        "cross_strategy_rules": {
+          "priority_order": [
+            "IARIC_V5R1",
+            "ALCB_R3"
+          ],
+          "candidate_rank_mode": "diagnostic_alpha_score",
+          "same_symbol_policy": "half_size",
+          "same_symbol_size_mult": 0.5,
+          "same_sector_heat_cap_R": 3.8,
+          "iaric_priority_headroom_R": 1.15
+        },
+        "strategy_filters": {
+          "ALCB_R3": {
+            "financials_size_mult": 0.65,
+            "pdh_size_mult": 1.1,
+            "score5_no_surge_mult": 0.45
+          },
+          "IARIC_V5R1": {
+            "delayed_confirm_min_quality": 0.0,
+            "gap_up_size_mult": 0.6,
+            "carry_route_size_mult": 0.75
+          }
+        },
+        "validation": {
+          "walk_forward_required": true,
+          "min_positive_slices": 4,
+          "completed_bar_and_fee_parity_required": true,
+          "size_calibration_source": "phase5_discriminator_blend",
+          "size_calibration_scalar": 1.08,
+          "size_calibration_gate": "smallest global scalar beating active round_1 dollar PnL on IS, 2026-03-02 validation, and 2026-03-21 validation while preserving phase-5 routing metrics"
+        }
+      },
+      "total_trades": 1608,
+      "win_rate": 74.37810945273633,
+      "profit_factor": 2.253130845752758,
+      "max_drawdown_pct": 3.817863860048835,
+      "net_return_pct": 7.271501808815397,
+      "sharpe_ratio": 4.391615320046506,
+      "calmar_ratio": 52.40106399534696,
+      "selection_fingerprint": "7032c5765e1209756b3e0ad1c4b1be4d6bb0d4c0623f2d2ade4f5dab1e2c68c5",
+      "diagnostics_fingerprint": "7032c5765e1209756b3e0ad1c4b1be4d6bb0d4c0623f2d2ade4f5dab1e2c68c5",
+      "provenance_schema_version": 1,
+      "provenance_status": "complete"
+    },
+    {
+      "round": 3,
+      "timestamp": "2026-05-24T13:35:23.764881+00:00",
+      "mutations_count": 10,
+      "mutations": {
+        "initial_equity": 25000.0,
+        "risk_stance": "aggressive_controlled",
+        "portfolio_rules": {
+          "reference_risk_pct": 0.00648,
+          "heat_cap_R": 6.5,
+          "max_total_active_positions": 12,
+          "max_symbol_heat_R": 2.2,
+          "max_long_heat_R": 6.25,
+          "portfolio_daily_stop_R": 3.5,
+          "portfolio_weekly_stop_R": 8.0,
+          "max_single_strategy_trade_share": 0.85,
+          "max_single_strategy_risk_share": 0.82,
+          "drawdown_tiers": [
+            [
+              0.04,
+              1.0
+            ],
+            [
+              0.07,
+              0.75
+            ],
+            [
+              0.1,
+              0.4
+            ],
+            [
+              0.13,
+              0.0
+            ]
+          ]
+        },
+        "strategy_allocations": {
+          "IARIC_V5R1": {
+            "unit_risk_pct": 0.00864,
+            "max_heat_R": 5.4,
+            "max_concurrent": 9,
+            "daily_stop_R": 2.75,
+            "priority": 0,
+            "role": "primary pullback alpha and frequency engine"
+          },
+          "ALCB_R3": {
+            "unit_risk_pct": 0.00702,
+            "max_heat_R": 4.0,
+            "max_concurrent": 6,
+            "daily_stop_R": 2.35,
+            "priority": 1,
+            "role": "intraday momentum complement and early-session alpha sleeve"
+          }
+        },
+        "dynamic_allocation": {
+          "enabled": true,
+          "lookback_trades": 60,
+          "min_mult": 0.65,
+          "max_mult": 1.22,
+          "positive_expectancy_boost": 0.1,
+          "negative_expectancy_cut": 0.18,
+          "drawdown_risk_floor": 0.4
+        },
+        "cross_strategy_rules": {
+          "priority_order": [
+            "IARIC_V5R1",
+            "ALCB_R3"
+          ],
+          "candidate_rank_mode": "diagnostic_alpha_score",
+          "same_symbol_policy": "half_size",
+          "same_symbol_size_mult": 0.5,
+          "same_sector_heat_cap_R": 3.8,
+          "iaric_priority_headroom_R": 1.15
+        },
+        "strategy_filters": {
+          "ALCB_R3": {
+            "financials_size_mult": 0.65,
+            "pdh_size_mult": 1.1,
+            "score5_no_surge_mult": 0.45
+          },
+          "IARIC_V5R1": {
+            "delayed_confirm_min_quality": 0.0,
+            "gap_up_size_mult": 0.6,
+            "carry_route_size_mult": 0.75
+          }
+        },
+        "validation": {
+          "walk_forward_required": true,
+          "min_positive_slices": 4,
+          "completed_bar_and_fee_parity_required": true,
+          "size_calibration_source": "phase5_discriminator_blend",
+          "size_calibration_scalar": 1.08,
+          "size_calibration_gate": "smallest global scalar beating active round_1 dollar PnL on IS, 2026-03-02 validation, and 2026-03-21 validation while preserving phase-5 routing metrics"
+        },
+        "strategy_allocations.IARIC_V5R1.unit_risk_pct": 0.0075,
+        "strategy_allocations.ALCB_R3.unit_risk_pct": 0.0061
+      },
+      "total_trades": 1681,
+      "win_rate": 74.360499702558,
+      "profit_factor": 2.2394560119514417,
+      "max_drawdown_pct": 4.019976790773218,
+      "net_return_pct": 5.7251719910549825,
+      "sharpe_ratio": 4.369010161756597,
+      "calmar_ratio": 42.137954478580546,
+      "selection_fingerprint": "ab980a4e3c8828331275ef37625fa4a7f1fc6ec777f3df8f7e30357d278d5219",
+      "diagnostics_fingerprint": "ab980a4e3c8828331275ef37625fa4a7f1fc6ec777f3df8f7e30357d278d5219",
+      "provenance_schema_version": 1,
+      "provenance_status": "selection_drift_accepted",
+      "archived": true,
+      "archived_at_utc": "2026-05-24T14:40:02.309627+00:00",
+      "archive_reason": "faulty_round3_lower_unit_risk_return_tradeoff"
+    },
+    {
+      "round": 3,
+      "timestamp": "2026-05-24T14:54:39.140683+00:00",
+      "mutations_count": 8,
+      "mutations": {
+        "initial_equity": 25000.0,
+        "risk_stance": "aggressive_controlled",
+        "portfolio_rules": {
+          "reference_risk_pct": 0.0075168,
+          "heat_cap_R": 6.5,
+          "max_total_active_positions": 12,
+          "max_symbol_heat_R": 2.2,
+          "max_long_heat_R": 6.25,
+          "portfolio_daily_stop_R": 3.5,
+          "portfolio_weekly_stop_R": 8.0,
+          "max_single_strategy_trade_share": 0.85,
+          "max_single_strategy_risk_share": 0.82,
+          "drawdown_tiers": [
+            [
+              0.04,
+              1.0
+            ],
+            [
+              0.07,
+              0.75
+            ],
+            [
+              0.1,
+              0.4
+            ],
+            [
+              0.13,
+              0.0
+            ]
+          ]
+        },
+        "strategy_allocations": {
+          "IARIC_V5R1": {
+            "unit_risk_pct": 0.00864,
+            "max_heat_R": 5.4,
+            "max_concurrent": 9,
+            "daily_stop_R": 2.75,
+            "priority": 0,
+            "role": "primary pullback alpha and frequency engine"
+          },
+          "ALCB_R3": {
+            "unit_risk_pct": 0.00702,
+            "max_heat_R": 4.0,
+            "max_concurrent": 6,
+            "daily_stop_R": 2.35,
+            "priority": 1,
+            "role": "intraday momentum complement and early-session alpha sleeve"
+          }
+        },
+        "dynamic_allocation": {
+          "enabled": true,
+          "lookback_trades": 60,
+          "min_mult": 0.65,
+          "max_mult": 1.22,
+          "positive_expectancy_boost": 0.1,
+          "negative_expectancy_cut": 0.18,
+          "drawdown_risk_floor": 0.4
+        },
+        "cross_strategy_rules": {
+          "priority_order": [
+            "IARIC_V5R1",
+            "ALCB_R3"
+          ],
+          "candidate_rank_mode": "diagnostic_alpha_score",
+          "same_symbol_policy": "half_size",
+          "same_symbol_size_mult": 0.5,
+          "same_sector_heat_cap_R": 3.8,
+          "iaric_priority_headroom_R": 1.15
+        },
+        "strategy_filters": {
+          "ALCB_R3": {
+            "financials_size_mult": 0.65,
+            "pdh_size_mult": 1.1,
+            "score5_no_surge_mult": 0.45
+          },
+          "IARIC_V5R1": {
+            "delayed_confirm_min_quality": 0.0,
+            "gap_up_size_mult": 0.6,
+            "carry_route_size_mult": 0.75
+          }
+        },
+        "validation": {
+          "walk_forward_required": true,
+          "min_positive_slices": 4,
+          "completed_bar_and_fee_parity_required": true,
+          "size_calibration_source": "phase5_discriminator_blend",
+          "size_calibration_scalar": 1.08,
+          "size_calibration_gate": "smallest global scalar beating active round_1 dollar PnL on IS, 2026-03-02 validation, and 2026-03-21 validation while preserving phase-5 routing metrics"
+        }
+      },
+      "total_trades": 1684,
+      "win_rate": 74.40617577197149,
+      "profit_factor": 2.241240261297979,
+      "max_drawdown_pct": 4.623062045722482,
+      "net_return_pct": 7.980608204189258,
+      "sharpe_ratio": 4.3729861216896495,
+      "calmar_ratio": 46.09727062478604,
+      "selection_fingerprint": "ab980a4e3c8828331275ef37625fa4a7f1fc6ec777f3df8f7e30357d278d5219",
+      "diagnostics_fingerprint": "ab980a4e3c8828331275ef37625fa4a7f1fc6ec777f3df8f7e30357d278d5219",
+      "provenance_schema_version": 1,
+      "provenance_status": "selection_drift_accepted",
+      "round_type": "blocked_alpha_reference_risk_promotion",
+      "selected_candidate": "ref_only_1.16",
+      "baseline_round": 2,
+      "baseline_reference_risk_pct": 0.00648,
+      "promoted_reference_risk_pct": 0.0075168,
+      "selection_source": "tmp/stock_portfolio_blocked_alpha_holdout_probe_20260524.json",
+      "archive_replaced_round3_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading\\backtests\\output\\stock\\portfolio_synergy\\archived_rounds\\20260524T144002Z_faulty_round3_lower_unit_risk_return_tradeoff",
+      "holdout_validation": {
+        "latest_strategy_oos": {
+          "start": "2026-03-21",
+          "end": "2026-05-01",
+          "baseline_round2": {
+            "net_return_pct": 0.18762517786956567,
+            "net_pnl": 4690.629446739142,
+            "trade_capture_ratio": 0.93,
+            "positive_alpha_block_rate": 0.07142857142857142,
+            "max_drawdown_pct": 0.04110391916915257,
+            "profit_factor": 2.556558437556522
+          },
+          "round3_ref_only_1_16": {
+            "net_return_pct": 0.19355266816848105,
+            "net_pnl": 4838.816704212026,
+            "trade_capture_ratio": 0.98,
+            "positive_alpha_block_rate": 0.02857142857142857,
+            "max_drawdown_pct": 0.044171877922213616,
+            "profit_factor": 2.5163214893442523,
+            "score_total": 0.8108292648076438
+          },
+          "delta_vs_round2": {
+            "net_return_pct": 0.005927490298915372,
+            "net_pnl": 148.18725747288408,
+            "trade_capture_ratio": 0.04999999999999993,
+            "positive_alpha_block_rate": -0.04285714285714286,
+            "max_drawdown_pct": 0.0030679587530610467,
+            "profit_factor": -0.04023694821226975
+          }
+        },
+        "portfolio_overlay_oos": {
+          "start": "2026-03-02",
+          "end": "2026-05-01",
+          "baseline_round2": {
+            "net_return_pct": 0.25593176018786995,
+            "net_pnl": 6398.294004696749,
+            "trade_capture_ratio": 0.9064748201438849,
+            "positive_alpha_block_rate": 0.09090909090909091,
+            "max_drawdown_pct": 0.042855307318036696,
+            "profit_factor": 2.6329327058809153
+          },
+          "round3_ref_only_1_16": {
+            "net_return_pct": 0.26189693307813255,
+            "net_pnl": 6547.423326953314,
+            "trade_capture_ratio": 0.9640287769784173,
+            "positive_alpha_block_rate": 0.04040404040404041,
+            "max_drawdown_pct": 0.04590271469906526,
+            "profit_factor": 2.5826677196021297,
+            "score_total": 0.7221316112291141
+          },
+          "delta_vs_round2": {
+            "net_return_pct": 0.0059651728902626044,
+            "net_pnl": 149.1293222565655,
+            "trade_capture_ratio": 0.05755395683453235,
+            "positive_alpha_block_rate": -0.050505050505050504,
+            "max_drawdown_pct": 0.003047407381028565,
+            "profit_factor": -0.05026498627878562
+          }
+        }
+      }
+    }
+  ],
+  "latest_round": 3,
+  "latest_round_note": "Round 3 replaces the lower-unit-risk blocked-alpha pass with ref_only_1.16: a reference-risk/heat-denominator promotion from the parity-aligned round_2 baseline. It raises portfolio_rules.reference_risk_pct while preserving per-trade unit risk, improving return, capture, and positive-alpha block behavior versus round_2 on IS and both tracked holdout windows."
+}

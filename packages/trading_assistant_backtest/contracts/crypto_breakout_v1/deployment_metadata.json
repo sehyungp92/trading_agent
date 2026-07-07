@@ -1,0 +1,16 @@
+{
+  "bot_id": "crypto_portfolio",
+  "config_hash": "289298be3a6e5a745481b2155e6af48d16d0637dd6ad2d6cb45b061cf5b91f40",
+  "config_path": "config/strategies/breakout.json",
+  "config_version": "breakout_config_2026-05-31",
+  "deployed_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "deployment_id": "crypto-breakout-v1-shadow-3c6441d8",
+  "generated_at": "2026-05-31T12:10:00Z",
+  "metadata_source": "local clean live-repo checkout shadow snapshot",
+  "repo_url": "local://bots/crypto_trader",
+  "strategy_id": "crypto_breakout_v1",
+  "strategy_plugin_contract_hash": "546a6d77735b9aea47153dc1881c41d1b86d38a3379ecf589d6065babeec909e",
+  "strategy_plugin_contract_path": "strategy_plugin_contract.json",
+  "strategy_version": "crypto_breakout_v1",
+  "telemetry_schema_version": "trade_event_v1"
+}

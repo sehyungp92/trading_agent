@@ -1,0 +1,14 @@
+{
+  "calendar_id": "crypto_utc_24_7_v1",
+  "version": "v1",
+  "market": "crypto_perp",
+  "timezone": "UTC",
+  "session_open": "00:00",
+  "session_close": "00:00",
+  "breaks": [],
+  "weekdays": [0, 1, 2, 3, 4, 5, 6],
+  "holidays": [],
+  "holiday_source": "24/7 exchange convention",
+  "generated_at": "2026-05-30T00:00:00+00:00"
+}
+

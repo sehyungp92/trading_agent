@@ -1,0 +1,25 @@
+{
+  "calendar_id": "cme_equity_index_futures_v1",
+  "version": "v1",
+  "market": "cme_futures",
+  "timezone": "America/Chicago",
+  "session_open": "17:00",
+  "session_close": "16:00",
+  "breaks": [],
+  "weekdays": [0, 1, 2, 3, 4],
+  "holidays": [
+    "2026-01-01",
+    "2026-01-19",
+    "2026-02-16",
+    "2026-04-03",
+    "2026-05-25",
+    "2026-06-19",
+    "2026-07-03",
+    "2026-09-07",
+    "2026-11-26",
+    "2026-12-25"
+  ],
+  "holiday_source": "CME holiday seed; verify final exchange calendar and early closes before authority",
+  "generated_at": "2026-05-30T00:00:00+00:00"
+}
+

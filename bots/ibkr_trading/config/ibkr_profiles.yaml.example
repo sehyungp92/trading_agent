@@ -1,0 +1,7 @@
+# IBKR account profile — copy to ibkr_profiles.yaml and fill in real values.
+# This file is git-ignored; the .example template is checked in.
+profile:
+  account_id: "YOUR_ACCOUNT_ID"
+  host: "127.0.0.1"
+  port: 4002          # 4001 for live TWS, 4002 for paper TWS / IB Gateway
+  read_only: false

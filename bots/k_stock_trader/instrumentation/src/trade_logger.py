@@ -1,0 +1,620 @@
+"""
+Trade event logger for the K Stock Trader instrumentation layer.
+
+Records structured JSONL trade events (entry and exit) for all four strategies
+through the centralized OMS.
+
+All instrumentation is fault-tolerant: failures are caught, logged to the
+errors directory, and never propagate back to the trading hot path.
+"""
+
+from __future__ import annotations
+
+import json
+import traceback
+import uuid
+from dataclasses import asdict, dataclass, field
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any, Dict, List, Mapping, Optional
+
+from .event_metadata import create_event_metadata
+from .lineage import LineageContext
+from .market_snapshot import MarketSnapshotService
+from .session import classify_session_type
+
+
+@dataclass
+class TradeEvent:
+    """Structured representation of a single trade lifecycle event (entry or exit)."""
+
+    # --- Identity ---
+    trade_id: str
+    event_metadata: Dict[str, Any]
+    event_type: str = "trade"
+    schema_version: str = "trade_event_v2"
+
+    # --- Snapshots ---
+    entry_snapshot: Dict[str, Any] = field(default_factory=dict)
+    exit_snapshot: Optional[Dict[str, Any]] = None
+
+    # --- Bot/Strategy identity (for assistant schema) ---
+    bot_id: str = ""
+    strategy_id: str = ""
+    family_id: str = ""
+    portfolio_id: str = ""
+    account_alias: str = ""
+    strategy_version: str = ""
+    config_version: str = ""
+    portfolio_config_version: str = ""
+    risk_config_version: str = ""
+    allocation_version: str = ""
+    strategy_registry_version: str = ""
+    deployment_id: str = ""
+    parameter_set_id: str = ""
+    experiment_id: Optional[str] = None
+    variant_id: Optional[str] = None
+    code_sha: str = ""
+
+    # --- Runtime/OMS join keys ---
+    bar_id: str = ""
+    trace_id: str = ""
+    decision_id: str = ""
+    event_ref: str = ""
+    decision_ref: str = ""
+    action_ref: str = ""
+    provisional_order_ref: str = ""
+    portfolio_decision_ref: str = ""
+    intent_id: str = ""
+    idempotency_key: str = ""
+    oms_order_id: str = ""
+    kis_order_id: str = ""
+    kis_order_date: str = ""
+    entry_fill_id: str = ""
+    exit_fill_id: str = ""
+    entry_kis_exec_id: str = ""
+    exit_kis_exec_id: str = ""
+    entry_order_event_refs: List[str] = field(default_factory=list)
+    exit_order_event_refs: List[str] = field(default_factory=list)
+    artifact_hash: str = ""
+    source_fingerprint: str = ""
+    candidate_hash: str = ""
+    kis_resource_plan_hash: str = ""
+    portfolio_policy_hash: str = ""
+
+    # --- KRX/accounting ---
+    exchange: str = "KRX"
+    market: str = ""
+    krx_trade_date: str = ""
+    currency: str = "KRW"
+    commission: Optional[float] = None
+    tax: Optional[float] = None
+    gross_pnl: Optional[float] = None
+    net_pnl: Optional[float] = None
+    realized_pnl_krw: Optional[float] = None
+
+    # --- Core trade fields ---
+    pair: str = ""
+    side: str = "LONG"
+    entry_time: Optional[str] = None
+    exit_time: Optional[str] = None
+    entry_price: float = 0.0
+    exit_price: Optional[float] = None
+
+    # --- Position & PnL (KRW) ---
+    position_size: float = 0.0
+    position_size_quote: float = 0.0
+    pnl: Optional[float] = None
+    pnl_pct: Optional[float] = None
+    fees_paid: Optional[float] = None
+
+    # --- Signal ---
+    entry_signal: str = ""
+    entry_signal_id: str = ""
+    entry_signal_strength: float = 0.0
+    signal_factors: List[Dict[str, Any]] = field(default_factory=list)
+    exit_reason: str = ""
+    market_regime: str = ""
+    regime_context: Optional[Dict[str, Any]] = None
+
+    # --- Filter tracking ---
+    active_filters: List[str] = field(default_factory=list)
+    passed_filters: List[str] = field(default_factory=list)
+    blocked_by: Optional[str] = None
+    filter_decisions: List[Dict[str, Any]] = field(default_factory=list)
+
+    # --- Market context at entry ---
+    atr_at_entry: Optional[float] = None
+    spread_at_entry_bps: Optional[float] = None
+    volume_24h_at_entry: Optional[float] = None
+    funding_rate_at_entry: Optional[float] = None
+    open_interest_at_entry: Optional[float] = None
+
+    # --- Strategy params frozen at entry ---
+    strategy_params_at_entry: Optional[Dict[str, Any]] = None
+
+    # --- Position sizing decision ---
+    sizing_context: Optional[Dict[str, Any]] = None
+
+    # --- Slippage ---
+    expected_entry_price: Optional[float] = None
+    entry_slippage_bps: Optional[float] = None
+    expected_exit_price: Optional[float] = None
+    exit_slippage_bps: Optional[float] = None
+
+    # --- Latency ---
+    entry_latency_ms: Optional[int] = None
+    exit_latency_ms: Optional[int] = None
+
+    # --- Execution timeline ---
+    execution_timeline: Optional[Dict[str, Any]] = None
+
+    # --- MFE/MAE (Maximum Favorable/Adverse Excursion) ---
+    mfe_price: Optional[float] = None
+    mae_price: Optional[float] = None
+    mfe_pct: Optional[float] = None
+    mae_pct: Optional[float] = None
+    mfe_r: Optional[float] = None
+    mae_r: Optional[float] = None
+
+    # --- Exit efficiency ---
+    exit_efficiency: Optional[float] = None
+
+    # --- Portfolio state at entry ---
+    portfolio_state_at_entry: Optional[Dict[str, Any]] = None
+
+    # --- Drawdown state at entry ---
+    drawdown_pct: Optional[float] = None
+    drawdown_tier: Optional[str] = None
+    drawdown_size_mult: Optional[float] = None
+
+    # --- Experiment tracking ---
+    experiment_variant: Optional[str] = None
+    param_set_id: Optional[str] = None
+
+    # --- Session classification ---
+    session_type: Optional[str] = None
+
+    # --- Lifecycle stage ---
+    stage: str = "entry"
+
+    def to_dict(self) -> Dict[str, Any]:
+        d = asdict(self)
+        # Coerce None → 0.0/\"\" for fields the assistant schema types as non-Optional
+        for key in (
+            "atr_at_entry",
+            "commission",
+            "tax",
+            "fees_paid",
+            "entry_slippage_bps",
+            "exit_slippage_bps",
+            "entry_latency_ms",
+            "drawdown_pct",
+        ):
+            if d.get(key) is None:
+                d[key] = 0.0
+        if d.get("session_type") is None:
+            d["session_type"] = ""
+        return d
+
+
+class TradeLogger:
+    """Append-only JSONL trade logger.
+
+    Writes one line per event to ``<data_dir>/trades/trades_YYYY-MM-DD.jsonl``.
+    Errors are written to ``<data_dir>/errors/instrumentation_errors_YYYY-MM-DD.jsonl``.
+    """
+
+    def __init__(self, config: Dict[str, Any], snapshot_service, *, lineage: LineageContext | Mapping[str, Any] | None = None) -> None:
+        self.bot_id: str = config.get("bot_id", "k_stock_trader")
+        self.data_dir: Path = Path(config.get("data_dir", "instrumentation/data"))
+        self.data_source_id: str = config.get("data_source_id", "kis_rest")
+        self.snapshot_service = snapshot_service
+        self._lineage = lineage or config.get("lineage")
+        self._open_trades: Dict[str, TradeEvent] = {}
+
+        try:
+            (self.data_dir / "trades").mkdir(parents=True, exist_ok=True)
+        except Exception:
+            pass
+
+    def log_entry(
+        self,
+        trade_id: str,
+        pair: str,
+        side: str,
+        entry_price: float,
+        position_size: float,
+        position_size_quote: float,
+        entry_signal: str,
+        entry_signal_id: str,
+        entry_signal_strength: float,
+        active_filters: List[str],
+        passed_filters: List[str],
+        strategy_params: dict,
+        exchange_timestamp: Optional[datetime] = None,
+        expected_entry_price: Optional[float] = None,
+        entry_latency_ms: Optional[int] = None,
+        market_regime: str = "",
+        bar_id: Optional[str] = None,
+        signal_factors: list = None,
+        filter_decisions: Optional[List[Dict[str, Any]]] = None,
+        sizing_context: Optional[Dict[str, Any]] = None,
+        regime_context: Optional[Dict[str, Any]] = None,
+        portfolio_state: Optional[Dict[str, Any]] = None,
+        drawdown_context: Optional[Dict[str, Any]] = None,
+        experiment_id: Optional[str] = None,
+        experiment_variant: Optional[str] = None,
+        param_set_id: Optional[str] = None,
+        execution_timeline: Optional[Dict[str, Any]] = None,
+        bot_id: str = "",
+        strategy_id: str = "",
+        lineage: LineageContext | Mapping[str, Any] | None = None,
+        join_keys: Optional[Mapping[str, Any]] = None,
+    ) -> TradeEvent:
+        """Record a trade entry event. Returns a TradeEvent (possibly degraded on error)."""
+        try:
+            now = datetime.now(timezone.utc)
+            exch_ts = exchange_timestamp or now
+
+            # Capture market snapshot at entry
+            entry_snapshot_dict = {}
+            atr_14 = None
+            spread_bps = None
+            volume_24h = None
+            try:
+                snap = self.snapshot_service.capture_now(pair)
+                entry_snapshot_dict = snap.to_dict()
+                atr_14 = snap.atr_14
+                spread_bps = snap.spread_bps
+                volume_24h = snap.volume_24h
+            except Exception:
+                pass
+
+            # Compute slippage
+            entry_slippage_bps = None
+            if expected_entry_price and expected_entry_price > 0:
+                entry_slippage_bps = round(
+                    abs(entry_price - expected_entry_price) / expected_entry_price * 10000, 2
+                )
+
+            effective_lineage = lineage or self._lineage
+            sid = str(strategy_id or _lineage_value(effective_lineage, "strategy_id") or "").upper().strip()
+            family_id = "krx_equity" if sid in {"KALCB", "OLR"} else None
+            portfolio_id = "olr_kalcb" if sid in {"KALCB", "OLR"} else None
+
+            # Build metadata
+            try:
+                metadata = create_event_metadata(
+                    bot_id=self.bot_id,
+                    event_type="trade",
+                    payload_key=f"{trade_id}_entry",
+                    exchange_timestamp=exch_ts,
+                    data_source_id=self.data_source_id,
+                    bar_id=bar_id,
+                    schema_version="trade_event_v2",
+                    lineage=effective_lineage,
+                    strategy_id=sid or None,
+                    family_id=family_id,
+                    portfolio_id=portfolio_id,
+                    parameter_set_id=param_set_id,
+                    experiment_id=experiment_id,
+                    variant_id=experiment_variant,
+                    scope="strategy",
+                ).to_dict()
+            except Exception:
+                metadata = {
+                    "bot_id": self.bot_id,
+                    "event_type": "trade",
+                    "timestamp": now.isoformat(),
+                }
+
+            trade = TradeEvent(
+                trade_id=trade_id,
+                event_metadata=metadata,
+                bot_id=bot_id or str(metadata.get("bot_id") or self.bot_id),
+                strategy_id=sid,
+                family_id=str(metadata.get("family_id") or family_id or ""),
+                portfolio_id=str(metadata.get("portfolio_id") or portfolio_id or ""),
+                parameter_set_id=param_set_id or "",
+                bar_id=bar_id or "",
+                artifact_hash=str((strategy_params or {}).get("artifact_hash") or (strategy_params or {}).get("source_artifact_hash") or ""),
+                source_fingerprint=str((strategy_params or {}).get("source_fingerprint") or ""),
+                candidate_hash=str((strategy_params or {}).get("candidate_hash") or ""),
+                entry_snapshot=entry_snapshot_dict,
+                pair=pair,
+                side=side,
+                entry_time=exch_ts.isoformat(),
+                entry_price=entry_price,
+                position_size=position_size,
+                position_size_quote=position_size_quote,
+                entry_signal=entry_signal,
+                entry_signal_id=entry_signal_id,
+                entry_signal_strength=entry_signal_strength,
+                signal_factors=signal_factors or [],
+                market_regime=market_regime,
+                regime_context=regime_context,
+                active_filters=active_filters,
+                passed_filters=passed_filters,
+                atr_at_entry=atr_14,
+                spread_at_entry_bps=spread_bps,
+                volume_24h_at_entry=volume_24h,
+                strategy_params_at_entry=strategy_params,
+                sizing_context=sizing_context,
+                expected_entry_price=expected_entry_price,
+                entry_slippage_bps=entry_slippage_bps,
+                entry_latency_ms=entry_latency_ms,
+                filter_decisions=filter_decisions or [],
+                stage="entry",
+            )
+            _apply_lineage_fields(trade, metadata)
+            _apply_join_fields(trade, {**dict(strategy_params or {}), **dict(join_keys or {})})
+
+            if portfolio_state:
+                trade.portfolio_state_at_entry = portfolio_state
+
+            if drawdown_context:
+                trade.drawdown_pct = drawdown_context.get("drawdown_pct")
+                trade.drawdown_tier = drawdown_context.get("drawdown_tier")
+                trade.drawdown_size_mult = drawdown_context.get("drawdown_size_mult")
+
+            if experiment_id is not None:
+                trade.experiment_id = experiment_id
+            if experiment_variant is not None:
+                trade.experiment_variant = experiment_variant
+                trade.variant_id = experiment_variant
+            if param_set_id is not None:
+                trade.param_set_id = param_set_id
+            trade.execution_timeline = execution_timeline
+            trade.session_type = classify_session_type(datetime.now(timezone.utc))
+
+            self._open_trades[trade_id] = trade
+            self._write_event(trade)
+            return trade
+
+        except Exception as e:
+            self._write_error("log_entry", trade_id, e)
+            return TradeEvent(trade_id=trade_id, event_metadata={}, entry_snapshot={})
+
+    def log_exit(
+        self,
+        trade_id: str,
+        exit_price: float,
+        exit_reason: str,
+        fees_paid: float = 0.0,
+        exchange_timestamp: Optional[datetime] = None,
+        expected_exit_price: Optional[float] = None,
+        exit_latency_ms: Optional[int] = None,
+        mfe_mae_context: Optional[Dict[str, Any]] = None,
+        lineage: LineageContext | Mapping[str, Any] | None = None,
+        join_keys: Optional[Mapping[str, Any]] = None,
+    ) -> Optional[TradeEvent]:
+        """Record a trade exit event. Returns updated TradeEvent or None on error."""
+        try:
+            trade = self._open_trades.pop(trade_id, None)
+            if trade is None:
+                self._write_error(
+                    "log_exit", trade_id,
+                    Exception(f"No open trade found for trade_id={trade_id}"),
+                )
+                return None
+
+            now = datetime.now(timezone.utc)
+            exch_ts = exchange_timestamp or now
+
+            # Capture exit snapshot
+            exit_snapshot_dict = {}
+            try:
+                snap = self.snapshot_service.capture_now(trade.pair)
+                exit_snapshot_dict = snap.to_dict()
+            except Exception:
+                pass
+
+            # Compute PnL (always LONG for KRX equity)
+            pnl = (exit_price - trade.entry_price) * trade.position_size - fees_paid
+            pnl_pct = (
+                (exit_price - trade.entry_price) / trade.entry_price * 100
+                if trade.entry_price > 0 else 0.0
+            )
+
+            # Compute exit slippage
+            exit_slippage_bps = None
+            if expected_exit_price and expected_exit_price > 0:
+                exit_slippage_bps = round(
+                    abs(exit_price - expected_exit_price) / expected_exit_price * 10000, 2
+                )
+
+            # Update metadata
+            try:
+                effective_lineage = lineage or self._lineage or _trade_lineage_mapping(trade)
+                trade.event_metadata = create_event_metadata(
+                    bot_id=self.bot_id,
+                    event_type="trade",
+                    payload_key=f"{trade_id}_exit",
+                    exchange_timestamp=exch_ts,
+                    data_source_id=self.data_source_id,
+                    bar_id=trade.bar_id or None,
+                    schema_version="trade_event_v2",
+                    lineage=effective_lineage,
+                    strategy_id=trade.strategy_id or None,
+                    family_id=trade.family_id or None,
+                    portfolio_id=trade.portfolio_id or None,
+                    parameter_set_id=trade.parameter_set_id or trade.param_set_id,
+                    experiment_id=trade.experiment_id,
+                    variant_id=trade.variant_id or trade.experiment_variant,
+                    scope="strategy",
+                ).to_dict()
+                _apply_lineage_fields(trade, trade.event_metadata)
+            except Exception:
+                pass
+            _apply_join_fields(trade, join_keys or {})
+
+            trade.exit_snapshot = exit_snapshot_dict
+            trade.exit_time = exch_ts.isoformat()
+            trade.exit_price = exit_price
+            trade.exit_reason = exit_reason
+            trade.pnl = round(pnl, 4)
+            trade.pnl_pct = round(pnl_pct, 4)
+            trade.fees_paid = fees_paid
+            trade.gross_pnl = round((exit_price - trade.entry_price) * trade.position_size, 4)
+            trade.net_pnl = round(pnl, 4)
+            trade.realized_pnl_krw = round(pnl, 4)
+            trade.expected_exit_price = expected_exit_price
+            trade.exit_slippage_bps = exit_slippage_bps
+            trade.exit_latency_ms = exit_latency_ms
+
+            if mfe_mae_context:
+                trade.mfe_price = mfe_mae_context.get("mfe_price")
+                trade.mae_price = mfe_mae_context.get("mae_price")
+                trade.mfe_pct = mfe_mae_context.get("mfe_pct")
+                trade.mae_pct = mfe_mae_context.get("mae_pct")
+                trade.mfe_r = mfe_mae_context.get("mfe_r")
+                trade.mae_r = mfe_mae_context.get("mae_r")
+                # Compute exit efficiency if MFE available
+                if trade.mfe_pct and trade.mfe_pct > 0 and trade.pnl_pct is not None:
+                    trade.exit_efficiency = round(trade.pnl_pct / trade.mfe_pct, 4)
+
+            trade.stage = "exit"
+
+            self._write_event(trade)
+            return trade
+
+        except Exception as e:
+            self._write_error("log_exit", trade_id, e)
+            return None
+
+    def get_open_trades(self) -> Dict[str, TradeEvent]:
+        return dict(self._open_trades)
+
+    def _write_event(self, trade: TradeEvent) -> None:
+        """Append trade event to daily JSONL file."""
+        try:
+            today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            filepath = self.data_dir / "trades" / f"trades_{today}.jsonl"
+            with open(filepath, "a", encoding="utf-8") as f:
+                f.write(json.dumps(trade.to_dict(), default=str) + "\n")
+        except Exception:
+            pass
+
+    def _write_error(self, method: str, trade_id: str, error: Exception) -> None:
+        """Log instrumentation errors without crashing."""
+        try:
+            error_dir = self.data_dir / "errors"
+            error_dir.mkdir(parents=True, exist_ok=True)
+            today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            filepath = error_dir / f"instrumentation_errors_{today}.jsonl"
+            entry = {
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "component": "trade_logger",
+                "method": method,
+                "trade_id": trade_id,
+                "error": str(error),
+                "error_type": type(error).__name__,
+            }
+            with open(filepath, "a", encoding="utf-8") as f:
+                f.write(json.dumps(entry) + "\n")
+        except Exception:
+            pass
+
+
+_IDENTITY_FIELDS = (
+    "bot_id",
+    "strategy_id",
+    "family_id",
+    "portfolio_id",
+    "account_alias",
+)
+
+_LINEAGE_FIELDS = (
+    "strategy_version",
+    "config_version",
+    "portfolio_config_version",
+    "risk_config_version",
+    "allocation_version",
+    "strategy_registry_version",
+    "deployment_id",
+    "parameter_set_id",
+    "experiment_id",
+    "variant_id",
+    "code_sha",
+)
+
+_JOIN_FIELDS = (
+    "bar_id",
+    "trace_id",
+    "decision_id",
+    "event_ref",
+    "decision_ref",
+    "action_ref",
+    "provisional_order_ref",
+    "portfolio_decision_ref",
+    "intent_id",
+    "idempotency_key",
+    "oms_order_id",
+    "kis_order_id",
+    "kis_order_date",
+    "entry_fill_id",
+    "exit_fill_id",
+    "entry_kis_exec_id",
+    "exit_kis_exec_id",
+    "artifact_hash",
+    "source_fingerprint",
+    "candidate_hash",
+    "kis_resource_plan_hash",
+    "portfolio_policy_hash",
+    "market",
+    "krx_trade_date",
+)
+
+_LIST_JOIN_FIELDS = ("entry_order_event_refs", "exit_order_event_refs")
+
+
+def _lineage_value(lineage: LineageContext | Mapping[str, Any] | None, field_name: str) -> Any:
+    if isinstance(lineage, LineageContext):
+        return getattr(lineage, field_name, "")
+    if isinstance(lineage, Mapping):
+        return lineage.get(field_name, "")
+    return ""
+
+
+def _apply_lineage_fields(trade: TradeEvent, metadata: Mapping[str, Any]) -> None:
+    for field_name in (*_IDENTITY_FIELDS, *_LINEAGE_FIELDS):
+        value = metadata.get(field_name)
+        if value not in (None, "") and hasattr(trade, field_name):
+            setattr(trade, field_name, value)
+    if metadata.get("parameter_set_id") and not trade.param_set_id:
+        trade.param_set_id = str(metadata["parameter_set_id"])
+    if metadata.get("variant_id") and not trade.experiment_variant:
+        trade.experiment_variant = str(metadata["variant_id"])
+
+
+def _apply_join_fields(trade: TradeEvent, payload: Mapping[str, Any] | None) -> None:
+    if not isinstance(payload, Mapping):
+        return
+    for field_name in _JOIN_FIELDS:
+        value = payload.get(field_name)
+        if value not in (None, "") and hasattr(trade, field_name):
+            setattr(trade, field_name, str(value))
+    for field_name in _LIST_JOIN_FIELDS:
+        value = payload.get(field_name)
+        if value not in (None, "") and hasattr(trade, field_name):
+            setattr(trade, field_name, _string_list(value))
+
+
+def _trade_lineage_mapping(trade: TradeEvent) -> dict[str, Any]:
+    return {
+        field_name: value
+        for field_name in (*_IDENTITY_FIELDS, *_LINEAGE_FIELDS)
+        for value in (getattr(trade, field_name, ""),)
+        if value not in (None, "")
+    }
+
+
+def _string_list(raw: Any) -> list[str]:
+    if raw in (None, ""):
+        return []
+    if isinstance(raw, str):
+        return [raw]
+    if isinstance(raw, (list, tuple, set)):
+        return [str(item) for item in raw if item not in (None, "")]
+    return [str(raw)]

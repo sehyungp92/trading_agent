@@ -1,0 +1,14 @@
+strategy:
+  symbols: ["BTC", "ETH", "SOL"]
+  setup:
+    min_room_b: 1.2
+    fib_high: 0.618
+  exits:
+    tp2_frac: 0.20
+  trail:
+    trail_buffer_tight: 0.3
+    trail_r_ceiling: 2.0
+  risk:
+    risk_pct_b: 0.008
+    max_correlated_risk: 0.015
+    max_gross_risk: 0.04

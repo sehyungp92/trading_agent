@@ -1,0 +1,13 @@
+{
+  "version": "fees_v1",
+  "source": "trading_assistant_data policy seed",
+  "effective_date": "2026-05-30",
+  "markets_covered": ["crypto_perp", "cme_futures", "us_equity", "krx_equity"],
+  "instruments_covered": ["BTC", "ETH", "SOL", "NQ", "ES", "US equities", "KRX equities"],
+  "formula": "Reference fee version only. Strategy/backtest runners must map this version to executable cost assumptions.",
+  "known_limitations": [
+    "Does not encode broker/account-specific tiers.",
+    "Authoritative bundles require runner-side interpretation of this version."
+  ]
+}
+

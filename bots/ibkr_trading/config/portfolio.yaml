@@ -1,0 +1,52 @@
+risk:
+  heat_cap_R: 2.5
+  portfolio_daily_stop_R: 3.0
+  portfolio_weekly_stop_R: 5.0
+  account_urd_dollars: 200.0
+  global_standdown: false
+
+capital:
+  # Preflight-only nominal NAV for validating allocation math.
+  # Paper uses paper_initial_equity; live uses broker NetLiquidation.
+  allocation_check_equity: 100000.0
+  paper_initial_equity: 30000.0
+  family_allocations:
+    swing: 0.3333333333333333
+    stock: 0.3333333333333333
+    momentum: 0.3333333333333333
+  # Strategy-level risk allocation is encoded in each optimized strategy's
+  # unit_risk_pct. Stock, momentum, and swing live sizing use family NAV directly.
+  strategy_allocations: {}
+
+drawdown_tiers:
+  - [0.08, 1.00]
+  - [0.12, 0.50]
+  - [0.15, 0.25]
+  - [1.00, 0.00]
+
+coordination:
+  signals:
+    - trigger: {strategy: ATRSS, event: ENTRY_FILL}
+      target: {strategy: AKC_HELIX, action: TIGHTEN_STOP_BE}
+      condition: SAME_SYMBOL
+    - trigger: {strategy: ATRSS, event: POSITION_OPEN}
+      target: {strategy: AKC_HELIX, action: SIZE_BOOST}
+      condition: SAME_SYMBOL_SAME_DIRECTION
+      params: {size_mult: 1.25}
+  cooldown_pairs: []
+  direction_filter:
+    observer: VdubusNQ_v4
+    reference: "NQDTC_v2.1"
+    agree_mult: 1.25
+    oppose_mult: 0.5
+  directional_cap_R: 4.25
+  chop_throttle:
+    enabled: false
+    strategy: "NQDTC_v2.1"
+    score_threshold: 2
+    size_mult: 0.70
+
+# stock_coordination: removed — stock coordinator hardcodes its PortfolioRulesConfig
+# directly (family-scoped 6.5R/6.25R directional caps + half_size symbol collision
+# + 1.15R priority headroom). See strategies/stock/coordinator.py for the
+# authoritative config.

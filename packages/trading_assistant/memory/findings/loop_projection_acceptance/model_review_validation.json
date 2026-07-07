@@ -1,0 +1,11 @@
+{
+  "acceptance_evidence": true,
+  "actionable_candidate_ids": [
+    "acceptance-candidate"
+  ],
+  "approval_tiers": {
+    "acceptance-candidate": "requires_approval"
+  },
+  "hypothesis_only_ids": [],
+  "valid": true
+}

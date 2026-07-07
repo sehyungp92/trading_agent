@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "trading-contracts"
+version = "0.1.0"
+description = "Canonical shared contracts and legacy artifact validators for the trading monorepo."
+requires-python = ">=3.11"
+dependencies = [
+  "pydantic>=2.7",
+]
+
+[project.scripts]
+trading-contracts = "trading_contracts.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/trading_contracts"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"

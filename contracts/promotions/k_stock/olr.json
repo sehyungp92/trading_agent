@@ -1,0 +1,78 @@
+{
+  "approval": {
+    "notes": [
+      "K-stock output root exists and latest accepted KALCB, OLR, and portfolio-synergy artifacts are frozen with source hashes and an output-tree fingerprint.",
+      "No alignment finding."
+    ],
+    "source": "phase3_verifier_evidence",
+    "status": "phase3_alignment_passed"
+  },
+  "baseline_id": "k_stock:olr",
+  "baseline_status": "frozen",
+  "bot_id": "k_stock_trader",
+  "generated_at": "2026-07-03T00:16:03+00:00",
+  "k_stock_decision": {
+    "baseline_ids": [
+      "k_stock:kalcb",
+      "k_stock:olr",
+      "k_stock:portfolio_synergy"
+    ],
+    "blockers": [],
+    "decision": "K-stock output root exists and latest accepted KALCB, OLR, and portfolio-synergy artifacts are frozen with source hashes and an output-tree fingerprint.",
+    "kalcb_alignment": {
+      "decision": "No alignment finding.",
+      "deployment_universe_path": "bots/k_stock_trader/config/olr_kalcb/olr_deployment_universe_103.yaml",
+      "deployment_universe_sha256": "a4dcae06993ba60ff4fa0adaa92450285656f85df3116aa2b1c941695b9f7a9e",
+      "deployment_universe_size": 103,
+      "live_config_path": "bots/k_stock_trader/config/kalcb.yaml",
+      "live_config_sha256": "6f135df38301d4dcd7cd9d22762d108d360e3f6a9decd5088230296964ba0ee5",
+      "live_frontier_size": 103,
+      "optimizer_config_path": "bots/k_stock_trader/config/optimization/kalcb.yaml",
+      "optimizer_config_sha256": "92e67604d77367271856c4bd812fbfbe195491fb40e264c1d649e75401fc3b28",
+      "optimizer_frontier_size": 103,
+      "phase_optimizer_base_frontier_size": 103,
+      "phase_optimizer_base_path": "bots/k_stock_trader/backtests/strategies/kalcb/phase_candidates.py",
+      "phase_optimizer_base_sha256": "06893f66e27ae0a62738ddb6607a02fccb0289df8c04c71063050d1f17c1d954",
+      "status": "aligned",
+      "strategy_default_frontier_size": 103,
+      "strategy_default_path": "bots/k_stock_trader/strategy_kalcb/config.py",
+      "strategy_default_sha256": "e9b5cbb8781aa9f6c81df59bb4255f58d134b513b97786c26481d12db31dddac"
+    },
+    "output_fingerprint": {
+      "canonical_tree_sha256": "34601710830a7f26168b0fe62af7c8acb122d68e60f533ff29742659a017b9c2",
+      "file_count": 273
+    },
+    "required_output_root": "bots/k_stock_trader/data/backtests/output",
+    "required_output_root_exists": true,
+    "restoration_provenance": "local_reference_checkout_restored_or_present_before_phase0_freeze",
+    "status": "restored_frozen"
+  },
+  "kalcb_alignment": {
+    "decision": "No alignment finding.",
+    "deployment_universe_path": "bots/k_stock_trader/config/olr_kalcb/olr_deployment_universe_103.yaml",
+    "deployment_universe_sha256": "a4dcae06993ba60ff4fa0adaa92450285656f85df3116aa2b1c941695b9f7a9e",
+    "deployment_universe_size": 103,
+    "live_config_path": "bots/k_stock_trader/config/kalcb.yaml",
+    "live_config_sha256": "6f135df38301d4dcd7cd9d22762d108d360e3f6a9decd5088230296964ba0ee5",
+    "live_frontier_size": 103,
+    "optimizer_config_path": "bots/k_stock_trader/config/optimization/kalcb.yaml",
+    "optimizer_config_sha256": "92e67604d77367271856c4bd812fbfbe195491fb40e264c1d649e75401fc3b28",
+    "optimizer_frontier_size": 103,
+    "phase_optimizer_base_frontier_size": 103,
+    "phase_optimizer_base_path": "bots/k_stock_trader/backtests/strategies/kalcb/phase_candidates.py",
+    "phase_optimizer_base_sha256": "06893f66e27ae0a62738ddb6607a02fccb0289df8c04c71063050d1f17c1d954",
+    "status": "aligned",
+    "strategy_default_frontier_size": 103,
+    "strategy_default_path": "bots/k_stock_trader/strategy_kalcb/config.py",
+    "strategy_default_sha256": "e9b5cbb8781aa9f6c81df59bb4255f58d134b513b97786c26481d12db31dddac"
+  },
+  "optimizer_round": {
+    "optimized_config_path": "backtests/baselines/k_stock/olr/round_5/optimized_config.json",
+    "round_id": 5,
+    "rounds_manifest_path": "backtests/baselines/k_stock/olr/rounds_manifest.json"
+  },
+  "promotion_state": "approved",
+  "schema_version": "strategy_promotion_manifest.v1",
+  "strategy_id": "olr",
+  "venue": "kis_krx"
+}

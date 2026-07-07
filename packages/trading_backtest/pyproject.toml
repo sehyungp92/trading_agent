@@ -1,0 +1,17 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "trading-backtest"
+version = "0.1.0"
+description = "Shared backtest invariant interfaces for the trading workspace."
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/trading_backtest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
