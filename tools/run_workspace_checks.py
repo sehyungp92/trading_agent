@@ -722,6 +722,102 @@ def all_tests() -> int:
     )
 
 
+def _env_with_paths(*relative_paths: str) -> dict[str, str]:
+    env = _pytest_env()
+    extras = [str(ROOT / path) for path in relative_paths]
+    env["PYTHONPATH"] = os.pathsep.join([*extras, env["PYTHONPATH"]])
+    return env
+
+
+def release_audit() -> int:
+    commands = (
+        ([sys.executable, "tools/verify_dependency_boundaries.py"], ROOT, _pytest_env()),
+        ([sys.executable, "tools/verify_effective_live_configs.py"], ROOT, _pytest_env()),
+        ([sys.executable, "tools/verify_cutover_plan.py"], ROOT, _pytest_env()),
+        (
+            [
+                sys.executable,
+                "-m",
+                "pytest",
+                "packages/trading_contracts/tests/test_relay_acceptance.py",
+                "packages/trading_assistant/tests/test_relay_ingress.py",
+                "packages/trading_assistant/tests/test_relay_health.py",
+                "packages/trading_assistant/tests/test_startup_scripts.py",
+                "packages/trading_assistant/tests/test_scheduled_shadow_report.py",
+                "tools/tests/test_verify_operational_deployment_evidence.py",
+                "tools/tests/test_collect_operational_evidence.py",
+                "-q",
+                "-o",
+                "addopts=",
+            ],
+            ROOT,
+            _pytest_env(),
+        ),
+        (
+            [
+                sys.executable,
+                "-m",
+                "pytest",
+                "tests/unit/test_approval_evidence_spine.py",
+                "tests/unit/test_bridge_promotion.py",
+                "tests/unit/test_telemetry_conformance.py",
+                "-q",
+                "-o",
+                "addopts=",
+            ],
+            _workspace("trading_assistant_backtest"),
+            _pytest_env(),
+        ),
+        (
+            [
+                sys.executable,
+                "-m",
+                "pytest",
+                "trading/crypto_trader/tests/live/test_audit_fixes.py",
+                "trading/crypto_trader/tests/live/test_config.py",
+                "-q",
+                "-o",
+                "addopts=",
+            ],
+            ROOT,
+            _env_with_paths("trading/crypto_trader/src"),
+        ),
+        (
+            [
+                sys.executable,
+                "-m",
+                "pytest",
+                "trading/ibkr_trader/tests/unit/test_runtime_scaffold.py",
+                "trading/ibkr_trader/tests/unit/test_market_data_policy.py",
+                "trading/ibkr_trader/tests/unit/test_deployment_metadata_contract.py",
+                "-q",
+                "-o",
+                "addopts=",
+            ],
+            ROOT,
+            _env_with_paths(
+                "trading/ibkr_trader/libs",
+                "trading/ibkr_trader/apps",
+                "trading/ibkr_trader/src",
+            ),
+        ),
+        (
+            [
+                sys.executable,
+                "-m",
+                "pytest",
+                "trading/k_stock_trader/tests/deployment/olr_kalcb/test_runtime_operator_script.py",
+                "-q",
+                "-o",
+                "addopts=",
+            ],
+            ROOT,
+            _env_with_paths("trading/k_stock_trader", "trading/k_stock_trader/src"),
+        ),
+    )
+    return _run_many(commands)
+
+
 def deployment_gate() -> int:
     env = _pytest_env()
     orchestrator_core_tests = (
@@ -809,6 +905,12 @@ def deployment_gate() -> int:
                 CheckCommand([sys.executable, "tools/run_workspace_checks.py", "manifest-validate"], ROOT, 120),
             ),
             parallelism=3,
+        ),
+        CheckTier(
+            name="release-audit",
+            commands=(
+                CheckCommand([sys.executable, "tools/run_workspace_checks.py", "release-audit"], ROOT, 900),
+            ),
         ),
         CheckTier(
             name="slow-local-only",
@@ -1009,9 +1111,9 @@ def _write_manifest_validation_fixture(root: Path) -> Path:
 
 def _local_validation_inputs_available() -> bool:
     return (
-        (ROOT / "bots" / "crypto_trader").exists()
-        and (ROOT / "bots" / "k_stock_trader").exists()
-        and (ROOT / "bots" / "ibkr_trading").exists()
+        (ROOT / "trading" / "crypto_trader").exists()
+        and (ROOT / "trading" / "k_stock_trader").exists()
+        and (ROOT / "trading" / "ibkr_trader").exists()
     )
 
 
@@ -1065,6 +1167,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "data-reproduction-smoke": lambda _parsed: data_reproduction_smoke(),
         "validation-matrix": lambda _parsed: validation_matrix(),
         "all-tests": lambda _parsed: all_tests(),
+        "release-audit": lambda _parsed: release_audit(),
         "deployment-gate": lambda _parsed: deployment_gate(),
         "asgi-import-smoke": lambda _parsed: asgi_import_smoke(),
         "cli-smoke": lambda _parsed: cli_smoke(),

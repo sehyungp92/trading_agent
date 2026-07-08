@@ -1,0 +1,31 @@
+{
+  "adoption_disabled": false,
+  "approval_evidence_mode": true,
+  "assistant_host_id": "local",
+  "blockers": [
+    "adoption must remain disabled for scheduled shadow evidence",
+    "operational_evidence_path missing: C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\deployments\\operational_evidence.json",
+    "optimizer_run_manifest_path missing: C:\\Users\\sehyu\\AppData\\Local\\Temp\\pytest-of-sehyu\\pytest-8304\\test_scheduled_monthly_contrac0\\artifacts\\approval_grade\\bot1\\2026-04\\strat1\\optimizer_run_manifest.json",
+    "relay_ingest_evidence_path missing",
+    "deployment_metadata_install_report_paths missing"
+  ],
+  "bot_id": "bot1",
+  "bridge_ids": [
+    "strat1"
+  ],
+  "deployment_metadata_install_report_paths": [],
+  "generated_at": "2026-07-07T18:25:03Z",
+  "learning_sufficiency_manifest_path": "C:\\Users\\sehyu\\AppData\\Local\\Temp\\pytest-of-sehyu\\pytest-8304\\test_scheduled_monthly_contrac0\\artifacts\\approval_grade\\bot1\\2026-04\\strat1\\learning_sufficiency_manifest.json",
+  "monthly_validation_result_path": "C:\\Users\\sehyu\\AppData\\Local\\Temp\\pytest-of-sehyu\\pytest-8304\\test_scheduled_monthly_contrac0\\artifacts\\approval_grade\\bot1\\2026-04\\strat1\\monthly_validation_result.json",
+  "ok": false,
+  "operational_evidence_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\deployments\\operational_evidence.json",
+  "optimizer_run_manifest_path": "C:\\Users\\sehyu\\AppData\\Local\\Temp\\pytest-of-sehyu\\pytest-8304\\test_scheduled_monthly_contrac0\\artifacts\\approval_grade\\bot1\\2026-04\\strat1\\optimizer_run_manifest.json",
+  "relay_ingest_evidence_path": "",
+  "run_id": "monthly-bot1-strat1-2026-04",
+  "run_month": "2026-04",
+  "schema_version": "scheduled_shadow_cycle_report_v1",
+  "scope_id": "strat1",
+  "source_kind": "monthly_validation_shadow",
+  "uses_live_vps_metadata": false,
+  "vps_host_id": ""
+}

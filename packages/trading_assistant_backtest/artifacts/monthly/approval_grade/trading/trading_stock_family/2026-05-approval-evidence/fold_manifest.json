@@ -1,0 +1,36 @@
+{
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "run_month": "2026-05",
+  "in_sample_start": "2025-03-21",
+  "in_sample_end": "2026-04-30",
+  "selection_oos_start": "2026-05-01",
+  "selection_oos_end": "2026-05-01",
+  "folds": [
+    {
+      "fold_id": "fold_1",
+      "training_start": "2025-10-10",
+      "training_end": "2026-04-30",
+      "validation_start": "2025-03-21",
+      "validation_end": "2025-10-09",
+      "embargo_days": 5,
+      "purged": true,
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\objective_breakdown.json"
+      ]
+    },
+    {
+      "fold_id": "fold_2",
+      "training_start": "2025-03-21",
+      "training_end": "2025-10-09",
+      "validation_start": "2025-10-10",
+      "validation_end": "2026-04-30",
+      "embargo_days": 5,
+      "purged": true,
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\objective_breakdown.json"
+      ]
+    }
+  ],
+  "manifest_version": "two_fold_purged_is_manifest_v1",
+  "generated_at": "2026-07-07T15:41:45.150827Z"
+}

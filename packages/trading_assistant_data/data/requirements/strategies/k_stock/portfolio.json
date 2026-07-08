@@ -1,10 +1,10 @@
 {
   "schema_version": "strategy_data_requirements_v1",
-  "source_universe_file": "bots/k_stock_trader/config/olr_kalcb/olr_deployment_universe_103.yaml",
+  "source_universe_file": "trading/k_stock_trader/config/olr_kalcb/olr_deployment_universe_103.yaml",
   "source_daily_manifest": "data/krx_daily_parquet/manifest.json",
   "source_strategy_configs": [
-    "bots/k_stock_trader/config/optimization/olr.yaml",
-    "bots/k_stock_trader/config/optimization/kalcb.yaml"
+    "trading/k_stock_trader/config/optimization/olr.yaml",
+    "trading/k_stock_trader/config/optimization/kalcb.yaml"
   ],
   "source_request_manifests": [
     "data/source_requests/reference_snapshot_2026-05-30/requests/kis_krx_intraday_bars.json",

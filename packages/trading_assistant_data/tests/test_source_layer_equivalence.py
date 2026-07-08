@@ -24,7 +24,7 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 
 
 def test_hyperliquid_bot_store_and_central_sync_write_same_decision_rows(tmp_path: Path) -> None:
-    _prepend_path(REPO_ROOT / "bots" / "crypto_trader" / "src")
+    _prepend_path(REPO_ROOT / "trading" / "crypto_trader" / "src")
     from crypto_trader.data.downloader import HyperliquidDownloader as BotHyperliquidDownloader
     from crypto_trader.data.store import ParquetStore
 
@@ -90,7 +90,7 @@ def test_hyperliquid_bot_store_and_central_sync_write_same_decision_rows(tmp_pat
 
 
 def test_hyperliquid_existing_overlap_precedence_matches_bot_store(tmp_path: Path) -> None:
-    _prepend_path(REPO_ROOT / "bots" / "crypto_trader" / "src")
+    _prepend_path(REPO_ROOT / "trading" / "crypto_trader" / "src")
     from crypto_trader.data.downloader import HyperliquidDownloader as BotHyperliquidDownloader
     from crypto_trader.data.store import ParquetStore
 
@@ -140,8 +140,9 @@ def test_hyperliquid_existing_overlap_precedence_matches_bot_store(tmp_path: Pat
 
 
 def test_ibkr_bot_bar_normalizer_and_central_provider_normalizer_match() -> None:
-    _prepend_path(REPO_ROOT / "bots" / "ibkr_trading")
-    from bots.ibkr_trading.backtests.shared.data.ibkr.bars import bars_to_frame
+    _prepend_path(REPO_ROOT / "trading" / "ibkr_trader")
+    _prepend_path(REPO_ROOT)
+    from trading.ibkr_trader.backtests.shared.data.ibkr.bars import bars_to_frame
 
     bars = [
         _IBBar(datetime(2026, 5, 1, 13, 30, tzinfo=timezone.utc), 100.0, 101.0, 99.5, 100.5, 1000),
@@ -168,8 +169,9 @@ def test_ibkr_bot_bar_normalizer_and_central_provider_normalizer_match() -> None
 
 
 def test_kis_intraday_bot_parser_and_central_read_only_parser_match() -> None:
-    _prepend_path(REPO_ROOT / "bots" / "k_stock_trader")
-    from bots.k_stock_trader.scripts import update_kis_intraday as legacy_kis
+    _prepend_path(REPO_ROOT / "trading" / "k_stock_trader")
+    _prepend_path(REPO_ROOT)
+    from trading.k_stock_trader.scripts import update_kis_intraday as legacy_kis
 
     rows = [
         _kis_row("090000", 70_000, 10),
@@ -216,8 +218,9 @@ def test_kis_intraday_bot_parser_and_central_read_only_parser_match() -> None:
 
 
 def test_lrs_central_table_export_matches_k_stock_full_mirror_tables(tmp_path: Path) -> None:
-    _prepend_path(REPO_ROOT / "bots" / "k_stock_trader")
-    from bots.k_stock_trader.strategy_common.daily_lrs_parquet import export_lrs_sqlite_to_parquet
+    _prepend_path(REPO_ROOT / "trading" / "k_stock_trader")
+    _prepend_path(REPO_ROOT)
+    from trading.k_stock_trader.strategy_common.daily_lrs_parquet import export_lrs_sqlite_to_parquet
 
     db_path = tmp_path / "lrs.db"
     _write_lrs_fixture(db_path)

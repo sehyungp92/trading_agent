@@ -281,6 +281,61 @@ class TestCreateAppWithConfig:
         )
         assert enabled_app.state.handlers._backtest_max_parallel_strategies == 3
 
+    @pytest.mark.asyncio
+    async def test_monthly_scheduler_payload_scopes_approval_evidence(self, tmp_path):
+        app = create_app(
+            db_dir=str(tmp_path),
+            config=_local_config(
+                bot_ids=["ibkr", "crypto"],
+                monthly_validation_mode="approval_gated",
+                monthly_approval_scope_allowlist=["trading_stock_family"],
+                monthly_approval_scope_map={
+                    "ibkr": "trading_stock_family",
+                    "crypto": "crypto_trader_portfolio",
+                },
+                monthly_deployment_metadata_install_report_paths=[
+                    "reports/ibkr_metadata_install.json",
+                ],
+                monthly_operational_evidence_path="deployments/operational_evidence.json",
+                monthly_relay_ingest_evidence_path="artifacts/relay_ingest.json",
+                monthly_vps_host_id="ibkr-vps",
+                monthly_assistant_host_id="local-assistant",
+            ),
+        )
+        await app.state.queue.initialize()
+        try:
+            specs = {
+                spec.name: spec
+                for spec in app.state.scheduled_job_specs
+                if spec.job_key == "monthly_validation"
+            }
+            scheduled_for = datetime(2026, 6, 2, 3, 0, tzinfo=timezone.utc)
+
+            await specs["monthly_validation_ibkr"].execute(scheduled_for)
+            await specs["monthly_validation_crypto"].execute(scheduled_for)
+            rows = await app.state.queue.peek(10)
+        finally:
+            await app.state.queue.close()
+
+        payloads = {row["bot_id"]: json.loads(row["payload"]) for row in rows}
+        ibkr_payload = payloads["ibkr"]
+        crypto_payload = payloads["crypto"]
+        assert ibkr_payload["strategy_id"] == "trading_stock_family"
+        assert ibkr_payload["approval_scope"] == "trading_stock_family"
+        assert ibkr_payload["shadow"] is False
+        assert ibkr_payload["approval_evidence_mode"] is True
+        assert ibkr_payload["deployment_metadata_install_report_paths"] == [
+            "reports/ibkr_metadata_install.json",
+        ]
+        assert ibkr_payload["operational_evidence_path"] == "deployments/operational_evidence.json"
+        assert ibkr_payload["relay_ingest_evidence_path"] == "artifacts/relay_ingest.json"
+        assert ibkr_payload["vps_host_id"] == "ibkr-vps"
+        assert ibkr_payload["assistant_host_id"] == "local-assistant"
+        assert crypto_payload["strategy_id"] == "crypto_trader_portfolio"
+        assert crypto_payload["shadow"] is True
+        assert crypto_payload["approval_evidence_mode"] is False
+        assert "deployment_metadata_install_report_paths" not in crypto_payload
+
     def test_uses_normalized_curated_data_dir(self, tmp_path):
         (tmp_path / "curated").mkdir()
         app = create_app(db_dir=str(tmp_path), config=_local_config())

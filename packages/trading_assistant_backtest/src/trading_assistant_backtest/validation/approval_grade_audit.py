@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from trading_assistant_backtest.file_hashes import sha256_file
+from trading_assistant_backtest.paths import monorepo_root, package_root, resolve_workspace_path
 from trading_assistant_backtest.validation.bridge_readiness import run_bridge_readiness_audit
 from trading_assistant_backtest.validation.deployment_metadata_contract import (
     live_deployment_metadata_errors,
@@ -22,7 +23,6 @@ from trading_assistant_backtest.validation.validation_matrix import (
     ValidationScope,
     run_validation_matrix_audit,
 )
-from trading_assistant_backtest.paths import monorepo_root, package_root, resolve_workspace_path
 
 CONTRACT_PATHS = {
     "crypto_trend_v1": Path("contracts/strategy_plugins/crypto_trend_v1"),
@@ -384,9 +384,10 @@ def _next_required_actions(scopes: list[dict[str, Any]]) -> list[str]:
 def _load_or_run_validation_matrix(*, agent_root: Path, refresh: bool) -> dict[str, Any]:
     report_path = (
         agent_root
-        / "trading_assistant_backtest"
         / "artifacts"
         / "validation"
+        / "approval_grade"
+        / "source_reports"
         / "validation_matrix"
         / "validation_matrix_report.json"
     )
@@ -401,9 +402,10 @@ def _load_or_run_validation_matrix(*, agent_root: Path, refresh: bool) -> dict[s
 def _load_or_run_bridge_readiness(*, agent_root: Path, refresh: bool) -> dict[str, Any]:
     report_path = (
         agent_root
-        / "trading_assistant_backtest"
         / "artifacts"
         / "validation"
+        / "approval_grade"
+        / "source_reports"
         / "bridge_readiness"
         / "bridge_readiness_report.json"
     )

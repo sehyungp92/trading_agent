@@ -6,11 +6,11 @@
   "decision_api_version": "k_stock_olr_kalcb_artifact_replay_decision_api_v1",
   "generated_at": "2026-07-03T00:00:00Z",
   "live_repo_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
-  "live_repo_path": "bots/k_stock_trader",
+  "live_repo_path": "trading/k_stock_trader",
   "maturity": "shadow_validated",
   "parity_fixture_set": [
-    "bots/k_stock_trader/tests/fixtures/live_replay_parity/kalcb/manifest.json",
-    "bots/k_stock_trader/tests/fixtures/live_replay_parity/olr/manifest.json"
+    "trading/k_stock_trader/tests/fixtures/live_replay_parity/kalcb/manifest.json",
+    "trading/k_stock_trader/tests/fixtures/live_replay_parity/olr/manifest.json"
   ],
   "plugin_id": "k-stock-olr-kalcb",
   "required_telemetry_schemas": [

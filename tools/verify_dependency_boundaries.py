@@ -12,9 +12,9 @@ FORBIDDEN_LIVE_DEPS = (
     "trading_assistant_backtest",
 )
 LIVE_BOT_PYPROJECTS = (
-    ROOT / "bots/ibkr_trading/pyproject.toml",
-    ROOT / "bots/k_stock_trader/pyproject.toml",
-    ROOT / "bots/crypto_trader/pyproject.toml",
+    ROOT / "trading/ibkr_trader/pyproject.toml",
+    ROOT / "trading/k_stock_trader/pyproject.toml",
+    ROOT / "trading/crypto_trader/pyproject.toml",
 )
 
 

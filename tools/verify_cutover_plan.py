@@ -13,7 +13,7 @@ PLACEHOLDER_TOKENS = ("previous-production", "placeholder", "todo", "example")
 ROLLBACK_OPERATIONAL_MARKERS = {
     "ibkr": ("ibkr-trading-runtime", "preflight"),
     "crypto": ("crypto-trader", "status"),
-    "k_stock": ("k-stock-preflight",),
+    "k_stock": ("k-stock-sidecar", "k-stock-instrumentation-sidecar"),
 }
 
 
@@ -55,6 +55,7 @@ def _record_errors(record: dict[str, Any]) -> list[str]:
             errors.append(f"{bot}: missing {field}")
     errors.extend(_placeholder_errors(bot, record))
     errors.extend(_hash_errors(bot, record, "compose_file", "compose_sha256"))
+    errors.extend(_compose_secret_default_errors(bot, record.get("compose_file")))
     errors.extend(_hash_errors(bot, record, "live_config", "live_config_hash"))
     previous = record.get("previous_state")
     rollback = record.get("rollback")
@@ -94,9 +95,30 @@ def _rollback_errors(bot: str, rollback: dict[str, Any], previous: dict[str, Any
     if rollback.get("live_config_hashes") != previous.get("live_config_hashes"):
         errors.append(f"{bot}: rollback live_config_hashes must match previous_state")
     errors.extend(_hash_errors(bot, rollback, "compose_file", "compose_sha256", prefix="rollback"))
+    errors.extend(_k_stock_runtime_rollback_errors(bot, rollback))
     restore_test = rollback.get("restore_test")
     if isinstance(restore_test, dict):
         errors.extend(_restore_test_errors(bot, restore_test))
+    return errors
+
+
+def _k_stock_runtime_rollback_errors(bot: str, rollback: dict[str, Any]) -> list[str]:
+    if bot != "k_stock":
+        return []
+    errors: list[str] = []
+    restore_command = str(rollback.get("restore_command") or "")
+    if "--profile runtime" not in restore_command:
+        errors.append("k_stock: rollback restore_command must include --profile runtime")
+    for service in ("k-stock-trader", "k-stock-sidecar"):
+        if service not in restore_command:
+            errors.append(f"k_stock: rollback restore_command must target {service}")
+    restore_test = rollback.get("restore_test")
+    command = restore_test.get("command") if isinstance(restore_test, dict) else []
+    joined = " ".join(str(part) for part in command) if isinstance(command, list) else ""
+    if "--profile runtime" not in joined:
+        errors.append("k_stock: rollback restore_test command must include --profile runtime")
+    if "k-stock-sidecar" not in joined:
+        errors.append("k_stock: rollback restore_test command must exercise k-stock-sidecar")
     return errors
 
 
@@ -185,6 +207,28 @@ def _hash_errors(
     if actual != expected:
         return [f"{bot}: {hash_field} mismatch for {raw_path}"]
     return []
+
+
+def _compose_secret_default_errors(bot: str, raw_path: Any) -> list[str]:
+    if bot not in {"crypto", "k_stock"} or not raw_path:
+        return []
+    path = ROOT / str(raw_path)
+    if not path.exists():
+        return []
+    text = path.read_text(encoding="utf-8").lower()
+    forbidden = (
+        "postgres_password:-changeme",
+        "postgres_writer_password:-changeme",
+        "postgres_reader_password:-changeme",
+        "postgres_password:-change-me",
+        "postgres_writer_password:-change-me",
+        "postgres_reader_password:-change-me",
+    )
+    return [
+        f"{bot}: compose must require postgres password env vars instead of defaulting to changeme"
+        for token in forbidden
+        if token in text
+    ][:1]
 
 
 def _placeholder_errors(bot: str, payload: Any) -> list[str]:

@@ -551,8 +551,8 @@
       ],
       "observed_event_count": 0,
       "support_source_paths": [
-        "bots/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
-        "bots/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
+        "trading/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
+        "trading/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
       ],
       "observed_evidence_paths": [],
       "event_value_classifications": {
@@ -569,8 +569,8 @@
       ],
       "observed_event_count": 0,
       "support_source_paths": [
-        "bots/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
-        "bots/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
+        "trading/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
+        "trading/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
       ],
       "observed_evidence_paths": [],
       "event_value_classifications": {
@@ -587,8 +587,8 @@
       ],
       "observed_event_count": 0,
       "support_source_paths": [
-        "bots/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
-        "bots/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
+        "trading/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
+        "trading/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
       ],
       "observed_evidence_paths": [],
       "event_value_classifications": {
@@ -603,8 +603,8 @@
       "configured_event_types": [],
       "observed_event_count": 0,
       "support_source_paths": [
-        "bots/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
-        "bots/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
+        "trading/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
+        "trading/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
       ],
       "observed_evidence_paths": [],
       "event_value_classifications": {},
@@ -620,8 +620,8 @@
       ],
       "observed_event_count": 0,
       "support_source_paths": [
-        "bots/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
-        "bots/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
+        "trading/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
+        "trading/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
       ],
       "observed_evidence_paths": [],
       "event_value_classifications": {
@@ -639,8 +639,8 @@
       ],
       "observed_event_count": 0,
       "support_source_paths": [
-        "bots/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
-        "bots/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
+        "trading/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
+        "trading/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
       ],
       "observed_evidence_paths": [],
       "event_value_classifications": {
@@ -657,8 +657,8 @@
       ],
       "observed_event_count": 0,
       "support_source_paths": [
-        "bots/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
-        "bots/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
+        "trading/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
+        "trading/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
       ],
       "observed_evidence_paths": [],
       "event_value_classifications": {
@@ -675,8 +675,8 @@
       ],
       "observed_event_count": 0,
       "support_source_paths": [
-        "bots/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
-        "bots/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
+        "trading/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
+        "trading/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
       ],
       "observed_evidence_paths": [],
       "event_value_classifications": {
@@ -693,8 +693,8 @@
       ],
       "observed_event_count": 1,
       "support_source_paths": [
-        "bots/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
-        "bots/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
+        "trading/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
+        "trading/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
       ],
       "observed_evidence_paths": [
         "C:/Users/sehyu/Documents/Other/Projects/trading_agent/deployments/crypto/generated/runtime_deployment_metadata/crypto_momentum_v1/deployment_metadata.json"
@@ -739,8 +739,8 @@
       "evidence_paths": [
         "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_momentum_v1/expected_active_sessions.json",
         "C:/Users/sehyu/Documents/Other/Projects/trading_agent/deployments/crypto/generated/runtime_deployment_metadata/crypto_momentum_v1/deployment_metadata.json",
-        "bots/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
-        "bots/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
+        "trading/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
+        "trading/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
       ],
       "blocking_reasons": [
         "trade_outcome_lineage:missing",
@@ -1473,8 +1473,8 @@
     "C:/Users/sehyu/Documents/Other/Projects/trading_agent/deployments/crypto/generated/runtime_deployment_metadata/crypto_momentum_v1/deployment_metadata.json",
     "C:/Users/sehyu/Documents/Other/Projects/trading_agent/artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_momentum_v1/telemetry_manifest.json",
     "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\learning_sufficiency\\phase2_manifests\\crypto\\2026-06\\crypto_momentum_v1\\telemetry_manifest.json",
-    "bots/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
-    "bots/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
+    "trading/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
+    "trading/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
   ],
   "total_events": 1,
   "generated_at": "2026-07-05T16:34:47.615406Z",

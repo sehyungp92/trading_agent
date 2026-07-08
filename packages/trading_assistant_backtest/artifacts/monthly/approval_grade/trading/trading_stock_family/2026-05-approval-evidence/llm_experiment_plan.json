@@ -1,0 +1,49 @@
+{
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "objective_version": "objective_weights_v1",
+  "score_components": [
+    "official_return",
+    "expected_total_r",
+    "trade_frequency",
+    "edge_quality",
+    "drawdown_resilience",
+    "capture_quality",
+    "signal_quality"
+  ],
+  "phase_order": [
+    "diagnostics",
+    "signal_quality",
+    "trade_management"
+  ],
+  "candidate_families": [
+    {
+      "family": "filter_repair",
+      "phase": "signal_quality"
+    },
+    {
+      "family": "trade_management",
+      "phase": "signal_quality"
+    }
+  ],
+  "structural_candidates": [],
+  "gate_expectations": [
+    "positive purged folds",
+    "cost sensitivity passes",
+    "outlier concentration is bounded",
+    "portfolio risk constraints pass"
+  ],
+  "overfit_risks": [
+    "latest completed month is selection-OOS only",
+    "weekly hints may reorder families but cannot satisfy gates",
+    "rollback and negative-prior families require extra caution"
+  ],
+  "evidence_paths": [
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\gap_attribution.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\objective_breakdown.json"
+  ],
+  "source_weekly_signal_ids": [
+    "approval-evidence-shadow-2026-05"
+  ],
+  "plan_version": "monthly_optimizer_experiment_plan_v1",
+  "generated_at": "2026-07-07T15:41:45.168562Z"
+}

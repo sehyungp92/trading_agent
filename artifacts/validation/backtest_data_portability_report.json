@@ -6,7 +6,7 @@
       "dataset_id": "ibkr_stock_raw_market_data",
       "errors": [],
       "file_count": 611,
-      "path": "bots/ibkr_trading/backtests/stock/data/raw",
+      "path": "trading/ibkr_trader/backtests/stock/data/raw",
       "required": true,
       "size_bytes": 210748187,
       "status": "pass",
@@ -18,7 +18,7 @@
       "dataset_id": "ibkr_momentum_raw_market_data",
       "errors": [],
       "file_count": 80,
-      "path": "bots/ibkr_trading/backtests/momentum/data/raw",
+      "path": "trading/ibkr_trader/backtests/momentum/data/raw",
       "required": true,
       "size_bytes": 31055203,
       "status": "pass",
@@ -30,7 +30,7 @@
       "dataset_id": "ibkr_swing_raw_market_data",
       "errors": [],
       "file_count": 62,
-      "path": "bots/ibkr_trading/backtests/swing/data/raw",
+      "path": "trading/ibkr_trader/backtests/swing/data/raw",
       "required": true,
       "size_bytes": 11150063,
       "status": "pass",
@@ -42,7 +42,7 @@
       "dataset_id": "ibkr_regime_raw_market_data",
       "errors": [],
       "file_count": 4,
-      "path": "bots/ibkr_trading/backtests/regime/data/raw",
+      "path": "trading/ibkr_trader/backtests/regime/data/raw",
       "required": true,
       "size_bytes": 512012,
       "status": "pass",
@@ -54,7 +54,7 @@
       "dataset_id": "crypto_market_data",
       "errors": [],
       "file_count": 26,
-      "path": "bots/crypto_trader/data",
+      "path": "trading/crypto_trader/data",
       "required": true,
       "size_bytes": 15376464,
       "status": "pass",
@@ -78,7 +78,7 @@
       "dataset_id": "k_stock_restored_local_output_evidence",
       "errors": [],
       "file_count": 274,
-      "path": "bots/k_stock_trader/data/backtests/output",
+      "path": "trading/k_stock_trader/data/backtests/output",
       "required": false,
       "size_bytes": 5925156,
       "status": "pass",
@@ -91,12 +91,12 @@
   "manifest_path": "backtests/data_portability_manifest.json",
   "policy_checks": {
     "dockerignore_required": [
-      "bots/*/backtests/*/data/raw/",
-      "bots/crypto_trader/data/",
-      "bots/*/data/backtests/output/"
+      "trading/*/backtests/*/data/raw/",
+      "trading/crypto_trader/data/",
+      "trading/*/data/backtests/output/"
     ],
     "gitignore_required": [
-      "bots/*/data/backtests/output/"
+      "trading/*/data/backtests/output/"
     ],
     "parquet_lfs_required": true
   },

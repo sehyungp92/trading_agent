@@ -14,7 +14,7 @@ x-ibkr-build: &ibkr-build
   image: trading-agent/ibkr-trading:local
   build:
     context: ../..
-    dockerfile: bots/ibkr_trading/Dockerfile
+    dockerfile: trading/ibkr_trader/Dockerfile
 
 x-ibkr-runtime-env: &ibkr-runtime-env
   PYTHONUNBUFFERED: "1"
@@ -89,10 +89,18 @@ services:
         condition: service_healthy
       ib-gateway:
         condition: service_started
-    command: ["ibkr-trading-runtime", "run", "--config-dir", "config", "--connect-ib"]
+    command:
+      - sh
+      - -c
+      - >
+        ibkr-trading-runtime preflight --config-dir config
+        && exec ibkr-trading-runtime run
+        --config-dir config
+        --effective-config /app/deployments/ibkr/generated/strategies.effective.json
+        --connect-ib
     volumes:
-      - ibkr-runtime-data:/app/bots/ibkr_trading/data
-      - ibkr-instrumentation-data:/app/bots/ibkr_trading/instrumentation/data
+      - ibkr-runtime-data:/app/trading/ibkr_trader/data
+      - ibkr-instrumentation-data:/app/trading/ibkr_trader/instrumentation/data
       - ../../deployments/ibkr/generated:/app/deployments/ibkr/generated:ro
       - ../../contracts:/app/contracts:ro
     stop_grace_period: 60s
@@ -120,8 +128,8 @@ services:
         condition: service_healthy
     command: ["python", "-m", "apps.watchdog"]
     volumes:
-      - ibkr-runtime-data:/app/bots/ibkr_trading/data
-      - ibkr-instrumentation-data:/app/bots/ibkr_trading/instrumentation/data
+      - ibkr-runtime-data:/app/trading/ibkr_trader/data
+      - ibkr-instrumentation-data:/app/trading/ibkr_trader/instrumentation/data
     logging: *json-logging
 
 volumes:

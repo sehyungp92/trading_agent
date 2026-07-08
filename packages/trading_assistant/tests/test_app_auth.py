@@ -130,7 +130,10 @@ class TestOrchestratorApiKeyAuth:
             response = await client.get("/health")
 
         assert response.status_code == 200
-        assert response.json()["auth_enabled"] is True
+        payload = response.json()
+        assert payload["auth_enabled"] is True
+        assert payload["evidence_pipeline"]["assistant_status"] in {"known", "unknown"}
+        assert "oldest_pending_age_seconds" in payload["evidence_pipeline"]
 
     @pytest.mark.asyncio
     async def test_metrics_requires_api_key(self, protected_app):

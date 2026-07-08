@@ -518,7 +518,7 @@
       "bot": "k_stock",
       "class_name": "PhaseRunner",
       "module_path": "backtests.auto.shared.phase_runner",
-      "source_path": "bots/k_stock_trader/backtests/auto/shared/phase_runner.py",
+      "source_path": "trading/k_stock_trader/backtests/auto/shared/phase_runner.py",
       "source_sha256": "df77a3df9b81cf21e825dc8bbb88dc76308c4a99e3de1b149453965a7af616bf"
     }
   ]

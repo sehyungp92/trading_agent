@@ -1,16 +1,16 @@
 {
   "bot_id": "k_stock",
-  "effective_config_hash": "43a0ce3c52efbb9af375eb893b02c558ab2391bc9c4db2624d85aaea5ad65b9e",
-  "generated_at": "2026-07-03T01:39:58.857451Z",
+  "effective_config_hash": "b8d86a5fc8b6b34003f2640b4efe9dfd301f301a255076620f0871537041bdde",
+  "generated_at": "2026-07-08T15:12:13.907416Z",
   "materialized_config": {
     "bot_id": "k_stock",
     "frontier_size_evidence": {
       "paths": {
-        "deployment_universe": "bots/k_stock_trader/config/olr_kalcb/olr_deployment_universe_103.yaml",
-        "live_config": "bots/k_stock_trader/config/kalcb.yaml",
-        "optimizer_base_mutation": "bots/k_stock_trader/config/optimization/kalcb.yaml",
-        "phase_optimizer_base": "bots/k_stock_trader/backtests/strategies/kalcb/phase_candidates.py",
-        "strategy_default": "bots/k_stock_trader/strategy_kalcb/config.py"
+        "deployment_universe": "trading/k_stock_trader/config/olr_kalcb/olr_deployment_universe_103.yaml",
+        "live_config": "trading/k_stock_trader/config/kalcb.yaml",
+        "optimizer_base_mutation": "trading/k_stock_trader/config/optimization/kalcb.yaml",
+        "phase_optimizer_base": "trading/k_stock_trader/backtests/strategies/kalcb/phase_candidates.py",
+        "strategy_default": "trading/k_stock_trader/strategy_kalcb/config.py"
       },
       "status": "aligned",
       "values": {
@@ -2103,7 +2103,7 @@
       }
     ]
   },
-  "materialized_config_hash": "0210c06cd860109f6673cb1b703e4c01cecd936b5670cda2b7a98c1abbc70b82",
+  "materialized_config_hash": "db91313cf4344eab2b9f407fbb381a2160193b623d548c22425ac923c53d4c2b",
   "merge_order": [
     "strategy_defaults",
     "latest_optimized_config",
@@ -2116,24 +2116,24 @@
   ],
   "promotion_manifests": [
     {
-      "canonical_json_sha256": "5b87c5c438f8dca286448ebff56af1e8492cfc910e725d4ad92aba021db6350c",
+      "canonical_json_sha256": "a8393f457c0d8e58870b6274412a378ef42fbc93b517959abb79b337c304ed12",
       "path": "contracts/promotions/k_stock/kalcb.json",
       "promotion_state": "approved",
-      "sha256": "d0eb29bc12c064c8e9e6278e45ddf3eb05a7e471c10c0d4dc3cf6460c7b813d8",
+      "sha256": "1fa85e74d7fb5132cabb9bd7e02b8358d9c54944f08f18451e1838f674224335",
       "strategy_id": "kalcb"
     },
     {
-      "canonical_json_sha256": "18214566af937a6c7dbbfcae139a7b1cc2b2f80eadf5dca39b3e8b79bece4fde",
+      "canonical_json_sha256": "efa78d6c49e9303d3db3caeb38a618d01c21e65eb5e33050e134878a55dedf7c",
       "path": "contracts/promotions/k_stock/olr.json",
       "promotion_state": "approved",
-      "sha256": "93b8379076a85b05863f2bf5a8c133d565e41206cb0266afa422091b753531cb",
+      "sha256": "6a060d2c7e06f1e83f1c19863e700453e5e50e31bc4fc138bd7ec4de7066f555",
       "strategy_id": "olr"
     },
     {
-      "canonical_json_sha256": "5d2a78547390c029e1aad8b34273aaedd94c4ebf69b3b2727d9e3b05ef939edf",
+      "canonical_json_sha256": "e09d4cb80591ca09065a77e84022420806a5f9926579ba827537c085e0dd04d0",
       "path": "contracts/promotions/k_stock/olr_kalcb_portfolio.json",
       "promotion_state": "approved",
-      "sha256": "fbe2db6edf5dfaf8fad9d23f0fe89a83adb6fe620fa568ca72905b9c19801da4",
+      "sha256": "6c14fbba5bc4bd9d39981d6db51001bc140c615745b7e111615e3a68c60fca34",
       "strategy_id": "olr_kalcb_portfolio"
     }
   ],
@@ -2141,37 +2141,37 @@
   "source_files": [
     {
       "canonical_json_sha256": "",
-      "path": "bots/k_stock_trader/config/kalcb.yaml",
+      "path": "trading/k_stock_trader/config/kalcb.yaml",
       "role": "k_stock_kalcb_live",
       "sha256": "6f135df38301d4dcd7cd9d22762d108d360e3f6a9decd5088230296964ba0ee5"
     },
     {
       "canonical_json_sha256": "",
-      "path": "bots/k_stock_trader/config/optimization/kalcb.yaml",
+      "path": "trading/k_stock_trader/config/optimization/kalcb.yaml",
       "role": "k_stock_kalcb_optimizer",
       "sha256": "92e67604d77367271856c4bd812fbfbe195491fb40e264c1d649e75401fc3b28"
     },
     {
       "canonical_json_sha256": "",
-      "path": "bots/k_stock_trader/config/optimization/olr.yaml",
+      "path": "trading/k_stock_trader/config/optimization/olr.yaml",
       "role": "k_stock_olr_optimizer",
       "sha256": "0abd0d245d350ee619e808b5b4b2fdb3aed03020727907804f0115ef83ce9210"
     },
     {
       "canonical_json_sha256": "",
-      "path": "bots/k_stock_trader/config/olr_kalcb/olr_deployment_universe_103.yaml",
+      "path": "trading/k_stock_trader/config/olr_kalcb/olr_deployment_universe_103.yaml",
       "role": "k_stock_olr_universe",
       "sha256": "a4dcae06993ba60ff4fa0adaa92450285656f85df3116aa2b1c941695b9f7a9e"
     },
     {
       "canonical_json_sha256": "",
-      "path": "bots/k_stock_trader/strategy_kalcb/config.py",
+      "path": "trading/k_stock_trader/strategy_kalcb/config.py",
       "role": "k_stock_kalcb_defaults",
       "sha256": "e9b5cbb8781aa9f6c81df59bb4255f58d134b513b97786c26481d12db31dddac"
     },
     {
       "canonical_json_sha256": "",
-      "path": "bots/k_stock_trader/backtests/strategies/kalcb/phase_candidates.py",
+      "path": "trading/k_stock_trader/backtests/strategies/kalcb/phase_candidates.py",
       "role": "k_stock_kalcb_phase_base",
       "sha256": "06893f66e27ae0a62738ddb6607a02fccb0289df8c04c71063050d1f17c1d954"
     }

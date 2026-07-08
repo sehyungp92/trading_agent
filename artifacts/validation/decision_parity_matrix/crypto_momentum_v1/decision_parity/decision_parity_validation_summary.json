@@ -58,5 +58,5 @@
   "run_id": "decision-parity-matrix-crypto_momentum_v1",
   "strategy_plugin_id": "crypto-momentum-v1",
   "summary_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\crypto_momentum_v1\\decision_parity\\decision_parity_validation_summary.json",
-  "validated_live_repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\crypto_trader"
+  "validated_live_repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\crypto_trader"
 }

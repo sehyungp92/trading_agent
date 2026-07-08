@@ -1,0 +1,23 @@
+{
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "primary_candidate_id": "",
+  "primary_source": "phased_auto",
+  "repair_triggered": false,
+  "compared_candidate_ids": [
+    "signal_quality-filter_repair-1",
+    "signal_quality-trade_management-2"
+  ],
+  "variants": [],
+  "adopted_candidate_id": "",
+  "adopted_source": "unknown",
+  "no_adoption_reason": "replay-backed evaluation score=0.59987566; baseline=0.59987566; delta=0.00000000; shadow_validated replay evidence retained; candidate adoption remains disabled; replay-backed evaluation score=0.52831220; baseline=0.52831220; delta=0.00000000; candidate failed purged two-fold in-sample support; candidate adoption remains disabled until bridge approval-readiness passes; two-fold in-sample replay score=0.56409393; baseline=0.56409393; delta=0.00000000",
+  "selection_rule": "best confirmatory candidate passing purged folds, selection-OOS, and no-regression gates; fail closed otherwise",
+  "objective_version": "objective_weights_v1",
+  "evidence_paths": [
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\fold_validation.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\fold_score_matrix.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\selection_oos_evaluation.json"
+  ],
+  "rerank_version": "confirmatory_rerank_v1",
+  "generated_at": "2026-07-07T15:41:49.182777Z"
+}

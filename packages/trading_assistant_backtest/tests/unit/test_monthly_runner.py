@@ -690,7 +690,7 @@ def test_structural_review_rejects_selection_allowed_without_real_patches(
 
 
 def test_structural_review_emits_crypto_trend_decision_parity(tmp_path: Path) -> None:
-    crypto_trader_repo = AGENT_ROOT / "bots" / "crypto_trader"
+    crypto_trader_repo = AGENT_ROOT / "trading" / "crypto_trader"
     if not crypto_trader_repo.exists():
         pytest.skip("crypto_trader reference repo is not available")
     live_sha = subprocess.run(
@@ -823,6 +823,52 @@ def test_optimizer_run_manifest_payload_emits_all_crypto_bridge_hashes(
     }
 
 
+def test_optimizer_run_manifest_payload_uses_explicit_approval_evidence_mode(
+    tmp_path: Path,
+) -> None:
+    contract_path = tmp_path / "strategy_plugin_contract.json"
+    deployment_path = tmp_path / "deployment_metadata.json"
+    contract_path.write_text(json.dumps({"plugin_id": "trading-stock-family"}), encoding="utf-8")
+    deployment_path.write_text(json.dumps({"deployment_id": "deployment-1"}), encoding="utf-8")
+    manifest = MonthlyRunManifest(
+        run_id="monthly-trading-stock-2026-06-shadow",
+        run_month="2026-06",
+        mode=MonthlyRunMode.PHASED_AUTO,
+        bot_id="trading",
+        strategy_id="trading_stock_family",
+        latest_month_start=date(2026, 6, 1),
+        latest_month_end=date(2026, 6, 30),
+        in_sample_start=date(2026, 3, 1),
+        in_sample_end=date(2026, 5, 31),
+        selection_oos_start=date(2026, 6, 1),
+        selection_oos_end=date(2026, 6, 30),
+        market_data_manifest_path=str(tmp_path / "data_bundle_manifest.json"),
+        data_bundle_manifest_path=str(tmp_path / "data_bundle_manifest.json"),
+        data_bundle_checksum="bundle-sha",
+        data_manifest_checksum="bundle-sha",
+        telemetry_manifest_path=str(tmp_path / "telemetry.json"),
+        artifact_root=str(tmp_path / "artifacts"),
+        strategy_plugin_contract_path=str(contract_path),
+        deployment_metadata_path=str(deployment_path),
+        approval_evidence_mode=True,
+    )
+    manifest_path = tmp_path / "run_manifest.json"
+    manifest_path.write_text(manifest.model_dump_json(indent=2), encoding="utf-8")
+
+    payload = _optimizer_run_manifest_payload(
+        manifest,
+        artifact_root=tmp_path / "artifacts",
+        manifest_path=manifest_path,
+        planner_mode="scheduled_shadow_approval_prep",
+    )
+
+    assert payload["approval_mode"] == "none"
+    assert payload["approval_evidence_mode"] is True
+    assert payload["approval_grade_optimizer_run"] is True
+    assert payload["smoke_mode"] is False
+    assert payload["run_manifest_hash"] == sha256_file(manifest_path)
+
+
 def test_shadow_monthly_cycle_uses_committed_bundle_and_mature_crypto_contract(
     tmp_path: Path,
 ) -> None:
@@ -836,7 +882,7 @@ def test_shadow_monthly_cycle_uses_committed_bundle_and_mature_crypto_contract(
         / "btc_1m"
         / "data_bundle_manifest.json"
     )
-    crypto_trader_repo = AGENT_ROOT / "bots" / "crypto_trader"
+    crypto_trader_repo = AGENT_ROOT / "trading" / "crypto_trader"
     if not bundle_path.exists():
         pytest.skip("committed BTC 1m data bundle is not available")
     if not crypto_trader_repo.exists():

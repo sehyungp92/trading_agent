@@ -31,21 +31,21 @@ class PackageSmoke:
 PACKAGE_SMOKES = {
     "ibkr-trading": PackageSmoke(
         name="ibkr-trading",
-        member_path=ROOT / "bots" / "ibkr_trading",
+        member_path=ROOT / "trading" / "ibkr_trader",
         import_paths=(".", "src"),
         modules=("ibkr_trading", "apps.runtime.cli", "apps.runtime.runtime"),
         commands=(("python", "-m", "apps.runtime.cli", "--help"),),
     ),
     "k-stock-trader": PackageSmoke(
         name="k-stock-trader",
-        member_path=ROOT / "bots" / "k_stock_trader",
+        member_path=ROOT / "trading" / "k_stock_trader",
         import_paths=(".", "src", "scripts"),
         modules=("k_stock_trader", "deployment.olr_kalcb.runtime"),
         commands=(("python", "scripts/run_olr_kalcb_runtime_session.py", "--help"),),
     ),
     "crypto-trader": PackageSmoke(
         name="crypto-trader",
-        member_path=ROOT / "bots" / "crypto_trader",
+        member_path=ROOT / "trading" / "crypto_trader",
         import_paths=("src",),
         modules=("crypto_trader", "crypto_trader.cli"),
         commands=(("python", "-m", "crypto_trader.cli", "--help"),),

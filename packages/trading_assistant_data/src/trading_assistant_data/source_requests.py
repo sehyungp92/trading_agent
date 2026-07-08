@@ -831,7 +831,7 @@ def _load_trading_primary_exchange_map(repo_root: Path) -> dict[str, str]:
     mapping = dict(US_EQUITY_PRIMARY_EXCHANGE_FALLBACKS)
     repo_root = Path(repo_root).resolve()
     monorepo_root = repo_root.parent.parent if repo_root.parent.name == "packages" else repo_root.parent
-    trading_root = monorepo_root / "bots" / "ibkr_trading"
+    trading_root = monorepo_root / "trading" / "ibkr_trader"
     for rel_path in ("config/contracts.yaml", "config/routing.yaml"):
         payload = _read_yaml_mapping(trading_root / rel_path)
         for symbol, config in payload.items():

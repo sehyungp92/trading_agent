@@ -688,7 +688,7 @@
                   "5m",
                   "30m"
                 ],
-                "live_universe_authority": "bots/ibkr_trading/strategies/stock/live_universe.py::LIVE_STOCK_UNIVERSE_SYMBOLS",
+                "live_universe_authority": "trading/ibkr_trader/strategies/stock/live_universe.py::LIVE_STOCK_UNIVERSE_SYMBOLS",
                 "scope_id": "trading_stock_family_live_approval_v1"
               },
               "archive_evidence_scope": {

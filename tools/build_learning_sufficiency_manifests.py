@@ -277,18 +277,18 @@ def _runtime_support_source_paths(scope: dict[str, Any]) -> list[Path]:
     contract_id = str(scope.get("contract_id") or scope.get("strategy_id") or "")
     if bot_id == "crypto":
         return [
-            ROOT / "bots" / "crypto_trader" / "src" / "crypto_trader" / "instrumentation" / "sidecar.py",
-            ROOT / "bots" / "crypto_trader" / "src" / "crypto_trader" / "instrumentation" / "async_postgres_sink.py",
+            ROOT / "trading" / "crypto_trader" / "src" / "crypto_trader" / "instrumentation" / "sidecar.py",
+            ROOT / "trading" / "crypto_trader" / "src" / "crypto_trader" / "instrumentation" / "async_postgres_sink.py",
         ]
     if bot_id == "k_stock":
-        return [ROOT / "bots" / "k_stock_trader" / "instrumentation" / "src" / "event_contract.py"]
+        return [ROOT / "trading" / "k_stock_trader" / "instrumentation" / "src" / "event_contract.py"]
     if bot_id == "ibkr":
         family = "stock"
         if "momentum" in contract_id:
             family = "momentum"
         elif "swing" in contract_id:
             family = "swing"
-        return [ROOT / "bots" / "ibkr_trading" / "strategies" / family / "instrumentation" / "src" / "sidecar.py"]
+        return [ROOT / "trading" / "ibkr_trader" / "strategies" / family / "instrumentation" / "src" / "sidecar.py"]
     return []
 
 

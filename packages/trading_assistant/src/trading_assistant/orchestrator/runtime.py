@@ -417,6 +417,7 @@ def build_control_plane_runtime(
             proposal_ledger=proposal_ledger,
             approval_tracker=approval_tracker,
             monthly_validation_mode=config.monthly_validation_mode,
+            monthly_approval_scope_allowlist=list(config.monthly_approval_scope_allowlist),
             monthly_optimizer_sequence_enabled=config.monthly_optimizer_sequence_enabled,
             monthly_backtest_command=list(config.monthly_backtest_command or []),
             monthly_workflow_contract_path=config.monthly_workflow_contract_path,

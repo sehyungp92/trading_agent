@@ -15,7 +15,7 @@
   "promotion_state": "draft",
   "schema_version": "strategy_promotion_manifest.v1.draft",
   "source_live_config": {
-    "path": "bots/ibkr_trading/config/strategies.yaml",
+    "path": "trading/ibkr_trader/config/strategies.yaml",
     "sha256": "12e8b04198925c6f3438f700edd0cdcdd59fd8bc5cd4a25d962a45e3f6806c2d"
   },
   "strategy_id": "ALCB_v1",

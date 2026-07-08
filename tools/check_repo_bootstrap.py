@@ -152,10 +152,10 @@ def check_pyproject() -> int:
 
     workspace = pyproject.get("tool", {}).get("uv", {}).get("workspace", {})
     members = workspace.get("members", [])
-    if "packages/*" in members and "bots/*" in members:
+    if "packages/*" in members and "trading/*" in members:
         ok("pyproject.uv.workspace", ", ".join(members))
     else:
-        fail("pyproject.uv.workspace", "members must include packages/* and bots/*")
+        fail("pyproject.uv.workspace", "members must include packages/* and trading/*")
         failures += 1
 
     bootstrap = pyproject.get("tool", {}).get("trading_agent", {}).get("bootstrap", {})

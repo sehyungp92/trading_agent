@@ -10,6 +10,7 @@ import json
 import logging
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
 
 from fastapi import FastAPI, HTTPException, Request
 from starlette.responses import JSONResponse
@@ -336,7 +337,49 @@ def create_app(db_dir: str | None = None, config: AppConfig | None = None) -> Fa
     })
     runtime.attach_state(app)
 
-    def _health_payload() -> dict:
+    async def _evidence_pipeline_payload(
+        *,
+        relay_receiver: Any,
+        relay_ready: bool,
+        relay_consecutive_failures: int,
+    ) -> dict:
+        pipeline: dict[str, Any] = {
+            "status": "ok",
+            "assistant_status": "known",
+            "relay": "configured" if config.relay_url else "disabled",
+            "relay_ready": relay_ready,
+            "relay_consecutive_failures": relay_consecutive_failures,
+            "required_bot_ids": list(config.bot_ids),
+            "missing_bot_ids": [],
+            "queue_depth": None,
+            "dead_letter_count": None,
+            "oldest_pending_age_seconds": None,
+        }
+        if config.relay_url and not relay_ready:
+            pipeline["status"] = "degraded"
+            pipeline["missing_bot_ids"] = list(config.bot_ids)
+        if config.relay_url and relay_receiver is None:
+            pipeline["assistant_status"] = "unknown"
+
+        try:
+            pending = await queue.count_pending()
+            dead_count = await queue.count_dead_letters()
+            oldest_age = await queue.oldest_pending_age_seconds()
+        except Exception:
+            pipeline["status"] = "unknown"
+            pipeline["assistant_status"] = "unknown"
+            return pipeline
+
+        pipeline["queue_depth"] = pending
+        pipeline["dead_letter_count"] = dead_count
+        pipeline["oldest_pending_age_seconds"] = oldest_age
+        if dead_count > 0:
+            pipeline["status"] = "degraded"
+        elif oldest_age > 1800:
+            pipeline["status"] = "warning"
+        return pipeline
+
+    async def _health_payload() -> dict:
         scheduler_obj = getattr(app.state, "scheduler", None) if hasattr(app.state, "scheduler") else None
         scheduler_ok = bool(scheduler_obj) and bool(getattr(scheduler_obj, "running", False))
         telegram_healthy = getattr(app.state, "telegram_healthy", True)
@@ -351,6 +394,11 @@ def create_app(db_dir: str | None = None, config: AppConfig | None = None) -> Fa
             if relay_receiver is not None
             else 0
         )
+        evidence_pipeline = await _evidence_pipeline_payload(
+            relay_receiver=relay_receiver,
+            relay_ready=relay_ready,
+            relay_consecutive_failures=relay_consecutive_failures,
+        )
         all_ok = scheduler_ok and telegram_healthy and relay_ready
         return {
             "status": "ok" if all_ok else "degraded",
@@ -359,13 +407,14 @@ def create_app(db_dir: str | None = None, config: AppConfig | None = None) -> Fa
             "relay": "configured" if config.relay_url else "disabled",
             "relay_ready": relay_ready,
             "relay_consecutive_failures": relay_consecutive_failures,
+            "evidence_pipeline": evidence_pipeline,
             **runtime_config_summary(config),
             "timestamp": datetime.now(timezone.utc).isoformat(),
         }
 
     @app.get("/health")
     async def health():
-        return _health_payload()
+        return await _health_payload()
 
     @app.get("/live")
     async def live():
@@ -376,7 +425,7 @@ def create_app(db_dir: str | None = None, config: AppConfig | None = None) -> Fa
 
     @app.get("/ready")
     async def ready():
-        payload = _health_payload()
+        payload = await _health_payload()
         return JSONResponse(
             status_code=200 if payload["status"] == "ok" else 503,
             content=payload,

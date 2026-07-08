@@ -87,6 +87,7 @@ class Handlers(
         backtest_repo_path: Path | str = "",
         backtest_artifact_root: Path | str = "",
         monthly_validation_mode: str = "disabled",
+        monthly_approval_scope_allowlist: list[str] | None = None,
         monthly_optimizer_sequence_enabled: bool = True,
         monthly_backtest_command: list[str] | None = None,
         monthly_workflow_contract_path: str = "",
@@ -146,6 +147,7 @@ class Handlers(
             else self._runs_dir.parent / "backtest_artifacts"
         )
         self._monthly_validation_mode = monthly_validation_mode
+        self._monthly_approval_scope_allowlist = list(monthly_approval_scope_allowlist or [])
         self._monthly_optimizer_sequence_enabled = monthly_optimizer_sequence_enabled
         self._monthly_backtest_command = list(monthly_backtest_command or [])
         self._monthly_workflow_contract_path = monthly_workflow_contract_path

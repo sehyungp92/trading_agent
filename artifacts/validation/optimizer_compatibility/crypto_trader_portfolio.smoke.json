@@ -240,7 +240,7 @@
       "bot": "crypto",
       "class_name": "PhaseRunner",
       "module_path": "crypto_trader.optimize.phase_runner",
-      "source_path": "bots/crypto_trader/src/crypto_trader/optimize/phase_runner.py",
+      "source_path": "trading/crypto_trader/src/crypto_trader/optimize/phase_runner.py",
       "source_sha256": "f818a72b2ea977b221a7ffa380e9f2dd8711b671f0dbebc99d12c290accc3940"
     }
   ]

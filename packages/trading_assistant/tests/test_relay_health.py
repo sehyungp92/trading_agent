@@ -1,7 +1,7 @@
 """Tests for relay health monitoring (#27).
 
 These test the MonitoringCheck.check_relay_health() method using a fake
-HTTP relay (no dependency on bots/ibkr_trading/apps/relay/).
+HTTP relay (no dependency on trading/ibkr_trader/apps/relay/).
 """
 from __future__ import annotations
 
@@ -95,6 +95,28 @@ class TestCheckRelayHealth:
         assert len(alerts) == 1
         assert alerts[0].severity == AlertSeverity.HIGH
         assert "DB size" in alerts[0].message
+
+    async def test_oldest_pending_age_produces_high(self):
+        """Old pending relay events are part of operational monitoring."""
+        now = datetime.now(timezone.utc).isoformat()
+        app = _make_health_app({
+            "status": "ok",
+            "pending_events": 4,
+            "per_bot_pending": {"bot-a": 4},
+            "last_event_per_bot": {"bot-a": now},
+            "oldest_pending_age_seconds": 3600.0,
+            "db_size_bytes": 1024,
+            "uptime_seconds": 100.0,
+        })
+        check = MonitoringCheck(
+            relay_url="http://relay",
+            _relay_client_factory=_client_factory_for(app),
+        )
+        alerts = await check.check_relay_health()
+        assert len(alerts) == 1
+        assert alerts[0].severity == AlertSeverity.HIGH
+        assert "oldest pending" in alerts[0].message
+        assert "4 pending" in alerts[0].message
 
     async def test_bot_silence_produces_high(self):
         """Bot with no events for >6h ??HIGH alert."""

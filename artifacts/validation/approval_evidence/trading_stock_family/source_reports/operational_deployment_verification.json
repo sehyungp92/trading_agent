@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\tools\\verify_operational_deployment_evidence.py"
+  ],
+  "errors": [
+    "missing operational evidence deployments/operational_evidence.json",
+    "collect VPS and local assistant evidence after deployment before marking completion"
+  ],
+  "ok": false,
+  "returncode": 1,
+  "schema_version": "operational_deployment_verification_v1",
+  "stderr": "",
+  "stdout": "{\n  \"errors\": [\n    \"missing operational evidence deployments/operational_evidence.json\",\n    \"collect VPS and local assistant evidence after deployment before marking completion\"\n  ],\n  \"evidence\": \"deployments/operational_evidence.json\",\n  \"plan\": \"deployments/cutover_plan.json\",\n  \"valid\": false\n}\n"
+}

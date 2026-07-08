@@ -1,0 +1,36 @@
+{
+  "schema_version": "replay_evidence_report_v1",
+  "scope_id": "trading_stock_family",
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "run_month": "2026-05",
+  "strategy_plugin_id": "trading-stock-family",
+  "status": "partial_pass",
+  "tests": {
+    "incumbent_replay": {
+      "ok": true,
+      "status": "pass",
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\frozen_baseline.json"
+      ]
+    },
+    "round_reproduction": {
+      "ok": true,
+      "status": "pass",
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\round_reproduction_report.json"
+      ]
+    },
+    "historical_walk_forward": {
+      "ok": false,
+      "status": "blocked",
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\historical_walk_forward_report.json"
+      ]
+    }
+  },
+  "artifact_paths": [
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\frozen_baseline.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\round_reproduction_report.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\historical_walk_forward_report.json"
+  ]
+}

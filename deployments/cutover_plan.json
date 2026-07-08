@@ -6,9 +6,9 @@
       "bot": "ibkr",
       "candidate_image": "trading-agent-ibkr:acceptance",
       "compose_file": "deployments/ibkr/docker-compose.yml",
-      "compose_sha256": "f72b17309544685adf3ab7461ce619c3d3de9d08b479f6b577aacc85b41c7822",
+      "compose_sha256": "c3126e85b56febf3f3f218b09b5a29ed4f0bd02f0021e186f9a35ef4cc2910d1",
       "live_config": "deployments/ibkr/generated/strategies.effective.json",
-      "live_config_hash": "2f593304d5b0ecc1437c6ec02c1f77c0fd1df99dcf59213f147de9e1b8f14b6c",
+      "live_config_hash": "2a43440c22ac82524228d36191a3808520779f39d0fa5d4f720c780338cd8ee7",
       "first_mode": "paper",
       "startup_evidence": {
         "dependency_report": "deployments/ibkr/generated/dependency_report.json",
@@ -18,17 +18,17 @@
       "previous_state": {
         "image": "trading-agent/ibkr-trading:local",
         "compose_file": "deployments/ibkr/docker-compose.yml",
-        "compose_sha256": "f72b17309544685adf3ab7461ce619c3d3de9d08b479f6b577aacc85b41c7822",
+        "compose_sha256": "c3126e85b56febf3f3f218b09b5a29ed4f0bd02f0021e186f9a35ef4cc2910d1",
         "live_config_hashes": {
-          "deployments/ibkr/generated/strategies.effective.json": "2f593304d5b0ecc1437c6ec02c1f77c0fd1df99dcf59213f147de9e1b8f14b6c"
+          "deployments/ibkr/generated/strategies.effective.json": "2a43440c22ac82524228d36191a3808520779f39d0fa5d4f720c780338cd8ee7"
         }
       },
       "rollback": {
         "image": "trading-agent/ibkr-trading:local",
         "compose_file": "deployments/ibkr/docker-compose.yml",
-        "compose_sha256": "f72b17309544685adf3ab7461ce619c3d3de9d08b479f6b577aacc85b41c7822",
+        "compose_sha256": "c3126e85b56febf3f3f218b09b5a29ed4f0bd02f0021e186f9a35ef4cc2910d1",
         "live_config_hashes": {
-          "deployments/ibkr/generated/strategies.effective.json": "2f593304d5b0ecc1437c6ec02c1f77c0fd1df99dcf59213f147de9e1b8f14b6c"
+          "deployments/ibkr/generated/strategies.effective.json": "2a43440c22ac82524228d36191a3808520779f39d0fa5d4f720c780338cd8ee7"
         },
         "restore_command": "docker compose -f deployments/ibkr/docker-compose.yml up -d --no-build",
         "restore_test": {
@@ -51,9 +51,9 @@
       "bot": "crypto",
       "candidate_image": "trading-agent-crypto:acceptance",
       "compose_file": "deployments/crypto/docker-compose.yml",
-      "compose_sha256": "5ef22b36c6ee3caf22d0b89b87a24bb6da38e673d8d55937f8dfe026d0830782",
+      "compose_sha256": "31818d397ca9203dc38b9b23d0ba31ca4adee476ae7c158ddba7ae3d8840bb08",
       "live_config": "deployments/crypto/generated/live_config.effective.json",
-      "live_config_hash": "59bcc51a89ad65ac1fcde3477d1086f184edf1f2a4b21215e433d2895cc5e9e4",
+      "live_config_hash": "9b4db0a19b29d91c08f88a34635941af27879a27df4fdef55cb99efdac213542",
       "first_mode": "paper",
       "startup_evidence": {
         "dependency_report": "deployments/crypto/generated/dependency_report.json",
@@ -63,17 +63,17 @@
       "previous_state": {
         "image": "trading-agent/crypto-trader:local",
         "compose_file": "deployments/crypto/docker-compose.yml",
-        "compose_sha256": "5ef22b36c6ee3caf22d0b89b87a24bb6da38e673d8d55937f8dfe026d0830782",
+        "compose_sha256": "31818d397ca9203dc38b9b23d0ba31ca4adee476ae7c158ddba7ae3d8840bb08",
         "live_config_hashes": {
-          "deployments/crypto/generated/live_config.effective.json": "59bcc51a89ad65ac1fcde3477d1086f184edf1f2a4b21215e433d2895cc5e9e4"
+          "deployments/crypto/generated/live_config.effective.json": "9b4db0a19b29d91c08f88a34635941af27879a27df4fdef55cb99efdac213542"
         }
       },
       "rollback": {
         "image": "trading-agent/crypto-trader:local",
         "compose_file": "deployments/crypto/docker-compose.yml",
-        "compose_sha256": "5ef22b36c6ee3caf22d0b89b87a24bb6da38e673d8d55937f8dfe026d0830782",
+        "compose_sha256": "31818d397ca9203dc38b9b23d0ba31ca4adee476ae7c158ddba7ae3d8840bb08",
         "live_config_hashes": {
-          "deployments/crypto/generated/live_config.effective.json": "59bcc51a89ad65ac1fcde3477d1086f184edf1f2a4b21215e433d2895cc5e9e4"
+          "deployments/crypto/generated/live_config.effective.json": "9b4db0a19b29d91c08f88a34635941af27879a27df4fdef55cb99efdac213542"
         },
         "restore_command": "docker compose -f deployments/crypto/docker-compose.yml up -d --no-build",
         "restore_test": {
@@ -96,9 +96,9 @@
       "bot": "k_stock",
       "candidate_image": "trading-agent-k_stock:acceptance",
       "compose_file": "deployments/k_stock/docker-compose.yml",
-      "compose_sha256": "f329280d2ab801c62ef6ec57e28a3f985811de2eb00913c14bee5bae366cd8ef",
+      "compose_sha256": "ad457b7a4faf73c82b788e0c1752aa0ec6629b50175e6f94bfe434bc7be55f55",
       "live_config": "deployments/k_stock/generated/olr_kalcb.effective.json",
-      "live_config_hash": "618ece2ec1282bdd399d93d7725fc5bdd6a55b28593e6e73224b8088cf7319f4",
+      "live_config_hash": "7b040307f4b4408559e9dfa5d468a1760fd1330cdb8885eb3ade89b1079af0f4",
       "first_mode": "artifact_only",
       "startup_evidence": {
         "dependency_report": "deployments/k_stock/generated/dependency_report.json",
@@ -108,30 +108,30 @@
       "previous_state": {
         "image": "trading-agent/k-stock-trader:local",
         "compose_file": "deployments/k_stock/docker-compose.yml",
-        "compose_sha256": "f329280d2ab801c62ef6ec57e28a3f985811de2eb00913c14bee5bae366cd8ef",
+        "compose_sha256": "ad457b7a4faf73c82b788e0c1752aa0ec6629b50175e6f94bfe434bc7be55f55",
         "live_config_hashes": {
-          "deployments/k_stock/generated/olr_kalcb.effective.json": "618ece2ec1282bdd399d93d7725fc5bdd6a55b28593e6e73224b8088cf7319f4"
+          "deployments/k_stock/generated/olr_kalcb.effective.json": "7b040307f4b4408559e9dfa5d468a1760fd1330cdb8885eb3ade89b1079af0f4"
         }
       },
       "rollback": {
         "image": "trading-agent/k-stock-trader:local",
         "compose_file": "deployments/k_stock/docker-compose.yml",
-        "compose_sha256": "f329280d2ab801c62ef6ec57e28a3f985811de2eb00913c14bee5bae366cd8ef",
+        "compose_sha256": "ad457b7a4faf73c82b788e0c1752aa0ec6629b50175e6f94bfe434bc7be55f55",
         "live_config_hashes": {
-          "deployments/k_stock/generated/olr_kalcb.effective.json": "618ece2ec1282bdd399d93d7725fc5bdd6a55b28593e6e73224b8088cf7319f4"
+          "deployments/k_stock/generated/olr_kalcb.effective.json": "7b040307f4b4408559e9dfa5d468a1760fd1330cdb8885eb3ade89b1079af0f4"
         },
-        "restore_command": "docker compose -f deployments/k_stock/docker-compose.yml up -d --no-build",
+        "restore_command": "docker compose -f deployments/k_stock/docker-compose.yml --profile runtime up -d --no-build k-stock-trader k-stock-sidecar",
         "restore_test": {
           "kind": "operational_restore_smoke",
-          "command": ["docker", "compose", "-f", "deployments/k_stock/docker-compose.yml", "--profile", "preflight", "run", "--rm", "--no-deps", "k-stock-preflight"],
+          "command": ["docker", "compose", "-f", "deployments/k_stock/docker-compose.yml", "--profile", "runtime", "run", "--rm", "--no-deps", "k-stock-sidecar", "k-stock-instrumentation-sidecar", "--help"],
           "returncode": 0,
           "evidence": {
             "executed_at_utc": "2026-07-06T00:00:00Z",
             "side_effect_scope": "no_live_orders",
             "assertions": [
               "restore command uses the recorded previous image and compose file",
-              "K-stock artifact-only preflight exited successfully after the rollback state was selected",
-              "preflight path wrote assistant event files without placing live orders"
+              "K-stock runtime sidecar command exited successfully after the rollback state was selected",
+              "runtime profile restore includes k-stock-trader and k-stock-sidecar without placing live orders"
             ]
           }
         }

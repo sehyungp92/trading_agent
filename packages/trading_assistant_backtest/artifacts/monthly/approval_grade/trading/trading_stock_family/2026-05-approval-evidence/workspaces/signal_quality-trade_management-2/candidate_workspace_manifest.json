@@ -1,0 +1,15 @@
+{
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "candidate_id": "signal_quality-trade_management-2",
+  "workspace_key": "signal_quality-trade_management-2",
+  "workspace_root": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\workspaces",
+  "workspace_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\workspaces\\signal_quality-trade_management-2",
+  "cwd_enforced": true,
+  "manifest_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\workspaces\\signal_quality-trade_management-2\\candidate_workspace_manifest.json",
+  "structural": false,
+  "live_repo_patch_path": "",
+  "backtest_adapter_patch_path": "",
+  "config_patch_path": "",
+  "created_at": "2026-07-07T15:41:48.946959Z",
+  "manifest_version": "candidate_workspace_manifest_v1"
+}

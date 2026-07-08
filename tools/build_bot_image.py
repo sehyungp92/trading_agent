@@ -13,6 +13,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 FORBIDDEN_DEPS = {"trading-assistant", "trading-assistant-backtest"}
 REFERENCE_TOKEN = "_ref" "erences"
+IBKR_RELAY_SERVER_PACKAGE_PATTERNS = {"apps*", "apps.relay", "apps.relay*"}
 FORBIDDEN_SMOKE_OUTPUT = (
     "KRX 로그인 실패",
     "KRX_ID",
@@ -26,11 +27,11 @@ DOCKERIGNORE_REQUIRED = (
     "_[!_]*/",
     "**/_[!_]*/",
     "!**/__init__.py",
-    "bots/*/output/",
-    "bots/*/backtests/output/",
-    "bots/*/backtests/*/data/raw/",
-    "bots/crypto_trader/data/",
-    "bots/*/data/backtests/output/",
+    "trading/*/output/",
+    "trading/*/backtests/output/",
+    "trading/*/backtests/*/data/raw/",
+    "trading/crypto_trader/data/",
+    "trading/*/data/backtests/output/",
 )
 
 
@@ -50,9 +51,9 @@ BOTS = {
     "ibkr": BotImageSpec(
         "ibkr",
         "ibkr-trading",
-        "bots/ibkr_trading/Dockerfile",
+        "trading/ibkr_trader/Dockerfile",
         "deployments/ibkr/docker-compose.yml",
-        "bots/ibkr_trading/pyproject.toml",
+        "trading/ibkr_trader/pyproject.toml",
         "deployments/ibkr/generated/dependency_report.json",
         ("ibkr_trading", "apps.runtime.cli", "apps.runtime.runtime"),
         ("ibkr-trading-runtime", "--help"),
@@ -60,9 +61,9 @@ BOTS = {
     "crypto": BotImageSpec(
         "crypto",
         "crypto-trader",
-        "bots/crypto_trader/Dockerfile",
+        "trading/crypto_trader/Dockerfile",
         "deployments/crypto/docker-compose.yml",
-        "bots/crypto_trader/pyproject.toml",
+        "trading/crypto_trader/pyproject.toml",
         "deployments/crypto/generated/dependency_report.json",
         ("crypto_trader", "crypto_trader.cli"),
         ("crypto-trader", "--help"),
@@ -70,9 +71,9 @@ BOTS = {
     "k_stock": BotImageSpec(
         "k_stock",
         "k-stock-trader",
-        "bots/k_stock_trader/Dockerfile",
+        "trading/k_stock_trader/Dockerfile",
         "deployments/k_stock/docker-compose.yml",
-        "bots/k_stock_trader/pyproject.toml",
+        "trading/k_stock_trader/pyproject.toml",
         "deployments/k_stock/generated/dependency_report.json",
         ("k_stock_trader", "deployment.olr_kalcb.runtime"),
         ("k-stock-olr-kalcb-runtime", "--help"),
@@ -121,6 +122,8 @@ def _verify_bot(spec: BotImageSpec) -> tuple[dict[str, Any], list[str]]:
     compose = ROOT / spec.compose
     pyproject = ROOT / spec.pyproject
     dependencies = _dependencies(pyproject)
+    package_includes = _package_find_includes(pyproject)
+    optional_extras = _optional_dependency_names(pyproject)
     docker_text = dockerfile.read_text(encoding="utf-8") if dockerfile.exists() else ""
     if not dockerfile.exists():
         errors.append(f"{spec.bot}: missing Dockerfile {spec.dockerfile}")
@@ -134,6 +137,13 @@ def _verify_bot(spec: BotImageSpec) -> tuple[dict[str, Any], list[str]]:
     leaked = sorted(FORBIDDEN_DEPS & {dep.split("[", 1)[0].lower() for dep in dependencies})
     if leaked:
         errors.append(f"{spec.bot}: live image dependencies include assistant packages: {leaked}")
+    relay_server_surface = _ibkr_relay_server_surface_present(
+        spec,
+        docker_text,
+        package_includes,
+        optional_extras,
+    )
+    errors.extend(relay_server_surface)
     return (
         {
             "bot": spec.bot,
@@ -142,6 +152,8 @@ def _verify_bot(spec: BotImageSpec) -> tuple[dict[str, Any], list[str]]:
             "compose": spec.compose,
             "dependencies": dependencies,
             "assistant_packages_present": bool(leaked),
+            "relay_optional_extra_present": "relay" in optional_extras,
+            "relay_server_surface_present": bool(relay_server_surface),
         },
         errors,
     )
@@ -150,6 +162,50 @@ def _verify_bot(spec: BotImageSpec) -> tuple[dict[str, Any], list[str]]:
 def _dependencies(path: Path) -> list[str]:
     payload = tomllib.loads(path.read_text(encoding="utf-8"))
     return [str(dep) for dep in payload.get("project", {}).get("dependencies", [])]
+
+
+def _package_find_includes(path: Path) -> list[str]:
+    payload = tomllib.loads(path.read_text(encoding="utf-8"))
+    return [
+        str(pattern)
+        for pattern in payload.get("tool", {})
+        .get("setuptools", {})
+        .get("packages", {})
+        .get("find", {})
+        .get("include", [])
+    ]
+
+
+def _optional_dependency_names(path: Path) -> set[str]:
+    payload = tomllib.loads(path.read_text(encoding="utf-8"))
+    return {str(name) for name in payload.get("project", {}).get("optional-dependencies", {})}
+
+
+def _ibkr_relay_server_surface_present(
+    spec: BotImageSpec,
+    docker_text: str,
+    package_includes: list[str],
+    optional_extras: set[str],
+) -> list[str]:
+    if spec.bot != "ibkr":
+        return []
+    errors: list[str] = []
+    normalized = docker_text.replace("\\", "/")
+    if (
+        "COPY trading/ibkr_trader/apps " in normalized
+        or "COPY trading/ibkr_trader/apps/relay" in normalized
+    ):
+        errors.append("ibkr: Dockerfile copies IBKR relay server source into runtime image")
+    leaked_packages = sorted(
+        pattern
+        for pattern in package_includes
+        if pattern in IBKR_RELAY_SERVER_PACKAGE_PATTERNS or pattern.startswith("apps.relay")
+    )
+    if leaked_packages:
+        errors.append(f"ibkr: pyproject packages relay server source: {leaked_packages}")
+    if "relay" in optional_extras:
+        errors.append("ibkr: pyproject still advertises ibkr-trading[relay]")
+    return errors
 
 
 def _dockerignore_errors() -> list[str]:
@@ -163,7 +219,7 @@ def _dockerignore_errors() -> list[str]:
 def _legacy_dockerfile_errors() -> list[str]:
     deployable = {str((ROOT / spec.dockerfile).resolve()) for spec in BOTS.values()}
     errors: list[str] = []
-    for path in sorted(ROOT.glob("bots/**/Dockerfile")):
+    for path in sorted(ROOT.glob("trading/**/Dockerfile")):
         if str(path.resolve()) in deployable:
             continue
         text = path.read_text(encoding="utf-8")

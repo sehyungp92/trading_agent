@@ -1,18 +1,6 @@
 # trading_agent Deployment Implementation Next Steps
 
-Status date: 2026-07-06
-
-This guide supersedes the legacy per-repo deployment notes for the current
-`trading_agent` monorepo. Keep the older files as reference material, but use
-this file as the active deployment checklist:
-
-- `docs/implementation_trading.md`: legacy IBKR trading deployment.
-- `docs/implementation_crypto.md`: legacy Hyperliquid crypto deployment.
-- `docs/implementation_k_stock.md`: legacy KIS/KRX K-stock deployment.
-- `docs/implementation_trading_assistant.md`: legacy local assistant and relay
-  deployment.
-
-The target topology is now:
+This is the active deployment checklist for the target topology:
 
 - one IBKR trading bot VPS;
 - one crypto trading bot VPS;
@@ -31,7 +19,7 @@ runtime-only and must not depend on `trading-assistant` or
 
 ### 1.1 Non-negotiables
 
-1. Deploy one bot at a time. The current `deployments/cutover_plan.json`
+1. Deploy one bot at a time. The deployable `deployments/cutover_plan.json`
    declares `one_bot_at_a_time_artifact_only_or_paper_first`.
 2. First modes are:
    - `ibkr`: `paper`
@@ -51,19 +39,67 @@ runtime-only and must not depend on `trading-assistant` or
 7. Promotion to live capital requires written evidence from the gate sequence,
    not just a green container start.
 
-### 1.2 Current deployable units
+### 1.2 Deployable units
 
-| Unit | Current compose | Bot package | Runtime entrypoint | Generated config | Contracts |
+| Unit | Compose | Bot package | Runtime entrypoint | Generated config | Contracts |
 |---|---|---|---|---|---|
-| IBKR trading | `deployments/ibkr/docker-compose.yml` | `bots/ibkr_trading` | `ibkr-trading-runtime` | `deployments/ibkr/generated/strategies.effective.json` | `trading_swing_family`, `trading_momentum_family`, `trading_stock_family` |
-| Crypto trading | `deployments/crypto/docker-compose.yml` | `bots/crypto_trader` | `crypto-trader` | `deployments/crypto/generated/live_config.effective.json` | `crypto_trend_v1`, `crypto_momentum_v1`, `crypto_breakout_v1` |
-| K-stock trading | `deployments/k_stock/docker-compose.yml` | `bots/k_stock_trader` | `k-stock-olr-kalcb-runtime` | `deployments/k_stock/generated/olr_kalcb.effective.json` | `k_stock_olr_kalcb` |
+| IBKR trading | `deployments/ibkr/docker-compose.yml` | `trading/ibkr_trader` | `ibkr-trading-runtime` | `deployments/ibkr/generated/strategies.effective.json` | `trading_swing_family`, `trading_momentum_family`, `trading_stock_family` |
+| Crypto trading | `deployments/crypto/docker-compose.yml` | `trading/crypto_trader` | `crypto-trader` | `deployments/crypto/generated/live_config.effective.json` | `crypto_trend_v1`, `crypto_momentum_v1`, `crypto_breakout_v1` |
+| K-stock trading | `deployments/k_stock/docker-compose.yml` | `trading/k_stock_trader` | `k-stock-olr-kalcb-runtime` | `deployments/k_stock/generated/olr_kalcb.effective.json` | `k_stock_olr_kalcb` |
 | Trading assistant | local only | `packages/trading_assistant`, `packages/trading_assistant_data`, `packages/trading_assistant_backtest` | `uvicorn trading_assistant.orchestrator.app:app` | local `.env` and data bundle manifests | installed deployment metadata from all bot units |
 
-The `deployments/*/docker-compose.yml` files now define the production VPS
-service surfaces: env loading, persistent volumes, restart policy, healthchecks,
-runtime commands, log rotation, and required broker/database sidecars. Keep
-machine secrets in the matching `.env` files copied from `.env.example`.
+The `deployments/*/docker-compose.yml` files define the production VPS service
+surfaces: env loading, persistent volumes, restart policy, healthchecks, runtime
+commands, log rotation, and required broker/database sidecars. Keep machine
+secrets in the matching `.env` files copied from `.env.example`.
+
+### 1.3 Release gates and operator inputs
+
+Before any VPS update, Phase 0 must prove from a clean release checkout that:
+
+- `python tools/verify_deployment_metadata.py --bot all` passes from a clean
+  checkout and validates all seven runtime metadata records;
+- `python tools/verify_cutover_plan.py` passes with hashes matching the
+  deployable compose files and generated live configs;
+- crypto and K-stock runtime metadata emitters write the artifacts expected by
+  the metadata matrix;
+- relay tests encode ID-ordered default delivery with priority delivery as an
+  explicit opt-in;
+- local relay ownership stays in `trading_assistant.relay_ingress`, with
+  operator docs and package READMEs describing assistant-local relay ingress;
+- crypto deploy config has a non-secret runtime config contract and
+  fail-closed preflight before `crypto-trader paper`;
+- monorepo bot image boundaries are enforced by dependency checks and bot image
+  reports, with assistant packages absent from bot runtime images.
+
+Current release-readiness status: the material code gates from the live/paper
+audit are implemented. The remaining blockers are deployment evidence blockers,
+not known code implementation blockers:
+
+- `python tools/verify_deployment_metadata.py --bot all` must pass from a
+  clean release checkout or clean deploy worktree;
+- `deployments/operational_evidence.json` must be collected from the actual
+  three VPSes and the local assistant deployment window;
+- `python tools/verify_operational_deployment_evidence.py` must pass against
+  that collected evidence before paper/live deployment is marked complete.
+
+The operator inputs that remain outside the repo are:
+
+- choose or create the final named release reference for the clean commit;
+- emit and install live/VPS runtime deployment metadata from the clean bot
+  deployments;
+- collect `deployments/operational_evidence.json` from the three VPSes and the
+  local assistant, including relay ingest evidence and crypto sidecar runtime
+  policy evidence;
+- run a production scheduled-shadow cycle for the pilot scope with installed
+  live/VPS metadata, local relay ingest evidence,
+  `source_kind=monthly_validation_shadow`, and `adoption_disabled=true`;
+- complete production fixture breadth for the pilot scope, including a
+  live/shadow telemetry source case class;
+- complete approval-grade promotion evidence: each promoted scope must move
+  from `shadow_validated` to `approval_ready` and provide explicit P6/P7
+  optimizer evidence before `validation-matrix` can have zero
+  `approval_remaining_gaps`.
 
 ---
 
@@ -75,17 +111,20 @@ Run this phase on the local workstation from the repository root.
 
 1. Create or select the deployment branch.
 2. Confirm all intended code and config changes are committed.
-3. Record the commit SHA:
+3. Record the commit SHA and the release name or tag:
 
 ```bash
 git rev-parse HEAD
+git describe --tags --exact-match HEAD || true
 git status --short
 ```
 
 The final production metadata must be emitted from a clean deploy checkout. If
 the working tree is dirty because active development is in progress, do not
 promote that checkout. Create a separate clean clone or worktree for deployment
-evidence.
+evidence. If `python tools/verify_deployment_metadata.py --bot all` fails, stop
+deployment and resolve the dirty checkout, metadata emitter, or contract
+evidence before provisioning or updating a VPS.
 
 ### 2.2 Run monorepo gates
 
@@ -125,23 +164,24 @@ Do not deploy a bot whose image report is not `status: pass` under:
 - `deployments/crypto/generated/dependency_report.json`
 - `deployments/k_stock/generated/dependency_report.json`
 
-### 2.3 Inspect generated deployment evidence
+### 2.3 Inspect generated config and package evidence
 
 Confirm the following paths exist and match `deployments/cutover_plan.json`:
 
 ```text
 deployments/ibkr/generated/strategies.effective.json
-deployments/ibkr/generated/runtime_deployment_metadata/
 deployments/ibkr/generated/dependency_report.json
 
 deployments/crypto/generated/live_config.effective.json
-deployments/crypto/generated/runtime_deployment_metadata/
 deployments/crypto/generated/dependency_report.json
 
 deployments/k_stock/generated/olr_kalcb.effective.json
-deployments/k_stock/generated/runtime_deployment_metadata/
 deployments/k_stock/generated/dependency_report.json
 ```
+
+Do not require checked-in runtime deployment metadata here. Runtime metadata is
+emitted later from the clean deploy checkout or the target VPS runtime and is
+installed locally through the assistant metadata installer.
 
 Review `deployments/cutover_plan.json` and confirm:
 
@@ -188,9 +228,9 @@ Create:
 - one HMAC value for IBKR sidecar events, unless the IBKR runtime is split into
   independent family services.
 
-Current IBKR sidecars read the same `INSTRUMENTATION_HMAC_SECRET` env var. If
-all IBKR families run inside the same runtime service, map the same HMAC value
-to `swing_multi_01`, `momentum_nq_01`, and `stock_trader` in the relay.
+IBKR sidecars read the same `INSTRUMENTATION_HMAC_SECRET` env var. If all IBKR
+families run inside the same runtime service, map the same HMAC value to
+`swing_multi_01`, `momentum_nq_01`, and `stock_trader` in the relay.
 
 ### 3.2 Relay secret map
 
@@ -209,8 +249,8 @@ event `bot_id` values actually emitted by each sidecar:
 ```
 
 Before production, verify the crypto event bot id from the active
-`live_config.json` or generated effective config. The current generated crypto
-effective config contains `paper_bot_01` inside `materialized_config.live_config`.
+`live_config.json` or generated effective config. The generated crypto effective
+config should contain `paper_bot_01` inside `materialized_config.live_config`.
 Keep both `paper_bot_01` and `crypto` during initial integration if any
 instrumentation path still uses the top-level bot id.
 
@@ -425,11 +465,10 @@ pip install -e .\packages\trading_contracts
 pip install -e .\packages\trading_assistant_data[dev,ibkr,hyperliquid]
 pip install -e .\packages\trading_assistant_backtest[dev]
 pip install -e .\packages\trading_assistant[dev,notifications]
-pip install -e .\bots\ibkr_trading[relay]
 ```
 
-The final editable install is only for running the relay app locally from
-`bots/ibkr_trading/apps/relay`. It is not required inside live bot images.
+The local relay server is hosted by `trading_assistant.relay_ingress`; bot
+packages only need their outbound relay clients.
 
 ### 6.2 Configure local assistant env
 
@@ -449,6 +488,13 @@ RELAY_POLL_INTERVAL_SECONDS=300
 
 MONTHLY_VALIDATION_ENABLED=true
 MONTHLY_VALIDATION_MODE=shadow
+MONTHLY_APPROVAL_SCOPE_ALLOWLIST=trading_stock_family
+MONTHLY_APPROVAL_SCOPE_MAP=ibkr:trading_stock_family
+MONTHLY_DEPLOYMENT_METADATA_INSTALL_REPORTS=../trading_assistant_backtest/artifacts/validation/deployment_metadata/trading_stock_family/install_report.json
+MONTHLY_OPERATIONAL_EVIDENCE_PATH=../../deployments/operational_evidence.json
+MONTHLY_RELAY_INGEST_EVIDENCE_PATH=../trading_assistant_backtest/artifacts/validation/relay_ingest/trading_stock_family/relay_ingest_evidence.json
+MONTHLY_VPS_HOST_ID=<IBKR_VPS_HOST_ID>
+MONTHLY_ASSISTANT_HOST_ID=<LOCAL_ASSISTANT_HOST_ID>
 MARKET_DATA_ROOT=../trading_assistant_data/data/export
 BACKTEST_REPO_PATH=../trading_assistant_backtest
 BACKTEST_ARTIFACT_ROOT=../trading_assistant_backtest/artifacts/monthly_validation
@@ -456,6 +502,11 @@ BACKTEST_ARTIFACT_ROOT=../trading_assistant_backtest/artifacts/monthly_validatio
 TELEGRAM_BOT_TOKEN=<TELEGRAM_BOT_TOKEN>
 TELEGRAM_CHAT_ID=<TELEGRAM_CHAT_ID>
 ```
+
+Keep `MONTHLY_VALIDATION_MODE=shadow` until the selected scope passes the
+approval-grade audit. When testing `approval_gated`, the allowlist and map must
+name only the promoted scope; other configured `BOT_IDS` remain shadow by
+construction.
 
 If you intentionally test without a relay, set `DIRECT_INGEST_ONLY=true` and
 leave `RELAY_URL` blank. Do this only for local smoke tests.
@@ -529,7 +580,10 @@ python tools/run_workspace_checks.py validation-matrix
 
 The assistant remains in `MONTHLY_VALIDATION_MODE=shadow` until runtime
 deployment metadata has been installed from all bot VPSes and at least one
-full shadow cycle has passed for the scope being promoted.
+full shadow cycle has passed for the scope being promoted. During shadow,
+`validation-matrix` may still report `approval_remaining_gaps`; record those
+gaps as promotion work. Do not flip to approval-gated mode until
+`approval_remaining_gaps` is zero for the promoted scope.
 
 The final operational completion gate is
 `python tools/verify_operational_deployment_evidence.py`. Its evidence file is
@@ -537,6 +591,12 @@ The final operational completion gate is
 artifacts copied back from the VPSes/local assistant and must cover separate
 VPS runtime status, sidecar forwarding, assistant ingest, installed metadata,
 monthly shadow validation with real metadata, and rollback smoke execution.
+For each bot, `assistant_ingest` must include inline `relay_ingest_evidence` or
+one or more evidence paths containing event ID, bot ID, deployment ID, runtime
+instance ID, effective config hash, deployment metadata hash, freshness, and
+HMAC secret fingerprint. For crypto, `sidecar_forwarding` must also include
+runtime policy evidence with thresholds, `incident_action=cancel_working_entry_orders`
+for degraded relay state, and `open_position_action=hold_existing_positions`.
 
 ---
 
@@ -586,7 +646,7 @@ TELEGRAM_CHAT_ID=<OPTIONAL_WATCHDOG_CHAT_ID>
 
 PAPER_INITIAL_EQUITY=30000
 STOCK_TRADER_DEPLOY_MODE=both
-CONFIG_DIR=/app/bots/ibkr_trading/config
+CONFIG_DIR=/app/trading/ibkr_trader/config
 ```
 
 ### 7.3 Required compose services
@@ -597,7 +657,7 @@ Keep `deployments/ibkr/docker-compose.yml` aligned with these services:
   `127.0.0.1:4002`, live port bound to `127.0.0.1:4001`.
 - `postgres`: if the runtime is using persistent strategy state and dashboard
   queries.
-- `ibkr-trading`: image built from `bots/ibkr_trading/Dockerfile`.
+- `ibkr-trading`: image built from `trading/ibkr_trader/Dockerfile`.
 - optional `ibkr-watchdog`: Telegram alerting, only after paper runtime is
   stable.
 
@@ -718,24 +778,23 @@ curl -sf http://<WORKSTATION_PRIVATE_IP>:8001/health
 
 ### 8.2 Maintain crypto compose
 
-`deployments/crypto/docker-compose.yml` is the active VPS compose file. The
-legacy `bots/crypto_trader/docker-compose.reference.yml` remains useful as
-background context, but production changes should land in the deployment file:
+`deployments/crypto/docker-compose.yml` is the active VPS compose file. Keep
+production changes in this deployment file:
 
 - build context remains `../..`;
-- Dockerfile remains `bots/crypto_trader/Dockerfile`;
+- Dockerfile remains `trading/crypto_trader/Dockerfile`;
 - bot service name should remain `crypto-trader` unless the cutover plan is
   updated;
 - bind-mount the untracked secret live config, default
   `deployments/crypto/secrets/live_config.json`, into the container as
-  `/app/bots/crypto_trader/config/live_config.json`;
+  `/app/trading/crypto_trader/config/live_config.json`;
 - mount persistent `data`, `output`, and `live_state`;
 - keep `postgres` enabled when `POSTGRES_DSN` instrumentation is active;
 - keep `data-refresh` profile-gated under `maintenance`.
 
 ### 8.3 Crypto config
 
-Start from `bots/crypto_trader/config/live_config.example.json`, write the
+Start from `trading/crypto_trader/config/live_config.example.json`, write the
 untracked live config, and verify these fields:
 
 ```json
@@ -869,12 +928,21 @@ POSTGRES_WRITER_PASSWORD=<POSTGRES_WRITER_PASSWORD>
 POSTGRES_READER_PASSWORD=<POSTGRES_READER_PASSWORD>
 OMS_ID=primary
 
-OLR_KALCB_RUNTIME_MODE=artifact_only
+K_STOCK_HOST_DATA_ROOT=/opt/trading_agent/runtime_data/k_stock
+
+OLR_KALCB_PREFLIGHT_MODE=artifact_only_stage1
+OLR_KALCB_RUNTIME_MODE=dry_run
+OLR_KALCB_MARKET_DATA_SOURCE=auto
 OLR_KALCB_DAILY_UNIVERSE_FILE=config/olr_kalcb/olr_deployment_universe_103.yaml
 OLR_KALCB_BASELINE_MANIFEST=data/live_readiness/olr_kalcb/2026-05-28/baseline_manifest.json
 OLR_KALCB_PORTFOLIO_POLICY=config/olr_kalcb/portfolio_policy.conservative.json
 OLR_KALCB_SECTOR_MAP=config/olr/sector_map.yaml
 OLR_KALCB_POLL_SECONDS=15
+OLR_KALCB_KIS_WS_URL=
+OLR_KALCB_WS_LEDGER_PATH=
+OLR_KALCB_DEPLOYMENT_METADATA_PATH=
+OLR_KALCB_DEPLOYMENT_METADATA_ENV=paper_vps
+OLR_KALCB_STRATEGY_PLUGIN_CONTRACT=contracts/strategy_plugins/k_stock_olr_kalcb/strategy_plugin_contract.json
 OLR_KALCB_ARTIFACT_TIMEOUT_SECONDS=3600
 
 RELAY_URL=http://<WORKSTATION_PRIVATE_IP>:8001/events
@@ -889,18 +957,25 @@ Keep `deployments/k_stock/docker-compose.yml` aligned with:
 - `postgres` using the bot SQL migrations plus the env-driven
   `deployments/k_stock/postgres-init/004_roles_env.sh`;
 - `oms` if paper/live orders route through the K-stock OMS service;
-- `k-stock-trader` runtime image from `bots/k_stock_trader/Dockerfile`;
+- `k-stock-trader` runtime image from `trading/k_stock_trader/Dockerfile`;
 - profile-gated `k-stock-trader` runtime and `k-stock-preflight` one-shot
   services;
 - `k-stock-sidecar` in the runtime profile, sharing the same
   `instrumentation/data` volume as `k-stock-trader` and forwarding to the local
   relay;
 - named volume or bind mount for KIS rate budget state;
-- bind mounts or named volumes for `data/paper_live`, `data/rate_budget`,
-  `instrumentation/data`, and generated deployment metadata.
+- bind mount for `K_STOCK_HOST_DATA_ROOT`, matching the required runtime data
+  layout:
+  `strategy/`, `backtests/`, `live_readiness/`, `krx_daily_parquet/`,
+  `kis_intraday_parquet/`, `oms/`, and writable `paper_live/`;
+- bind mounts or named volumes for `data/rate_budget`, `instrumentation/data`,
+  and generated deployment metadata.
 
-Keep the first runtime mode `artifact_only`. Do not configure live KIS trading
-until artifact-only, dry-run OMS, and paper gates pass.
+Keep the first preflight mode `artifact_only_stage1` and the first long-running
+runtime mode `dry_run`. `artifact_only` and `artifact_only_stage1` are preflight
+gates only; `k-stock-trader` accepts only `dry_run`, `paper`, or `live`.
+Do not configure live KIS trading until artifact-only, dry-run OMS, and paper
+gates pass.
 
 ### 9.4 Build and preflight
 
@@ -915,38 +990,41 @@ Run an artifact-only preflight for the next KRX trade date:
 
 ```bash
 export TRADE_DATE=<YYYY-MM-DD>
-docker compose -f deployments/k_stock/docker-compose.yml run --rm k-stock-trader \
-  k-stock-olr-kalcb-runtime preflight \
-  --trade-date "$TRADE_DATE" \
-  --mode artifact_only_stage1 \
-  --baseline-manifest data/live_readiness/olr_kalcb/2026-05-28/baseline_manifest.json \
-  --portfolio-policy config/olr_kalcb/portfolio_policy.conservative.json \
-  --sector-map config/olr/sector_map.yaml
+OLR_KALCB_TRADE_DATE="$TRADE_DATE" \
+OLR_KALCB_PREFLIGHT_MODE=artifact_only_stage1 \
+docker compose -f deployments/k_stock/docker-compose.yml --profile preflight run --rm k-stock-preflight
 ```
+
+Before this preflight, populate `K_STOCK_HOST_DATA_ROOT` on the K-stock VPS with
+the required runtime data layout: approved
+`live_readiness/olr_kalcb/.../baseline_manifest.json`, generated
+`strategy/kalcb` and `strategy/olr` artifact stores, KRX daily parquet, KIS
+intraday parquet, OMS read-side snapshots if used, and a writable `paper_live/`
+evidence directory.
 
 ### 9.5 Install KRX cron flow
 
-After the preflight works manually, install the cron wrappers from the legacy
-K-stock deployment:
+After the preflight works manually, install the K-stock cron wrappers shipped in
+the monorepo:
 
 ```bash
 sudo mkdir -p /var/log/k_stock_trader
 sudo chown trader:trader /var/log/k_stock_trader
-chmod +x bots/k_stock_trader/infra/cron/olr_kalcb_premarket_restart.sh
-chmod +x bots/k_stock_trader/infra/cron/olr_kalcb_afternoon_restart.sh
+chmod +x trading/k_stock_trader/infra/cron/olr_kalcb_premarket_restart.sh
+chmod +x trading/k_stock_trader/infra/cron/olr_kalcb_afternoon_restart.sh
 ```
 
 Crontab, expressed in UTC for KST:
 
 ```cron
 PATH=/usr/local/bin:/usr/bin:/bin
-OLR_KALCB_REPO_ROOT=/opt/trading_agent/repo/bots/k_stock_trader
-30 22 * * 0-4  /opt/trading_agent/repo/bots/k_stock_trader/infra/cron/olr_kalcb_premarket_restart.sh
-32 5  * * 1-5  /opt/trading_agent/repo/bots/k_stock_trader/infra/cron/olr_kalcb_afternoon_restart.sh
+OLR_KALCB_REPO_ROOT=/opt/trading_agent/repo/trading/k_stock_trader
+30 22 * * 0-4  /opt/trading_agent/repo/trading/k_stock_trader/infra/cron/olr_kalcb_premarket_restart.sh
+32 5  * * 1-5  /opt/trading_agent/repo/trading/k_stock_trader/infra/cron/olr_kalcb_afternoon_restart.sh
 ```
 
-If the wrappers assume the legacy repo root, either set `OLR_KALCB_REPO_ROOT`
-as above or patch the wrappers to use the monorepo path consistently.
+Set `OLR_KALCB_REPO_ROOT` as above; patch the wrappers only if local path
+assumptions prevent them from running under `/opt/trading_agent/repo`.
 
 ### 9.6 K-stock gate sequence
 
@@ -957,7 +1035,9 @@ Run the phases in order:
 2. Dry-run OMS gate: at least three KRX sessions. Use captured completed bars,
    build offline replay, and require parity.
 3. Paper gate: at least ten KRX sessions with `KIS_IS_PAPER=true` and
-   `OLR_KALCB_RUNTIME_MODE=paper`.
+   `OLR_KALCB_RUNTIME_MODE=paper`. Each paper start must include
+   `health_checks.json`, `account_state.json`, `positions.json`, and emitted
+   `deployment_metadata.json` for the same trade date/session root.
 4. Live pilot: only after written approval.
 
 Dry-run command template:
@@ -979,7 +1059,26 @@ docker compose -f deployments/k_stock/docker-compose.yml run --rm k-stock-trader
   --trade-date <YYYY-MM-DD> \
   --mode paper \
   --market-data-source kis_websocket \
+  --session-root data/paper_live/olr_kalcb/<YYYY-MM-DD> \
+  --health-checks-json data/paper_live/olr_kalcb/<YYYY-MM-DD>/health_checks.json \
+  --account-state-json data/paper_live/olr_kalcb/<YYYY-MM-DD>/account_state.json \
+  --positions-json data/paper_live/olr_kalcb/<YYYY-MM-DD>/positions.json \
+  --deployment-metadata-json data/paper_live/olr_kalcb/<YYYY-MM-DD>/deployment_metadata.json \
+  --strategy-plugin-contract contracts/strategy_plugins/k_stock_olr_kalcb/strategy_plugin_contract.json \
+  --deployment-metadata-environment paper_vps \
   --poll-seconds 15
+```
+
+For the compose-managed service path, set these values in
+`deployments/k_stock/.env` and then start the runtime profile. The launch
+module derives `data/paper_live/olr_kalcb/<YYYY-MM-DD>/` session paths by
+default; override `OLR_KALCB_SESSION_ROOT` only for a non-standard capture
+directory.
+
+```bash
+OLR_KALCB_RUNTIME_MODE=paper
+OLR_KALCB_MARKET_DATA_SOURCE=auto
+OLR_KALCB_DEPLOYMENT_METADATA_PATH=data/paper_live/olr_kalcb/<YYYY-MM-DD>/deployment_metadata.json
 ```
 
 Deployed runtime should start the trader and sidecar together:
@@ -1084,16 +1183,18 @@ Repeat for:
 
 The installer is the source of truth for promotion metadata. It rejects dirty
 checkouts, local/helper-emitted metadata, contract-hash mismatches, and
-telemetry-schema mismatches. Runtime metadata producers and verifiers must use
-the same normalized text hash as the installer and must declare every contract
-schema in `telemetry_schema_versions`.
+telemetry-schema mismatches. The runtime metadata matrix is expected to pass
+from a clean release checkout for all seven contracts before metadata is copied
+to the local assistant.
 
 Do not commit stale generated `deployment_metadata.json` files under
 `deployments/*/generated/runtime_deployment_metadata/` or
 `artifacts/validation/runtime_deployment_metadata/raw/`. Those paths are
 runtime outputs. If `python tools/verify_deployment_metadata.py --bot all`
 fails because the local checkout is dirty, fix the checkout first; the verifier
-will not validate pre-existing generated metadata because it may be stale.
+will not validate pre-existing generated metadata because it may be stale. If
+it fails from a clean checkout, stop the deployment and fix the emitting bot
+runtime or contract evidence before continuing.
 
 Then run:
 
@@ -1188,8 +1289,30 @@ Only flip the local assistant to approval-gated after:
 - relay and orchestrator survive a workstation reboot;
 - all bot sidecars are forwarding;
 - runtime deployment metadata is installed;
-- validation matrix passes;
-- approval audit is blocked only by intentional `shadow_validated` maturity;
+- `python tools/verify_cutover_plan.py` passes for the selected deployable
+  compose files and generated live configs;
+- `python tools/verify_operational_deployment_evidence.py` passes against
+  `deployments/operational_evidence.json`;
+- the promoted scope has a production `scheduled_shadow_cycle_report.json`
+  sourced from monthly validation output with installed metadata reports,
+  local relay ingest evidence, `source_kind=monthly_validation_shadow`, and
+  `adoption_disabled=true`;
+- the promoted scope's production fixture-set manifest covers accepted entry,
+  blocked no-trade, risk/portfolio denial, exit/close, order/fill or explicit
+  non-fill, and live/shadow telemetry source case classes;
+- scoped live-config promotion evidence passes for the promoted strategies.
+  For the first pilot this means `IARIC_v1` and `ALCB_v1`; broader unrelated
+  IBKR verifier failures remain context and do not define the pilot gate;
+- validation matrix reports `approval_grade_validation_complete=true`;
+- `approval_remaining_gaps` is empty for every promoted scope;
+- `trading-assistant-backtest-approval-evidence --agent-root . --scope
+  <scope_id>` emits an eligible bundle with matching source hashes;
+- each promoted strategy contract has been deliberately advanced from
+  `shadow_validated` to `approval_ready`;
+- explicit P6/P7 optimizer evidence exists for every promoted scope:
+  purged two-fold scoring, post-ranking selection-OOS repair evidence,
+  confirmatory rerank, and round_N+1 recommendation or deterministic
+  no-adoption;
 - a known-safe approval card has been delivered through Telegram.
 
 Then:
@@ -1202,6 +1325,20 @@ DEPLOYMENT_MONITORING_ENABLED=true
 
 Restart the orchestrator and verify `/health`, `/metrics`, relay polling, and
 Telegram approval delivery.
+
+Approval sequencing:
+
+1. Promote `trading_stock_family` first through the guarded approval-evidence
+   bundle path.
+2. Repeat the same path for `k_stock_olr_kalcb`,
+   `trading_momentum_family`, and `trading_swing_family` after their own
+   production evidence is complete.
+3. Do not promote `crypto_trader_portfolio` until its parity/head mismatch is
+   resolved and it has passed the same production evidence path.
+
+Each scope needs both guarded maturity promotion to `approval_ready` and
+explicit approval-grade P6/P7 optimizer manifests before it can leave
+shadow-only validation.
 
 ### 12.2 Bot live promotion order
 
@@ -1220,9 +1357,9 @@ Use this order unless a written risk decision says otherwise:
 For each bot:
 
 - paper or artifact gate requirements are complete;
-- current config hash matches generated effective config;
+- deployed config hash matches generated effective config;
 - deployment metadata was emitted from the VPS and installed locally;
-- local assistant has current evidence for the bot;
+- local assistant has fresh evidence for the bot;
 - rollback command from `deployments/cutover_plan.json` was tested;
 - max daily loss and per-strategy caps are documented;
 - manual stop command is known and tested;
@@ -1390,7 +1527,7 @@ Check:
 
 - host time is UTC;
 - KST conversion is correct;
-- `OLR_KALCB_REPO_ROOT` points at `bots/k_stock_trader` inside the monorepo;
+- `OLR_KALCB_REPO_ROOT` points at `trading/k_stock_trader` inside the monorepo;
 - trade date resolver sees a valid KRX session;
 - cron logs are under `/var/log/k_stock_trader`.
 
@@ -1400,15 +1537,31 @@ Check:
 
 The deployment implementation is complete when:
 
+- the final deployment commit is clean, pushed, and named by the agreed release
+  reference or tag;
 - all three bot VPSes are running separate paper/artifact deployments from the
   same reviewed monorepo commit;
 - all bot sidecars forward to the local relay through the private network;
 - the local assistant polls, ingests, deduplicates, and processes bot events;
 - generated runtime deployment metadata from each VPS is installed locally;
+- `python tools/verify_deployment_metadata.py --bot all` passes from the clean
+  release/deploy checkout that produced the VPS runtime metadata;
 - monthly validation runs in shadow mode with real bot metadata;
+- production scheduled-shadow evidence for each promoted scope includes monthly
+  validation output, installed metadata reports, local relay ingest evidence,
+  `source_kind=monthly_validation_shadow`, and `adoption_disabled=true`;
+- production fixture breadth covers the required case classes, including
+  live/shadow telemetry source evidence;
+- `trading-assistant-backtest-approval-evidence --agent-root . --scope
+  <scope_id>` emits an eligible bundle for every scope promoted beyond shadow;
+- `validation-matrix` has no `approval_remaining_gaps` for any scope being
+  promoted beyond shadow;
 - `deployments/cutover_plan.json` has tested rollback evidence for every bot;
 - `deployments/operational_evidence.json` passes
   `python tools/verify_operational_deployment_evidence.py`;
+- operational evidence includes per-bot relay ingest evidence linked to
+  deployment metadata, and crypto sidecar runtime policy evidence with the
+  configured degraded relay incident action;
 - promotion to approval-gated mode is documented and manually approved;
 - no live capital is enabled before the relevant bot-specific paper/artifact
   gate passes.

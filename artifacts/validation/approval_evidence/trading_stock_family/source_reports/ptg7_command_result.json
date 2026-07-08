@@ -1,0 +1,16 @@
+{
+  "command": [
+    "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\tools\\check_approval_ready_pilot_ptg7.py",
+    "--output",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\ptg7_gate_report.json",
+    "--pilot-root",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\ptg7_pilot"
+  ],
+  "ok": false,
+  "output_report_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\ptg7_gate_report.json",
+  "returncode": 1,
+  "schema_version": "approval_evidence_external_command_v1",
+  "stderr": "",
+  "stdout": "{\n  \"ok\": false,\n  \"gate\": \"PTG-7\",\n  \"status\": \"blocked\",\n  \"implementation_status\": \"blocked\",\n  \"production_promotion_status\": \"blocked\",\n  \"artifact_path\": \"artifacts/validation/approval_evidence/trading_stock_family/source_reports/ptg7_gate_report.json\",\n  \"production_blockers\": [\n    \"actual bridge contract remains shadow_validated, not approval_ready\",\n    \"live VPS deployment metadata is not promotion-grade\",\n    \"learning sufficiency is not learning_authoritative for the pilot bridge\",\n    \"no real non-fixture monthly outcome is available to update priors\"\n  ]\n}\n"
+}

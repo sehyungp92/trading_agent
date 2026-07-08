@@ -37,6 +37,10 @@ trading-assistant-backtest-validation-matrix = "trading_assistant_backtest.valid
 trading-assistant-backtest-replay-evidence = "trading_assistant_backtest.validation.replay_evidence_run:main"
 trading-assistant-backtest-data-reproduction = "trading_assistant_backtest.validation.data_reproduction_run:main"
 trading-assistant-backtest-approval-grade-audit = "trading_assistant_backtest.validation.approval_grade_audit:main"
+trading-assistant-backtest-approval-evidence = "trading_assistant_backtest.validation.approval_evidence_spine:main"
+trading-assistant-backtest-production-fixture-set = "trading_assistant_backtest.validation.production_fixture_set:main"
+trading-assistant-backtest-promote-bridge = "trading_assistant_backtest.validation.bridge_promotion:main"
+trading-assistant-backtest-telemetry-conformance = "trading_assistant_backtest.validation.telemetry_conformance:main"
 trading-assistant-backtest-emit-deployment-metadata = "trading_assistant_backtest.validation.deployment_metadata_emit:main"
 trading-assistant-backtest-install-deployment-metadata = "trading_assistant_backtest.validation.deployment_metadata_install:main"
 

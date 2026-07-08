@@ -11,7 +11,7 @@
   "deployment_id": "trading-swing-family-shadow-3c6441d8",
   "generated_at": "2026-07-03T00:00:00Z",
   "metadata_source": "local clean live-repo checkout shadow snapshot",
-  "repo_url": "local://bots/ibkr_trading",
+  "repo_url": "local://trading/ibkr_trader",
   "strategy_id": "trading_swing_family",
   "strategy_plugin_contract_hash": "601717fb4bdfb716242264d8be94f4d2cf5a774f22e67797f2c013bf74a05c6c",
   "strategy_plugin_contract_path": "strategy_plugin_contract.json",

@@ -14,12 +14,12 @@ x-crypto-build: &crypto-build
   image: trading-agent/crypto-trader:local
   build:
     context: ../..
-    dockerfile: bots/crypto_trader/Dockerfile
+    dockerfile: trading/crypto_trader/Dockerfile
 
 x-crypto-env: &crypto-env
   PYTHONUNBUFFERED: "1"
   TZ: ${TZ:-UTC}
-  POSTGRES_DSN: postgresql://trading_writer:${POSTGRES_WRITER_PASSWORD:-changeme}@postgres:5432/${POSTGRES_DB:-trading}
+  POSTGRES_DSN: postgresql://trading_writer:${POSTGRES_WRITER_PASSWORD:?POSTGRES_WRITER_PASSWORD must be set}@postgres:5432/${POSTGRES_DB:-trading}
 
 services:
   postgres:
@@ -29,15 +29,15 @@ services:
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-trading}
       POSTGRES_USER: ${POSTGRES_USER:-trading_admin}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
-      POSTGRES_WRITER_PASSWORD: ${POSTGRES_WRITER_PASSWORD:-changeme}
-      POSTGRES_READER_PASSWORD: ${POSTGRES_READER_PASSWORD:-changeme}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set}
+      POSTGRES_WRITER_PASSWORD: ${POSTGRES_WRITER_PASSWORD:?POSTGRES_WRITER_PASSWORD must be set}
+      POSTGRES_READER_PASSWORD: ${POSTGRES_READER_PASSWORD:?POSTGRES_READER_PASSWORD must be set}
     ports:
       - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
     volumes:
       - crypto-postgres-data:/var/lib/postgresql/data
-      - ../../bots/crypto_trader/infra/postgres/init-db.sh:/docker-entrypoint-initdb.d/00-init-db.sh:ro
-      - ../../bots/crypto_trader/infra/postgres/migrations:/docker-entrypoint-initdb.d/migrations:ro
+      - ../../trading/crypto_trader/infra/postgres/init-db.sh:/docker-entrypoint-initdb.d/00-init-db.sh:ro
+      - ../../trading/crypto_trader/infra/postgres/migrations:/docker-entrypoint-initdb.d/migrations:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-trading_admin} -d ${POSTGRES_DB:-trading}"]
       interval: 10s
@@ -68,10 +68,10 @@ services:
         --runtime-root .
         && exec crypto-trader paper --config config/live_config.json
     volumes:
-      - crypto-data:/app/bots/crypto_trader/data
-      - crypto-output:/app/bots/crypto_trader/output
-      - ${CRYPTO_LIVE_CONFIG_PATH:-./secrets/live_config.json}:/app/bots/crypto_trader/config/live_config.json:ro
-      - ../../backtests/baselines/crypto/portfolio/round_3:/app/bots/crypto_trader/output/portfolio/round_3:ro
+      - crypto-data:/app/trading/crypto_trader/data
+      - crypto-output:/app/trading/crypto_trader/output
+      - ${CRYPTO_LIVE_CONFIG_PATH:-./secrets/live_config.json}:/app/trading/crypto_trader/config/live_config.json:ro
+      - ../../backtests/baselines/crypto/portfolio/round_3:/app/trading/crypto_trader/output/portfolio/round_3:ro
       - ../../deployments/crypto/generated:/app/deployments/crypto/generated:ro
       - ../../contracts:/app/contracts:ro
     stop_grace_period: 60s
@@ -103,10 +103,10 @@ services:
       - --runtime-root
       - .
     volumes:
-      - crypto-data:/app/bots/crypto_trader/data
-      - crypto-output:/app/bots/crypto_trader/output
-      - ${CRYPTO_LIVE_CONFIG_PATH:-./secrets/live_config.json}:/app/bots/crypto_trader/config/live_config.json:ro
-      - ../../backtests/baselines/crypto/portfolio/round_3:/app/bots/crypto_trader/output/portfolio/round_3:ro
+      - crypto-data:/app/trading/crypto_trader/data
+      - crypto-output:/app/trading/crypto_trader/output
+      - ${CRYPTO_LIVE_CONFIG_PATH:-./secrets/live_config.json}:/app/trading/crypto_trader/config/live_config.json:ro
+      - ../../backtests/baselines/crypto/portfolio/round_3:/app/trading/crypto_trader/output/portfolio/round_3:ro
       - ../../deployments/crypto/generated:/app/deployments/crypto/generated:ro
       - ../../contracts:/app/contracts:ro
     logging: *json-logging
@@ -135,7 +135,7 @@ services:
       - --data-dir
       - data
     volumes:
-      - crypto-data:/app/bots/crypto_trader/data
+      - crypto-data:/app/trading/crypto_trader/data
     logging: *json-logging
 
   crypto-status:
@@ -152,7 +152,7 @@ services:
       TZ: ${TZ:-UTC}
     command: ["crypto-trader", "status", "--state-dir", "data/live_state"]
     volumes:
-      - crypto-data:/app/bots/crypto_trader/data
+      - crypto-data:/app/trading/crypto_trader/data
     logging: *json-logging
 
 volumes:

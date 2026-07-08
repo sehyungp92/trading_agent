@@ -21,7 +21,7 @@
             "tests/test_diagnostics.py",
             "-q"
           ],
-          "cwd": "bots/crypto_trader",
+          "cwd": "trading/crypto_trader",
           "name": "crypto",
           "returncode": 0,
           "stderr_tail": [],
@@ -47,7 +47,7 @@
             "tests/integration/parity/test_oms_restart_parity.py",
             "-q"
           ],
-          "cwd": "bots/ibkr_trading",
+          "cwd": "trading/ibkr_trader",
           "name": "ibkr",
           "returncode": 0,
           "stderr_tail": [],
@@ -65,7 +65,7 @@
             "tests/backtests/strategies/test_kalcb_runner.py",
             "-q"
           ],
-          "cwd": "bots/k_stock_trader",
+          "cwd": "trading/k_stock_trader",
           "name": "k_stock",
           "returncode": 0,
           "stderr_tail": [],
@@ -77,22 +77,22 @@
       ],
       "evidence_hashes": [
         {
-          "path": "bots/ibkr_trading/tests/integration/parity/test_live_shadow_layer2.py",
+          "path": "trading/ibkr_trader/tests/integration/parity/test_live_shadow_layer2.py",
           "sha256": "457d5d3668132d981fb317faed1747f4b0c31d2578c4c39c63b5e3448b776c3a"
         },
         {
-          "path": "bots/crypto_trader/tests/parity/test_shadow_replay.py",
+          "path": "trading/crypto_trader/tests/parity/test_shadow_replay.py",
           "sha256": "72eb2ef206f4a45f92838ee880be1990e20338a57d1fed077d435a90410b7a53"
         },
         {
-          "path": "bots/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py",
+          "path": "trading/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py",
           "sha256": "bf3c18005db129c3d91748884c88c0742c433ec41ff2ded9c570cc32cc685299"
         }
       ],
       "evidence_paths": [
-        "bots/ibkr_trading/tests/integration/parity/test_live_shadow_layer2.py",
-        "bots/crypto_trader/tests/parity/test_shadow_replay.py",
-        "bots/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"
+        "trading/ibkr_trader/tests/integration/parity/test_live_shadow_layer2.py",
+        "trading/crypto_trader/tests/parity/test_shadow_replay.py",
+        "trading/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"
       ],
       "name": "completed_bar_policy",
       "notes": "completed_bar_policy is covered by migrated bot parity/invariant tests.",
@@ -118,7 +118,7 @@
             "tests/test_diagnostics.py",
             "-q"
           ],
-          "cwd": "bots/crypto_trader",
+          "cwd": "trading/crypto_trader",
           "name": "crypto",
           "returncode": 0,
           "stderr_tail": [],
@@ -144,7 +144,7 @@
             "tests/integration/parity/test_oms_restart_parity.py",
             "-q"
           ],
-          "cwd": "bots/ibkr_trading",
+          "cwd": "trading/ibkr_trader",
           "name": "ibkr",
           "returncode": 0,
           "stderr_tail": [],
@@ -162,7 +162,7 @@
             "tests/backtests/strategies/test_kalcb_runner.py",
             "-q"
           ],
-          "cwd": "bots/k_stock_trader",
+          "cwd": "trading/k_stock_trader",
           "name": "k_stock",
           "returncode": 0,
           "stderr_tail": [],
@@ -174,22 +174,22 @@
       ],
       "evidence_hashes": [
         {
-          "path": "bots/ibkr_trading/tests/integration/parity/test_live_shadow_layer2.py",
+          "path": "trading/ibkr_trader/tests/integration/parity/test_live_shadow_layer2.py",
           "sha256": "457d5d3668132d981fb317faed1747f4b0c31d2578c4c39c63b5e3448b776c3a"
         },
         {
-          "path": "bots/crypto_trader/tests/live/test_fill_routing.py",
+          "path": "trading/crypto_trader/tests/live/test_fill_routing.py",
           "sha256": "8dc537620744503376e8b9105fc1c7c3181fcb0e6663800587f5fe322ff71eb2"
         },
         {
-          "path": "bots/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py",
+          "path": "trading/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py",
           "sha256": "bf3c18005db129c3d91748884c88c0742c433ec41ff2ded9c570cc32cc685299"
         }
       ],
       "evidence_paths": [
-        "bots/ibkr_trading/tests/integration/parity/test_live_shadow_layer2.py",
-        "bots/crypto_trader/tests/live/test_fill_routing.py",
-        "bots/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"
+        "trading/ibkr_trader/tests/integration/parity/test_live_shadow_layer2.py",
+        "trading/crypto_trader/tests/live/test_fill_routing.py",
+        "trading/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"
       ],
       "name": "next_bar_fill",
       "notes": "next_bar_fill is covered by migrated bot parity/invariant tests.",
@@ -215,7 +215,7 @@
             "tests/test_diagnostics.py",
             "-q"
           ],
-          "cwd": "bots/crypto_trader",
+          "cwd": "trading/crypto_trader",
           "name": "crypto",
           "returncode": 0,
           "stderr_tail": [],
@@ -241,7 +241,7 @@
             "tests/integration/parity/test_oms_restart_parity.py",
             "-q"
           ],
-          "cwd": "bots/ibkr_trading",
+          "cwd": "trading/ibkr_trader",
           "name": "ibkr",
           "returncode": 0,
           "stderr_tail": [],
@@ -259,7 +259,7 @@
             "tests/backtests/strategies/test_kalcb_runner.py",
             "-q"
           ],
-          "cwd": "bots/k_stock_trader",
+          "cwd": "trading/k_stock_trader",
           "name": "k_stock",
           "returncode": 0,
           "stderr_tail": [],
@@ -271,22 +271,22 @@
       ],
       "evidence_hashes": [
         {
-          "path": "bots/ibkr_trading/tests/integration/parity/test_oms_restart_parity.py",
+          "path": "trading/ibkr_trader/tests/integration/parity/test_oms_restart_parity.py",
           "sha256": "a2909f628f46fe3bdfaaccdbf4f4e792a33a7d6e4a8711efd8bfe6072f6e3262"
         },
         {
-          "path": "bots/crypto_trader/tests/live/test_broker.py",
+          "path": "trading/crypto_trader/tests/live/test_broker.py",
           "sha256": "cd447b1c137a7e88523f597c7646fdecf5d5d318a5759f36d7662ffdb6706570"
         },
         {
-          "path": "bots/k_stock_trader/deployment/olr_kalcb/replay.py",
+          "path": "trading/k_stock_trader/deployment/olr_kalcb/replay.py",
           "sha256": "52f4ab89762fc08c55cd5ba44ff553f4fc36236ca7c39fc6f1bde1223340b809"
         }
       ],
       "evidence_paths": [
-        "bots/ibkr_trading/tests/integration/parity/test_oms_restart_parity.py",
-        "bots/crypto_trader/tests/live/test_broker.py",
-        "bots/k_stock_trader/deployment/olr_kalcb/replay.py"
+        "trading/ibkr_trader/tests/integration/parity/test_oms_restart_parity.py",
+        "trading/crypto_trader/tests/live/test_broker.py",
+        "trading/k_stock_trader/deployment/olr_kalcb/replay.py"
       ],
       "name": "broker_path",
       "notes": "broker_path is covered by migrated bot parity/invariant tests.",
@@ -312,7 +312,7 @@
             "tests/test_diagnostics.py",
             "-q"
           ],
-          "cwd": "bots/crypto_trader",
+          "cwd": "trading/crypto_trader",
           "name": "crypto",
           "returncode": 0,
           "stderr_tail": [],
@@ -338,7 +338,7 @@
             "tests/integration/parity/test_oms_restart_parity.py",
             "-q"
           ],
-          "cwd": "bots/ibkr_trading",
+          "cwd": "trading/ibkr_trader",
           "name": "ibkr",
           "returncode": 0,
           "stderr_tail": [],
@@ -351,22 +351,22 @@
       ],
       "evidence_hashes": [
         {
-          "path": "bots/ibkr_trading/tests/unit/test_momentum_portfolio_synergy_live_parity.py",
+          "path": "trading/ibkr_trader/tests/unit/test_momentum_portfolio_synergy_live_parity.py",
           "sha256": "214578e90eb9cac4cf9fd9a534debbdf0eb0b73339ed356e1b59bdb37b7bdb8d"
         },
         {
-          "path": "bots/crypto_trader/tests/parity/test_trade_outcome_accounting.py",
+          "path": "trading/crypto_trader/tests/parity/test_trade_outcome_accounting.py",
           "sha256": "75cfb07e8da741f2d18271232b7d67be117432f37500c92f3d63846011e38d8a"
         },
         {
-          "path": "bots/crypto_trader/tests/test_metrics.py",
+          "path": "trading/crypto_trader/tests/test_metrics.py",
           "sha256": "db9702c95c33a5eb2d9765a3418596e074441f42d6c8142c10a4786be5ded766"
         }
       ],
       "evidence_paths": [
-        "bots/ibkr_trading/tests/unit/test_momentum_portfolio_synergy_live_parity.py",
-        "bots/crypto_trader/tests/parity/test_trade_outcome_accounting.py",
-        "bots/crypto_trader/tests/test_metrics.py"
+        "trading/ibkr_trader/tests/unit/test_momentum_portfolio_synergy_live_parity.py",
+        "trading/crypto_trader/tests/parity/test_trade_outcome_accounting.py",
+        "trading/crypto_trader/tests/test_metrics.py"
       ],
       "name": "mtm_risk",
       "notes": "mtm_risk is covered by migrated bot parity/invariant tests.",
@@ -392,7 +392,7 @@
             "tests/test_diagnostics.py",
             "-q"
           ],
-          "cwd": "bots/crypto_trader",
+          "cwd": "trading/crypto_trader",
           "name": "crypto",
           "returncode": 0,
           "stderr_tail": [],
@@ -418,7 +418,7 @@
             "tests/integration/parity/test_oms_restart_parity.py",
             "-q"
           ],
-          "cwd": "bots/ibkr_trading",
+          "cwd": "trading/ibkr_trader",
           "name": "ibkr",
           "returncode": 0,
           "stderr_tail": [],
@@ -431,22 +431,22 @@
       ],
       "evidence_hashes": [
         {
-          "path": "bots/ibkr_trading/tests/unit/test_parity_normalizers.py",
+          "path": "trading/ibkr_trader/tests/unit/test_parity_normalizers.py",
           "sha256": "6a5b762568b73bef18029eff6dc1fe6be5a39d29cd085a84b8c4a6e2b8f8e7a4"
         },
         {
-          "path": "bots/crypto_trader/tests/test_backtest_runner.py",
+          "path": "trading/crypto_trader/tests/test_backtest_runner.py",
           "sha256": "60a1353cfa2201417178f59b11a5ebea6c63d6417461140d64f39d111d5fc8b4"
         },
         {
-          "path": "bots/crypto_trader/tests/test_metrics.py",
+          "path": "trading/crypto_trader/tests/test_metrics.py",
           "sha256": "db9702c95c33a5eb2d9765a3418596e074441f42d6c8142c10a4786be5ded766"
         }
       ],
       "evidence_paths": [
-        "bots/ibkr_trading/tests/unit/test_parity_normalizers.py",
-        "bots/crypto_trader/tests/test_backtest_runner.py",
-        "bots/crypto_trader/tests/test_metrics.py"
+        "trading/ibkr_trader/tests/unit/test_parity_normalizers.py",
+        "trading/crypto_trader/tests/test_backtest_runner.py",
+        "trading/crypto_trader/tests/test_metrics.py"
       ],
       "name": "net_gross_accounting",
       "notes": "net_gross_accounting is covered by migrated bot parity/invariant tests.",
@@ -472,7 +472,7 @@
             "tests/test_diagnostics.py",
             "-q"
           ],
-          "cwd": "bots/crypto_trader",
+          "cwd": "trading/crypto_trader",
           "name": "crypto",
           "returncode": 0,
           "stderr_tail": [],
@@ -498,7 +498,7 @@
             "tests/integration/parity/test_oms_restart_parity.py",
             "-q"
           ],
-          "cwd": "bots/ibkr_trading",
+          "cwd": "trading/ibkr_trader",
           "name": "ibkr",
           "returncode": 0,
           "stderr_tail": [],
@@ -511,22 +511,22 @@
       ],
       "evidence_hashes": [
         {
-          "path": "bots/ibkr_trading/tests/integration/parity/test_live_shadow_families.py",
+          "path": "trading/ibkr_trader/tests/integration/parity/test_live_shadow_families.py",
           "sha256": "d81348a87a64325a8215a42cee1becae261dc1b3450bfa96f50ed9e8ab08daa1"
         },
         {
-          "path": "bots/crypto_trader/tests/portfolio/test_backtest_runner.py",
+          "path": "trading/crypto_trader/tests/portfolio/test_backtest_runner.py",
           "sha256": "a7713fcec59ee960fb8a2fee5455debb1ca04695c13b8ebdf492d56cabbfbde2"
         },
         {
-          "path": "bots/ibkr_trading/tests/unit/test_swing_portfolio_synergy_live_parity.py",
+          "path": "trading/ibkr_trader/tests/unit/test_swing_portfolio_synergy_live_parity.py",
           "sha256": "4e389477543909fb11af579bb1c7d5f70f6da05bce20862f0060fc1f8489852b"
         }
       ],
       "evidence_paths": [
-        "bots/ibkr_trading/tests/integration/parity/test_live_shadow_families.py",
-        "bots/crypto_trader/tests/portfolio/test_backtest_runner.py",
-        "bots/ibkr_trading/tests/unit/test_swing_portfolio_synergy_live_parity.py"
+        "trading/ibkr_trader/tests/integration/parity/test_live_shadow_families.py",
+        "trading/crypto_trader/tests/portfolio/test_backtest_runner.py",
+        "trading/ibkr_trader/tests/unit/test_swing_portfolio_synergy_live_parity.py"
       ],
       "name": "shared_capital_portfolio",
       "notes": "shared_capital_portfolio is covered by migrated bot parity/invariant tests.",
@@ -552,7 +552,7 @@
             "tests/test_diagnostics.py",
             "-q"
           ],
-          "cwd": "bots/crypto_trader",
+          "cwd": "trading/crypto_trader",
           "name": "crypto",
           "returncode": 0,
           "stderr_tail": [],
@@ -578,7 +578,7 @@
             "tests/integration/parity/test_oms_restart_parity.py",
             "-q"
           ],
-          "cwd": "bots/ibkr_trading",
+          "cwd": "trading/ibkr_trader",
           "name": "ibkr",
           "returncode": 0,
           "stderr_tail": [],
@@ -596,7 +596,7 @@
             "tests/backtests/strategies/test_kalcb_runner.py",
             "-q"
           ],
-          "cwd": "bots/k_stock_trader",
+          "cwd": "trading/k_stock_trader",
           "name": "k_stock",
           "returncode": 0,
           "stderr_tail": [],
@@ -608,22 +608,22 @@
       ],
       "evidence_hashes": [
         {
-          "path": "bots/ibkr_trading/tests/unit/test_parity_fixtures.py",
+          "path": "trading/ibkr_trader/tests/unit/test_parity_fixtures.py",
           "sha256": "435452559341cae2fde6f373714f358566d8b63c5f7fb39b8fe64b88a3ed90a1"
         },
         {
-          "path": "bots/crypto_trader/tests/test_diagnostics.py",
+          "path": "trading/crypto_trader/tests/test_diagnostics.py",
           "sha256": "f792e5b1b07a12f6cb3362c1d5ae3bc44df2f0c85dea83c780e6aa9768b603e5"
         },
         {
-          "path": "bots/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py",
+          "path": "trading/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py",
           "sha256": "bf3c18005db129c3d91748884c88c0742c433ec41ff2ded9c570cc32cc685299"
         }
       ],
       "evidence_paths": [
-        "bots/ibkr_trading/tests/unit/test_parity_fixtures.py",
-        "bots/crypto_trader/tests/test_diagnostics.py",
-        "bots/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"
+        "trading/ibkr_trader/tests/unit/test_parity_fixtures.py",
+        "trading/crypto_trader/tests/test_diagnostics.py",
+        "trading/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"
       ],
       "name": "diagnostics",
       "notes": "diagnostics is covered by migrated bot parity/invariant tests.",
@@ -649,7 +649,7 @@
             "tests/test_diagnostics.py",
             "-q"
           ],
-          "cwd": "bots/crypto_trader",
+          "cwd": "trading/crypto_trader",
           "name": "crypto",
           "returncode": 0,
           "stderr_tail": [],
@@ -675,7 +675,7 @@
             "tests/integration/parity/test_oms_restart_parity.py",
             "-q"
           ],
-          "cwd": "bots/ibkr_trading",
+          "cwd": "trading/ibkr_trader",
           "name": "ibkr",
           "returncode": 0,
           "stderr_tail": [],
@@ -693,7 +693,7 @@
             "tests/backtests/strategies/test_kalcb_runner.py",
             "-q"
           ],
-          "cwd": "bots/k_stock_trader",
+          "cwd": "trading/k_stock_trader",
           "name": "k_stock",
           "returncode": 0,
           "stderr_tail": [],
@@ -705,22 +705,22 @@
       ],
       "evidence_hashes": [
         {
-          "path": "bots/ibkr_trading/tests/unit/test_parity_normalizers.py",
+          "path": "trading/ibkr_trader/tests/unit/test_parity_normalizers.py",
           "sha256": "6a5b762568b73bef18029eff6dc1fe6be5a39d29cd085a84b8c4a6e2b8f8e7a4"
         },
         {
-          "path": "bots/crypto_trader/tests/parity/test_execution_adapters.py",
+          "path": "trading/crypto_trader/tests/parity/test_execution_adapters.py",
           "sha256": "4dd89ddd497792a8a6e579151cef0fba233a2e5a8e4bb4a91235ce53265a2839"
         },
         {
-          "path": "bots/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py",
+          "path": "trading/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py",
           "sha256": "bf3c18005db129c3d91748884c88c0742c433ec41ff2ded9c570cc32cc685299"
         }
       ],
       "evidence_paths": [
-        "bots/ibkr_trading/tests/unit/test_parity_normalizers.py",
-        "bots/crypto_trader/tests/parity/test_execution_adapters.py",
-        "bots/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"
+        "trading/ibkr_trader/tests/unit/test_parity_normalizers.py",
+        "trading/crypto_trader/tests/parity/test_execution_adapters.py",
+        "trading/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"
       ],
       "name": "timestamp_hygiene",
       "notes": "timestamp_hygiene is covered by migrated bot parity/invariant tests.",
@@ -746,7 +746,7 @@
             "tests/test_diagnostics.py",
             "-q"
           ],
-          "cwd": "bots/crypto_trader",
+          "cwd": "trading/crypto_trader",
           "name": "crypto",
           "returncode": 0,
           "stderr_tail": [],
@@ -772,7 +772,7 @@
             "tests/integration/parity/test_oms_restart_parity.py",
             "-q"
           ],
-          "cwd": "bots/ibkr_trading",
+          "cwd": "trading/ibkr_trader",
           "name": "ibkr",
           "returncode": 0,
           "stderr_tail": [],
@@ -790,7 +790,7 @@
             "tests/backtests/strategies/test_kalcb_runner.py",
             "-q"
           ],
-          "cwd": "bots/k_stock_trader",
+          "cwd": "trading/k_stock_trader",
           "name": "k_stock",
           "returncode": 0,
           "stderr_tail": [],
@@ -843,7 +843,7 @@
             "tests/test_diagnostics.py",
             "-q"
           ],
-          "cwd": "bots/crypto_trader",
+          "cwd": "trading/crypto_trader",
           "name": "crypto",
           "returncode": 0,
           "stderr_tail": [],
@@ -869,7 +869,7 @@
             "tests/integration/parity/test_oms_restart_parity.py",
             "-q"
           ],
-          "cwd": "bots/ibkr_trading",
+          "cwd": "trading/ibkr_trader",
           "name": "ibkr",
           "returncode": 0,
           "stderr_tail": [],
@@ -887,7 +887,7 @@
             "tests/backtests/strategies/test_kalcb_runner.py",
             "-q"
           ],
-          "cwd": "bots/k_stock_trader",
+          "cwd": "trading/k_stock_trader",
           "name": "k_stock",
           "returncode": 0,
           "stderr_tail": [],
@@ -899,22 +899,22 @@
       ],
       "evidence_hashes": [
         {
-          "path": "bots/ibkr_trading/tests/integration/parity/test_live_shadow_families.py",
+          "path": "trading/ibkr_trader/tests/integration/parity/test_live_shadow_families.py",
           "sha256": "d81348a87a64325a8215a42cee1becae261dc1b3450bfa96f50ed9e8ab08daa1"
         },
         {
-          "path": "bots/crypto_trader/tests/live/test_entry_fill_protection.py",
+          "path": "trading/crypto_trader/tests/live/test_entry_fill_protection.py",
           "sha256": "7635c9c2bae0a63e71921000f43d7322cea4992699539fcd44ab9a48236125dc"
         },
         {
-          "path": "bots/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py",
+          "path": "trading/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py",
           "sha256": "bf3c18005db129c3d91748884c88c0742c433ec41ff2ded9c570cc32cc685299"
         }
       ],
       "evidence_paths": [
-        "bots/ibkr_trading/tests/integration/parity/test_live_shadow_families.py",
-        "bots/crypto_trader/tests/live/test_entry_fill_protection.py",
-        "bots/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"
+        "trading/ibkr_trader/tests/integration/parity/test_live_shadow_families.py",
+        "trading/crypto_trader/tests/live/test_entry_fill_protection.py",
+        "trading/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"
       ],
       "name": "stress_gates",
       "notes": "stress_gates is covered by migrated bot parity/invariant tests.",

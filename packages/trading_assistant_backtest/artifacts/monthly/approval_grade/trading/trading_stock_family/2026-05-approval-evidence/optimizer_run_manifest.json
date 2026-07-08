@@ -1,0 +1,58 @@
+{
+  "schema_version": "optimizer_approval_run_manifest_v1",
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "manifest_id": "705ac05d13174c1e",
+  "scope_id": "trading_stock_family",
+  "scope_aliases": [
+    "trading",
+    "trading_stock_family",
+    "trading-stock-family"
+  ],
+  "bot_id": "trading",
+  "strategy_id": "trading_stock_family",
+  "strategy_plugin_id": "trading-stock-family",
+  "run_month": "2026-05",
+  "run_mode": "phased_auto",
+  "optimizer_mode": "approval_grade",
+  "approval_mode": "none",
+  "approval_evidence_mode": true,
+  "planner_mode": "deterministic",
+  "approval_grade_optimizer_run": true,
+  "smoke_mode": false,
+  "artifact_root": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence",
+  "run_manifest_path": "packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\run_manifest.json",
+  "run_manifest_hash": "f6c33098d8e390159436cb3c026a28d017f1b5230bd1ba2916874b46b4888135",
+  "data_bundle_checksum": "f3819adc86612638415b0dd6b603babaeaa12ab5d37076ccff04bfa23486ca59",
+  "data_bundle_checksums": [
+    "f3819adc86612638415b0dd6b603babaeaa12ab5d37076ccff04bfa23486ca59"
+  ],
+  "strategy_plugin_contract_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\strategy_plugin_contract.json",
+  "strategy_plugin_contract_hash": "feec4e326885ef4e3608507f76058cb7ce2ca033f72fc07b5144e12538da8a21",
+  "strategy_plugin_contract_paths": {
+    "trading_stock_family": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\strategy_plugin_contract.json"
+  },
+  "bridge_contract_paths": {
+    "trading_stock_family": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\strategy_plugin_contract.json"
+  },
+  "strategy_plugin_contract_hashes": {
+    "trading_stock_family": "feec4e326885ef4e3608507f76058cb7ce2ca033f72fc07b5144e12538da8a21"
+  },
+  "bridge_contract_hashes": {
+    "trading_stock_family": "feec4e326885ef4e3608507f76058cb7ce2ca033f72fc07b5144e12538da8a21"
+  },
+  "deployment_metadata_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\deployment_metadata.json",
+  "deployment_metadata_hash": "8f23e10523257c901572690a641b489b4ef1d3c840e1edd6b921a5779380b205",
+  "deployment_metadata_paths": {
+    "trading_stock_family": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\deployment_metadata.json"
+  },
+  "bridge_deployment_metadata_paths": {
+    "trading_stock_family": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\deployment_metadata.json"
+  },
+  "deployment_metadata_hashes": {
+    "trading_stock_family": "8f23e10523257c901572690a641b489b4ef1d3c840e1edd6b921a5779380b205"
+  },
+  "bridge_deployment_metadata_hashes": {
+    "trading_stock_family": "8f23e10523257c901572690a641b489b4ef1d3c840e1edd6b921a5779380b205"
+  },
+  "generated_at_utc": "2026-07-07T15:41:45Z"
+}

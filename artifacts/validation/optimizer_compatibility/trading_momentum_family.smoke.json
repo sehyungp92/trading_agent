@@ -340,7 +340,7 @@
       "bot": "ibkr",
       "class_name": "PhaseRunner",
       "module_path": "backtests.shared.auto.phase_runner",
-      "source_path": "bots/ibkr_trading/backtests/shared/auto/phase_runner.py",
+      "source_path": "trading/ibkr_trader/backtests/shared/auto/phase_runner.py",
       "source_sha256": "8bb6a2e81da4a7cf9088e08ef3dede12c60677bcc3dae15fcafee5d675a1fd99"
     }
   ]

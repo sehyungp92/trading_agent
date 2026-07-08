@@ -4,7 +4,6 @@
 $ErrorActionPreference = "Stop"
 
 $ProjectRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
-$RepoRoot = Split-Path -Parent (Split-Path -Parent $ProjectRoot)
 $CommonScript = Join-Path $ProjectRoot "scripts\start-common.ps1"
 
 if (-not (Test-Path $CommonScript)) {
@@ -14,9 +13,9 @@ if (-not (Test-Path $CommonScript)) {
 . $CommonScript
 Import-AssistantEnvFile -EnvFile (Join-Path $ProjectRoot ".env")
 
-$RelayAppDir = Join-Path $RepoRoot "bots\ibkr_trading"
-if (-not (Test-Path (Join-Path $RelayAppDir "apps\relay\app.py"))) {
-    throw "Missing relay app under $RelayAppDir"
+$RelayAppDir = Join-Path $ProjectRoot "src"
+if (-not (Test-Path (Join-Path $RelayAppDir "trading_assistant\relay_ingress\app.py"))) {
+    throw "Missing assistant relay ingress under $RelayAppDir"
 }
 
 $LogDir = Join-Path $ProjectRoot "logs"
@@ -58,10 +57,17 @@ try {
     if (-not $env:TRADING_MODE -and -not $env:TRADING_ENV) {
         $env:TRADING_MODE = "paper"
     }
+    $TradingMode = if ($env:TRADING_MODE) { $env:TRADING_MODE.ToLowerInvariant() } elseif ($env:TRADING_ENV) { $env:TRADING_ENV.ToLowerInvariant() } else { "paper" }
+    $RelayNetworkMode = if ($env:RELAY_NETWORK_MODE) { $env:RELAY_NETWORK_MODE.ToLowerInvariant() } else { "" }
+    $LoopbackRelayHosts = @("127.0.0.1", "localhost", "::1")
+    $LoopbackAllowedModes = @("local_direct", "private_interface", "secure_tunnel", "tunnel")
+    $AllowsLoopbackRelay = ($env:ALLOW_LOOPBACK_RELAY -eq "1") -or ($LoopbackAllowedModes -contains $RelayNetworkMode)
+    if (($TradingMode -in @("paper", "live", "prod", "production")) -and ($LoopbackRelayHosts -contains $RelayHost.ToLowerInvariant()) -and (-not $AllowsLoopbackRelay)) {
+        throw "RELAY_HOST must not be loopback in $TradingMode mode unless RELAY_NETWORK_MODE is local_direct/private_interface/secure_tunnel/tunnel or ALLOW_LOOPBACK_RELAY=1."
+    }
 
     $pythonPathEntries = @(
-        $RelayAppDir,
-        (Join-Path $RelayAppDir "src")
+        $RelayAppDir
     )
     if ($env:PYTHONPATH) {
         $pythonPathEntries += $env:PYTHONPATH
@@ -74,7 +80,7 @@ try {
     }
 
     $Arguments = @(
-        "-m", "uvicorn", "apps.relay.app:app",
+        "-m", "uvicorn", "trading_assistant.relay_ingress.app:app",
         "--app-dir", $RelayAppDir,
         "--host", $RelayHost,
         "--port", $RelayPort
@@ -92,7 +98,7 @@ try {
             -WindowStyle Hidden `
             -FilePath $Pythonw `
             -ArgumentList $Arguments `
-            -WorkingDirectory $RepoRoot `
+            -WorkingDirectory $ProjectRoot `
             -RedirectStandardOutput $LogFile `
             -RedirectStandardError $ErrFile `
             -PassThru

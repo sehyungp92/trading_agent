@@ -11,7 +11,7 @@
   "deployment_id": "trading-momentum-family-shadow-3c6441d8",
   "generated_at": "2026-07-03T00:00:00Z",
   "metadata_source": "local clean live-repo checkout shadow snapshot",
-  "repo_url": "local://bots/ibkr_trading",
+  "repo_url": "local://trading/ibkr_trader",
   "strategy_id": "trading_momentum_family",
   "strategy_plugin_contract_hash": "99f86d8fcd91b9e9ca079aba1bb805a9bd95fb307c1669913b4a9148b562ae01",
   "strategy_plugin_contract_path": "strategy_plugin_contract.json",

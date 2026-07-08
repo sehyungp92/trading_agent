@@ -7,7 +7,7 @@
   "deployment_id": "crypto-trend-v1-shadow-3c6441d8",
   "generated_at": "2026-05-31T00:00:00Z",
   "metadata_source": "local clean live-repo checkout shadow snapshot",
-  "repo_url": "local://bots/crypto_trader",
+  "repo_url": "local://trading/crypto_trader",
   "strategy_id": "btc_1m",
   "strategy_plugin_contract_hash": "66aefae0de014fc8e190f67730dd0ada8c4f917a03cde21af936c41182561527",
   "strategy_plugin_contract_path": "strategy_plugin_contract.json",

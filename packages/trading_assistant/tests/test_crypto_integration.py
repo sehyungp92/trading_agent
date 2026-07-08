@@ -562,7 +562,7 @@ class TestCryptoConfigJsonPaths:
 
     def test_crypto_config_json_paths_resolve_against_reference(self, tmp_path: Path):
         source_config = package_root() / "data" / "bot_configs" / "crypto_trader.yaml"
-        reference_repo = monorepo_root() / "bots" / "crypto_trader"
+        reference_repo = monorepo_root() / "trading" / "crypto_trader"
         if not reference_repo.exists():
             pytest.skip("crypto_trader reference repo is local-only and not available in CI")
 

@@ -303,7 +303,7 @@ def check_phase3_evidence_status(failures: list[str], label: str, promotion: dic
 
 
 def check_active_kalcb_alignment() -> list[str]:
-    alignment = parse_kalcb_alignment(ROOT / "bots" / "k_stock_trader")
+    alignment = parse_kalcb_alignment(ROOT / "trading" / "k_stock_trader")
     if alignment.get("status") == "aligned":
         print_result(True, "k_stock:kalcb-frontier", "active source frontier.size values are 103")
         return []

@@ -1,0 +1,70 @@
+{
+  "approval_evidence_mode": true,
+  "approval_mode": "none",
+  "artifact_root": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence",
+  "backtest_repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent",
+  "bot_id": "trading",
+  "bridge_contract_paths": {
+    "trading_stock_family": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\strategy_plugin_contract.json"
+  },
+  "bridge_deployment_metadata_paths": {
+    "trading_stock_family": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\deployment_metadata.json"
+  },
+  "calibration_end": "2026-04-30",
+  "calibration_start": "2025-03-21",
+  "candidate_workspace_key": "approval-evidence-no-adoption",
+  "candidate_workspace_root": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\workspaces",
+  "config_hash": "4bfd5d145d581942bf785fe1bea580c4fea286cdab94ea3e72b32d059f94411c",
+  "config_version": "trading_stock_family_shadow_2026-05-31",
+  "created_at": "2026-07-07T15:40:58Z",
+  "data_bundle_checksum": "f3819adc86612638415b0dd6b603babaeaa12ab5d37076ccff04bfa23486ca59",
+  "data_bundle_manifest_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\data_bundle_manifest.json",
+  "data_manifest_checksum": "f3819adc86612638415b0dd6b603babaeaa12ab5d37076ccff04bfa23486ca59",
+  "deployment_id": "trading-stock-family-shadow-3c6441d8",
+  "deployment_metadata_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\deployment_metadata.json",
+  "deployment_metadata_paths": {
+    "trading_stock_family": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\deployment_metadata.json"
+  },
+  "expected_outputs": [
+    "optimizer_run_manifest.json",
+    "fold_manifest.json",
+    "fold_score_matrix.json",
+    "confirmatory_rerank.json"
+  ],
+  "in_sample_end": "2026-04-30",
+  "in_sample_start": "2025-03-21",
+  "latest_month_end": "2026-05-01",
+  "latest_month_start": "2026-05-01",
+  "manifest_version": "monthly_run_manifest_v1",
+  "market_data_manifest_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\data_bundle_manifest.json",
+  "mode": "phased_auto",
+  "monthly_search_guidance": {
+    "plan_requirements": {
+      "candidate_families": [
+        "filter_repair",
+        "trade_management"
+      ]
+    },
+    "source_weekly_signal_ids": [
+      "approval-evidence-shadow-2026-05"
+    ]
+  },
+  "next_round_id": "2026-05-round-1",
+  "prior_round_id": "2026-04-round-0",
+  "round_id": "2026-05-round-0",
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "run_month": "2026-05",
+  "selection_oos_end": "2026-05-01",
+  "selection_oos_start": "2026-05-01",
+  "strategy_id": "trading_stock_family",
+  "strategy_plugin_contract_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\strategy_plugin_contract.json",
+  "strategy_plugin_contract_paths": {
+    "trading_stock_family": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\strategy_plugin_contract.json"
+  },
+  "strategy_plugin_contract_version": "strategy_plugin_contract_v1",
+  "strategy_plugin_id": "trading-stock-family",
+  "strategy_version": "trading_stock_shadow_v1",
+  "telemetry_manifest_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\telemetry_manifest.json",
+  "trading_repo_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "trading_repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\ibkr_trading"
+}

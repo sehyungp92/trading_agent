@@ -3,7 +3,7 @@
 $Script:OrchestratorHealthUrl = "http://127.0.0.1:8000/ready"
 $Script:OrchestratorCommandLinePattern = "trading_assistant.orchestrator.app:app"
 $Script:RelayHealthUrl = "http://127.0.0.1:8001/health"
-$Script:RelayCommandLinePattern = "apps.relay.app:app"
+$Script:RelayCommandLinePattern = "trading_assistant.relay_ingress.app:app"
 
 function Import-AssistantEnvFile {
     param(

@@ -1,0 +1,8 @@
+{
+  "schema_version": "repair_checkpoint_v1",
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "repair_triggered": false,
+  "candidate_ids": [],
+  "accepted_mutation_count": 0,
+  "deterministic_resume_key": "b1a5640b176c6c19d5534ebee3a28f3b2be1796e8c36c0b54a263046f33d409b"
+}

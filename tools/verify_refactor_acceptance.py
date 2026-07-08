@@ -61,7 +61,7 @@ MONOREPO_PROVENANCE_PREFIXES = (
     ".github/",
     "artifacts/",
     "backtests/baselines/",
-    "bots/",
+    "trading/",
     "contracts/",
     "deployments/",
     "docs/",

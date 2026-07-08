@@ -21,19 +21,19 @@ LEGACY_PHASE_RUNNERS = {
         bot="ibkr",
         module_path="backtests.shared.auto.phase_runner",
         class_name="PhaseRunner",
-        source_path="bots/ibkr_trading/backtests/shared/auto/phase_runner.py",
+        source_path="trading/ibkr_trader/backtests/shared/auto/phase_runner.py",
     ),
     "crypto": PhaseRunnerSpec(
         bot="crypto",
         module_path="crypto_trader.optimize.phase_runner",
         class_name="PhaseRunner",
-        source_path="bots/crypto_trader/src/crypto_trader/optimize/phase_runner.py",
+        source_path="trading/crypto_trader/src/crypto_trader/optimize/phase_runner.py",
     ),
     "k_stock": PhaseRunnerSpec(
         bot="k_stock",
         module_path="backtests.auto.shared.phase_runner",
         class_name="PhaseRunner",
-        source_path="bots/k_stock_trader/backtests/auto/shared/phase_runner.py",
+        source_path="trading/k_stock_trader/backtests/auto/shared/phase_runner.py",
     ),
 }
 

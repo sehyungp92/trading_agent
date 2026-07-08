@@ -186,7 +186,7 @@ Portfolio-level changes — rebalancing family allocation weights, adjusting ris
 ## Architecture
 
 ```
-VPS Bots → Sidecar → Relay VPS → POST /events → EventQueue (SQLite)
+Bot VPSes → Sidecar → Assistant-local relay ingress → EventQueue (SQLite)
                                                        ↓
                                               OrchestratorBrain
                                             (classify → create task)
@@ -247,7 +247,7 @@ Copy `.env.example` to `.env` and configure:
 |----------|----------|-------------|
 | `ENVIRONMENT` | Production | Set to `production` for unattended deployments |
 | `BOT_IDS` | Production | Comma-separated bot identifiers |
-| `RELAY_URL` | Production unless direct-ingest only | Relay VPS endpoint URL |
+| `RELAY_URL` | Production unless direct-ingest only | Assistant-local relay ingress endpoint URL |
 | `RELAY_API_KEY` | Production when `RELAY_URL` is set | API key for orchestrator-to-relay polling |
 | `DIRECT_INGEST_ONLY` | Production when no relay is used | Explicitly declares that `/ingest` is the only ingest path |
 | `ORCHESTRATOR_API_KEY` | Production/public bind | Required `X-Api-Key` for control-plane endpoints |
@@ -441,7 +441,7 @@ export ORCHESTRATOR_API_KEY="$(openssl rand -hex 32)"
 export ENVIRONMENT="production"
 export BIND_HOST="0.0.0.0"
 export BOT_IDS="bot1,bot2"
-export RELAY_URL="https://relay.example"
+export RELAY_URL="http://<assistant-private-ip>:8001"
 export RELAY_API_KEY="..."
 python -m trading_assistant.orchestrator.preflight
 uvicorn trading_assistant.orchestrator.app:app --host 0.0.0.0 --port 8000
@@ -463,4 +463,4 @@ returns HTTP 200.
 - **Claude Code CLI** and **Codex CLI**, with Claude-compatible provider overlays for Z.AI and OpenRouter
 - **Pydantic v2** for all data contracts
 - **Telegram Bot API**, discord.py, SMTP for notifications
-- **HMAC-SHA256** for bot-to-relay write authentication; `RELAY_API_KEY` for orchestrator relay polling
+- **HMAC-SHA256** for bot-to-assistant-relay write authentication; `RELAY_API_KEY` for orchestrator relay polling

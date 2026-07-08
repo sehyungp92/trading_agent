@@ -1,0 +1,240 @@
+{
+  "artifact_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\approval_evidence_bundle.json",
+  "blockers": [
+    "deployment_metadata_promotion_grade_installed: trading_stock_family deployment metadata was not installed from a passing report",
+    "deployment_metadata_promotion_grade_installed: trading_stock_family: metadata_source must be one of live_bot_runtime_deployment_metadata_v1, vps_live_bot_runtime_deployment_metadata_v1",
+    "deployment_metadata_promotion_grade_installed: trading_stock_family: emission_environment must be one of live_bot, paper_vps, production_vps, vps",
+    "deployment_metadata_promotion_grade_installed: trading_stock_family: metadata_source contains non-approval token(s): local, shadow, snapshot",
+    "deployment_metadata_promotion_grade_installed: trading_stock_family: deployment metadata missing live-emission fields: emitted_at_utc, live_runtime_started_at_utc, runtime_entrypoint, runtime_instance_id, runtime_host_fingerprint, source_control_origin, source_control_commit_sha",
+    "deployment_metadata_promotion_grade_installed: trading_stock_family: source_control_worktree_clean must be true",
+    "deployment_metadata_promotion_grade_installed: trading_stock_family: source_control_origin/repo_url must not be local://",
+    "deployment_metadata_promotion_grade_installed: trading_stock_family: repo_url is local/shadow-only: 'local://trading/ibkr_trader'",
+    "deployment_metadata_promotion_grade_installed: trading_stock_family: deployment metadata missing required telemetry schema(s): trading_stock_family_state_v1",
+    "operational_deployment_evidence_complete: operational deployment evidence missing: C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\deployments\\operational_evidence.json",
+    "operational_deployment_evidence_complete: missing operational evidence deployments/operational_evidence.json",
+    "operational_deployment_evidence_complete: collect VPS and local assistant evidence after deployment before marking completion",
+    "scheduled_shadow_cycle_production_grade: production scheduled_shadow_cycle_report.json missing",
+    "telemetry_conformance_for_approval_evidence: scheduled_shadow_telemetry_reference: scheduled shadow report missing",
+    "telemetry_conformance_for_approval_evidence: relay_ingest_no_drops_or_quarantines: relay ingest evidence missing",
+    "production_fixture_breadth_complete: production fixture-set manifest is not ok",
+    "production_fixture_breadth_complete: production fixture-set manifest status is blocked",
+    "production_fixture_breadth_complete: fixture-set manifest missing required case class: live_shadow_telemetry_source",
+    "learning_sufficiency_authoritative: learning sufficiency is 'diagnostics_only', not 'learning_authoritative'"
+  ],
+  "bridge_ids": [
+    "trading_stock_family"
+  ],
+  "eligible_for_promotion": false,
+  "evidence_hashes": {
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\learning_sufficiency\\phase2_manifests\\ibkr\\2026-06\\trading_stock_family\\learning_sufficiency_manifest.json": "104442b24a821c65936154f8153aab90bd6a3326525e8f85ccfe924794acd430",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\learning_sufficiency\\phase2_manifests\\ibkr\\2026-06\\trading_stock_family\\runtime_evidence_support.json": "78e036b7d8c0a425cf63ae131d255ef866ca396fa39074057a9a3e9c39a7e04b",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\learning_sufficiency\\phase2_manifests\\ibkr\\2026-06\\trading_stock_family\\telemetry_manifest.json": "93181c8730b71de0519804ece0d9e3235325f227f1325516e3a5d3436abe765d",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\learning_sufficiency\\ptg7_pilot\\production_derived_fixture_window.json": "8aeb2fe7c706c0061b9608a6068498e7b0e659ea23d0735d8c2bd3cb3e99147e",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\approval_grade\\approval_grade_audit_report.json": "cf9af21be042d01d6196ecd10982f53212f3bd3c98f438c34df0af7e596557f2",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\bridge_readiness\\bridge_readiness_report.json": "e7e19e0038d67fc6d8342af639d4738f4bd97e5b7568c5a4fb06dc8aac51b134",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\live_config_promotion_verification.json": "00facbcbd2ed939b168ecb6b93f3a9fad2acd92f33e8f5562399ad73090125d8",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\operational_deployment_verification.json": "931d7dd924b658fa27d95b26b2c23495cfb9d36dba357934a52fffba8ce9f420",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\ptg7_command_result.json": "70ae46de1bd71019372cc59c760bc9cf60f8564967b4693d1870709df4db412f",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\ptg7_gate_report.json": "ae0b9eeb345e444e051febc30dcd485259f8e698f8ef0069c0abe53fcaf8fb5b",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\telemetry_conformance\\telemetry_conformance_report.json": "ed007d5fc708291363075f210b8b259461f190b5b7bb7641d6f81e3f0330d631",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\validation_matrix\\validation_matrix_report.json": "623f1eb56837c9891e650b9f980f1de37173661553bcd75b8c8d06bb89e610e4",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json": "9ef9140e2914c785de65463ff04a1f4f6d4a38cd9d7c3ccc5e0bf7f03c00ca1e",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json": "bc2f26928cc8151e7c29b4295c664c86f443311e9b9df90ca1d5750f01f632e5",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\data_reproduction\\trading_stock_family_portfolio\\data_reproduction_report.json": "3cddc77fe1efff095aa5838f5970789b5b833874ae66f2672345560d12aecf7c",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\decision_parity\\decision_parity_report.json": "7d36e85a5b9405b58693a3eb98404be347f1cfa00e3bc1bc3ef9e60eb8c59610",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\decision_parity\\decision_parity_validation_summary.json": "4120975383220326a21d6321e2f285cae1b44447d290cf1a269375f5ba032420",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\production_fixture_set_manifest.json": "928c7d7257dcbd3112fdba2f9a58d5975f83cf6083ace477bae9799362ed7b49",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json": "ceec34c26790889c00e1ed4247cf0d6282acde7973316b1461abe6c8c4c5c0e0",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json": "833b96b4d2554b3e72abd8dd0870f80e6849d2468e7f94b12fa2182890bc95a7",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\ibkr_trading\\tests\\fixtures\\parity\\layer2\\iaric_entry_fill.json": "a56bd77f484543c445ed827ec5c5b7613e1cc89bc2ebbb41d1cb0f17bc905cd8",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\ibkr_trading\\tests\\fixtures\\parity\\layer3\\stock_family_collision.json": "612921a726c2ac4d6c1ddfdfa0c33c8f64299cbf4ff9ddc5501966b3c0c4e29a",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\deployment_metadata.json": "8f23e10523257c901572690a641b489b4ef1d3c840e1edd6b921a5779380b205",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\strategy_plugin_contract.json": "feec4e326885ef4e3608507f76058cb7ce2ca033f72fc07b5144e12538da8a21",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\optimizer_run_manifest.json": "2052813b88bd6ba290941633ca09041c7451c6af077ab91b857e817585562a59",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\deployment_metadata_install\\deployment_metadata_install_report.json": "93d9e44dc8b4b93231df3e491e4b0bd030fe25f4bc014a079e5e2e2f82991d19"
+  },
+  "generated_at": "2026-07-07T21:56:45Z",
+  "next_required_actions": [
+    "Promote strategy contracts from shadow_validated to approval_ready only after their deployment, data, parity, and replay evidence passes.",
+    "Persist VPS/live-bot emitted deployment metadata with non-local repo URLs, deployed SHAs, config hashes, telemetry schemas, and contract hashes.",
+    "Install live/VPS-emitted deployment metadata for the selected bridge.",
+    "Run a production scheduled shadow monthly validation cycle with adoption disabled.",
+    "Complete the production fixture-set manifest with observed, hashed production case evidence.",
+    "Attach at least one matching live/shadow runtime telemetry source to the production fixture-set manifest.",
+    "Promote pilot learning sufficiency to learning_authoritative with real runtime evidence."
+  ],
+  "promotion_decision": "blocked",
+  "required_checks": [
+    {
+      "errors": [],
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\bridge_readiness\\bridge_readiness_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\validation_matrix\\validation_matrix_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\approval_grade\\approval_grade_audit_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\ptg7_command_result.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\live_config_promotion_verification.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\operational_deployment_verification.json"
+      ],
+      "name": "source_reports_loadable",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\data_reproduction\\trading_stock_family_portfolio\\data_reproduction_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+      ],
+      "name": "validation_matrix_green",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\strategy_plugin_contract.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\decision_parity\\decision_parity_validation_summary.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\decision_parity\\decision_parity_report.json"
+      ],
+      "name": "formal_decision_parity_passing",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\strategy_plugin_contract.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\deployment_metadata.json"
+      ],
+      "name": "contract_maturity_shadow_validated",
+      "passed": true
+    },
+    {
+      "errors": [
+        "trading_stock_family deployment metadata was not installed from a passing report",
+        "trading_stock_family: metadata_source must be one of live_bot_runtime_deployment_metadata_v1, vps_live_bot_runtime_deployment_metadata_v1",
+        "trading_stock_family: emission_environment must be one of live_bot, paper_vps, production_vps, vps",
+        "trading_stock_family: metadata_source contains non-approval token(s): local, shadow, snapshot",
+        "trading_stock_family: deployment metadata missing live-emission fields: emitted_at_utc, live_runtime_started_at_utc, runtime_entrypoint, runtime_instance_id, runtime_host_fingerprint, source_control_origin, source_control_commit_sha",
+        "trading_stock_family: source_control_worktree_clean must be true",
+        "trading_stock_family: source_control_origin/repo_url must not be local://",
+        "trading_stock_family: repo_url is local/shadow-only: 'local://trading/ibkr_trader'",
+        "trading_stock_family: deployment metadata missing required telemetry schema(s): trading_stock_family_state_v1"
+      ],
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\deployment_metadata_install\\deployment_metadata_install_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\strategy_plugin_contract.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\deployment_metadata.json"
+      ],
+      "name": "deployment_metadata_promotion_grade_installed",
+      "passed": false
+    },
+    {
+      "errors": [],
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\live_config_promotion_verification.json"
+      ],
+      "name": "live_config_promotion_verification_passed",
+      "passed": true
+    },
+    {
+      "errors": [
+        "operational deployment evidence missing: C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\deployments\\operational_evidence.json",
+        "missing operational evidence deployments/operational_evidence.json",
+        "collect VPS and local assistant evidence after deployment before marking completion"
+      ],
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\operational_deployment_verification.json"
+      ],
+      "name": "operational_deployment_evidence_complete",
+      "passed": false
+    },
+    {
+      "errors": [
+        "production scheduled_shadow_cycle_report.json missing"
+      ],
+      "evidence_paths": [],
+      "name": "scheduled_shadow_cycle_production_grade",
+      "passed": false
+    },
+    {
+      "errors": [
+        "scheduled_shadow_telemetry_reference: scheduled shadow report missing",
+        "relay_ingest_no_drops_or_quarantines: relay ingest evidence missing"
+      ],
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\telemetry_conformance\\telemetry_conformance_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\learning_sufficiency\\phase2_manifests\\ibkr\\2026-06\\trading_stock_family\\telemetry_manifest.json"
+      ],
+      "name": "telemetry_conformance_for_approval_evidence",
+      "passed": false
+    },
+    {
+      "errors": [
+        "production fixture-set manifest is not ok",
+        "production fixture-set manifest status is blocked",
+        "fixture-set manifest missing required case class: live_shadow_telemetry_source"
+      ],
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\production_fixture_set_manifest.json",
+        "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_stock_family/learning_sufficiency_manifest.json",
+        "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_stock_family/runtime_evidence_support.json",
+        "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_stock_family/telemetry_manifest.json",
+        "artifacts/learning_sufficiency/ptg7_pilot/production_derived_fixture_window.json",
+        "artifacts/validation/decision_parity_matrix/trading_stock_family/decision_parity/decision_parity_report.json",
+        "artifacts/validation/decision_parity_matrix/trading_stock_family/decision_parity/decision_parity_validation_summary.json",
+        "trading/ibkr_trader/tests/fixtures/parity/layer2/iaric_entry_fill.json",
+        "trading/ibkr_trader/tests/fixtures/parity/layer3/stock_family_collision.json"
+      ],
+      "name": "production_fixture_breadth_complete",
+      "passed": false
+    },
+    {
+      "errors": [],
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\optimizer_run_manifest.json"
+      ],
+      "name": "optimizer_approval_manifest_p6_p7_complete",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\ptg7_gate_report.json"
+      ],
+      "name": "ptg7_fixture_context_present_not_authority",
+      "passed": true
+    },
+    {
+      "errors": [
+        "learning sufficiency is 'diagnostics_only', not 'learning_authoritative'"
+      ],
+      "evidence_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\learning_sufficiency\\phase2_manifests\\ibkr\\2026-06\\trading_stock_family\\learning_sufficiency_manifest.json"
+      ],
+      "name": "learning_sufficiency_authoritative",
+      "passed": false
+    }
+  ],
+  "schema_version": "approval_evidence_bundle_v1",
+  "scope_id": "trading_stock_family",
+  "source_reports": {
+    "approval_grade_audit": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\approval_grade\\approval_grade_audit_report.json",
+    "bridge_readiness": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\bridge_readiness\\bridge_readiness_report.json",
+    "deployment_metadata_install_reports": [
+      "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\deployment_metadata_install\\deployment_metadata_install_report.json"
+    ],
+    "learning_sufficiency_manifest": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\learning_sufficiency\\phase2_manifests\\ibkr\\2026-06\\trading_stock_family\\learning_sufficiency_manifest.json",
+    "live_config_promotion_verification": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\live_config_promotion_verification.json",
+    "operational_deployment_evidence": "",
+    "operational_deployment_verification": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\operational_deployment_verification.json",
+    "optimizer_run_manifest": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\optimizer_run_manifest.json",
+    "production_fixture_set_manifest": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\production_fixture_set_manifest.json",
+    "ptg7_command_report": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\ptg7_command_result.json",
+    "ptg7_gate_report": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\ptg7_gate_report.json",
+    "scheduled_shadow_cycle": "",
+    "telemetry_conformance": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\telemetry_conformance\\telemetry_conformance_report.json",
+    "validation_matrix": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\validation_matrix\\validation_matrix_report.json"
+  }
+}

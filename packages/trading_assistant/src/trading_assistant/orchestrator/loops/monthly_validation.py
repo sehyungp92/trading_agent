@@ -36,6 +36,7 @@ class MonthlyValidationDependencies:
     proposal_ledger: Any | None
     approval_tracker: Any | None
     monthly_validation_mode: str
+    monthly_approval_scope_allowlist: list[str]
     monthly_optimizer_sequence_enabled: bool
     monthly_backtest_command: list[str]
     monthly_workflow_contract_path: str
@@ -111,9 +112,33 @@ class MonthlyValidationLoop:
                 requested_strategy_parallelism,
             )
             strategy_semaphore = asyncio.Semaphore(strategy_parallelism)
+            approval_allowlist = set(deps.monthly_approval_scope_allowlist or [])
 
             async def _run_strategy(sid: str):
                 async with strategy_semaphore:
+                    approval_scope = str(details.get("approval_scope") or sid)
+                    approval_scope_allowed = bool(
+                        approval_scope and approval_scope in approval_allowlist
+                    )
+                    requested_shadow = bool_detail(
+                        details,
+                        "shadow",
+                        deps.monthly_validation_mode != "approval_gated",
+                    )
+                    shadow = (
+                        True
+                        if deps.monthly_validation_mode == "approval_gated"
+                        and not approval_scope_allowed
+                        else requested_shadow
+                    )
+                    approval_evidence_mode = (
+                        bool_detail(
+                            details,
+                            "approval_evidence_mode",
+                            False,
+                        )
+                        and approval_scope_allowed
+                    )
                     deps.event_stream.broadcast(
                         "monthly_validation_progress",
                         {
@@ -182,6 +207,27 @@ class MonthlyValidationLoop:
                             deployment_metadata_path=optional_path(
                                 details.get("deployment_metadata_path")
                             ),
+                            deployment_metadata_install_report_paths=[
+                                path
+                                for path in (
+                                    optional_path(item)
+                                    for item in details.get(
+                                        "deployment_metadata_install_report_paths",
+                                        [],
+                                    )
+                                )
+                                if path is not None
+                            ],
+                            operational_evidence_path=optional_path(
+                                details.get("operational_evidence_path")
+                            ),
+                            relay_ingest_evidence_path=optional_path(
+                                details.get("relay_ingest_evidence_path")
+                            ),
+                            vps_host_id=str(details.get("vps_host_id", "")),
+                            assistant_host_id=str(
+                                details.get("assistant_host_id", "local")
+                            ),
                             workflow_contract_path=(
                                 str(details.get("workflow_contract_path", ""))
                                 or deps.monthly_workflow_contract_path
@@ -191,11 +237,8 @@ class MonthlyValidationLoop:
                                 or deps.monthly_workflow_contract_version
                             ),
                             max_workers=positive_int(details.get("max_workers"), default=2),
-                            shadow=bool_detail(
-                                details,
-                                "shadow",
-                                deps.monthly_validation_mode != "approval_gated",
-                            ),
+                            shadow=shadow,
+                            approval_evidence_mode=approval_evidence_mode,
                         ),
                     )
                     deps.event_stream.broadcast(

@@ -18,8 +18,8 @@ CRYPTO_CONTRACT = (
     / "strategy_plugin_contract.json"
 )
 CRYPTO_DEPLOYMENT = CRYPTO_CONTRACT.parent / "deployment_metadata.json"
-TRADING_REPO = AGENT_ROOT / "bots" / "ibkr_trading"
-K_STOCK_REPO = AGENT_ROOT / "bots" / "k_stock_trader"
+TRADING_REPO = AGENT_ROOT / "trading" / "ibkr_trader"
+K_STOCK_REPO = AGENT_ROOT / "trading" / "k_stock_trader"
 
 
 def test_bridge_readiness_audit_reports_formal_shadow_bridges_and_failures(

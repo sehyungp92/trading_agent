@@ -42,6 +42,8 @@ async def test_scheduled_monthly_contract_spine_feeds_review_recall_search_and_p
                 "evidence_paths": [evidence_path],
                 "expected_objective_impact": {"latest_month_oos": 0.18},
                 "risk_classification": "medium",
+                "capability_labels": ["filter_threshold_learning"],
+                "evidence_authority": "learning_authoritative",
                 "replay_or_experiment_plan": "Measure next completed month.",
                 "acceptance_criteria": ["positive latest OOS"],
                 "rollback_plan": "Restore config version cv1.",
@@ -76,6 +78,7 @@ async def test_scheduled_monthly_contract_spine_feeds_review_recall_search_and_p
         backtest_repo_path=repo,
         backtest_artifact_root=tmp_path / "artifacts",
         monthly_validation_mode="approval_gated",
+        monthly_approval_scope_allowlist=["strat1"],
         monthly_optimizer_sequence_enabled=False,
     )
 

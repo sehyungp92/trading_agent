@@ -2,7 +2,7 @@
 
 Catches:
 - ``unit_risk_dollars`` drift between strategy_profiles.yaml and the live
-  trading config at bots/ibkr_trading/config/strategies.yaml.
+  trading config at trading/ibkr_trader/config/strategies.yaml.
 - ``bot_id`` drift outside the canonical bot identifiers emitted by the
   trading runtime (k_stock_trader, stock_trader, swing_multi_01,
   momentum_nq_01, crypto_trader).
@@ -26,7 +26,7 @@ from trading_assistant.paths import monorepo_root, package_root
 
 PACKAGE_ROOT = package_root()
 MONOREPO_ROOT = monorepo_root()
-TRADING_STRATEGIES_YAML = MONOREPO_ROOT / "bots" / "ibkr_trading" / "config" / "strategies.yaml"
+TRADING_STRATEGIES_YAML = MONOREPO_ROOT / "trading" / "ibkr_trader" / "config" / "strategies.yaml"
 
 CANONICAL_BOT_IDS = {
     "k_stock_trader",
@@ -36,7 +36,7 @@ CANONICAL_BOT_IDS = {
     "crypto_trader",
 }
 
-# Bots whose strategies live in `bots/ibkr_trading/config/strategies.yaml`.
+# Bots whose strategies live in `trading/ibkr_trader/config/strategies.yaml`.
 # Anything else (k_stock_trader, crypto_trader) is exempt from the
 # trading-repo presence check.
 MONOREPO_BOT_IDS = {"swing_multi_01", "momentum_nq_01", "stock_trader"}
@@ -98,7 +98,7 @@ def test_monorepo_strategies_exist_in_trading(assistant_registry, trading_strate
 
     assert not missing, (
         "strategies in strategy_profiles.yaml are attributed to a trading-"
-        "monorepo bot but absent from bots/ibkr_trading/config/strategies.yaml "
+        "monorepo bot but absent from trading/ibkr_trader/config/strategies.yaml "
         "??retire from profiles or restore upstream:\n  " + "\n  ".join(sorted(missing))
     )
 
@@ -145,7 +145,7 @@ def test_bot_config_strategies_match_trading(trading_strategies):
 
 def test_bot_config_param_paths_resolve():
     """Every parameter ``file_path`` in a monorepo bot config must point at a
-    file that actually exists under ``bots/ibkr_trading/``.
+    file that actually exists under ``trading/ibkr_trader/``.
 
     Catches the class of bug where a strategy directory was renamed or
     refactored upstream (e.g. ``nq_regime/`` ??``nqdtc/``) but the param
@@ -153,7 +153,7 @@ def test_bot_config_param_paths_resolve():
     PR-generation pipelines silently target nonexistent files.
     """
     bot_configs_dir = PACKAGE_ROOT / "data" / "bot_configs"
-    trading_root = MONOREPO_ROOT / "bots" / "ibkr_trading"
+    trading_root = MONOREPO_ROOT / "trading" / "ibkr_trader"
     if not trading_root.exists():
         pytest.skip(f"Trading reference not present at {trading_root}")
 

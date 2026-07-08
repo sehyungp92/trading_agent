@@ -60,5 +60,5 @@
   "run_id": "decision-parity-week1-shadow-trading_swing_family",
   "strategy_plugin_id": "trading-swing-family",
   "summary_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\week1_probe\\trading_swing_family\\decision_parity\\decision_parity_validation_summary.json",
-  "validated_live_repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading"
+  "validated_live_repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\ibkr_trading"
 }

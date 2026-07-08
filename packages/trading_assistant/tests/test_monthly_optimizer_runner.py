@@ -31,6 +31,7 @@ from trading_assistant.skills.backtest_runner_client import BacktestRunnerResult
 from trading_assistant.skills.monthly_validation_orchestrator import (
     MonthlyValidationOrchestrator,
     MonthlyValidationRequest,
+    _approval_evidence_artifact_base,
 )
 from trading_assistant.skills.monthly_optimizer_runner import (
     CandidateAttemptExecutor,
@@ -46,6 +47,28 @@ def test_monthly_validation_request_defaults_to_optimizer_sequence() -> None:
     request = MonthlyValidationRequest(bot_id="bot1", strategy_id="strat1")
 
     assert request.optimizer_sequence_enabled is True
+
+
+def test_approval_evidence_request_routes_to_scanned_artifact_base(tmp_path: Path) -> None:
+    root = tmp_path / "trading_assistant_backtest" / "artifacts" / "monthly"
+    request = MonthlyValidationRequest(
+        bot_id="bot1",
+        strategy_id="strat1",
+        approval_evidence_mode=True,
+    )
+
+    assert _approval_evidence_artifact_base(root, request) == root / "approval_grade"
+    assert (
+        _approval_evidence_artifact_base(root / "approval_grade", request)
+        == root / "approval_grade"
+    )
+    assert (
+        _approval_evidence_artifact_base(
+            root,
+            MonthlyValidationRequest(bot_id="bot1", strategy_id="strat1"),
+        )
+        == root
+    )
 
 
 def _manifest(root: Path) -> MonthlyRunManifest:
@@ -95,6 +118,50 @@ def _manifest(root: Path) -> MonthlyRunManifest:
         round_id="round_1",
         prior_round_id="round_0",
         next_round_id="round_2",
+    )
+
+
+def _approval_evidence_manifest(root: Path) -> MonthlyRunManifest:
+    manifest = _manifest(root)
+    contract_path = root / "strategy_plugin_contract.json"
+    contract_path.write_text(
+        json.dumps(
+            {
+                "plugin_id": "strat1-plugin",
+                "backtest_adapter_path": "adapter.py",
+                "config_schema_version": "config_v1",
+                "decision_api_version": "decision_v1",
+            }
+        ),
+        encoding="utf-8",
+    )
+    deployment_path = root / "deployment_metadata.json"
+    deployment_path.write_text(
+        json.dumps({"deployment_id": "deployment-1", "strategy_id": "strat1"}),
+        encoding="utf-8",
+    )
+    return manifest.model_copy(
+        update={
+            "approval_evidence_mode": True,
+            "strategy_plugin_contract_path": str(contract_path),
+            "deployment_metadata_path": str(deployment_path),
+        }
+    )
+
+
+def _phase4_index(manifest: MonthlyRunManifest) -> BacktestArtifactIndex:
+    artifact_root = Path(manifest.artifact_root)
+    return BacktestArtifactIndex(
+        run_id=manifest.run_id,
+        manifest_id=manifest.manifest_id,
+        artifact_root=str(artifact_root),
+        artifacts={
+            name: str(artifact_root / name)
+            for name in [
+                *REQUIRED_BACKTEST_ARTIFACTS,
+                *PHASE4_OPTIMIZER_ARTIFACTS,
+            ]
+        },
     )
 
 
@@ -775,6 +842,59 @@ def test_optimizer_sequence_allows_deterministic_no_adoption_without_attempts(tm
     assert result.no_adoption_reason == "insufficient mature replay plugin sample size"
     assert result.selected_candidate_ids == []
     assert result.blocking_reasons == []
+    optimizer_manifest = json.loads(
+        (artifact_root / "optimizer_run_manifest.json").read_text(encoding="utf-8")
+    )
+    assert optimizer_manifest["approval_grade_optimizer_run"] is False
+    assert optimizer_manifest["smoke_mode"] is True
+
+
+def test_optimizer_sequence_allows_shadow_approval_evidence_without_adoption(
+    tmp_path: Path,
+) -> None:
+    manifest = _approval_evidence_manifest(tmp_path)
+    artifact_root = Path(manifest.artifact_root)
+    artifact_root.mkdir(parents=True, exist_ok=True)
+    (artifact_root / "run_manifest.json").write_text(
+        manifest.model_dump_json(indent=2),
+        encoding="utf-8",
+    )
+    _write_no_adoption_artifacts(artifact_root=artifact_root, manifest=manifest)
+    index = _phase4_index(manifest)
+
+    result = MonthlyOptimizerRunner().validate_artifacts(manifest, index)
+    optimizer_manifest = json.loads(
+        (artifact_root / "optimizer_run_manifest.json").read_text(encoding="utf-8")
+    )
+
+    assert result.status == OptimizerSequenceStatus.NO_ADOPTION
+    assert result.no_adoption_reason == "insufficient mature replay plugin sample size"
+    assert result.selected_candidate_ids == []
+    assert result.blocking_reasons == []
+    assert optimizer_manifest["approval_mode"] == "none"
+    assert optimizer_manifest["approval_evidence_mode"] is True
+    assert optimizer_manifest["approval_grade_optimizer_run"] is True
+    assert optimizer_manifest["smoke_mode"] is False
+
+
+def test_optimizer_sequence_blocks_stale_run_manifest_hash_in_approval_evidence_mode(
+    tmp_path: Path,
+) -> None:
+    manifest = _approval_evidence_manifest(tmp_path)
+    artifact_root = Path(manifest.artifact_root)
+    artifact_root.mkdir(parents=True, exist_ok=True)
+    run_manifest_path = artifact_root / "run_manifest.json"
+    run_manifest_path.write_text(manifest.model_dump_json(indent=2), encoding="utf-8")
+    _write_no_adoption_artifacts(artifact_root=artifact_root, manifest=manifest)
+    run_manifest = json.loads(run_manifest_path.read_text(encoding="utf-8"))
+    run_manifest["config_hash"] = "stale-after-optimizer-manifest"
+    run_manifest_path.write_text(json.dumps(run_manifest), encoding="utf-8")
+    index = _phase4_index(manifest)
+
+    result = MonthlyOptimizerRunner().validate_artifacts(manifest, index)
+
+    assert result.status == OptimizerSequenceStatus.BLOCKED
+    assert any("run_manifest_hash" in reason for reason in result.blocking_reasons)
 
 
 def test_optimizer_sequence_blocks_structural_adoption_without_patch_lineage(tmp_path: Path) -> None:
@@ -801,6 +921,68 @@ def test_optimizer_sequence_blocks_structural_adoption_without_patch_lineage(tmp
 
     assert result.status == OptimizerSequenceStatus.BLOCKED
     assert any("structural candidate missing required lineage" in reason for reason in result.blocking_reasons)
+
+
+def test_optimizer_sequence_blocks_structural_adoption_with_invalid_metadata_after_promotion(
+    tmp_path: Path,
+) -> None:
+    contract_path = _write_strategy_plugin_contract(tmp_path)
+    contract_hash = hashlib.sha256(contract_path.read_bytes()).hexdigest()
+    metadata_path = tmp_path / "deployment_metadata.json"
+    metadata_path.write_text(
+        json.dumps(
+            {
+                "bot_id": "bot1",
+                "strategy_id": "strat1",
+                "repo_url": "local://fixture",
+                "source_control_origin": "local://fixture",
+                "source_control_commit_sha": "fixture-live-sha",
+                "source_control_worktree_clean": True,
+                "deployed_commit_sha": "fixture-live-sha",
+                "config_hash": "cfg-sha",
+                "strategy_version": "strat-v1",
+                "config_version": "cfg-v1",
+                "telemetry_schema_version": "trade_event_v1",
+                "strategy_plugin_contract_path": str(contract_path),
+                "strategy_plugin_contract_hash": contract_hash,
+                "runtime_entrypoint": "fixture.main",
+                "runtime_instance_id": "instance-1",
+                "runtime_host_fingerprint": "host-1",
+                "live_runtime_started_at_utc": "2026-06-02T00:00:00Z",
+                "emitted_at_utc": "2026-06-02T00:01:00Z",
+                "emission_environment": "local",
+                "metadata_source": "local_shadow_snapshot_v1",
+            }
+        ),
+        encoding="utf-8",
+    )
+    manifest = _manifest(tmp_path).model_copy(
+        update={
+            "strategy_plugin_id": "strat1-plugin",
+            "strategy_plugin_contract_path": str(contract_path),
+            "deployment_metadata_path": str(metadata_path),
+            "trading_repo_commit_sha": "fixture-live-sha",
+            "backtest_repo_commit_sha": "fixture-backtest-sha",
+            "config_hash": "cfg-sha",
+            "strategy_version": "strat-v1",
+            "config_version": "cfg-v1",
+        }
+    )
+    artifact_root = Path(manifest.artifact_root)
+    _write_phase4_artifacts(
+        artifact_root=artifact_root,
+        manifest=manifest,
+        repair_triggered=False,
+        adopted_candidate_id="cand-structural",
+        structural_with_patches=True,
+    )
+    index = _phase4_index(manifest)
+
+    result = MonthlyOptimizerRunner().validate_artifacts(manifest, index)
+
+    assert result.status == OptimizerSequenceStatus.BLOCKED
+    assert any("metadata_source" in reason for reason in result.blocking_reasons)
+    assert any("local://" in reason for reason in result.blocking_reasons)
 
 
 def test_orchestrator_integrates_optimizer_sequence_result(tmp_path: Path) -> None:
@@ -1059,7 +1241,8 @@ def _write_optimizer_run_manifest(
     contract_hashes = _hash_path_map(contract_paths)
     deployment_hashes = _hash_path_map(deployment_paths)
     approval_mode = str(getattr(manifest.approval_mode, "value", manifest.approval_mode) or "")
-    approval_grade = approval_mode not in {"", "none"}
+    approval_evidence_mode = bool(getattr(manifest, "approval_evidence_mode", False))
+    approval_grade = approval_mode not in {"", "none"} or approval_evidence_mode
     scope_id = _fixture_scope_id(manifest)
     (artifact_root / "optimizer_run_manifest.json").write_text(json.dumps({
         "schema_version": "optimizer_approval_run_manifest_v1",
@@ -1078,6 +1261,7 @@ def _write_optimizer_run_manifest(
         "run_mode": manifest.mode.value,
         "optimizer_mode": "approval_grade" if approval_grade else "shadow_validation",
         "approval_mode": approval_mode or "none",
+        "approval_evidence_mode": approval_evidence_mode,
         "approval_grade_optimizer_run": approval_grade,
         "smoke_mode": not approval_grade,
         "artifact_root": str(artifact_root),
@@ -1157,6 +1341,7 @@ def _write_phase4_artifacts(
     adopted_source: str | None = None,
     round_adopted_gate: bool = True,
     structural_without_patches: bool = False,
+    structural_with_patches: bool = False,
     consume_search_guidance: bool = False,
 ) -> None:
     artifact_root.mkdir(parents=True, exist_ok=True)
@@ -1209,6 +1394,12 @@ def _write_phase4_artifacts(
         if candidate_source == "smoke_repair" else "phased_auto_runner_contract_v1"
     )
     patch_fingerprint, evaluated_fingerprint = _fixture_patch_fingerprints()
+    live_repo_patch = artifact_root / "live_repo.patch"
+    adapter_patch = artifact_root / "backtest_adapter.patch"
+    if structural_with_patches:
+        live_repo_patch.write_text("diff --git a/strategy.py b/strategy.py\n", encoding="utf-8")
+        adapter_patch.write_text("diff --git a/adapter.py b/adapter.py\n", encoding="utf-8")
+    structural_candidate = structural_without_patches or structural_with_patches
     candidate = {
         "candidate_id": adopted_candidate_id,
         "run_id": manifest.run_id,
@@ -1218,7 +1409,7 @@ def _write_phase4_artifacts(
         "title": "Adopt optimized backtest candidate",
         "description": "Repair-centered local follow-up wins immutable objective.",
         "decision": "experiment",
-        "change_kind": "structural_change" if structural_without_patches else "parameter_change",
+        "change_kind": "structural_change" if structural_candidate else "parameter_change",
         "objective_score": 1.22,
         "baseline_score": 1.0,
         "objective_delta": 0.22,
@@ -1245,6 +1436,8 @@ def _write_phase4_artifacts(
         "end_of_round_diagnostics_path": str(artifact_root / "end_of_round_diagnostics.json"),
         "confirmatory_rerank_path": str(artifact_root / "confirmatory_rerank.json"),
         "decision_parity_report_path": str(artifact_root / "decision_parity_report.json"),
+        "live_repo_patch_path": str(live_repo_patch) if structural_with_patches else "",
+        "backtest_adapter_patch_path": str(adapter_patch) if structural_with_patches else "",
         "optimizer_stage": "round_adoption",
         "score_component_count": 3,
         "max_workers": 2,
@@ -1252,7 +1445,7 @@ def _write_phase4_artifacts(
         "param_changes": [{"param_name": "entry_filter", "current": True, "proposed": False}],
         "file_changes": (
             [{"file_path": "strategies/alpha.py", "kind": "modify", "summary": "Add signal split"}]
-            if structural_without_patches else []
+            if structural_candidate else []
         ),
         "acceptance_criteria": ["next completed month remains positive"],
         "replay_or_experiment_plan": "Run approval-gated shadow deployment after human review.",

@@ -43,9 +43,9 @@ from trading_assistant_backtest.validation.week1_decision_parity_run import (
 from tests.paths import MONOREPO_ROOT, package_workspace
 
 AGENT_ROOT = MONOREPO_ROOT
-CRYPTO_TRADER_REPO = AGENT_ROOT / "bots" / "crypto_trader"
-K_STOCK_TRADER_REPO = AGENT_ROOT / "bots" / "k_stock_trader"
-TRADING_REPO = AGENT_ROOT / "bots" / "ibkr_trading"
+CRYPTO_TRADER_REPO = AGENT_ROOT / "trading" / "crypto_trader"
+K_STOCK_TRADER_REPO = AGENT_ROOT / "trading" / "k_stock_trader"
+TRADING_REPO = AGENT_ROOT / "trading" / "ibkr_trader"
 PERSISTED_CRYPTO_CONTRACT = (
     package_workspace("trading_assistant_backtest")
     / "contracts"

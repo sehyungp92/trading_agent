@@ -182,7 +182,7 @@
   "schema_version": "runtime_evidence_support_v1",
   "strategy_id": "crypto_trend_v1",
   "support_source_paths": [
-    "bots/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
-    "bots/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
+    "trading/crypto_trader/src/crypto_trader/instrumentation/sidecar.py",
+    "trading/crypto_trader/src/crypto_trader/instrumentation/async_postgres_sink.py"
   ]
 }

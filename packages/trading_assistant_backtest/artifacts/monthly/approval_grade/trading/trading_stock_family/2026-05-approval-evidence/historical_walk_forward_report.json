@@ -1,0 +1,20 @@
+{
+  "schema_version": "historical_walk_forward_report_v1",
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "scope_id": "trading_stock_family",
+  "status": "blocked",
+  "reason": "multi-month walk-forward evidence must be generated from several authoritative bundles",
+  "window_count": 1,
+  "windows": [
+    {
+      "run_month": "2026-05",
+      "status": "pass",
+      "objective_score": 0.7502663895878636,
+      "trade_count": 1,
+      "data_bundle_checksum": "f3819adc86612638415b0dd6b603babaeaa12ab5d37076ccff04bfa23486ca59"
+    }
+  ],
+  "evidence_paths": [
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\frozen_baseline.json"
+  ]
+}

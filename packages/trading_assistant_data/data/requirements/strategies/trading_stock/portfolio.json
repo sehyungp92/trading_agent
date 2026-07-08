@@ -4,7 +4,7 @@
   "ownership_policy": "explicit_stock_family_allowlist_v1",
   "approval_scope": {
     "scope_id": "trading_stock_family_live_approval_v1",
-    "live_universe_authority": "bots/ibkr_trading/strategies/stock/live_universe.py::LIVE_STOCK_UNIVERSE_SYMBOLS",
+    "live_universe_authority": "trading/ibkr_trader/strategies/stock/live_universe.py::LIVE_STOCK_UNIVERSE_SYMBOLS",
     "live_intraday_symbol_count": 98,
     "live_intraday_timeframes": [
       "1d",

@@ -912,14 +912,17 @@ def _validate_optimizer_run_manifest(
     if artifact_root and Path(artifact_root).resolve() != Path(artifact_index.artifact_root).resolve():
         errors.append("optimizer_run_manifest.json artifact_root does not match artifact index")
     approval_mode = str(getattr(manifest.approval_mode, "value", manifest.approval_mode) or "")
-    if approval_mode in {"", "none"}:
+    approval_evidence_mode = bool(getattr(manifest, "approval_evidence_mode", False))
+    if approval_mode in {"", "none"} and not approval_evidence_mode:
         return
+    if approval_evidence_mode and payload.get("approval_evidence_mode") is not True:
+        errors.append("approval-evidence optimizer run must set approval_evidence_mode=true")
     if payload.get("approval_grade_optimizer_run") is not True:
-        errors.append("approval-mode optimizer run must set approval_grade_optimizer_run=true")
+        errors.append("approval-evidence optimizer run must set approval_grade_optimizer_run=true")
     if payload.get("smoke_mode") is not False:
-        errors.append("approval-mode optimizer run must set smoke_mode=false")
+        errors.append("approval-evidence optimizer run must set smoke_mode=false")
     if str(payload.get("run_mode") or "").strip() == MonthlyRunMode.SMOKE_REPAIR.value:
-        errors.append("approval-mode optimizer evidence cannot use smoke_repair run_mode")
+        errors.append("approval-evidence optimizer evidence cannot use smoke_repair run_mode")
     for path_key, hash_key in (
         ("run_manifest_path", "run_manifest_hash"),
         ("strategy_plugin_contract_path", "strategy_plugin_contract_hash"),

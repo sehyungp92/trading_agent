@@ -27,7 +27,7 @@ class PatternStatus(str, Enum):
 
 
 class PatternEntry(BaseModel):
-    """A catalogued structural innovation that may transfer between bots/strategies."""
+    """A catalogued structural innovation that may transfer between trading/strategies."""
 
     pattern_id: str = ""
     title: str

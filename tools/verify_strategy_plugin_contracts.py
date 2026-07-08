@@ -82,7 +82,7 @@ def _path_errors(contract: object) -> list[str]:
         value = str(fixture).replace("\\", "/")
         if REFERENCE_TOKEN in value:
             errors.append(f"parity fixture still points at a legacy snapshot: {value}")
-        if value.startswith(("bots/", "packages/")) and not (ROOT / value).exists():
+        if value.startswith(("trading/", "packages/")) and not (ROOT / value).exists():
             errors.append(f"parity fixture does not exist: {value}")
     return errors
 
@@ -90,8 +90,8 @@ def _path_errors(contract: object) -> list[str]:
 def _runtime_metadata_path_failures() -> list[str]:
     failures: list[str] = []
     for path in (
-        ROOT / "bots/k_stock_trader/deployment/olr_kalcb/deployment_metadata.py",
-        ROOT / "bots/ibkr_trading/libs/instrumentation/deployment_metadata.py",
+        ROOT / "trading/k_stock_trader/deployment/olr_kalcb/deployment_metadata.py",
+        ROOT / "trading/ibkr_trader/libs/instrumentation/deployment_metadata.py",
         ROOT / "packages/trading_assistant_backtest/src/trading_assistant_backtest/validation/replay_evidence_run.py",
         ROOT / "packages/trading_assistant_backtest/src/trading_assistant_backtest/validation/week1_decision_parity_run.py",
         ROOT / "packages/trading_assistant_backtest/src/trading_assistant_backtest/validation/decision_parity_run.py",

@@ -956,7 +956,9 @@ def _derived_trading_stock_scope(requirements: list[dict[str, str]]) -> dict[str
 
     live_timeframes = {"1d", "5m", "30m"}
     live_intraday_symbols = sorted(
-        symbol for symbol, timeframes in symbol_timeframes.items() if live_timeframes.issubset(timeframes)
+        symbol
+        for symbol, timeframes in symbol_timeframes.items()
+        if live_timeframes.issubset(timeframes)
     )
     live_intraday_symbol_set = set(live_intraday_symbols)
     daily_reference_symbols = sorted(
@@ -1476,23 +1478,49 @@ def _bridge_artifact_path(
     agent_root: Path,
     artifact_name: str,
 ) -> Path | None:
-    if artifact_name == "strategy_plugin_contract.json":
-        for evidence in bridge.get("evidence", []):
-            if not isinstance(evidence, dict):
-                continue
-            path_text = str(evidence.get("path") or "")
+    for evidence in bridge.get("evidence", []):
+        if not isinstance(evidence, dict):
+            continue
+        path_text = str(evidence.get("path") or evidence.get("relative_path") or "")
+        if not path_text:
+            continue
+        if artifact_name == "strategy_plugin_contract.json" and path_text.endswith(
+            "strategy_plugin_contract.json"
+        ):
+            return _resolve_artifact_path(agent_root, path_text)
+        if artifact_name == "deployment_metadata.json":
+            evidence_path = _resolve_artifact_path(agent_root, path_text)
+            if path_text.endswith("deployment_metadata.json"):
+                return evidence_path
             if path_text.endswith("strategy_plugin_contract.json"):
-                return _resolve_artifact_path(agent_root, path_text)
-    contract_path = (
+                metadata_path = evidence_path.with_name("deployment_metadata.json")
+                if metadata_path.exists():
+                    return metadata_path
+
+    root_contract_path = (
+        Path(agent_root).resolve()
+        / "contracts"
+        / "strategy_plugins"
+        / bridge_id
+        / "strategy_plugin_contract.json"
+    )
+    if artifact_name == "strategy_plugin_contract.json" and root_contract_path.exists():
+        return root_contract_path
+    if artifact_name == "deployment_metadata.json":
+        root_metadata_path = root_contract_path.with_name("deployment_metadata.json")
+        if root_metadata_path.exists():
+            return root_metadata_path
+
+    package_contract_path = (
         workspace_root(agent_root, "trading_assistant_backtest")
         / "contracts"
         / bridge_id
         / "strategy_plugin_contract.json"
     )
     if artifact_name == "strategy_plugin_contract.json":
-        return contract_path
+        return package_contract_path
     if artifact_name == "deployment_metadata.json":
-        return contract_path.with_name("deployment_metadata.json")
+        return package_contract_path.with_name("deployment_metadata.json")
     return None
 
 
@@ -1810,11 +1838,11 @@ def _resolve_optional_report(agent_root: Path, supplied: Path | None, default: P
 
 def _repo_present(agent_root: Path, repo_id: str) -> bool:
     if repo_id == "trading":
-        return (agent_root / "bots" / "ibkr_trading").exists()
+        return (agent_root / "trading" / "ibkr_trader").exists()
     if repo_id == "k_stock_trader":
-        return (agent_root / "bots" / "k_stock_trader").exists()
+        return (agent_root / "trading" / "k_stock_trader").exists()
     if repo_id == "crypto_trader":
-        return (agent_root / "bots" / "crypto_trader").exists()
+        return (agent_root / "trading" / "crypto_trader").exists()
     return False
 
 

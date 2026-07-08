@@ -278,6 +278,7 @@ class MonthlyRunManifest(BaseModel):
     output_artifact_names: list[str] = Field(default_factory=list)
     required_json_schemas: list[str] = Field(default_factory=list)
     approval_mode: MonthlyApprovalMode = MonthlyApprovalMode.NONE
+    approval_evidence_mode: bool = False
     expected_outputs: list[str] = Field(default_factory=list)
     manifest_version: str = "monthly_run_manifest_v1"
 

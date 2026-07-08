@@ -13,111 +13,12 @@
     "PyYAML>=6.0",
     "requests>=2.31"
   ],
-  "dockerfile": "bots/ibkr_trading/Dockerfile",
+  "dockerfile": "trading/ibkr_trader/Dockerfile",
   "image_build": {
-    "build": {
-      "command": [
-        "docker",
-        "build",
-        "-f",
-        "bots/ibkr_trading/Dockerfile",
-        "-t",
-        "trading-agent-ibkr:acceptance",
-        "."
-      ],
-      "returncode": 0,
-      "stderr_tail": [
-        "#16 DONE 40.6s",
-        "",
-        "#17 [12/12] WORKDIR /app/bots/ibkr_trading",
-        "#17 DONE 0.9s",
-        "",
-        "#18 exporting to image",
-        "#18 exporting layers",
-        "#18 exporting layers 42.6s done",
-        "#18 exporting manifest sha256:91094177da8814c7c4e24692cd4bbcdb8de4d385205e95f97549b6aff83043af 0.1s done",
-        "#18 exporting config sha256:6a3104259439b2380275cd987f3dde1b0fc7659c6aceeeaf24242feb06207e72",
-        "#18 exporting config sha256:6a3104259439b2380275cd987f3dde1b0fc7659c6aceeeaf24242feb06207e72 0.1s done",
-        "#18 exporting attestation manifest sha256:90c3d4400306e71cb843728bf4400e79f86be948f9f9eeb35a594f6f9735bb5e",
-        "#18 exporting attestation manifest sha256:90c3d4400306e71cb843728bf4400e79f86be948f9f9eeb35a594f6f9735bb5e 0.2s done",
-        "#18 exporting manifest list sha256:00fddb405baec474375fddfcf5a5f87580e0bab4cd1b92f3de178e3e01737476",
-        "#18 exporting manifest list sha256:00fddb405baec474375fddfcf5a5f87580e0bab4cd1b92f3de178e3e01737476 0.1s done",
-        "#18 naming to docker.io/library/trading-agent-ibkr:acceptance",
-        "#18 naming to docker.io/library/trading-agent-ibkr:acceptance 0.1s done",
-        "#18 unpacking to docker.io/library/trading-agent-ibkr:acceptance",
-        "#18 unpacking to docker.io/library/trading-agent-ibkr:acceptance 22.4s done",
-        "#18 DONE 66.1s"
-      ],
-      "stdout_tail": []
-    },
-    "build_command": [
-      "docker",
-      "build",
-      "-f",
-      "bots/ibkr_trading/Dockerfile",
-      "-t",
-      "trading-agent-ibkr:acceptance",
-      "."
-    ],
-    "entrypoint_smoke": {
-      "command": [
-        "docker",
-        "run",
-        "--rm",
-        "trading-agent-ibkr:acceptance",
-        "ibkr-trading-runtime",
-        "--help"
-      ],
-      "returncode": 0,
-      "stderr_tail": [],
-      "stdout_tail": [
-        "usage: runtime [-h] {preflight,emit-deployment-metadata,run} ...",
-        "",
-        "positional arguments:",
-        "  {preflight,emit-deployment-metadata,run}",
-        "    preflight           Validate runtime config and registry",
-        "    emit-deployment-metadata",
-        "                        Emit no-secret runtime deployment metadata after",
-        "                        startup preflight inputs are loaded",
-        "    run                 Start the unified runtime",
-        "",
-        "options:",
-        "  -h, --help            show this help message and exit"
-      ]
-    },
-    "entrypoint_smoke_command": [
-      "docker",
-      "run",
-      "--rm",
-      "trading-agent-ibkr:acceptance",
-      "ibkr-trading-runtime",
-      "--help"
-    ],
-    "runtime_import_smoke": {
-      "command": [
-        "docker",
-        "run",
-        "--rm",
-        "trading-agent-ibkr:acceptance",
-        "python",
-        "-c",
-        "import ibkr_trading; import apps.runtime.cli; import apps.runtime.runtime"
-      ],
-      "returncode": 0,
-      "stderr_tail": [],
-      "stdout_tail": []
-    },
-    "runtime_import_smoke_command": [
-      "docker",
-      "run",
-      "--rm",
-      "trading-agent-ibkr:acceptance",
-      "python",
-      "-c",
-      "import ibkr_trading; import apps.runtime.cli; import apps.runtime.runtime"
-    ],
-    "status": "pass",
-    "tag": "trading-agent-ibkr:acceptance"
+    "reason": "--preflight-only",
+    "status": "skipped"
   },
-  "package": "ibkr-trading"
+  "package": "ibkr-trading",
+  "relay_optional_extra_present": false,
+  "relay_server_surface_present": false
 }

@@ -5,19 +5,19 @@ import json
 import subprocess
 from pathlib import Path
 
-from trading_assistant_backtest.file_hashes import sha256_file
 import trading_assistant_backtest.validation.approval_grade_audit as audit_module
+from trading_assistant_backtest.file_hashes import sha256_file
 from trading_assistant_backtest.validation.approval_grade_audit import (
     _deployment_metadata_checks,
-)
-from trading_assistant_backtest.validation.deployment_metadata_install import (
-    validate_and_maybe_install_deployment_metadata,
 )
 from trading_assistant_backtest.validation.deployment_metadata_contract import (
     live_deployment_metadata_errors,
 )
 from trading_assistant_backtest.validation.deployment_metadata_emit import (
     emit_runtime_deployment_metadata,
+)
+from trading_assistant_backtest.validation.deployment_metadata_install import (
+    validate_and_maybe_install_deployment_metadata,
 )
 from trading_assistant_backtest.validation.optimizer_evidence import (
     build_optimizer_manifest_index,
@@ -65,9 +65,10 @@ def test_approval_grade_audit_refreshes_validation_and_bridge_reports_by_default
 
     cached_matrix = (
         tmp_path
-        / "trading_assistant_backtest"
         / "artifacts"
         / "validation"
+        / "approval_grade"
+        / "source_reports"
         / "validation_matrix"
         / "validation_matrix_report.json"
     )
@@ -78,9 +79,10 @@ def test_approval_grade_audit_refreshes_validation_and_bridge_reports_by_default
     )
     cached_bridge = (
         tmp_path
-        / "trading_assistant_backtest"
         / "artifacts"
         / "validation"
+        / "approval_grade"
+        / "source_reports"
         / "bridge_readiness"
         / "bridge_readiness_report.json"
     )
@@ -108,7 +110,7 @@ def test_approval_grade_audit_rejects_local_shadow_deployment_metadata(
     metadata.update(
         {
             "metadata_source": "local clean live-repo checkout shadow snapshot",
-            "repo_url": "local://bots/crypto_trader",
+            "repo_url": "local://trading/crypto_trader",
             "strategy_plugin_contract_hash": sha256_file(contract_path),
         }
     )
@@ -184,7 +186,7 @@ def test_deployment_metadata_installer_refuses_shadow_metadata(
     metadata.update(
         {
             "metadata_source": "local clean live-repo checkout shadow snapshot",
-            "repo_url": "local://bots/crypto_trader",
+            "repo_url": "local://trading/crypto_trader",
         }
     )
     metadata_path.write_text(json.dumps(metadata), encoding="utf-8")
@@ -450,6 +452,28 @@ def test_approval_grade_audit_rejects_smoke_optimizer_roots(
     )
 
 
+def test_optimizer_evidence_rejects_smoke_run_mode_in_approved_root(
+    tmp_path: Path,
+) -> None:
+    root = _write_optimizer_root(tmp_path, "crypto_trader_portfolio")
+    _write_optimizer_p6_p7_artifacts(root, adopted=True)
+    manifest_path = root / "optimizer_run_manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["run_mode"] = "smoke_repair"
+    manifest["approval_grade_optimizer_run"] = True
+    manifest["smoke_mode"] = False
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    checks = optimizer_evidence_checks("crypto_trader_portfolio", tmp_path)
+    by_name = {check["name"]: check for check in checks}
+
+    p6 = by_name["crypto_trader_portfolio:optimizer_p6_true_fold_scoring_complete"]
+    p7 = by_name["crypto_trader_portfolio:optimizer_p7_repair_confirmatory_round_complete"]
+    assert p6["passed"] is False
+    assert p7["passed"] is False
+    assert any("smoke optimizer mode" in error for error in p6["errors"])
+
+
 def test_optimizer_evidence_requires_promoted_context_hash_set(
     tmp_path: Path,
 ) -> None:
@@ -502,6 +526,34 @@ def test_optimizer_evidence_requires_promoted_context_hash_set(
     )
 
     assert all(check["passed"] for check in checks)
+
+
+def test_optimizer_evidence_blocks_promoted_context_hash_mismatch(
+    tmp_path: Path,
+) -> None:
+    root = _write_optimizer_root(tmp_path, "crypto_trader_portfolio")
+    _write_optimizer_p6_p7_artifacts(root, adopted=True)
+    expected_context = {
+        "run_month": "2026-04",
+        "data_bundle_checksums": ["bundle-sha"],
+        "bridge_contract_hashes": {
+            "crypto_trader_portfolio": "wrong-contract-hash",
+        },
+        "deployment_metadata_hashes": {
+            "crypto_trader_portfolio": "wrong-metadata-hash",
+        },
+    }
+
+    checks = optimizer_evidence_checks(
+        "crypto_trader_portfolio",
+        tmp_path,
+        expected_context=expected_context,
+    )
+    errors = [error for check in checks for error in check["errors"]]
+
+    assert any("promoted strategy contract hash mismatch" in error for error in errors)
+    assert any("promoted deployment metadata hash mismatch" in error for error in errors)
+    assert any(not check["passed"] for check in checks)
 
 
 def test_approval_grade_audit_recomputes_copied_evaluated_patch_fingerprint(

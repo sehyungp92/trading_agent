@@ -15,11 +15,11 @@ MANIFEST_PATH = ROOT / "backtests" / "data_portability_manifest.json"
 REPORT_PATH = ROOT / "artifacts" / "validation" / "backtest_data_portability_report.json"
 REFERENCE_TOKEN = "_ref" "erences"
 DOCKERIGNORE_REQUIRED = (
-    "bots/*/backtests/*/data/raw/",
-    "bots/crypto_trader/data/",
-    "bots/*/data/backtests/output/",
+    "trading/*/backtests/*/data/raw/",
+    "trading/crypto_trader/data/",
+    "trading/*/data/backtests/output/",
 )
-GITIGNORE_REQUIRED = ("bots/*/data/backtests/output/",)
+GITIGNORE_REQUIRED = ("trading/*/data/backtests/output/",)
 
 
 @dataclass(frozen=True)
@@ -38,7 +38,7 @@ DATASETS = (
     DatasetSpec(
         "ibkr_stock_raw_market_data",
         "ibkr",
-        "bots/ibkr_trading/backtests/stock/data/raw",
+        "trading/ibkr_trader/backtests/stock/data/raw",
         "git_lfs",
         True,
         ("A2", "A13", "A14", "A17"),
@@ -47,7 +47,7 @@ DATASETS = (
     DatasetSpec(
         "ibkr_momentum_raw_market_data",
         "ibkr",
-        "bots/ibkr_trading/backtests/momentum/data/raw",
+        "trading/ibkr_trader/backtests/momentum/data/raw",
         "git_lfs",
         True,
         ("A2", "A13", "A14", "A17"),
@@ -56,7 +56,7 @@ DATASETS = (
     DatasetSpec(
         "ibkr_swing_raw_market_data",
         "ibkr",
-        "bots/ibkr_trading/backtests/swing/data/raw",
+        "trading/ibkr_trader/backtests/swing/data/raw",
         "git_lfs",
         True,
         ("A2", "A13", "A14", "A17"),
@@ -65,7 +65,7 @@ DATASETS = (
     DatasetSpec(
         "ibkr_regime_raw_market_data",
         "ibkr",
-        "bots/ibkr_trading/backtests/regime/data/raw",
+        "trading/ibkr_trader/backtests/regime/data/raw",
         "git_lfs",
         True,
         ("A2", "A13", "A14", "A17"),
@@ -74,7 +74,7 @@ DATASETS = (
     DatasetSpec(
         "crypto_market_data",
         "crypto",
-        "bots/crypto_trader/data",
+        "trading/crypto_trader/data",
         "git_lfs",
         True,
         ("A3", "A4", "A13", "A14", "A17"),
@@ -92,7 +92,7 @@ DATASETS = (
     DatasetSpec(
         "k_stock_restored_local_output_evidence",
         "k_stock",
-        "bots/k_stock_trader/data/backtests/output",
+        "trading/k_stock_trader/data/backtests/output",
         "local_generated_excluded",
         False,
         ("A5",),

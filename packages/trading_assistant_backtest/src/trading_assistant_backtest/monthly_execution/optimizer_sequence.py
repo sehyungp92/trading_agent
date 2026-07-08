@@ -472,9 +472,10 @@ def _optimizer_run_manifest_payload(
         else None
     )
     approval_mode = str(getattr(manifest.approval_mode, "value", manifest.approval_mode) or "")
+    approval_evidence_mode = bool(getattr(manifest, "approval_evidence_mode", False))
     run_mode = str(getattr(manifest.mode, "value", manifest.mode) or "")
     approval_grade = (
-        approval_mode not in {"", "none"}
+        (approval_mode not in {"", "none"} or approval_evidence_mode)
         and run_mode != "smoke_repair"
         and "monthly_smoke" not in {part.lower() for part in artifact_root.parts}
     )
@@ -521,6 +522,7 @@ def _optimizer_run_manifest_payload(
         "run_mode": run_mode,
         "optimizer_mode": "approval_grade" if approval_grade else "shadow_validation",
         "approval_mode": approval_mode or "none",
+        "approval_evidence_mode": approval_evidence_mode,
         "planner_mode": planner_mode,
         "approval_grade_optimizer_run": approval_grade,
         "smoke_mode": not approval_grade,

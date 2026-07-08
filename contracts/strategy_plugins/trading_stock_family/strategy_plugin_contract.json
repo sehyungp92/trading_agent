@@ -6,11 +6,11 @@
   "decision_api_version": "trading_stock_live_shadow_decision_api_v1",
   "generated_at": "2026-07-03T00:00:00Z",
   "live_repo_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
-  "live_repo_path": "bots/ibkr_trading",
+  "live_repo_path": "trading/ibkr_trader",
   "maturity": "shadow_validated",
   "parity_fixture_set": [
-    "bots/ibkr_trading/tests/fixtures/parity/layer2/iaric_entry_fill.json",
-    "bots/ibkr_trading/tests/fixtures/parity/layer3/stock_family_collision.json"
+    "trading/ibkr_trader/tests/fixtures/parity/layer2/iaric_entry_fill.json",
+    "trading/ibkr_trader/tests/fixtures/parity/layer3/stock_family_collision.json"
   ],
   "plugin_id": "trading-stock-family",
   "required_telemetry_schemas": [

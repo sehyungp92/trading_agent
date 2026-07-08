@@ -75,7 +75,7 @@ class ScheduledJobSpec:
 class SchedulerConfig:
     monitoring_interval_minutes: int = 60
     worker_interval_seconds: int = 60
-    relay_poll_interval_seconds: int = 300
+    relay_poll_interval_seconds: int = 60
     daily_analysis_hour: int = 6
     daily_analysis_minute: int = 0
     weekly_analysis_day_of_week: str = "sun"

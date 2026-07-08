@@ -1,0 +1,25 @@
+{
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "status": "pass",
+  "gate": "leakage",
+  "checks": [
+    {
+      "name": "leakage",
+      "passed": true,
+      "reason": ""
+    }
+  ],
+  "errors": [],
+  "selection_oos_used_in_first_pass": false,
+  "two_fold_purged_in_sample": true,
+  "candidate_checks": [
+    {
+      "candidate_id": "signal_quality-filter_repair-1",
+      "passed": true
+    },
+    {
+      "candidate_id": "signal_quality-trade_management-2",
+      "passed": true
+    }
+  ]
+}

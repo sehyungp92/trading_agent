@@ -14,18 +14,26 @@ x-k-stock-build: &k-stock-build
   image: trading-agent/k-stock-trader:local
   build:
     context: ../..
-    dockerfile: bots/k_stock_trader/Dockerfile
+    dockerfile: trading/k_stock_trader/Dockerfile
 
 x-k-stock-env: &k-stock-env
   PYTHONUNBUFFERED: "1"
   TZ: ${TZ:-Asia/Seoul}
-  DATABASE_URL: postgresql://trading_writer:${POSTGRES_WRITER_PASSWORD:-changeme}@postgres:5432/${POSTGRES_DB:-trading}
+  K_STOCK_TRADER_ROOT: /app/trading/k_stock_trader
+  DATABASE_URL: postgresql://trading_writer:${POSTGRES_WRITER_PASSWORD:?POSTGRES_WRITER_PASSWORD must be set}@postgres:5432/${POSTGRES_DB:-trading}
   OMS_URL: ${OMS_URL:-http://oms:8000}
   OMS_ID: ${OMS_ID:-k_stock_primary}
   OMS_CONFIG_PATH: ${OMS_CONFIG_PATH:-config/oms_config.yaml}
   ASSISTANT_EVENT_DATA_DIR: ${ASSISTANT_EVENT_DATA_DIR:-instrumentation/data}
+  OLR_KALCB_BASELINE_MANIFEST: ${OLR_KALCB_BASELINE_MANIFEST:-/app/deployments/k_stock/generated/live_readiness/olr_kalcb/baseline_manifest.json}
+  OLR_KALCB_PORTFOLIO_POLICY: ${OLR_KALCB_PORTFOLIO_POLICY:-config/olr_kalcb/portfolio_policy.conservative.json}
+  OLR_KALCB_SECTOR_MAP: ${OLR_KALCB_SECTOR_MAP:-config/olr/sector_map.yaml}
+  OLR_KALCB_KIS_WS_URL: ${OLR_KALCB_KIS_WS_URL:-}
+  OLR_KALCB_WS_LEDGER_PATH: ${OLR_KALCB_WS_LEDGER_PATH:-}
+  OLR_KALCB_OUTPUT_JSON: ${OLR_KALCB_OUTPUT_JSON:-}
   OLR_KALCB_DEPLOYMENT_METADATA_PATH: ${OLR_KALCB_DEPLOYMENT_METADATA_PATH:-}
   OLR_KALCB_DEPLOYMENT_METADATA_ENV: ${OLR_KALCB_DEPLOYMENT_METADATA_ENV:-paper_vps}
+  OLR_KALCB_STRATEGY_PLUGIN_CONTRACT: ${OLR_KALCB_STRATEGY_PLUGIN_CONTRACT:-}
   KIS_IS_PAPER: ${KIS_IS_PAPER:-true}
   KIS_APP_KEY: ${KIS_APP_KEY:-}
   KIS_APP_SECRET: ${KIS_APP_SECRET:-}
@@ -48,22 +56,22 @@ services:
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-trading}
       POSTGRES_USER: ${POSTGRES_USER:-trading_admin}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
-      POSTGRES_WRITER_PASSWORD: ${POSTGRES_WRITER_PASSWORD:-changeme}
-      POSTGRES_READER_PASSWORD: ${POSTGRES_READER_PASSWORD:-changeme}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set}
+      POSTGRES_WRITER_PASSWORD: ${POSTGRES_WRITER_PASSWORD:?POSTGRES_WRITER_PASSWORD must be set}
+      POSTGRES_READER_PASSWORD: ${POSTGRES_READER_PASSWORD:?POSTGRES_READER_PASSWORD must be set}
     ports:
       - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
     volumes:
       - k-stock-postgres-data:/var/lib/postgresql/data
-      - ../../bots/k_stock_trader/infra/postgres/init/001_extensions.sql:/docker-entrypoint-initdb.d/001_extensions.sql:ro
-      - ../../bots/k_stock_trader/infra/postgres/init/002_tables.sql:/docker-entrypoint-initdb.d/002_tables.sql:ro
-      - ../../bots/k_stock_trader/infra/postgres/init/003_views.sql:/docker-entrypoint-initdb.d/003_views.sql:ro
+      - ../../trading/k_stock_trader/infra/postgres/init/001_extensions.sql:/docker-entrypoint-initdb.d/001_extensions.sql:ro
+      - ../../trading/k_stock_trader/infra/postgres/init/002_tables.sql:/docker-entrypoint-initdb.d/002_tables.sql:ro
+      - ../../trading/k_stock_trader/infra/postgres/init/003_views.sql:/docker-entrypoint-initdb.d/003_views.sql:ro
       - ./postgres-init/004_roles_env.sh:/docker-entrypoint-initdb.d/004_roles_env.sh:ro
-      - ../../bots/k_stock_trader/infra/postgres/init/005_oms_scoping.sql:/docker-entrypoint-initdb.d/005_oms_scoping.sql:ro
-      - ../../bots/k_stock_trader/infra/postgres/init/006_views_oms_scoped.sql:/docker-entrypoint-initdb.d/006_views_oms_scoped.sql:ro
-      - ../../bots/k_stock_trader/infra/postgres/init/007_oms_scope_finalize.sql:/docker-entrypoint-initdb.d/007_oms_scope_finalize.sql:ro
-      - ../../bots/k_stock_trader/infra/postgres/init/008_protective_stops.sql:/docker-entrypoint-initdb.d/008_protective_stops.sql:ro
-      - ../../bots/k_stock_trader/infra/postgres/init/009_idempotency_hardening.sql:/docker-entrypoint-initdb.d/009_idempotency_hardening.sql:ro
+      - ../../trading/k_stock_trader/infra/postgres/init/005_oms_scoping.sql:/docker-entrypoint-initdb.d/005_oms_scoping.sql:ro
+      - ../../trading/k_stock_trader/infra/postgres/init/006_views_oms_scoped.sql:/docker-entrypoint-initdb.d/006_views_oms_scoped.sql:ro
+      - ../../trading/k_stock_trader/infra/postgres/init/007_oms_scope_finalize.sql:/docker-entrypoint-initdb.d/007_oms_scope_finalize.sql:ro
+      - ../../trading/k_stock_trader/infra/postgres/init/008_protective_stops.sql:/docker-entrypoint-initdb.d/008_protective_stops.sql:ro
+      - ../../trading/k_stock_trader/infra/postgres/init/009_idempotency_hardening.sql:/docker-entrypoint-initdb.d/009_idempotency_hardening.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-trading_admin} -d ${POSTGRES_DB:-trading}"]
       interval: 10s
@@ -92,7 +100,8 @@ services:
       - "127.0.0.1:${OMS_HOST_PORT:-8000}:8000"
     volumes:
       - k-stock-logs:/app/data/logs
-      - k-stock-instrumentation-data:/app/bots/k_stock_trader/instrumentation/data
+      - k-stock-instrumentation-data:/app/trading/k_stock_trader/instrumentation/data
+      - ${K_STOCK_HOST_DATA_ROOT:-../../trading/k_stock_trader/data}/oms:/app/trading/k_stock_trader/data/oms
       - ../../deployments/k_stock/generated:/app/deployments/k_stock/generated:ro
       - ../../contracts:/app/contracts:ro
     stop_grace_period: 60s
@@ -125,9 +134,15 @@ services:
         condition: service_healthy
     command: ["sh", "/app/deployments/k_stock/runtime-entrypoint.sh"]
     volumes:
-      - k-stock-paper-live:/app/bots/k_stock_trader/data/paper_live
-      - k-stock-rate-budget:/app/bots/k_stock_trader/data/rate_budget
-      - k-stock-instrumentation-data:/app/bots/k_stock_trader/instrumentation/data
+      - ${K_STOCK_HOST_DATA_ROOT:-../../trading/k_stock_trader/data}/strategy:/app/trading/k_stock_trader/data/strategy
+      - ${K_STOCK_HOST_DATA_ROOT:-../../trading/k_stock_trader/data}/backtests:/app/trading/k_stock_trader/data/backtests:ro
+      - ${K_STOCK_HOST_DATA_ROOT:-../../trading/k_stock_trader/data}/live_readiness:/app/trading/k_stock_trader/data/live_readiness:ro
+      - ${K_STOCK_HOST_DATA_ROOT:-../../trading/k_stock_trader/data}/krx_daily_parquet:/app/trading/k_stock_trader/data/krx_daily_parquet:ro
+      - ${K_STOCK_HOST_DATA_ROOT:-../../trading/k_stock_trader/data}/kis_intraday_parquet:/app/trading/k_stock_trader/data/kis_intraday_parquet:ro
+      - ${K_STOCK_HOST_DATA_ROOT:-../../trading/k_stock_trader/data}/oms:/app/trading/k_stock_trader/data/oms:ro
+      - ${K_STOCK_HOST_DATA_ROOT:-../../trading/k_stock_trader/data}/paper_live:/app/trading/k_stock_trader/data/paper_live
+      - k-stock-rate-budget:/app/trading/k_stock_trader/data/rate_budget
+      - k-stock-instrumentation-data:/app/trading/k_stock_trader/instrumentation/data
       - ./runtime-entrypoint.sh:/app/deployments/k_stock/runtime-entrypoint.sh:ro
       - ../../deployments/k_stock/generated:/app/deployments/k_stock/generated:ro
       - ../../contracts:/app/contracts:ro
@@ -159,7 +174,7 @@ services:
       K_STOCK_SIDECAR_POLL_SECONDS: ${K_STOCK_SIDECAR_POLL_SECONDS:-15}
     command: ["k-stock-instrumentation-sidecar"]
     volumes:
-      - k-stock-instrumentation-data:/app/bots/k_stock_trader/instrumentation/data
+      - k-stock-instrumentation-data:/app/trading/k_stock_trader/instrumentation/data
     stop_grace_period: 30s
     logging: *json-logging
 
@@ -175,9 +190,15 @@ services:
     environment: *k-stock-env
     command: ["sh", "/app/deployments/k_stock/preflight-entrypoint.sh"]
     volumes:
-      - k-stock-paper-live:/app/bots/k_stock_trader/data/paper_live
-      - k-stock-rate-budget:/app/bots/k_stock_trader/data/rate_budget
-      - k-stock-instrumentation-data:/app/bots/k_stock_trader/instrumentation/data
+      - ${K_STOCK_HOST_DATA_ROOT:-../../trading/k_stock_trader/data}/strategy:/app/trading/k_stock_trader/data/strategy
+      - ${K_STOCK_HOST_DATA_ROOT:-../../trading/k_stock_trader/data}/backtests:/app/trading/k_stock_trader/data/backtests:ro
+      - ${K_STOCK_HOST_DATA_ROOT:-../../trading/k_stock_trader/data}/live_readiness:/app/trading/k_stock_trader/data/live_readiness:ro
+      - ${K_STOCK_HOST_DATA_ROOT:-../../trading/k_stock_trader/data}/krx_daily_parquet:/app/trading/k_stock_trader/data/krx_daily_parquet:ro
+      - ${K_STOCK_HOST_DATA_ROOT:-../../trading/k_stock_trader/data}/kis_intraday_parquet:/app/trading/k_stock_trader/data/kis_intraday_parquet:ro
+      - ${K_STOCK_HOST_DATA_ROOT:-../../trading/k_stock_trader/data}/oms:/app/trading/k_stock_trader/data/oms:ro
+      - ${K_STOCK_HOST_DATA_ROOT:-../../trading/k_stock_trader/data}/paper_live:/app/trading/k_stock_trader/data/paper_live
+      - k-stock-rate-budget:/app/trading/k_stock_trader/data/rate_budget
+      - k-stock-instrumentation-data:/app/trading/k_stock_trader/instrumentation/data
       - ./preflight-entrypoint.sh:/app/deployments/k_stock/preflight-entrypoint.sh:ro
       - ../../deployments/k_stock/generated:/app/deployments/k_stock/generated:ro
       - ../../contracts:/app/contracts:ro
@@ -186,6 +207,5 @@ services:
 volumes:
   k-stock-postgres-data:
   k-stock-logs:
-  k-stock-paper-live:
   k-stock-rate-budget:
   k-stock-instrumentation-data:

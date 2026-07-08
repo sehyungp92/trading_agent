@@ -1,6 +1,6 @@
 {
   "artifact_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\deployment_metadata_install\\deployment_metadata_install_report.json",
-  "bridge_id": "k_stock_olr_kalcb",
+  "bridge_id": "trading_stock_family",
   "checks": [
     {
       "errors": [],
@@ -13,11 +13,9 @@
       "passed": true
     },
     {
-      "errors": [
-        "source_control_worktree_clean must be true"
-      ],
+      "errors": [],
       "name": "live_emission_provenance",
-      "passed": false
+      "passed": true
     },
     {
       "errors": [],
@@ -25,16 +23,16 @@
       "passed": true
     },
     {
-      "errors": [],
+      "errors": [
+        "deployed_commit_sha does not match contract live_repo_commit_sha"
+      ],
       "name": "deployed_sha_matches_contract",
-      "passed": true
+      "passed": false
     },
     {
-      "errors": [
-        "strategy_plugin_contract_hash does not match local contract file"
-      ],
+      "errors": [],
       "name": "contract_hash_matches",
-      "passed": false
+      "passed": true
     },
     {
       "errors": [],
@@ -47,12 +45,12 @@
       "passed": true
     }
   ],
-  "contract_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\k_stock_olr_kalcb\\strategy_plugin_contract.json",
-  "generated_at": "2026-07-06T18:13:26Z",
+  "contract_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\strategy_plugin_contract.json",
+  "generated_at": "2026-07-07T15:51:57Z",
   "install_requested": false,
   "installed": false,
-  "installed_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\k_stock_olr_kalcb\\deployment_metadata.json",
-  "metadata_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\deployments\\k_stock\\generated\\runtime_deployment_metadata\\k_stock_olr_kalcb\\deployment_metadata.json",
+  "installed_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\deployment_metadata.json",
+  "metadata_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\deployments\\ibkr\\generated\\runtime_deployment_metadata\\trading_stock_family\\deployment_metadata.json",
   "ok": false,
   "schema_version": "deployment_metadata_install_report_v1"
 }

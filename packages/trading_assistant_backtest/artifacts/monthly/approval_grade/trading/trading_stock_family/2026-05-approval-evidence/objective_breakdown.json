@@ -1,0 +1,445 @@
+{
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "objective_version": "objective_weights_v1",
+  "immutable_objective_version": "immutable_score_profiles_v1",
+  "effective_objective_version": "immutable_score_profiles_v1",
+  "score_component_cap": 7,
+  "objective_score": 0.7502663895878636,
+  "objective_profile_id": "trading.stock.family",
+  "profile": {
+    "profile_id": "trading.stock.family",
+    "base_profile_id": "",
+    "overlay_id": "",
+    "family": "trading_stock_family",
+    "scope": "family",
+    "version": "immutable_score_profiles_v1",
+    "component_cap": 7,
+    "source_reference": "backtests/baselines/ibkr/stock",
+    "source_round": "latest_strategy_overlay_or_family_default",
+    "components": [
+      {
+        "component": "official_return",
+        "weight": 0.24,
+        "normalizer": {
+          "metric": "net_return_pct",
+          "kind": "ceiling",
+          "floor": 0.0,
+          "ceiling": 60.0
+        },
+        "source_components": [
+          "official_return"
+        ]
+      },
+      {
+        "component": "expected_total_r",
+        "weight": 0.18,
+        "normalizer": {
+          "metric": "total_r_per_month",
+          "kind": "ceiling",
+          "floor": 0.0,
+          "ceiling": 20.0
+        },
+        "source_components": [
+          "expected_total_r"
+        ]
+      },
+      {
+        "component": "trade_frequency",
+        "weight": 0.16,
+        "normalizer": {
+          "metric": "trades_per_month",
+          "kind": "ceiling",
+          "floor": 0.0,
+          "ceiling": 20.0
+        },
+        "source_components": [
+          "trade_frequency"
+        ]
+      },
+      {
+        "component": "edge_quality",
+        "weight": 0.16,
+        "normalizer": {
+          "metric": "edge_quality_proxy",
+          "kind": "identity",
+          "floor": 0.0,
+          "ceiling": 1.0
+        },
+        "source_components": [
+          "edge_quality"
+        ]
+      },
+      {
+        "component": "drawdown_resilience",
+        "weight": 0.11,
+        "normalizer": {
+          "metric": "max_drawdown_pct",
+          "kind": "inverse_ceiling",
+          "floor": 0.0,
+          "ceiling": 12.0
+        },
+        "source_components": [
+          "drawdown_resilience"
+        ]
+      },
+      {
+        "component": "capture_quality",
+        "weight": 0.08,
+        "normalizer": {
+          "metric": "capture_quality_proxy",
+          "kind": "identity",
+          "floor": 0.0,
+          "ceiling": 1.0
+        },
+        "source_components": [
+          "capture_quality"
+        ]
+      },
+      {
+        "component": "signal_quality",
+        "weight": 0.07,
+        "normalizer": {
+          "metric": "signal_quality_proxy",
+          "kind": "identity",
+          "floor": 0.0,
+          "ceiling": 1.0
+        },
+        "source_components": [
+          "signal_quality"
+        ]
+      }
+    ],
+    "hard_rejects": [
+      {
+        "metric": "trade_count",
+        "op": ">=",
+        "threshold": 1.0,
+        "description": "replay trade count"
+      },
+      {
+        "metric": "profit_factor_effective",
+        "op": ">=",
+        "threshold": 0.8,
+        "description": "replay profit factor"
+      },
+      {
+        "metric": "max_drawdown_pct",
+        "op": "<=",
+        "threshold": 12.0,
+        "description": "replay max drawdown pct"
+      }
+    ],
+    "reference_hard_rejects": []
+  },
+  "components": [
+    {
+      "component": "official_return",
+      "metric": "net_return_pct",
+      "raw_value": 0.9552195050448355,
+      "normalized_value": 0.015920325084080592,
+      "weight": 0.24,
+      "weighted_value": 0.003820878020179342,
+      "selected": true,
+      "normalizer": {
+        "metric": "net_return_pct",
+        "kind": "ceiling",
+        "floor": 0.0,
+        "ceiling": 60.0
+      },
+      "source_components": [
+        "official_return"
+      ]
+    },
+    {
+      "component": "expected_total_r",
+      "metric": "total_r_per_month",
+      "raw_value": 29.07449368480218,
+      "normalized_value": 1.0,
+      "weight": 0.18,
+      "weighted_value": 0.18,
+      "selected": true,
+      "normalizer": {
+        "metric": "total_r_per_month",
+        "kind": "ceiling",
+        "floor": 0.0,
+        "ceiling": 20.0
+      },
+      "source_components": [
+        "expected_total_r"
+      ]
+    },
+    {
+      "component": "trade_frequency",
+      "metric": "trades_per_month",
+      "raw_value": 30.4375,
+      "normalized_value": 1.0,
+      "weight": 0.16,
+      "weighted_value": 0.16,
+      "selected": true,
+      "normalizer": {
+        "metric": "trades_per_month",
+        "kind": "ceiling",
+        "floor": 0.0,
+        "ceiling": 20.0
+      },
+      "source_components": [
+        "trade_frequency"
+      ]
+    },
+    {
+      "component": "edge_quality",
+      "metric": "edge_quality_proxy",
+      "raw_value": 0.979848777270176,
+      "normalized_value": 0.979848777270176,
+      "weight": 0.16,
+      "weighted_value": 0.15677580436322816,
+      "selected": true,
+      "normalizer": {
+        "metric": "edge_quality_proxy",
+        "kind": "identity",
+        "floor": 0.0,
+        "ceiling": 1.0
+      },
+      "source_components": [
+        "edge_quality"
+      ]
+    },
+    {
+      "component": "drawdown_resilience",
+      "metric": "max_drawdown_pct",
+      "raw_value": 0.0,
+      "normalized_value": 1.0,
+      "weight": 0.11,
+      "weighted_value": 0.11,
+      "selected": true,
+      "normalizer": {
+        "metric": "max_drawdown_pct",
+        "kind": "inverse_ceiling",
+        "floor": 0.0,
+        "ceiling": 12.0
+      },
+      "source_components": [
+        "drawdown_resilience"
+      ]
+    },
+    {
+      "component": "capture_quality",
+      "metric": "capture_quality_proxy",
+      "raw_value": 0.9999999999999999,
+      "normalized_value": 0.9999999999999999,
+      "weight": 0.08,
+      "weighted_value": 0.07999999999999999,
+      "selected": true,
+      "normalizer": {
+        "metric": "capture_quality_proxy",
+        "kind": "identity",
+        "floor": 0.0,
+        "ceiling": 1.0
+      },
+      "source_components": [
+        "capture_quality"
+      ]
+    },
+    {
+      "component": "signal_quality",
+      "metric": "signal_quality_proxy",
+      "raw_value": 0.8524243886350881,
+      "normalized_value": 0.8524243886350881,
+      "weight": 0.07,
+      "weighted_value": 0.05966970720445617,
+      "selected": true,
+      "normalizer": {
+        "metric": "signal_quality_proxy",
+        "kind": "identity",
+        "floor": 0.0,
+        "ceiling": 1.0
+      },
+      "source_components": [
+        "signal_quality"
+      ]
+    }
+  ],
+  "renormalized_components": [
+    {
+      "component": "official_return",
+      "metric": "net_return_pct",
+      "raw_value": 0.9552195050448355,
+      "normalized_value": 0.015920325084080592,
+      "weight": 0.24,
+      "weighted_value": 0.003820878020179342,
+      "selected": true,
+      "normalizer": {
+        "metric": "net_return_pct",
+        "kind": "ceiling",
+        "floor": 0.0,
+        "ceiling": 60.0
+      },
+      "source_components": [
+        "official_return"
+      ],
+      "renormalized_weight": 0.24,
+      "renormalized_weighted_value": 0.003820878020179342
+    },
+    {
+      "component": "expected_total_r",
+      "metric": "total_r_per_month",
+      "raw_value": 29.07449368480218,
+      "normalized_value": 1.0,
+      "weight": 0.18,
+      "weighted_value": 0.18,
+      "selected": true,
+      "normalizer": {
+        "metric": "total_r_per_month",
+        "kind": "ceiling",
+        "floor": 0.0,
+        "ceiling": 20.0
+      },
+      "source_components": [
+        "expected_total_r"
+      ],
+      "renormalized_weight": 0.18,
+      "renormalized_weighted_value": 0.18
+    },
+    {
+      "component": "trade_frequency",
+      "metric": "trades_per_month",
+      "raw_value": 30.4375,
+      "normalized_value": 1.0,
+      "weight": 0.16,
+      "weighted_value": 0.16,
+      "selected": true,
+      "normalizer": {
+        "metric": "trades_per_month",
+        "kind": "ceiling",
+        "floor": 0.0,
+        "ceiling": 20.0
+      },
+      "source_components": [
+        "trade_frequency"
+      ],
+      "renormalized_weight": 0.16,
+      "renormalized_weighted_value": 0.16
+    },
+    {
+      "component": "edge_quality",
+      "metric": "edge_quality_proxy",
+      "raw_value": 0.979848777270176,
+      "normalized_value": 0.979848777270176,
+      "weight": 0.16,
+      "weighted_value": 0.15677580436322816,
+      "selected": true,
+      "normalizer": {
+        "metric": "edge_quality_proxy",
+        "kind": "identity",
+        "floor": 0.0,
+        "ceiling": 1.0
+      },
+      "source_components": [
+        "edge_quality"
+      ],
+      "renormalized_weight": 0.16,
+      "renormalized_weighted_value": 0.15677580436322816
+    },
+    {
+      "component": "drawdown_resilience",
+      "metric": "max_drawdown_pct",
+      "raw_value": 0.0,
+      "normalized_value": 1.0,
+      "weight": 0.11,
+      "weighted_value": 0.11,
+      "selected": true,
+      "normalizer": {
+        "metric": "max_drawdown_pct",
+        "kind": "inverse_ceiling",
+        "floor": 0.0,
+        "ceiling": 12.0
+      },
+      "source_components": [
+        "drawdown_resilience"
+      ],
+      "renormalized_weight": 0.11,
+      "renormalized_weighted_value": 0.11
+    },
+    {
+      "component": "capture_quality",
+      "metric": "capture_quality_proxy",
+      "raw_value": 0.9999999999999999,
+      "normalized_value": 0.9999999999999999,
+      "weight": 0.08,
+      "weighted_value": 0.07999999999999999,
+      "selected": true,
+      "normalizer": {
+        "metric": "capture_quality_proxy",
+        "kind": "identity",
+        "floor": 0.0,
+        "ceiling": 1.0
+      },
+      "source_components": [
+        "capture_quality"
+      ],
+      "renormalized_weight": 0.08,
+      "renormalized_weighted_value": 0.07999999999999999
+    },
+    {
+      "component": "signal_quality",
+      "metric": "signal_quality_proxy",
+      "raw_value": 0.8524243886350881,
+      "normalized_value": 0.8524243886350881,
+      "weight": 0.07,
+      "weighted_value": 0.05966970720445617,
+      "selected": true,
+      "normalizer": {
+        "metric": "signal_quality_proxy",
+        "kind": "identity",
+        "floor": 0.0,
+        "ceiling": 1.0
+      },
+      "source_components": [
+        "signal_quality"
+      ],
+      "renormalized_weight": 0.07,
+      "renormalized_weighted_value": 0.05966970720445617
+    }
+  ],
+  "missing_components": [],
+  "hard_rejected": false,
+  "reject_reasons": [],
+  "metrics": {
+    "active_symbol_ratio": 1.0,
+    "avg_loss_pct": 0.0,
+    "avg_r_proxy": 0.9552195050448355,
+    "avg_return_pct": 0.9552195050448355,
+    "avg_win_pct": 0.9552195050448355,
+    "balance_quality_proxy": 1.0,
+    "calmar": 95.52195050448356,
+    "capture_quality_proxy": 0.9999999999999999,
+    "coverage_ratio": 1.0,
+    "drawdown_resilience_proxy": 1.0,
+    "edge_quality_proxy": 0.979848777270176,
+    "entry_quality_proxy": 1.0,
+    "exit_efficiency_proxy": 0.9999999999999999,
+    "expectancy_pct": 0.9552195050448355,
+    "false_positive_control_proxy": 0.9869017052256144,
+    "frequency_quality_proxy": 1.0,
+    "max_drawdown_pct": 0.0,
+    "net_return": 0.009552195050448355,
+    "net_return_pct": 0.9552195050448355,
+    "official_mtm_net_return_pct": 0.9552195050448355,
+    "process_quality_proxy": 0.26041666666666663,
+    "profit_factor": 0.009552195050448355,
+    "profit_factor_effective": 99.99,
+    "rule_efficiency_proxy": 0.26041666666666663,
+    "selection_quality_proxy": 0.9889168274985968,
+    "sharpe": 0.0,
+    "signal_quality_proxy": 0.8524243886350881,
+    "stability_proxy": 0.45,
+    "strategy_balance_proxy": 1.0,
+    "total_r_per_month": 29.07449368480218,
+    "total_return_pct": 0.9552195050448355,
+    "trade_count": 1.0,
+    "trades_per_month": 30.4375,
+    "win_rate": 1.0,
+    "winning_trades": 1.0
+  },
+  "replay_backed": true
+}

@@ -36,7 +36,7 @@
         ],
         "approval_ready": false,
         "audit_passed": true,
-        "commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+        "commit_sha": "704ec76385e9762390122e132c5740abf4d74c12",
         "eligible_for_optimizer": true,
         "errors": [],
         "evidence": [
@@ -59,7 +59,7 @@
         "maturity": "shadow_validated",
         "recommended_next_step": "Keep the stock-family bridge in shadow validation while expanding fixtures beyond IARIC entry/family collision cases.",
         "repo_id": "trading_stock_family",
-        "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading",
+        "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\ibkr_trading",
         "source_checkout_clean": false,
         "status": "formal_decision_parity_passed",
         "supported_scope": [
@@ -108,13 +108,10 @@
         "measured_monthly_count": 2,
         "production_dod_real_outcome_passed": false,
         "real_non_fixture_measured_monthly_count": 0,
-        "validation_messages": [
-          "AM-20 performance_learning_ledger: measured assistant-driven record 5064e0e097ccdba9 is missing learning-sufficiency context.",
-          "AM-20 performance_learning_ledger: measured assistant-driven record 143c8521bf44e2df is missing learning-sufficiency context."
-        ]
+        "validation_messages": []
       },
       "name": "performance_learning_monthly_outcome_authority",
-      "passed": false
+      "passed": true
     },
     {
       "details": {
@@ -145,7 +142,7 @@
     }
   ],
   "gate": "PTG-7",
-  "generated_at": "2026-07-05T16:36:21Z",
+  "generated_at": "2026-07-07T21:52:34Z",
   "implementation_failures": [
     {
       "details": [
@@ -174,20 +171,6 @@
         "status": "blocked"
       },
       "name": "ptg6_report_passed",
-      "passed": false
-    },
-    {
-      "details": {
-        "ledger_path": "packages/trading_assistant/memory/findings/performance_learning_ledger.jsonl",
-        "measured_monthly_count": 2,
-        "production_dod_real_outcome_passed": false,
-        "real_non_fixture_measured_monthly_count": 0,
-        "validation_messages": [
-          "AM-20 performance_learning_ledger: measured assistant-driven record 5064e0e097ccdba9 is missing learning-sufficiency context.",
-          "AM-20 performance_learning_ledger: measured assistant-driven record 143c8521bf44e2df is missing learning-sufficiency context."
-        ]
-      },
-      "name": "performance_learning_monthly_outcome_authority",
       "passed": false
     }
   ],

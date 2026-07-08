@@ -1,0 +1,26 @@
+{
+  "adjustment_policy": "raw_ibkr_archive",
+  "authoritative": true,
+  "calendar": "us_equity_eth",
+  "checksum": "9b19fe55684b75cf1dd1f336e40742669500801402a5f993d424d4244a52b033",
+  "end_ts": "2026-05-01T23:55:00Z",
+  "fee_model_version": "trading_stock_shadow_fees_v1",
+  "lineage": {
+    "adapter_id": "trading_stock_us_equity_bar_replay_v1",
+    "authority_contract_id": "trading_stock_family_portfolio",
+    "config_hash": "4bfd5d145d581942bf785fe1bea580c4fea286cdab94ea3e72b32d059f94411c",
+    "export_id": "trading_stock_family_portfolio:f3819adc:MSFT:5m",
+    "pulled_at_utc": "2026-07-06T21:04:29Z",
+    "session_policy": "approval_evidence_shadow_replay_no_adoption",
+    "source_endpoint": "trading/ibkr_trader/backtests/stock/data/raw/MSFT_5m.parquet"
+  },
+  "manifest_id": "trading-stock-family-msft-5m-approval-evidence",
+  "market": "us_equity",
+  "row_count": 53646,
+  "schema_version": "data_slice_manifest_v1",
+  "slippage_model_version": "trading_stock_shadow_slippage_v1",
+  "source": "ibkr",
+  "start_ts": "2025-03-21T08:00:00Z",
+  "symbol": "MSFT",
+  "timeframe": "5m"
+}

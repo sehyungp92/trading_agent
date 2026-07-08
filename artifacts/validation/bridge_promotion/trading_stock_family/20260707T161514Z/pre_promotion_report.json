@@ -1,0 +1,75 @@
+{
+  "approval_evidence_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\approval_evidence_bundle.json",
+  "checks": [
+    {
+      "errors": [],
+      "name": "approval_evidence_schema",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "approval_evidence_scope",
+      "passed": true
+    },
+    {
+      "errors": [
+        "deployment_metadata_promotion_grade_installed: trading_stock_family deployment metadata was not installed from a passing report",
+        "deployment_metadata_promotion_grade_installed: trading_stock_family: metadata_source must be one of live_bot_runtime_deployment_metadata_v1, vps_live_bot_runtime_deployment_metadata_v1",
+        "deployment_metadata_promotion_grade_installed: trading_stock_family: emission_environment must be one of live_bot, paper_vps, production_vps, vps",
+        "deployment_metadata_promotion_grade_installed: trading_stock_family: metadata_source contains non-approval token(s): local, shadow, snapshot",
+        "deployment_metadata_promotion_grade_installed: trading_stock_family: deployment metadata missing live-emission fields: emitted_at_utc, live_runtime_started_at_utc, runtime_entrypoint, runtime_instance_id, runtime_host_fingerprint, source_control_origin, source_control_commit_sha",
+        "deployment_metadata_promotion_grade_installed: trading_stock_family: source_control_worktree_clean must be true",
+        "deployment_metadata_promotion_grade_installed: trading_stock_family: source_control_origin/repo_url must not be local://",
+        "deployment_metadata_promotion_grade_installed: trading_stock_family: repo_url is local/shadow-only: 'local://trading/ibkr_trader'",
+        "deployment_metadata_promotion_grade_installed: trading_stock_family: deployment metadata missing required telemetry schema(s): trading_stock_family_state_v1",
+        "live_config_promotion_verification_passed: Live-config promotion check failed:",
+        "live_config_promotion_verification_passed: ibkr:ATRSS source_live_config hash drift",
+        "live_config_promotion_verification_passed: ibkr:AKC_HELIX source_live_config hash drift",
+        "live_config_promotion_verification_passed: ibkr:TPC source_live_config hash drift",
+        "live_config_promotion_verification_passed: ibkr:IARIC_v1 source_live_config hash drift",
+        "live_config_promotion_verification_passed: ibkr:ALCB_v1 source_live_config hash drift",
+        "live_config_promotion_verification_passed: ibkr:NQDTC_v2.1 source_live_config hash drift",
+        "live_config_promotion_verification_passed: ibkr:NQ_REGIME source_live_config hash drift",
+        "live_config_promotion_verification_passed: ibkr:VdubusNQ_v4 source_live_config hash drift",
+        "live_config_promotion_verification_passed: ibkr:DownturnDominator_v1 source_live_config hash drift",
+        "operational_deployment_evidence_complete: operational deployment evidence missing: C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\deployments\\operational_evidence.json",
+        "operational_deployment_evidence_complete: missing operational evidence deployments/operational_evidence.json",
+        "operational_deployment_evidence_complete: collect VPS and local assistant evidence after deployment before marking completion",
+        "scheduled_shadow_cycle_production_grade: production scheduled_shadow_cycle_report.json missing",
+        "production_fixture_breadth_complete: production fixture-set manifest is not ok",
+        "production_fixture_breadth_complete: production fixture-set manifest status is blocked",
+        "learning_sufficiency_authoritative: learning sufficiency is 'diagnostics_only', not 'learning_authoritative'"
+      ],
+      "name": "approval_evidence_eligible",
+      "passed": false
+    },
+    {
+      "errors": [],
+      "name": "contract_present",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "contract_source_maturity",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "evidence_hashes_match",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "contract_hash_bound_to_approval_evidence",
+      "passed": true
+    }
+  ],
+  "contract_hash_before": "feec4e326885ef4e3608507f76058cb7ce2ca033f72fc07b5144e12538da8a21",
+  "contract_path": "contracts/strategy_plugins/trading_stock_family/strategy_plugin_contract.json",
+  "dry_run": true,
+  "eligible": false,
+  "generated_at": "2026-07-07T16:15:14Z",
+  "schema_version": "bridge_pre_promotion_report_v1",
+  "scope_id": "trading_stock_family",
+  "write_requested": false
+}

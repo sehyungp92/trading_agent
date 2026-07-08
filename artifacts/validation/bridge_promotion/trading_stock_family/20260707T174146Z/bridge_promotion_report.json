@@ -1,0 +1,22 @@
+{
+  "approval_evidence_path": "..\\..\\artifacts\\validation\\approval_evidence\\trading_stock_family\\approval_evidence_bundle.json",
+  "artifact_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\bridge_promotion\\trading_stock_family\\20260707T174146Z\\bridge_promotion_report.json",
+  "blockers": [
+    "approval_evidence_schema: approval evidence bundle missing or malformed",
+    "approval_evidence_scope: approval evidence scope does not match trading_stock_family",
+    "approval_evidence_eligible: bundle is not eligible",
+    "evidence_hashes_match: approval evidence bundle has no evidence_hashes",
+    "contract_hash_bound_to_approval_evidence: approval evidence bundle does not hash the strategy plugin contract"
+  ],
+  "contract_path": "contracts/strategy_plugins/trading_stock_family/strategy_plugin_contract.json",
+  "dry_run": true,
+  "eligible": false,
+  "generated_at": "2026-07-07T17:41:46Z",
+  "post_promotion_report": "",
+  "pre_promotion_report": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\bridge_promotion\\trading_stock_family\\20260707T174146Z\\pre_promotion_report.json",
+  "promoted": false,
+  "promotion_decision": "blocked",
+  "schema_version": "bridge_promotion_report_v1",
+  "scope_id": "trading_stock_family",
+  "write_requested": false
+}

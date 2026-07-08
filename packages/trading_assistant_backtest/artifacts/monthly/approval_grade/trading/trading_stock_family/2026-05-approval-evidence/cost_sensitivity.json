@@ -1,0 +1,67 @@
+{
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "status": "pass",
+  "gate": "cost_sensitivity",
+  "checks": [
+    {
+      "name": "cost_sensitivity",
+      "passed": true,
+      "reason": ""
+    }
+  ],
+  "errors": [],
+  "candidate_checks": [
+    {
+      "candidate_id": "signal_quality-filter_repair-1",
+      "passed": true,
+      "details": {
+        "candidate_id": "signal_quality-filter_repair-1",
+        "fold_support_passed": false,
+        "purged_fold_support": {
+          "fold_1": false,
+          "fold_2": false
+        },
+        "cost_sensitivity_passed": true,
+        "drawdown_gate_passed": true,
+        "outlier_concentration_passed": false,
+        "portfolio_synergy_passed": true,
+        "selection_oos_used_in_first_pass": false,
+        "objective_component_scores": {
+          "objective_delta": 0.0,
+          "net_return_delta": 0.0,
+          "calmar_delta": 0.0,
+          "profit_factor_delta": 0.0,
+          "expectancy_delta": 0.0,
+          "max_drawdown_delta": 0.0,
+          "process_quality_proxy": 3.7416064792579175e-05
+        }
+      }
+    },
+    {
+      "candidate_id": "signal_quality-trade_management-2",
+      "passed": true,
+      "details": {
+        "candidate_id": "signal_quality-trade_management-2",
+        "fold_support_passed": false,
+        "purged_fold_support": {
+          "fold_1": false,
+          "fold_2": false
+        },
+        "cost_sensitivity_passed": true,
+        "drawdown_gate_passed": true,
+        "outlier_concentration_passed": false,
+        "portfolio_synergy_passed": true,
+        "selection_oos_used_in_first_pass": false,
+        "objective_component_scores": {
+          "objective_delta": 0.0,
+          "net_return_delta": 0.0,
+          "calmar_delta": 0.0,
+          "profit_factor_delta": 0.0,
+          "expectancy_delta": 0.0,
+          "max_drawdown_delta": 0.0,
+          "process_quality_proxy": 3.7416064792579175e-05
+        }
+      }
+    }
+  ]
+}

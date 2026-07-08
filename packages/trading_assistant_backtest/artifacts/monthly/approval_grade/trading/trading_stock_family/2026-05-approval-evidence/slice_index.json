@@ -1,0 +1,19 @@
+{
+  "bundle_checksum": "f3819adc86612638415b0dd6b603babaeaa12ab5d37076ccff04bfa23486ca59",
+  "bundle_id": "trading_stock_family_portfolio",
+  "generated_at": "2026-07-07T15:40:58Z",
+  "schema_version": "slice_index_v1",
+  "slices": [
+    {
+      "canonical_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\canonical\\MSFT_5m.parquet"
+      ],
+      "checksum": "9b19fe55684b75cf1dd1f336e40742669500801402a5f993d424d4244a52b033",
+      "manifest_id": "trading-stock-family-msft-5m-approval-evidence",
+      "market": "us_equity",
+      "source": "ibkr",
+      "symbol": "MSFT",
+      "timeframe": "5m"
+    }
+  ]
+}

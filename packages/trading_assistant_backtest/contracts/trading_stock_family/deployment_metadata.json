@@ -6,7 +6,7 @@
   "deployment_id": "trading-stock-family-shadow-5a901bc9",
   "generated_at": "2026-05-31T14:13:11Z",
   "metadata_source": "local clean live-repo checkout shadow snapshot",
-  "repo_url": "local://bots/ibkr_trading",
+  "repo_url": "local://trading/ibkr_trader",
   "strategy_id": "trading_stock_family",
   "strategy_plugin_contract_hash": "ed3e75a0204dd1c3098947d579ade20965a3755de4ef10c234d0acaaee34eee1",
   "strategy_plugin_contract_path": "strategy_plugin_contract.json",

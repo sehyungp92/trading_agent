@@ -511,7 +511,7 @@ def test_trading_stock_requirements_match_current_stock_strategy_contract() -> N
 
 def test_trading_stock_live_approval_scope_uses_98_symbol_lane_not_archive_count() -> None:
     stock_universe_path = (
-        MONOREPO_ROOT / "bots" / "ibkr_trading" / "strategies" / "stock" / "live_universe.py"
+        MONOREPO_ROOT / "trading" / "ibkr_trader" / "strategies" / "stock" / "live_universe.py"
     )
     if not stock_universe_path.exists():
         pytest.skip("IBKR bot workspace is local-only and not available in CI")

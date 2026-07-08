@@ -12,7 +12,7 @@ from trading_assistant.analysis.monthly_validation_report_builder import Monthly
 from trading_assistant.orchestrator.backtest_invocation import backtest_repo_commit_sha, validate_backtest_repo
 from trading_assistant.orchestrator.learning_sufficiency_audit import LearningSufficiencyAuditor
 from trading_assistant.orchestrator.lineage_audit import LineageAuditor
-from trading_assistant.paths import package_root
+from trading_assistant.paths import monorepo_root, package_root
 from trading_assistant.schemas.backtest_artifacts import BacktestArtifactIndex, REQUIRED_BACKTEST_ARTIFACTS
 from trading_assistant.schemas.data_bundle_manifest import DataBundleManifest, DataBundleSlice, DataBundleStatus
 from trading_assistant.schemas.market_data_manifest import MarketDataManifest
@@ -36,6 +36,9 @@ from trading_assistant.skills.monthly_search_brief_builder import MonthlySearchB
 from trading_assistant.skills.outcome_prior_store import OutcomePriorStore
 from trading_assistant.skills.proposal_ledger import ProposalLedger
 from trading_assistant.skills.replay_parity_checker import ReplayParityChecker
+from trading_assistant.skills.scheduled_shadow_report import (
+    write_scheduled_shadow_cycle_report,
+)
 from trading_assistant.skills.strategy_discovery_packet_builder import StrategyDiscoveryPacketBuilder
 from trading_assistant.skills.strategy_change_ledger import StrategyChangeLedger
 
@@ -71,12 +74,18 @@ class MonthlyValidationRequest:
     trading_repo_branch: str = ""
     trading_repo_commit_sha: str = ""
     deployment_metadata_path: Path | None = None
+    deployment_metadata_install_report_paths: list[Path] | None = None
+    operational_evidence_path: Path | None = None
+    relay_ingest_evidence_path: Path | None = None
+    vps_host_id: str = ""
+    assistant_host_id: str = "local"
     expected_session_paths: list[Path] | None = None
     runtime_support_paths: list[Path] | None = None
     workflow_contract_path: str = ""
     workflow_contract_version: str = ""
     max_workers: int = 2
     shadow: bool = True
+    approval_evidence_mode: bool = False
 
 
 class MonthlyValidationOrchestrator:
@@ -146,7 +155,11 @@ class MonthlyValidationOrchestrator:
     def run(self, request: MonthlyValidationRequest) -> MonthlyValidationResult:
         run_month = request.run_month or latest_completed_month()
         window_start, window_end = month_window(run_month)
-        artifact_root = self.backtest_artifact_root / request.bot_id / run_month / request.strategy_id
+        artifact_base = _approval_evidence_artifact_base(
+            self.backtest_artifact_root,
+            request,
+        )
+        artifact_root = artifact_base / request.bot_id / run_month / request.strategy_id
         artifact_root.mkdir(parents=True, exist_ok=True)
         run_id = f"monthly-{request.bot_id}-{request.strategy_id}-{run_month}"
         monthly_review_created_at = datetime.now(timezone.utc)
@@ -453,6 +466,7 @@ class MonthlyValidationOrchestrator:
             workflow_contract_version=request.workflow_contract_version or "monthly_incumbent_validation_v1",
             max_workers=max(1, request.max_workers),
             approval_mode=MonthlyApprovalMode.NONE if request.shadow else MonthlyApprovalMode.MANUAL_REQUIRED,
+            approval_evidence_mode=bool(request.approval_evidence_mode),
             expected_outputs=list(REQUIRED_BACKTEST_ARTIFACTS),
         )
         if request.optimizer_sequence_enabled:
@@ -728,9 +742,34 @@ class MonthlyValidationOrchestrator:
             run_id=run_id,
             stage_status=stage_status,
         )
+        scheduled_shadow_report_path = ""
+        if request.approval_evidence_mode:
+            scheduled_shadow_report_path = str(
+                write_scheduled_shadow_cycle_report(
+                    result=result,
+                    monthly_validation_result_path=result_path,
+                    deployment_metadata_install_report_paths=(
+                        request.deployment_metadata_install_report_paths or []
+                    ),
+                    operational_evidence_path=(
+                        request.operational_evidence_path
+                        or monorepo_root() / "deployments" / "operational_evidence.json"
+                    ),
+                    relay_ingest_evidence_path=request.relay_ingest_evidence_path,
+                    learning_sufficiency_manifest_path=learning_sufficiency_path,
+                    optimizer_run_manifest_path=artifact_root / "optimizer_run_manifest.json",
+                    approval_evidence_mode=True,
+                    adoption_disabled=request.shadow and not bool(result.adopted_candidate_id),
+                    scope_id=request.strategy_id,
+                    bot_id=request.bot_id,
+                    vps_host_id=request.vps_host_id,
+                    assistant_host_id=request.assistant_host_id,
+                )
+            )
         final_evidence_paths = dedupe([
             *result.evidence_paths,
             str(observability_path),
+            scheduled_shadow_report_path,
             str(result_path),
             result.monthly_report_path,
         ])
@@ -1157,6 +1196,18 @@ def month_window(run_month: str) -> tuple[date, date]:
     month = int(month_s)
     last_day = monthrange(year, month)[1]
     return date(year, month, 1), date(year, month, last_day)
+
+
+def _approval_evidence_artifact_base(
+    artifact_root: Path,
+    request: MonthlyValidationRequest,
+) -> Path:
+    root = Path(artifact_root)
+    if not request.approval_evidence_mode:
+        return root
+    if any(part.lower() == "approval_grade" for part in root.parts):
+        return root
+    return root / "approval_grade"
 
 
 def _mutation_family_and_category(mutation_diff: dict) -> tuple[str, str]:

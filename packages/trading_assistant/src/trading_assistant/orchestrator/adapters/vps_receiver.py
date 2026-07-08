@@ -1,4 +1,4 @@
-"""VPS Receiver — pulls events from relay VPS into local event queue.
+"""VPS Receiver — pulls events from assistant-local relay ingress into the local event queue.
 
 Protocol:
   1. GET /events?since=<watermark> from relay

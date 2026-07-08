@@ -374,27 +374,41 @@ def build_runtime_scheduler_wiring(
 
     if config.monthly_validation_enabled and config.bot_ids:
         tracked_monthly_validation_fns = []
+        approval_allowlist = set(config.monthly_approval_scope_allowlist)
         for bot_id in config.bot_ids:
             scope_key = f"bot:{bot_id}"
 
             def _make_monthly_validation_trigger(bot_id: str, scope_key: str):
                 async def _trigger(scheduled_for: datetime | None = None) -> None:
                     run_at = (scheduled_for or _utc_now()).astimezone(timezone.utc).replace(microsecond=0)
+                    approval_scope = config.monthly_approval_scope_map.get(bot_id, "")
+                    approval_allowed = approval_scope in approval_allowlist if approval_scope else False
+                    approval_evidence_mode = bool(approval_allowed)
+                    payload = {
+                        "bot_id": bot_id,
+                        "run_month": "",
+                        "shadow": not (
+                            config.monthly_validation_mode == "approval_gated"
+                            and approval_allowed
+                        ),
+                        "optimizer_sequence_enabled": config.monthly_optimizer_sequence_enabled,
+                        "backtest_command": config.monthly_backtest_command,
+                        "workflow_contract_path": config.monthly_workflow_contract_path,
+                        "workflow_contract_version": config.monthly_workflow_contract_version,
+                        "approval_evidence_mode": approval_evidence_mode,
+                    }
+                    if approval_scope:
+                        payload["strategy_id"] = approval_scope
+                        payload["approval_scope"] = approval_scope
+                    if approval_evidence_mode:
+                        payload.update(_monthly_approval_evidence_payload(config))
                     await queue.enqueue(_build_scheduled_event(
                         job_key="monthly_validation",
                         scope_key=scope_key,
                         scheduled_for=run_at,
                         event_type="monthly_validation_trigger",
                         bot_id=bot_id,
-                        payload={
-                            "bot_id": bot_id,
-                            "run_month": "",
-                            "shadow": config.monthly_validation_mode != "approval_gated",
-                            "optimizer_sequence_enabled": config.monthly_optimizer_sequence_enabled,
-                            "backtest_command": config.monthly_backtest_command,
-                            "workflow_contract_path": config.monthly_workflow_contract_path,
-                            "workflow_contract_version": config.monthly_workflow_contract_version,
-                        },
+                        payload=payload,
                     ))
 
                 return _trigger
@@ -440,3 +454,21 @@ def build_runtime_scheduler_wiring(
         scheduler_jobs=job_specs_to_scheduler_jobs(job_specs, runner),
         runner=runner,
     )
+
+
+def _monthly_approval_evidence_payload(config: Any) -> dict[str, Any]:
+    payload: dict[str, Any] = {}
+    if config.monthly_deployment_metadata_install_report_paths:
+        payload["deployment_metadata_install_report_paths"] = list(
+            config.monthly_deployment_metadata_install_report_paths
+        )
+    for source, target in (
+        ("monthly_operational_evidence_path", "operational_evidence_path"),
+        ("monthly_relay_ingest_evidence_path", "relay_ingest_evidence_path"),
+        ("monthly_vps_host_id", "vps_host_id"),
+        ("monthly_assistant_host_id", "assistant_host_id"),
+    ):
+        value = str(getattr(config, source, "") or "")
+        if value:
+            payload[target] = value
+    return payload

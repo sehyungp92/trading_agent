@@ -7,7 +7,7 @@
   "deployment_id": "crypto-breakout-v1-shadow-3c6441d8",
   "generated_at": "2026-05-31T12:10:00Z",
   "metadata_source": "local clean live-repo checkout shadow snapshot",
-  "repo_url": "local://bots/crypto_trader",
+  "repo_url": "local://trading/crypto_trader",
   "strategy_id": "crypto_breakout_v1",
   "strategy_plugin_contract_hash": "546a6d77735b9aea47153dc1881c41d1b86d38a3379ecf589d6065babeec909e",
   "strategy_plugin_contract_path": "strategy_plugin_contract.json",

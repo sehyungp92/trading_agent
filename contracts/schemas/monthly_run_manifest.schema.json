@@ -98,6 +98,11 @@
       "$ref": "#/$defs/MonthlyApprovalMode",
       "default": "none"
     },
+    "approval_evidence_mode": {
+      "default": false,
+      "title": "Approval Evidence Mode",
+      "type": "boolean"
+    },
     "artifact_root": {
       "title": "Artifact Root",
       "type": "string"

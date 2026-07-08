@@ -1,0 +1,33 @@
+{
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "status": "pass",
+  "bundle_id": "trading_stock_family_portfolio",
+  "data_bundle_checksum": "f3819adc86612638415b0dd6b603babaeaa12ab5d37076ccff04bfa23486ca59",
+  "bundle_checksum": "f3819adc86612638415b0dd6b603babaeaa12ab5d37076ccff04bfa23486ca59",
+  "data_repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent",
+  "data_repo_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
+  "data_repo_branch": "approval-evidence-shadow",
+  "calendars": [
+    "us_equity_eth"
+  ],
+  "fee_model_version": "trading_stock_shadow_fees_v1",
+  "slippage_model_version": "trading_stock_shadow_slippage_v1",
+  "adjustment_policy": "raw_ibkr_archive",
+  "slice_manifest_ids": [
+    "trading-stock-family-msft-5m-approval-evidence"
+  ],
+  "slice_manifests": [
+    {
+      "manifest_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\slices\\MSFT_5m_slice_manifest.json",
+      "manifest_id": "trading-stock-family-msft-5m-approval-evidence",
+      "source": "ibkr",
+      "market": "us_equity",
+      "symbol": "MSFT",
+      "timeframe": "5m",
+      "checksum": "9b19fe55684b75cf1dd1f336e40742669500801402a5f993d424d4244a52b033",
+      "calendar": "us_equity_eth",
+      "authoritative": true
+    }
+  ],
+  "errors": []
+}

@@ -16,11 +16,11 @@ IMAGE_RULES = [
     ("packages/trading_deployment/", ALL_IMAGES),
     ("packages/trading_instrumentation/", ALL_IMAGES),
     ("contracts/", ALL_IMAGES),
-    ("bots/ibkr_trading/", {"ibkr-trading"}),
+    ("trading/ibkr_trader/", {"ibkr-trading"}),
     ("deployments/ibkr/", {"ibkr-trading"}),
-    ("bots/k_stock_trader/", {"k-stock-trader"}),
+    ("trading/k_stock_trader/", {"k-stock-trader"}),
     ("deployments/k_stock/", {"k-stock-trader"}),
-    ("bots/crypto_trader/", {"crypto-trader"}),
+    ("trading/crypto_trader/", {"crypto-trader"}),
     ("deployments/crypto/", {"crypto-trader"}),
 ]
 ASSISTANT_ONLY_PREFIXES = (

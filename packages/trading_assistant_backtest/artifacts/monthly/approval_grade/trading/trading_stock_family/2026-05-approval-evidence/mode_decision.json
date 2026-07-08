@@ -1,0 +1,6 @@
+{
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "mode": "phased_auto",
+  "status": "no_adoption",
+  "reason": "deterministic runner found no approval-ready replay-backed candidate"
+}

@@ -1,0 +1,42 @@
+{
+  "artifact_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\telemetry_conformance\\trading_stock_family\\telemetry_conformance_report.json",
+  "blockers": [
+    "telemetry_manifest_conformant: telemetry_manifest.json missing",
+    "scheduled_shadow_telemetry_reference: scheduled shadow report missing",
+    "relay_ingest_no_drops_or_quarantines: relay ingest evidence missing"
+  ],
+  "checks": [
+    {
+      "errors": [
+        "telemetry_manifest.json missing"
+      ],
+      "evidence_paths": [],
+      "name": "telemetry_manifest_conformant",
+      "passed": false
+    },
+    {
+      "errors": [
+        "scheduled shadow report missing"
+      ],
+      "evidence_paths": [],
+      "name": "scheduled_shadow_telemetry_reference",
+      "passed": false
+    },
+    {
+      "errors": [
+        "relay ingest evidence missing"
+      ],
+      "evidence_paths": [],
+      "name": "relay_ingest_no_drops_or_quarantines",
+      "passed": false
+    }
+  ],
+  "generated_at": "2026-07-07T16:54:56Z",
+  "ok": false,
+  "relay_ingest_evidence_path": "",
+  "runtime_non_crashing": true,
+  "scheduled_shadow_report_path": "",
+  "schema_version": "approval_telemetry_conformance_report_v1",
+  "scope_id": "trading_stock_family",
+  "telemetry_manifest_path": ""
+}

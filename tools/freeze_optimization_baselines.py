@@ -610,11 +610,11 @@ def canonicalize_strategy_plugin_contract(payload: dict[str, Any], source: Path)
     live_path = str(contract.get("live_repo_path") or "")
     plugin_id = str(contract.get("plugin_id") or "")
     if "crypto" in plugin_id or "crypto_trader" in live_path or "crypto_trader" in source_text:
-        live_path = "bots/crypto_trader"
+        live_path = "trading/crypto_trader"
     elif "k-stock" in plugin_id or "k_stock" in plugin_id or "k_stock_trader" in live_path or "k_stock_trader" in source_text:
-        live_path = "bots/k_stock_trader"
+        live_path = "trading/k_stock_trader"
     elif plugin_id.startswith("trading-") or "trading_" in source_text:
-        live_path = "bots/ibkr_trading"
+        live_path = "trading/ibkr_trader"
     contract["live_repo_path"] = _monorepo_contract_path(live_path)
 
     adapter_path = str(contract.get("backtest_adapter_path") or "")

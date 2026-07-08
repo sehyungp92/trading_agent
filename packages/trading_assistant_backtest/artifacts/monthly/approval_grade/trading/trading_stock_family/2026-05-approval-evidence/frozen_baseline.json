@@ -1,0 +1,378 @@
+{
+  "schema_version": "frozen_replay_baseline_v1",
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "scope_id": "trading_stock_family",
+  "bot_id": "trading",
+  "strategy_id": "trading_stock_family",
+  "strategy_plugin_id": "trading-stock-family",
+  "run_month": "2026-05",
+  "round_id": "2026-05-round-0",
+  "objective_version": "objective_weights_v1",
+  "data_bundle_manifest_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\data_bundle_manifest.json",
+  "data_bundle_checksum": "f3819adc86612638415b0dd6b603babaeaa12ab5d37076ccff04bfa23486ca59",
+  "baseline_score": 0.7502663895878636,
+  "incumbent": {
+    "trade_count": 1,
+    "net_return": 0.009552195050448355,
+    "max_drawdown": 0.0,
+    "profit_factor": 0.009552195050448355,
+    "objective_score": 0.7502663895878636,
+    "objective_profile_id": "trading.stock.family",
+    "immutable_score": {
+      "profile_id": "trading.stock.family",
+      "profile_version": "immutable_score_profiles_v1",
+      "objective_score": 0.7502663895878636,
+      "rejected": false,
+      "reject_reasons": [],
+      "score_component_cap": 7,
+      "renormalized_components": [
+        {
+          "component": "official_return",
+          "metric": "net_return_pct",
+          "raw_value": 0.9552195050448355,
+          "normalized_value": 0.015920325084080592,
+          "weight": 0.24,
+          "weighted_value": 0.003820878020179342,
+          "selected": true,
+          "normalizer": {
+            "metric": "net_return_pct",
+            "kind": "ceiling",
+            "floor": 0.0,
+            "ceiling": 60.0
+          },
+          "source_components": [
+            "official_return"
+          ],
+          "renormalized_weight": 0.24,
+          "renormalized_weighted_value": 0.003820878020179342
+        },
+        {
+          "component": "expected_total_r",
+          "metric": "total_r_per_month",
+          "raw_value": 29.07449368480218,
+          "normalized_value": 1.0,
+          "weight": 0.18,
+          "weighted_value": 0.18,
+          "selected": true,
+          "normalizer": {
+            "metric": "total_r_per_month",
+            "kind": "ceiling",
+            "floor": 0.0,
+            "ceiling": 20.0
+          },
+          "source_components": [
+            "expected_total_r"
+          ],
+          "renormalized_weight": 0.18,
+          "renormalized_weighted_value": 0.18
+        },
+        {
+          "component": "trade_frequency",
+          "metric": "trades_per_month",
+          "raw_value": 30.4375,
+          "normalized_value": 1.0,
+          "weight": 0.16,
+          "weighted_value": 0.16,
+          "selected": true,
+          "normalizer": {
+            "metric": "trades_per_month",
+            "kind": "ceiling",
+            "floor": 0.0,
+            "ceiling": 20.0
+          },
+          "source_components": [
+            "trade_frequency"
+          ],
+          "renormalized_weight": 0.16,
+          "renormalized_weighted_value": 0.16
+        },
+        {
+          "component": "edge_quality",
+          "metric": "edge_quality_proxy",
+          "raw_value": 0.979848777270176,
+          "normalized_value": 0.979848777270176,
+          "weight": 0.16,
+          "weighted_value": 0.15677580436322816,
+          "selected": true,
+          "normalizer": {
+            "metric": "edge_quality_proxy",
+            "kind": "identity",
+            "floor": 0.0,
+            "ceiling": 1.0
+          },
+          "source_components": [
+            "edge_quality"
+          ],
+          "renormalized_weight": 0.16,
+          "renormalized_weighted_value": 0.15677580436322816
+        },
+        {
+          "component": "drawdown_resilience",
+          "metric": "max_drawdown_pct",
+          "raw_value": 0.0,
+          "normalized_value": 1.0,
+          "weight": 0.11,
+          "weighted_value": 0.11,
+          "selected": true,
+          "normalizer": {
+            "metric": "max_drawdown_pct",
+            "kind": "inverse_ceiling",
+            "floor": 0.0,
+            "ceiling": 12.0
+          },
+          "source_components": [
+            "drawdown_resilience"
+          ],
+          "renormalized_weight": 0.11,
+          "renormalized_weighted_value": 0.11
+        },
+        {
+          "component": "capture_quality",
+          "metric": "capture_quality_proxy",
+          "raw_value": 0.9999999999999999,
+          "normalized_value": 0.9999999999999999,
+          "weight": 0.08,
+          "weighted_value": 0.07999999999999999,
+          "selected": true,
+          "normalizer": {
+            "metric": "capture_quality_proxy",
+            "kind": "identity",
+            "floor": 0.0,
+            "ceiling": 1.0
+          },
+          "source_components": [
+            "capture_quality"
+          ],
+          "renormalized_weight": 0.08,
+          "renormalized_weighted_value": 0.07999999999999999
+        },
+        {
+          "component": "signal_quality",
+          "metric": "signal_quality_proxy",
+          "raw_value": 0.8524243886350881,
+          "normalized_value": 0.8524243886350881,
+          "weight": 0.07,
+          "weighted_value": 0.05966970720445617,
+          "selected": true,
+          "normalizer": {
+            "metric": "signal_quality_proxy",
+            "kind": "identity",
+            "floor": 0.0,
+            "ceiling": 1.0
+          },
+          "source_components": [
+            "signal_quality"
+          ],
+          "renormalized_weight": 0.07,
+          "renormalized_weighted_value": 0.05966970720445617
+        }
+      ]
+    },
+    "trade_hash": "b9611fb17b3756ea1b26789505e64f6edc569b7917b52828a610be88f66f1100",
+    "order_hash": "4cbb331dae29aaadb94f03b50ae63f16eedd64d2f183b056c1ef2b4401b57439",
+    "coverage": [
+      {
+        "symbol": "MSFT",
+        "timeframe": "5m",
+        "rows": 192,
+        "start_ts": "2026-05-01T08:00:00+00:00",
+        "end_ts": "2026-05-01T23:55:00+00:00"
+      }
+    ]
+  },
+  "diagnostics": {
+    "schema_version": "trading_stock_replay_diagnostics_v1",
+    "replay_engine_version": "trading_stock_us_equity_bar_replay_v1",
+    "trade_count": 1,
+    "net_return": 0.009552195050448355,
+    "max_drawdown": 0.0,
+    "profit_factor": 0.009552195050448355,
+    "objective_score": 0.7502663895878636,
+    "objective_profile_id": "trading.stock.family",
+    "immutable_score": {
+      "profile_id": "trading.stock.family",
+      "profile_version": "immutable_score_profiles_v1",
+      "objective_score": 0.7502663895878636,
+      "rejected": false,
+      "reject_reasons": [],
+      "score_component_cap": 7,
+      "renormalized_components": [
+        {
+          "component": "official_return",
+          "metric": "net_return_pct",
+          "raw_value": 0.9552195050448355,
+          "normalized_value": 0.015920325084080592,
+          "weight": 0.24,
+          "weighted_value": 0.003820878020179342,
+          "selected": true,
+          "normalizer": {
+            "metric": "net_return_pct",
+            "kind": "ceiling",
+            "floor": 0.0,
+            "ceiling": 60.0
+          },
+          "source_components": [
+            "official_return"
+          ],
+          "renormalized_weight": 0.24,
+          "renormalized_weighted_value": 0.003820878020179342
+        },
+        {
+          "component": "expected_total_r",
+          "metric": "total_r_per_month",
+          "raw_value": 29.07449368480218,
+          "normalized_value": 1.0,
+          "weight": 0.18,
+          "weighted_value": 0.18,
+          "selected": true,
+          "normalizer": {
+            "metric": "total_r_per_month",
+            "kind": "ceiling",
+            "floor": 0.0,
+            "ceiling": 20.0
+          },
+          "source_components": [
+            "expected_total_r"
+          ],
+          "renormalized_weight": 0.18,
+          "renormalized_weighted_value": 0.18
+        },
+        {
+          "component": "trade_frequency",
+          "metric": "trades_per_month",
+          "raw_value": 30.4375,
+          "normalized_value": 1.0,
+          "weight": 0.16,
+          "weighted_value": 0.16,
+          "selected": true,
+          "normalizer": {
+            "metric": "trades_per_month",
+            "kind": "ceiling",
+            "floor": 0.0,
+            "ceiling": 20.0
+          },
+          "source_components": [
+            "trade_frequency"
+          ],
+          "renormalized_weight": 0.16,
+          "renormalized_weighted_value": 0.16
+        },
+        {
+          "component": "edge_quality",
+          "metric": "edge_quality_proxy",
+          "raw_value": 0.979848777270176,
+          "normalized_value": 0.979848777270176,
+          "weight": 0.16,
+          "weighted_value": 0.15677580436322816,
+          "selected": true,
+          "normalizer": {
+            "metric": "edge_quality_proxy",
+            "kind": "identity",
+            "floor": 0.0,
+            "ceiling": 1.0
+          },
+          "source_components": [
+            "edge_quality"
+          ],
+          "renormalized_weight": 0.16,
+          "renormalized_weighted_value": 0.15677580436322816
+        },
+        {
+          "component": "drawdown_resilience",
+          "metric": "max_drawdown_pct",
+          "raw_value": 0.0,
+          "normalized_value": 1.0,
+          "weight": 0.11,
+          "weighted_value": 0.11,
+          "selected": true,
+          "normalizer": {
+            "metric": "max_drawdown_pct",
+            "kind": "inverse_ceiling",
+            "floor": 0.0,
+            "ceiling": 12.0
+          },
+          "source_components": [
+            "drawdown_resilience"
+          ],
+          "renormalized_weight": 0.11,
+          "renormalized_weighted_value": 0.11
+        },
+        {
+          "component": "capture_quality",
+          "metric": "capture_quality_proxy",
+          "raw_value": 0.9999999999999999,
+          "normalized_value": 0.9999999999999999,
+          "weight": 0.08,
+          "weighted_value": 0.07999999999999999,
+          "selected": true,
+          "normalizer": {
+            "metric": "capture_quality_proxy",
+            "kind": "identity",
+            "floor": 0.0,
+            "ceiling": 1.0
+          },
+          "source_components": [
+            "capture_quality"
+          ],
+          "renormalized_weight": 0.08,
+          "renormalized_weighted_value": 0.07999999999999999
+        },
+        {
+          "component": "signal_quality",
+          "metric": "signal_quality_proxy",
+          "raw_value": 0.8524243886350881,
+          "normalized_value": 0.8524243886350881,
+          "weight": 0.07,
+          "weighted_value": 0.05966970720445617,
+          "selected": true,
+          "normalizer": {
+            "metric": "signal_quality_proxy",
+            "kind": "identity",
+            "floor": 0.0,
+            "ceiling": 1.0
+          },
+          "source_components": [
+            "signal_quality"
+          ],
+          "renormalized_weight": 0.07,
+          "renormalized_weighted_value": 0.05966970720445617
+        }
+      ]
+    },
+    "coverage": [
+      {
+        "symbol": "MSFT",
+        "timeframe": "5m",
+        "rows": 192,
+        "start_ts": "2026-05-01T08:00:00+00:00",
+        "end_ts": "2026-05-01T23:55:00+00:00"
+      }
+    ],
+    "symbols": [
+      "MSFT"
+    ],
+    "timeframes": [
+      "5m"
+    ],
+    "lineage": [
+      {
+        "manifest_id": "trading-stock-family-msft-5m-approval-evidence",
+        "source": "ibkr",
+        "market": "us_equity",
+        "symbol": "MSFT",
+        "timeframe": "5m",
+        "source_endpoint": "trading/ibkr_trader/backtests/stock/data/raw/MSFT_5m.parquet",
+        "export_id": "trading_stock_family_portfolio:f3819adc:MSFT:5m",
+        "config_hash": "4bfd5d145d581942bf785fe1bea580c4fea286cdab94ea3e72b32d059f94411c",
+        "session_policy": "approval_evidence_shadow_replay_no_adoption",
+        "authority_contract_id": "trading_stock_family_portfolio",
+        "adapter_id": "trading_stock_us_equity_bar_replay_v1"
+      }
+    ]
+  },
+  "evidence_paths": [
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\incumbent_validation.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\end_of_round_diagnostics.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\candidate_results.jsonl"
+  ]
+}

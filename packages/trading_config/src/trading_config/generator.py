@@ -39,17 +39,20 @@ BOT_SPECS = (
         bot_id="ibkr",
         canonical_dir="contracts/promotions/ibkr",
         generated_path="deployments/ibkr/generated/strategies.effective.json",
-        source_files=(("ibkr_strategies", "bots/ibkr_trading/config/strategies.yaml"),),
+        source_files=(
+            ("ibkr_strategies", "trading/ibkr_trader/config/strategies.yaml"),
+            ("ibkr_portfolio", "trading/ibkr_trader/config/portfolio.yaml"),
+        ),
     ),
     BotConfigSpec(
         bot_id="crypto",
         canonical_dir="contracts/promotions/crypto",
         generated_path="deployments/crypto/generated/live_config.effective.json",
         source_files=(
-            ("crypto_live_config", "bots/crypto_trader/config/live_config.example.json"),
-            ("crypto_strategy_breakout", "bots/crypto_trader/config/strategies/breakout.json"),
-            ("crypto_strategy_momentum", "bots/crypto_trader/config/strategies/momentum.json"),
-            ("crypto_strategy_trend", "bots/crypto_trader/config/strategies/trend.json"),
+            ("crypto_live_config", "trading/crypto_trader/config/live_config.example.json"),
+            ("crypto_strategy_breakout", "trading/crypto_trader/config/strategies/breakout.json"),
+            ("crypto_strategy_momentum", "trading/crypto_trader/config/strategies/momentum.json"),
+            ("crypto_strategy_trend", "trading/crypto_trader/config/strategies/trend.json"),
         ),
         notes=(
             "Portfolio round 3 uses explicit supersession evidence for the missing legacy rounds_manifest.json.",
@@ -60,17 +63,17 @@ BOT_SPECS = (
         canonical_dir="contracts/promotions/k_stock",
         generated_path="deployments/k_stock/generated/olr_kalcb.effective.json",
         source_files=(
-            ("k_stock_kalcb_live", "bots/k_stock_trader/config/kalcb.yaml"),
-            ("k_stock_kalcb_optimizer", "bots/k_stock_trader/config/optimization/kalcb.yaml"),
-            ("k_stock_olr_optimizer", "bots/k_stock_trader/config/optimization/olr.yaml"),
+            ("k_stock_kalcb_live", "trading/k_stock_trader/config/kalcb.yaml"),
+            ("k_stock_kalcb_optimizer", "trading/k_stock_trader/config/optimization/kalcb.yaml"),
+            ("k_stock_olr_optimizer", "trading/k_stock_trader/config/optimization/olr.yaml"),
             (
                 "k_stock_olr_universe",
-                "bots/k_stock_trader/config/olr_kalcb/olr_deployment_universe_103.yaml",
+                "trading/k_stock_trader/config/olr_kalcb/olr_deployment_universe_103.yaml",
             ),
-            ("k_stock_kalcb_defaults", "bots/k_stock_trader/strategy_kalcb/config.py"),
+            ("k_stock_kalcb_defaults", "trading/k_stock_trader/strategy_kalcb/config.py"),
             (
                 "k_stock_kalcb_phase_base",
-                "bots/k_stock_trader/backtests/strategies/kalcb/phase_candidates.py",
+                "trading/k_stock_trader/backtests/strategies/kalcb/phase_candidates.py",
             ),
         ),
         notes=("KALCB frontier.size must remain aligned at 103 across live/default/optimizer sources.",),
@@ -185,10 +188,18 @@ def _materialized_config(root: Path, spec: BotConfigSpec, promotion_paths: list[
 
 
 def _materialize_ibkr(root: Path, promotions: list[dict[str, Any]]) -> dict[str, Any]:
-    runtime = _load_yaml(root / "bots/ibkr_trading/config/strategies.yaml")
+    runtime = _load_yaml(root / "trading/ibkr_trader/config/strategies.yaml")
+    portfolio = _load_yaml(root / "trading/ibkr_trader/config/portfolio.yaml")
     strategies = runtime.get("strategies", {}) if isinstance(runtime, dict) else {}
     return {
         "connection_groups": runtime.get("connection_groups", {}) if isinstance(runtime, dict) else {},
+        "portfolio": portfolio,
+        "runtime_config_contract": {
+            "schema_version": "ibkr_runtime_config_contract.v1",
+            "mounted_effective_config_path": "/app/deployments/ibkr/generated/strategies.effective.json",
+            "required_source_roles": ["ibkr_strategies", "ibkr_portfolio"],
+            "hash_verified_before": ["database", "ib_gateway", "coordinator_start"],
+        },
         "strategies": [
             _strategy_record(
                 root,
@@ -201,8 +212,8 @@ def _materialize_ibkr(root: Path, promotions: list[dict[str, Any]]) -> dict[str,
 
 
 def _materialize_crypto(root: Path, promotions: list[dict[str, Any]]) -> dict[str, Any]:
-    live_config = load_json(root / "bots/crypto_trader/config/live_config.example.json")
-    strategy_dir = root / "bots/crypto_trader/config/strategies"
+    live_config = load_json(root / "trading/crypto_trader/config/live_config.example.json")
+    strategy_dir = root / "trading/crypto_trader/config/strategies"
     strategy_configs = {
         path.stem: load_json(path)
         for path in sorted(strategy_dir.glob("*.json"))
@@ -262,9 +273,9 @@ def _crypto_public_live_config(live_config: dict[str, Any]) -> dict[str, Any]:
 
 
 def _materialize_k_stock(root: Path, promotions: list[dict[str, Any]]) -> dict[str, Any]:
-    live_kalcb = _load_yaml(root / "bots/k_stock_trader/config/kalcb.yaml")
-    optimizer_kalcb = _load_yaml(root / "bots/k_stock_trader/config/optimization/kalcb.yaml")
-    optimizer_olr = _load_yaml(root / "bots/k_stock_trader/config/optimization/olr.yaml")
+    live_kalcb = _load_yaml(root / "trading/k_stock_trader/config/kalcb.yaml")
+    optimizer_kalcb = _load_yaml(root / "trading/k_stock_trader/config/optimization/kalcb.yaml")
+    optimizer_olr = _load_yaml(root / "trading/k_stock_trader/config/optimization/olr.yaml")
     runtime_by_strategy = {
         "kalcb": live_kalcb,
         "olr": optimizer_olr,
@@ -382,11 +393,11 @@ def _get_path(value: Any, path: tuple[str, ...]) -> Any:
 
 
 def _kalcb_frontier_size_evidence(root: Path) -> dict[str, Any]:
-    live_path = root / "bots/k_stock_trader/config/kalcb.yaml"
-    optimizer_path = root / "bots/k_stock_trader/config/optimization/kalcb.yaml"
-    universe_path = root / "bots/k_stock_trader/config/olr_kalcb/olr_deployment_universe_103.yaml"
-    default_path = root / "bots/k_stock_trader/strategy_kalcb/config.py"
-    phase_base_path = root / "bots/k_stock_trader/backtests/strategies/kalcb/phase_candidates.py"
+    live_path = root / "trading/k_stock_trader/config/kalcb.yaml"
+    optimizer_path = root / "trading/k_stock_trader/config/optimization/kalcb.yaml"
+    universe_path = root / "trading/k_stock_trader/config/olr_kalcb/olr_deployment_universe_103.yaml"
+    default_path = root / "trading/k_stock_trader/strategy_kalcb/config.py"
+    phase_base_path = root / "trading/k_stock_trader/backtests/strategies/kalcb/phase_candidates.py"
     values = {
         "live_config": _get_path(_load_yaml(live_path), ("kalcb", "frontier", "size")),
         "optimizer_base_mutation": _get_path(

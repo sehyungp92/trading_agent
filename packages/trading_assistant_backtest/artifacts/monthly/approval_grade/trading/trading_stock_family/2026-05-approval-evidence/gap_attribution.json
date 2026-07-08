@@ -1,0 +1,18 @@
+{
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "status": "pass",
+  "primary_category": "none",
+  "categories": {
+    "signal_extraction": "replayed",
+    "discrimination": "replayed",
+    "entries": "replayed",
+    "trade_management": "replayed",
+    "exits": "replayed",
+    "sizing": "replayed",
+    "costs": "model_version_checked",
+    "drawdown": "replayed",
+    "portfolio_interactions": "bundle_scope_checked"
+  },
+  "replay_backed": true,
+  "errors": []
+}

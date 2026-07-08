@@ -1,0 +1,151 @@
+{
+  "approval_grade": false,
+  "approved_scopes": [],
+  "artifact_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\validation\\approval_grade\\approval_grade_audit_report.json",
+  "audited_scope_count": 1,
+  "blocked_scopes": [
+    "trading_stock_family"
+  ],
+  "checks": [
+    {
+      "errors": [
+        "trading_stock_family"
+      ],
+      "name": "all_selected_scopes_approval_grade",
+      "passed": false
+    }
+  ],
+  "generated_at": "2026-07-07T20:50:43Z",
+  "next_required_actions": [
+    "Promote strategy contracts from shadow_validated to approval_ready only after their deployment, data, parity, and replay evidence passes.",
+    "Persist VPS/live-bot emitted deployment metadata with non-local repo URLs, deployed SHAs, config hashes, telemetry schemas, and contract hashes."
+  ],
+  "schema_version": "approval_grade_audit_v1",
+  "scopes": [
+    {
+      "approval_grade": false,
+      "bridge_ids": [
+        "trading_stock_family"
+      ],
+      "checks": [
+        {
+          "errors": [],
+          "name": "data_reproduction_approval_grade_pass",
+          "passed": true
+        },
+        {
+          "errors": [],
+          "name": "incumbent_replay_approval_grade_pass",
+          "passed": true
+        },
+        {
+          "errors": [],
+          "name": "decision_parity_approval_grade_pass",
+          "passed": true
+        },
+        {
+          "errors": [],
+          "name": "round_reproduction_approval_grade_pass",
+          "passed": true
+        },
+        {
+          "errors": [],
+          "name": "historical_walk_forward_approval_grade_pass",
+          "passed": true
+        },
+        {
+          "errors": [],
+          "name": "trading_stock_family:formal_decision_parity_passed",
+          "passed": true
+        },
+        {
+          "errors": [
+            "bridge maturity is shadow_validated; approval_ready=False"
+          ],
+          "name": "trading_stock_family:contract_maturity_approval_ready",
+          "passed": false
+        },
+        {
+          "errors": [],
+          "name": "trading_stock_family:source_checkout_clean",
+          "passed": false
+        },
+        {
+          "errors": [
+            "metadata_source must be one of live_bot_runtime_deployment_metadata_v1, vps_live_bot_runtime_deployment_metadata_v1",
+            "emission_environment must be one of live_bot, paper_vps, production_vps, vps",
+            "metadata_source contains non-approval token(s): local, shadow, snapshot",
+            "deployment metadata missing live-emission fields: emitted_at_utc, live_runtime_started_at_utc, runtime_entrypoint, runtime_instance_id, runtime_host_fingerprint, source_control_origin, source_control_commit_sha",
+            "source_control_worktree_clean must be true",
+            "source_control_origin/repo_url must not be local://"
+          ],
+          "name": "trading_stock_family:deployment_metadata_live_emitted",
+          "passed": false
+        },
+        {
+          "errors": [
+            "repo_url is local/shadow-only: 'local://trading/ibkr_trader'"
+          ],
+          "name": "trading_stock_family:deployment_repo_url_not_local_shadow",
+          "passed": false
+        },
+        {
+          "errors": [],
+          "name": "trading_stock_family:deployment_sha_matches_contract",
+          "passed": true
+        },
+        {
+          "errors": [],
+          "name": "trading_stock_family:deployment_contract_hash_matches",
+          "passed": true
+        },
+        {
+          "errors": [],
+          "name": "trading_stock_family:deployment_config_hash_present",
+          "passed": true
+        },
+        {
+          "errors": [
+            "deployment metadata missing required telemetry schema(s): trading_stock_family_state_v1"
+          ],
+          "name": "trading_stock_family:deployment_telemetry_schema_matches_contract",
+          "passed": false
+        },
+        {
+          "errors": [],
+          "name": "trading_stock_family:optimizer_p6_true_fold_scoring_complete",
+          "passed": true
+        },
+        {
+          "errors": [],
+          "name": "trading_stock_family:optimizer_p7_repair_confirmatory_round_complete",
+          "passed": true
+        }
+      ],
+      "optimizer_approval_readiness": {
+        "checks": [
+          {
+            "errors": [],
+            "name": "trading_stock_family:optimizer_p6_true_fold_scoring_complete",
+            "passed": true
+          },
+          {
+            "errors": [],
+            "name": "trading_stock_family:optimizer_p7_repair_confirmatory_round_complete",
+            "passed": true
+          }
+        ],
+        "ready": true
+      },
+      "portfolio_id": "stock",
+      "repo_id": "trading",
+      "scope_id": "trading_stock_family",
+      "strategies": [
+        "IARIC_v1",
+        "ALCB_v1"
+      ]
+    }
+  ],
+  "source_reports_refreshed": true,
+  "structural_candidates_approval_ready": false
+}

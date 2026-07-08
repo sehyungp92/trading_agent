@@ -6,7 +6,7 @@
   "decision_api_version": "crypto_trader_trend_decision_api_v1",
   "generated_at": "2026-05-31T00:00:00Z",
   "live_repo_commit_sha": "3c6441d81d8ab1fab379a3234399b747e847abda",
-  "live_repo_path": "bots/crypto_trader",
+  "live_repo_path": "trading/crypto_trader",
   "maturity": "shadow_validated",
   "parity_fixture_set": [
     "parity_fixtures/trend_entry_market.json",

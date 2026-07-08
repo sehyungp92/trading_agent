@@ -212,12 +212,12 @@ def _configured_events_for_scope(scope: dict[str, Any]) -> set[str]:
     paths: list[tuple[Path, str]] = []
     if bot_id == "crypto":
         paths.append((
-            ROOT / "bots" / "crypto_trader" / "src" / "crypto_trader" / "instrumentation" / "sidecar.py",
+            ROOT / "trading" / "crypto_trader" / "src" / "crypto_trader" / "instrumentation" / "sidecar.py",
             "_EVENT_FILE_MAP",
         ))
     elif bot_id == "k_stock":
         paths.append((
-            ROOT / "bots" / "k_stock_trader" / "instrumentation" / "src" / "event_contract.py",
+            ROOT / "trading" / "k_stock_trader" / "instrumentation" / "src" / "event_contract.py",
             "EVENT_DIRS",
         ))
     elif bot_id == "ibkr":
@@ -228,7 +228,7 @@ def _configured_events_for_scope(scope: dict[str, Any]) -> set[str]:
             family = "swing"
         paths.append((
             ROOT
-            / "bots"
+            / "trading"
             / "ibkr_trading"
             / "strategies"
             / family

@@ -249,7 +249,8 @@ def _write_optimizer_run_manifest(root: Path, manifest: MonthlyRunManifest) -> N
     contract_hashes = _hash_path_map(contract_paths)
     deployment_hashes = _hash_path_map(deployment_paths)
     approval_mode = str(getattr(manifest.approval_mode, "value", manifest.approval_mode) or "")
-    approval_grade = approval_mode not in {"", "none"}
+    approval_evidence_mode = bool(getattr(manifest, "approval_evidence_mode", False))
+    approval_grade = approval_mode not in {"", "none"} or approval_evidence_mode
     scope_id = _fixture_scope_id(manifest)
     (root / "optimizer_run_manifest.json").write_text(json.dumps({
         "schema_version": "optimizer_approval_run_manifest_v1",
@@ -271,6 +272,7 @@ def _write_optimizer_run_manifest(root: Path, manifest: MonthlyRunManifest) -> N
         "run_mode": manifest.mode.value,
         "optimizer_mode": "approval_grade" if approval_grade else "shadow_validation",
         "approval_mode": approval_mode or "none",
+        "approval_evidence_mode": approval_evidence_mode,
         "approval_grade_optimizer_run": approval_grade,
         "smoke_mode": not approval_grade,
         "artifact_root": str(root),

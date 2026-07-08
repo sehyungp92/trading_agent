@@ -1,0 +1,8 @@
+{
+  "schema_version": "accepted_mutation_chain_v1",
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "bot_id": "trading",
+  "strategy_id": "trading_stock_family",
+  "accepted_mutations": [],
+  "source_paths": []
+}

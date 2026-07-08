@@ -60,5 +60,5 @@
   "run_id": "decision-parity-week1-shadow-k_stock_olr_kalcb",
   "strategy_plugin_id": "k-stock-olr-kalcb",
   "summary_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\week1_probe2\\k_stock_olr_kalcb\\decision_parity\\decision_parity_validation_summary.json",
-  "validated_live_repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader"
+  "validated_live_repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader"
 }

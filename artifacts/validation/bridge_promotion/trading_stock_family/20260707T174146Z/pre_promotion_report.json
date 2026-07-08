@@ -1,0 +1,58 @@
+{
+  "approval_evidence_path": "..\\..\\artifacts\\validation\\approval_evidence\\trading_stock_family\\approval_evidence_bundle.json",
+  "checks": [
+    {
+      "errors": [
+        "approval evidence bundle missing or malformed"
+      ],
+      "name": "approval_evidence_schema",
+      "passed": false
+    },
+    {
+      "errors": [
+        "approval evidence scope does not match trading_stock_family"
+      ],
+      "name": "approval_evidence_scope",
+      "passed": false
+    },
+    {
+      "errors": [
+        "bundle is not eligible"
+      ],
+      "name": "approval_evidence_eligible",
+      "passed": false
+    },
+    {
+      "errors": [],
+      "name": "contract_present",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "contract_source_maturity",
+      "passed": true
+    },
+    {
+      "errors": [
+        "approval evidence bundle has no evidence_hashes"
+      ],
+      "name": "evidence_hashes_match",
+      "passed": false
+    },
+    {
+      "errors": [
+        "approval evidence bundle does not hash the strategy plugin contract"
+      ],
+      "name": "contract_hash_bound_to_approval_evidence",
+      "passed": false
+    }
+  ],
+  "contract_hash_before": "feec4e326885ef4e3608507f76058cb7ce2ca033f72fc07b5144e12538da8a21",
+  "contract_path": "contracts/strategy_plugins/trading_stock_family/strategy_plugin_contract.json",
+  "dry_run": true,
+  "eligible": false,
+  "generated_at": "2026-07-07T17:41:46Z",
+  "schema_version": "bridge_pre_promotion_report_v1",
+  "scope_id": "trading_stock_family",
+  "write_requested": false
+}

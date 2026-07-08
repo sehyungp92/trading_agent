@@ -96,6 +96,37 @@ class TestAppConfig:
         assert config.is_production is True
         assert config.direct_ingest_only is True
 
+    def test_from_env_reads_monthly_approval_scope_evidence_fields(self, monkeypatch):
+        monkeypatch.setenv("MONTHLY_APPROVAL_SCOPE_ALLOWLIST", "trading_stock_family")
+        monkeypatch.setenv(
+            "MONTHLY_APPROVAL_SCOPE_MAP",
+            "ibkr:trading_stock_family,crypto=crypto_trader_portfolio",
+        )
+        monkeypatch.setenv(
+            "MONTHLY_DEPLOYMENT_METADATA_INSTALL_REPORTS",
+            "reports/ibkr.json,reports/crypto.json",
+        )
+        monkeypatch.setenv("MONTHLY_OPERATIONAL_EVIDENCE_PATH", "deployments/ops.json")
+        monkeypatch.setenv("MONTHLY_RELAY_INGEST_EVIDENCE_PATH", "artifacts/relay.json")
+        monkeypatch.setenv("MONTHLY_VPS_HOST_ID", "ibkr-vps")
+        monkeypatch.setenv("MONTHLY_ASSISTANT_HOST_ID", "assistant-local")
+
+        config = AppConfig.from_env()
+
+        assert config.monthly_approval_scope_allowlist == ["trading_stock_family"]
+        assert config.monthly_approval_scope_map == {
+            "ibkr": "trading_stock_family",
+            "crypto": "crypto_trader_portfolio",
+        }
+        assert config.monthly_deployment_metadata_install_report_paths == [
+            "reports/ibkr.json",
+            "reports/crypto.json",
+        ]
+        assert config.monthly_operational_evidence_path == "deployments/ops.json"
+        assert config.monthly_relay_ingest_evidence_path == "artifacts/relay.json"
+        assert config.monthly_vps_host_id == "ibkr-vps"
+        assert config.monthly_assistant_host_id == "assistant-local"
+
     def test_direct_construction(self):
         config = AppConfig(bot_ids=["a", "b"], relay_url="http://test")
         assert config.bot_ids == ["a", "b"]

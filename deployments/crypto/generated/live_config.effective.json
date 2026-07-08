@@ -1,7 +1,7 @@
 {
   "bot_id": "crypto",
-  "effective_config_hash": "d4eb5fb00a9b21ddb47e9053626d1fcd9b818ef3771c58eecc493c02c098220b",
-  "generated_at": "2026-07-06T21:24:42.514137Z",
+  "effective_config_hash": "be87deab8226d8bae464029f4c62cd39087a508f299288a0fb944cdce613c600",
+  "generated_at": "2026-07-08T15:12:12.661676Z",
   "materialized_config": {
     "bot_id": "crypto",
     "live_config": {
@@ -2418,25 +2418,25 @@
   "source_files": [
     {
       "canonical_json_sha256": "4961844b7b75b44538d1114ac260df2edfbede109747279f394c9548bb9620d2",
-      "path": "bots/crypto_trader/config/live_config.example.json",
+      "path": "trading/crypto_trader/config/live_config.example.json",
       "role": "crypto_live_config",
       "sha256": "6bcb15425c473dadf0fb15fafd68836fbc0b47204d5b637e79a3e8678127e323"
     },
     {
       "canonical_json_sha256": "6bc50cfb7f0b73de691c3e3a134268a64c49d882280d05ac3c7579b15e203bda",
-      "path": "bots/crypto_trader/config/strategies/breakout.json",
+      "path": "trading/crypto_trader/config/strategies/breakout.json",
       "role": "crypto_strategy_breakout",
       "sha256": "ce03056a60408f3d20c8bcd115dad6ec33c4d2ef29ae2dfe549526e74729cb8e"
     },
     {
       "canonical_json_sha256": "035d95cdadea393550839ee4c10cf7873df08b19005f303eb35b9921267b7690",
-      "path": "bots/crypto_trader/config/strategies/momentum.json",
+      "path": "trading/crypto_trader/config/strategies/momentum.json",
       "role": "crypto_strategy_momentum",
       "sha256": "654768582f51f3c004251d57b7af70df1346c27ac2f7fd7c60079a280bb0fceb"
     },
     {
       "canonical_json_sha256": "c50870d05177d96c6b2dcbe63a54049e228c7b52f9e784b03f7e9ee920089388",
-      "path": "bots/crypto_trader/config/strategies/trend.json",
+      "path": "trading/crypto_trader/config/strategies/trend.json",
       "role": "crypto_strategy_trend",
       "sha256": "ebad6cd20c78f0abe0f451fb39d78f238d1ddf354f9134452a9be628fe120934"
     }

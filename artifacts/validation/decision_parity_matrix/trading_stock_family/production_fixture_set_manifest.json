@@ -1,0 +1,176 @@
+{
+  "artifact_path": "artifacts/validation/decision_parity_matrix/trading_stock_family/production_fixture_set_manifest.json",
+  "artifact_root": "artifacts/validation/decision_parity_matrix/trading_stock_family",
+  "blockers": [
+    "missing case class: live_shadow_telemetry_source"
+  ],
+  "bridge_id": "trading_stock_family",
+  "case_classes": [
+    "accepted_entry",
+    "blocked_no_trade",
+    "exit_close",
+    "order_fill",
+    "risk_portfolio_denial"
+  ],
+  "cases": [
+    {
+      "case_class": "accepted_entry",
+      "evidence_paths": [
+        "trading/ibkr_trader/tests/fixtures/parity/layer2/iaric_entry_fill.json",
+        "trading/ibkr_trader/tests/fixtures/parity/layer3/stock_family_collision.json"
+      ]
+    },
+    {
+      "case_class": "blocked_no_trade",
+      "evidence_paths": [
+        "trading/ibkr_trader/tests/fixtures/parity/layer3/stock_family_collision.json"
+      ]
+    },
+    {
+      "case_class": "exit_close",
+      "evidence_paths": [
+        "artifacts/validation/decision_parity_matrix/trading_stock_family/decision_parity/decision_parity_report.json"
+      ]
+    },
+    {
+      "case_class": "order_fill",
+      "evidence_paths": [
+        "trading/ibkr_trader/tests/fixtures/parity/layer2/iaric_entry_fill.json",
+        "trading/ibkr_trader/tests/fixtures/parity/layer3/stock_family_collision.json"
+      ]
+    },
+    {
+      "case_class": "risk_portfolio_denial",
+      "evidence_paths": [
+        "trading/ibkr_trader/tests/fixtures/parity/layer3/stock_family_collision.json"
+      ]
+    }
+  ],
+  "generated_at": "2026-07-07T21:55:32Z",
+  "missing_case_classes": [
+    "live_shadow_telemetry_source"
+  ],
+  "ok": false,
+  "required_case_classes": {
+    "accepted_entry": [
+      "accepted_entry",
+      "accepted_trade_entry",
+      "entry_accept"
+    ],
+    "blocked_no_trade": [
+      "blocked_no_trade",
+      "blocked_trade",
+      "no_trade_blocked"
+    ],
+    "exit_close": [
+      "close",
+      "exit_close",
+      "position_exit"
+    ],
+    "live_shadow_telemetry_source": [
+      "live_shadow_telemetry_source",
+      "live_telemetry",
+      "runtime_telemetry",
+      "shadow_telemetry"
+    ],
+    "order_fill_or_explicit_non_fill": [
+      "explicit_non_fill",
+      "fill",
+      "non_fill",
+      "order_fill",
+      "order_fill_or_explicit_non_fill"
+    ],
+    "risk_portfolio_denial": [
+      "portfolio_collision",
+      "portfolio_denial",
+      "risk_denial",
+      "risk_portfolio_denial"
+    ]
+  },
+  "schema_version": "production_fixture_set_manifest_v1",
+  "source_kind": "production_derived_pending_live_shadow_telemetry",
+  "source_records": [
+    {
+      "case_classes": [],
+      "exists": true,
+      "name": "learning_sufficiency_manifest",
+      "notes": [
+        "eligibility=insufficient_data"
+      ],
+      "path": "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_stock_family/learning_sufficiency_manifest.json",
+      "sha256": "104442b24a821c65936154f8153aab90bd6a3326525e8f85ccfe924794acd430",
+      "source_kind": "learning_sufficiency_manifest"
+    },
+    {
+      "case_classes": [],
+      "exists": true,
+      "name": "runtime_evidence_support",
+      "path": "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_stock_family/runtime_evidence_support.json",
+      "sha256": "78e036b7d8c0a425cf63ae131d255ef866ca396fa39074057a9a3e9c39a7e04b",
+      "source_kind": "runtime_support_contract"
+    },
+    {
+      "case_classes": [],
+      "exists": true,
+      "name": "telemetry_manifest",
+      "notes": [
+        "total_events=0",
+        "no_runtime_events"
+      ],
+      "path": "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_stock_family/telemetry_manifest.json",
+      "sha256": "93181c8730b71de0519804ece0d9e3235325f227f1325516e3a5d3436abe765d",
+      "source_kind": "telemetry_manifest"
+    },
+    {
+      "case_classes": [],
+      "exists": true,
+      "name": "ptg7_fixture_window",
+      "path": "artifacts/learning_sufficiency/ptg7_pilot/production_derived_fixture_window.json",
+      "sha256": "8aeb2fe7c706c0061b9608a6068498e7b0e659ea23d0735d8c2bd3cb3e99147e",
+      "source_kind": "production_context"
+    },
+    {
+      "case_classes": [
+        "exit_close"
+      ],
+      "exists": true,
+      "name": "decision_parity_report",
+      "path": "artifacts/validation/decision_parity_matrix/trading_stock_family/decision_parity/decision_parity_report.json",
+      "sha256": "7d36e85a5b9405b58693a3eb98404be347f1cfa00e3bc1bc3ef9e60eb8c59610",
+      "source_kind": "decision_parity_report"
+    },
+    {
+      "case_classes": [],
+      "exists": true,
+      "name": "decision_parity_validation_summary",
+      "path": "artifacts/validation/decision_parity_matrix/trading_stock_family/decision_parity/decision_parity_validation_summary.json",
+      "sha256": "4120975383220326a21d6321e2f285cae1b44447d290cf1a269375f5ba032420",
+      "source_kind": "decision_parity_summary"
+    },
+    {
+      "case_classes": [
+        "accepted_entry",
+        "order_fill"
+      ],
+      "exists": true,
+      "name": "iaric_entry_fill",
+      "path": "trading/ibkr_trader/tests/fixtures/parity/layer2/iaric_entry_fill.json",
+      "sha256": "a56bd77f484543c445ed827ec5c5b7613e1cc89bc2ebbb41d1cb0f17bc905cd8",
+      "source_kind": "parity_fixture"
+    },
+    {
+      "case_classes": [
+        "accepted_entry",
+        "blocked_no_trade",
+        "order_fill",
+        "risk_portfolio_denial"
+      ],
+      "exists": true,
+      "name": "stock_family_collision",
+      "path": "trading/ibkr_trader/tests/fixtures/parity/layer3/stock_family_collision.json",
+      "sha256": "612921a726c2ac4d6c1ddfdfa0c33c8f64299cbf4ff9ddc5501966b3c0c4e29a",
+      "source_kind": "parity_fixture"
+    }
+  ],
+  "status": "blocked"
+}

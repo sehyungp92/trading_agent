@@ -43,13 +43,13 @@ def test_deployment_package_excludes_runtime_data_by_default():
         "packages/trading_assistant_data/data/raw/ticks.parquet"
     )
     assert checks._is_deployment_package_excluded(
-        "bots/crypto_trader/output/portfolio/rounds_manifest.json"
+        "trading/crypto_trader/output/portfolio/rounds_manifest.json"
     )
     assert checks._is_deployment_package_excluded(
-        "bots/k_stock_trader/data/backtests/output/kalcb/rounds_manifest.json"
+        "trading/k_stock_trader/data/backtests/output/kalcb/rounds_manifest.json"
     )
     assert checks._is_deployment_package_excluded(
-        "bots/new_bot/data/backtests/output/latest/artifact.json"
+        "trading/new_bot/data/backtests/output/latest/artifact.json"
     )
     assert not checks._is_deployment_package_excluded(
         "packages/trading_assistant/src/trading_assistant/orchestrator/app.py"

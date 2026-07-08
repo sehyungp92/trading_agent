@@ -82,7 +82,7 @@ INVARIANT_COMMANDS = {
             "tests/integration/parity/test_oms_restart_parity.py",
             "-q",
         ],
-        "cwd": ROOT / "bots" / "ibkr_trading",
+        "cwd": ROOT / "trading" / "ibkr_trader",
     },
     "crypto": {
         "command": [
@@ -102,7 +102,7 @@ INVARIANT_COMMANDS = {
             "tests/test_diagnostics.py",
             "-q",
         ],
-        "cwd": ROOT / "bots" / "crypto_trader",
+        "cwd": ROOT / "trading" / "crypto_trader",
     },
     "k_stock": {
         "command": [
@@ -112,49 +112,49 @@ INVARIANT_COMMANDS = {
             "tests/backtests/strategies/test_kalcb_runner.py",
             "-q",
         ],
-        "cwd": ROOT / "bots" / "k_stock_trader",
+        "cwd": ROOT / "trading" / "k_stock_trader",
     },
 }
 INVARIANT_EVIDENCE = {
     "completed_bar_policy": (
-        ("ibkr", "bots/ibkr_trading/tests/integration/parity/test_live_shadow_layer2.py"),
-        ("crypto", "bots/crypto_trader/tests/parity/test_shadow_replay.py"),
-        ("k_stock", "bots/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"),
+        ("ibkr", "trading/ibkr_trader/tests/integration/parity/test_live_shadow_layer2.py"),
+        ("crypto", "trading/crypto_trader/tests/parity/test_shadow_replay.py"),
+        ("k_stock", "trading/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"),
     ),
     "next_bar_fill": (
-        ("ibkr", "bots/ibkr_trading/tests/integration/parity/test_live_shadow_layer2.py"),
-        ("crypto", "bots/crypto_trader/tests/live/test_fill_routing.py"),
-        ("k_stock", "bots/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"),
+        ("ibkr", "trading/ibkr_trader/tests/integration/parity/test_live_shadow_layer2.py"),
+        ("crypto", "trading/crypto_trader/tests/live/test_fill_routing.py"),
+        ("k_stock", "trading/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"),
     ),
     "broker_path": (
-        ("ibkr", "bots/ibkr_trading/tests/integration/parity/test_oms_restart_parity.py"),
-        ("crypto", "bots/crypto_trader/tests/live/test_broker.py"),
-        ("k_stock", "bots/k_stock_trader/deployment/olr_kalcb/replay.py"),
+        ("ibkr", "trading/ibkr_trader/tests/integration/parity/test_oms_restart_parity.py"),
+        ("crypto", "trading/crypto_trader/tests/live/test_broker.py"),
+        ("k_stock", "trading/k_stock_trader/deployment/olr_kalcb/replay.py"),
     ),
     "mtm_risk": (
-        ("ibkr", "bots/ibkr_trading/tests/unit/test_momentum_portfolio_synergy_live_parity.py"),
-        ("crypto", "bots/crypto_trader/tests/parity/test_trade_outcome_accounting.py"),
-        ("crypto", "bots/crypto_trader/tests/test_metrics.py"),
+        ("ibkr", "trading/ibkr_trader/tests/unit/test_momentum_portfolio_synergy_live_parity.py"),
+        ("crypto", "trading/crypto_trader/tests/parity/test_trade_outcome_accounting.py"),
+        ("crypto", "trading/crypto_trader/tests/test_metrics.py"),
     ),
     "net_gross_accounting": (
-        ("ibkr", "bots/ibkr_trading/tests/unit/test_parity_normalizers.py"),
-        ("crypto", "bots/crypto_trader/tests/test_backtest_runner.py"),
-        ("crypto", "bots/crypto_trader/tests/test_metrics.py"),
+        ("ibkr", "trading/ibkr_trader/tests/unit/test_parity_normalizers.py"),
+        ("crypto", "trading/crypto_trader/tests/test_backtest_runner.py"),
+        ("crypto", "trading/crypto_trader/tests/test_metrics.py"),
     ),
     "shared_capital_portfolio": (
-        ("ibkr", "bots/ibkr_trading/tests/integration/parity/test_live_shadow_families.py"),
-        ("crypto", "bots/crypto_trader/tests/portfolio/test_backtest_runner.py"),
-        ("ibkr", "bots/ibkr_trading/tests/unit/test_swing_portfolio_synergy_live_parity.py"),
+        ("ibkr", "trading/ibkr_trader/tests/integration/parity/test_live_shadow_families.py"),
+        ("crypto", "trading/crypto_trader/tests/portfolio/test_backtest_runner.py"),
+        ("ibkr", "trading/ibkr_trader/tests/unit/test_swing_portfolio_synergy_live_parity.py"),
     ),
     "diagnostics": (
-        ("ibkr", "bots/ibkr_trading/tests/unit/test_parity_fixtures.py"),
-        ("crypto", "bots/crypto_trader/tests/test_diagnostics.py"),
-        ("k_stock", "bots/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"),
+        ("ibkr", "trading/ibkr_trader/tests/unit/test_parity_fixtures.py"),
+        ("crypto", "trading/crypto_trader/tests/test_diagnostics.py"),
+        ("k_stock", "trading/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"),
     ),
     "timestamp_hygiene": (
-        ("ibkr", "bots/ibkr_trading/tests/unit/test_parity_normalizers.py"),
-        ("crypto", "bots/crypto_trader/tests/parity/test_execution_adapters.py"),
-        ("k_stock", "bots/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"),
+        ("ibkr", "trading/ibkr_trader/tests/unit/test_parity_normalizers.py"),
+        ("crypto", "trading/crypto_trader/tests/parity/test_execution_adapters.py"),
+        ("k_stock", "trading/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"),
     ),
     "artifact_hygiene": (
         ("ibkr", "backtests/baselines/baseline_index.json"),
@@ -162,9 +162,9 @@ INVARIANT_EVIDENCE = {
         ("k_stock", "artifacts/validation/decision_parity_matrix/k_stock_olr_kalcb/decision_parity/decision_parity_report.json"),
     ),
     "stress_gates": (
-        ("ibkr", "bots/ibkr_trading/tests/integration/parity/test_live_shadow_families.py"),
-        ("crypto", "bots/crypto_trader/tests/live/test_entry_fill_protection.py"),
-        ("k_stock", "bots/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"),
+        ("ibkr", "trading/ibkr_trader/tests/integration/parity/test_live_shadow_families.py"),
+        ("crypto", "trading/crypto_trader/tests/live/test_entry_fill_protection.py"),
+        ("k_stock", "trading/k_stock_trader/tests/backtests/strategies/test_kalcb_runner.py"),
     ),
 }
 

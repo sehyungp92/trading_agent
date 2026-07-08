@@ -175,7 +175,7 @@ def _required_telemetry_schema_versions(contract: dict[str, Any]) -> list[str]:
 
 def _emitter(bot: str) -> str:
     return {
-        "ibkr": "bots.ibkr_trading.libs.instrumentation.deployment_metadata.build_deployment_metadata",
+        "ibkr": "bots.ibkr_trader.libs.instrumentation.deployment_metadata.build_deployment_metadata",
         "crypto": "bots.crypto_trader.src.crypto_trader.live.engine.LiveEngine._emit_deployment_metadata_artifacts",
         "k_stock": "bots.k_stock_trader.deployment.olr_kalcb.deployment_metadata.emit_deployment_metadata",
     }[bot]

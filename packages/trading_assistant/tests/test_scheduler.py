@@ -9,7 +9,7 @@ class TestSchedulerConfig:
         config = SchedulerConfig()
         assert config.monitoring_interval_minutes == 60
         assert config.worker_interval_seconds == 60
-        assert config.relay_poll_interval_seconds == 300
+        assert config.relay_poll_interval_seconds == 60
 
     def test_custom_config(self):
         config = SchedulerConfig(

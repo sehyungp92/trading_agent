@@ -85,6 +85,19 @@ def _parse_csv(raw: str) -> list[str]:
     return [item.strip() for item in raw.split(",") if item.strip()] if raw else []
 
 
+def _parse_key_value_csv(raw: str) -> dict[str, str]:
+    values: dict[str, str] = {}
+    for item in _parse_csv(raw):
+        separator = "=" if "=" in item else ":"
+        if separator not in item:
+            logger.warning("Ignoring malformed key/value config entry: %r", item)
+            continue
+        key, value = (part.strip() for part in item.split(separator, 1))
+        if key and value:
+            values[key] = value
+    return values
+
+
 def _parse_bot_timezones(raw: str, bot_ids: list[str]) -> dict[str, BotConfig]:
     """Parse BOT_TIMEZONES env var into BotConfig dict.
 
@@ -194,6 +207,13 @@ class AppConfig(BaseModel):
     backtest_artifact_root: str = ""
     monthly_validation_enabled: bool = False
     monthly_validation_mode: Literal["disabled", "shadow", "approval_gated"] = "disabled"
+    monthly_approval_scope_allowlist: list[str] = []
+    monthly_approval_scope_map: dict[str, str] = {}
+    monthly_deployment_metadata_install_report_paths: list[str] = []
+    monthly_operational_evidence_path: str = ""
+    monthly_relay_ingest_evidence_path: str = ""
+    monthly_vps_host_id: str = ""
+    monthly_assistant_host_id: str = "local"
     monthly_validation_day_of_month: int = 2
     monthly_validation_hour: int = 3
     monthly_validation_minute: int = 0
@@ -324,6 +344,19 @@ class AppConfig(BaseModel):
             backtest_artifact_root=env.get("BACKTEST_ARTIFACT_ROOT", ""),
             monthly_validation_enabled=_parse_bool(env.get("MONTHLY_VALIDATION_ENABLED", "false")),
             monthly_validation_mode=env.get("MONTHLY_VALIDATION_MODE", "disabled"),
+            monthly_approval_scope_allowlist=_parse_csv(
+                env.get("MONTHLY_APPROVAL_SCOPE_ALLOWLIST", ""),
+            ),
+            monthly_approval_scope_map=_parse_key_value_csv(
+                env.get("MONTHLY_APPROVAL_SCOPE_MAP", ""),
+            ),
+            monthly_deployment_metadata_install_report_paths=_parse_csv(
+                env.get("MONTHLY_DEPLOYMENT_METADATA_INSTALL_REPORTS", ""),
+            ),
+            monthly_operational_evidence_path=env.get("MONTHLY_OPERATIONAL_EVIDENCE_PATH", ""),
+            monthly_relay_ingest_evidence_path=env.get("MONTHLY_RELAY_INGEST_EVIDENCE_PATH", ""),
+            monthly_vps_host_id=env.get("MONTHLY_VPS_HOST_ID", ""),
+            monthly_assistant_host_id=env.get("MONTHLY_ASSISTANT_HOST_ID", "local"),
             monthly_validation_day_of_month=int(env.get("MONTHLY_VALIDATION_DAY_OF_MONTH", "2")),
             monthly_validation_hour=int(env.get("MONTHLY_VALIDATION_HOUR", "3")),
             monthly_validation_minute=int(env.get("MONTHLY_VALIDATION_MINUTE", "0")),

@@ -1,0 +1,19 @@
+{
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "bot_id": "trading",
+  "strategy_id": "trading_stock_family",
+  "run_month": "2026-05",
+  "trade_count_live": 1,
+  "trade_count_replay": 1,
+  "entry_match_rate": 1.0,
+  "exit_match_rate": 1.0,
+  "side_quantity_match_rate": 1.0,
+  "status": "pass",
+  "replay_backed": true,
+  "parity_source": "accepted_live_config_replay_vs_backtest_replay",
+  "trade_hash_live": "b9611fb17b3756ea1b26789505e64f6edc569b7917b52828a610be88f66f1100",
+  "trade_hash_replay": "b9611fb17b3756ea1b26789505e64f6edc569b7917b52828a610be88f66f1100",
+  "order_hash_live": "4cbb331dae29aaadb94f03b50ae63f16eedd64d2f183b056c1ef2b4401b57439",
+  "order_hash_replay": "4cbb331dae29aaadb94f03b50ae63f16eedd64d2f183b056c1ef2b4401b57439",
+  "notes": "Accepted live-shadow config replayed against authoritative bundle."
+}

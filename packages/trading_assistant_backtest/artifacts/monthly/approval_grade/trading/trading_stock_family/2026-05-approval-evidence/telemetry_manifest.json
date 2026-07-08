@@ -1,0 +1,10 @@
+{
+  "generated_at": "2026-07-07T15:40:58Z",
+  "required_telemetry_schemas": [
+    "trading_live_shadow_contract_v1",
+    "trading_stock_family_state_v1"
+  ],
+  "schema_version": "telemetry_manifest_v1",
+  "scope_id": "trading_stock_family",
+  "source_kind": "approval_evidence_shadow_replay"
+}

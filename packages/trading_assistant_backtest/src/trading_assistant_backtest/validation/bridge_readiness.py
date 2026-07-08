@@ -15,12 +15,12 @@ from trading_assistant_backtest.contract_models import (
     DecisionParityStatus,
     StrategyPluginMaturity,
 )
+from trading_assistant_backtest.paths import monorepo_root, package_root, resolve_workspace_path
 from trading_assistant_backtest.strategies.contracts import load_strategy_plugin_contract
 from trading_assistant_backtest.strategies.live_clone import (
     LiveRepoCheckoutSpec,
     LiveRepoCloneManager,
 )
-from trading_assistant_backtest.paths import monorepo_root, package_root, resolve_workspace_path
 
 CRYPTO_CONTRACT = Path(
     "contracts/strategy_plugins/crypto_trend_v1/strategy_plugin_contract.json"
@@ -383,11 +383,12 @@ def _crypto_bridge(
         maturity = contract.maturity.value
         approval_ready = contract.eligible_for_approval
         eligible_for_optimizer = contract.eligible_for_optimizer
-        if contract.maturity != StrategyPluginMaturity.SHADOW_VALIDATED:
+        if contract.maturity not in {
+            StrategyPluginMaturity.SHADOW_VALIDATED,
+            StrategyPluginMaturity.APPROVAL_READY,
+        }:
             evidence_errors.append(f"crypto contract maturity is {contract.maturity.value}")
-        if approval_ready:
-            evidence_errors.append("crypto contract is unexpectedly approval-ready")
-        else:
+        if not approval_ready:
             approval_blockers.append("plugin_maturity_is_shadow_validated_not_approval_ready")
 
     repo_path = _source_repo_path(
@@ -396,7 +397,7 @@ def _crypto_bridge(
         contract=contract,
         contract_path=contract_path,
         agent_root=agent_root,
-        fallback=agent_root / "bots" / "crypto_trader",
+        fallback=agent_root / "trading" / "crypto_trader",
     )
 
     return {
@@ -479,11 +480,12 @@ def _formal_shadow_bridge(
         maturity = contract.maturity.value
         eligible_for_optimizer = contract.eligible_for_optimizer
         approval_ready = contract.eligible_for_approval
-        if contract.maturity != StrategyPluginMaturity.SHADOW_VALIDATED:
+        if contract.maturity not in {
+            StrategyPluginMaturity.SHADOW_VALIDATED,
+            StrategyPluginMaturity.APPROVAL_READY,
+        }:
             errors.append(f"contract maturity is {contract.maturity.value}")
-        if approval_ready:
-            errors.append("contract is unexpectedly approval-ready")
-        else:
+        if not approval_ready:
             approval_blockers.append("plugin_maturity_is_shadow_validated_not_approval_ready")
         errors.extend(_git_errors_for_maturity(git_state, contract.maturity))
 
@@ -620,8 +622,8 @@ def _source_repo_path(
 
 def _fallback_repo_path(agent_root: Path, repo_id: str) -> Path:
     if repo_id == "trading":
-        return agent_root / "bots" / "ibkr_trading"
-    return agent_root / "bots" / repo_id
+        return agent_root / "trading" / "ibkr_trader"
+    return agent_root / "trading" / repo_id
 
 
 def _clone_source(repo_url: str, *, agent_root: Path) -> str:

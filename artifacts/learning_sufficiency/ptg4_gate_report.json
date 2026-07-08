@@ -196,7 +196,7 @@
           "wrong_scope_generic_record_rejected": true
         },
         "failures": [],
-        "fixture_source": "bots/ibkr_trading/libs/instrumentation/event_contract.py"
+        "fixture_source": "trading/ibkr_trader/libs/instrumentation/event_contract.py"
       },
       "name": "bot_side_runtime_event_lineage_fixtures",
       "passed": true

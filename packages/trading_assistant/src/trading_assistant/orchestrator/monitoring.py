@@ -55,6 +55,7 @@ class MonitoringCheck:
         relay_timeout: float = 10.0,
         relay_disk_threshold_bytes: int = 500_000_000,
         bot_silence_threshold_seconds: int = 21600,
+        relay_pending_age_threshold_seconds: float = 1800.0,
         latency_p95_threshold_seconds: float = 1800.0,
         latency_tracker=None,
         _relay_client_factory: Callable[[], Any] | None = None,
@@ -71,6 +72,7 @@ class MonitoringCheck:
         self._relay_timeout = relay_timeout
         self._relay_disk_threshold = relay_disk_threshold_bytes
         self._bot_silence_threshold = bot_silence_threshold_seconds
+        self._relay_pending_age_threshold = relay_pending_age_threshold_seconds
         self._latency_p95_threshold = latency_p95_threshold_seconds
         self._latency_tracker = latency_tracker
         self._relay_client_factory = _relay_client_factory
@@ -278,6 +280,17 @@ class MonitoringCheck:
                 severity=AlertSeverity.HIGH,
                 source="relay_health",
                 message=f"Relay DB size {mb:.0f} MB exceeds threshold",
+            ))
+
+        if health.oldest_pending_age_seconds > self._relay_pending_age_threshold:
+            alerts.append(Alert(
+                severity=AlertSeverity.HIGH,
+                source="relay_health",
+                message=(
+                    "Relay oldest pending event age is "
+                    f"{health.oldest_pending_age_seconds:.0f}s "
+                    f"with {health.pending_events} pending event(s)"
+                ),
             ))
 
         # Per-bot silence

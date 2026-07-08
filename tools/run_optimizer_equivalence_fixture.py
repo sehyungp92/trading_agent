@@ -30,9 +30,9 @@ SCOPES = {
     "k_stock_olr_kalcb": "k_stock",
 }
 BOT_PATHS = {
-    "ibkr": ROOT / "bots" / "ibkr_trading",
-    "crypto": ROOT / "bots" / "crypto_trader" / "src",
-    "k_stock": ROOT / "bots" / "k_stock_trader",
+    "ibkr": ROOT / "trading" / "ibkr_trader",
+    "crypto": ROOT / "trading" / "crypto_trader" / "src",
+    "k_stock": ROOT / "trading" / "k_stock_trader",
 }
 EVIDENCE_ROOT = ROOT / "artifacts" / "validation" / "optimizer_compatibility"
 DIMENSIONS = (

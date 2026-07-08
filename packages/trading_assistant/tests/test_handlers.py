@@ -208,6 +208,78 @@ class TestMonthlyValidation:
         assert [event.data["stage"] for event in progress_events] == ["started", "completed"]
 
     @pytest.mark.asyncio
+    async def test_approval_gated_monthly_validation_is_scope_allowlisted(
+        self,
+        tmp_path: Path,
+        mock_agent_runner,
+        event_stream: EventStream,
+        mock_dispatcher,
+        monkeypatch,
+    ):
+        captured = []
+
+        class FakeMonthlyValidationOrchestrator:
+            def __init__(self, **_kwargs):
+                pass
+
+            def run(self, request):
+                captured.append(request)
+
+                class Result:
+                    run_month = request.run_month
+                    status = SimpleNamespace(value="watch")
+                    approval_ready_candidate_count = 0
+                    approval_request_ids: list[str] = []
+
+                    def model_dump(self, mode="json"):
+                        return {"run_month": self.run_month, "status": self.status.value}
+
+                return Result()
+
+        import trading_assistant.skills.monthly_validation_orchestrator as monthly_module
+
+        monkeypatch.setattr(
+            monthly_module,
+            "MonthlyValidationOrchestrator",
+            FakeMonthlyValidationOrchestrator,
+        )
+        handlers = Handlers(
+            agent_runner=mock_agent_runner,
+            event_stream=event_stream,
+            dispatcher=mock_dispatcher,
+            notification_prefs=NotificationPreferences(),
+            curated_dir=tmp_path / "curated",
+            memory_dir=tmp_path / "memory",
+            runs_dir=tmp_path / "runs",
+            source_root=tmp_path,
+            bots=["bot1"],
+            monthly_validation_mode="approval_gated",
+            monthly_approval_scope_allowlist=["trading_stock_family"],
+        )
+
+        for scope_id in ("trading_stock_family", "trading_momentum_family"):
+            await handlers.handle_monthly_validation(_make_action(
+                ActionType.SPAWN_MONTHLY_VALIDATION,
+                details={
+                    "bot_id": "bot1",
+                    "strategy_id": scope_id,
+                    "approval_scope": scope_id,
+                    "run_month": "2026-04",
+                    "shadow": False,
+                    "approval_evidence_mode": True,
+                },
+            ))
+
+        assert [request.strategy_id for request in captured] == [
+            "trading_stock_family",
+            "trading_momentum_family",
+        ]
+        assert captured[0].shadow is False
+        assert captured[0].approval_evidence_mode is True
+        assert captured[1].shadow is True
+        assert captured[1].approval_evidence_mode is False
+
+    @pytest.mark.asyncio
     async def test_handler_indexes_completed_monthly_artifacts_when_later_strategy_fails(
         self,
         tmp_path: Path,

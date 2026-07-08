@@ -304,7 +304,7 @@ def _write_runtime_lineage_evidence(evidence_root: Path, inventory_path: Path) -
         manifest["generation_status"] = "blocked"
         manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         return manifest_path
-    bot_root = ROOT / "bots" / "ibkr_trading"
+    bot_root = ROOT / "trading" / "ibkr_trader"
     if str(bot_root) not in sys.path:
         sys.path.insert(0, str(bot_root))
     try:
@@ -481,7 +481,7 @@ def _check_production_like_runtime_lineage_evidence(manifest_path: Path) -> dict
 
 
 def _check_bot_side_fixture_lineage() -> dict[str, Any]:
-    bot_root = ROOT / "bots" / "ibkr_trading"
+    bot_root = ROOT / "trading" / "ibkr_trader"
     if str(bot_root) not in sys.path:
         sys.path.insert(0, str(bot_root))
     try:
@@ -546,7 +546,7 @@ def _check_bot_side_fixture_lineage() -> dict[str, Any]:
     if not wrong_scope_rejected:
         failures.append("generic assistant lineage record without bot_id and strategy_id was accepted")
     return _check("bot_side_runtime_event_lineage_fixtures", not failures, {
-        "fixture_source": "bots/ibkr_trading/libs/instrumentation/event_contract.py",
+        "fixture_source": "trading/ibkr_trader/libs/instrumentation/event_contract.py",
         "event_classes": details,
         "failures": failures,
     })

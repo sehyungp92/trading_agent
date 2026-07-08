@@ -1,7 +1,7 @@
 {
   "bot_id": "ibkr",
-  "effective_config_hash": "ebe47c92380ca88a403ba297f8a37b804d2731d78cbfd985495556950d88f75d",
-  "generated_at": "2026-07-03T01:39:57.477454Z",
+  "effective_config_hash": "7d7cf3c6df87a0359fe6411e9e067d149fd4fcb706ac3b308919778a4c78621d",
+  "generated_at": "2026-07-08T15:12:12.280784Z",
   "materialized_config": {
     "bot_id": "ibkr",
     "connection_groups": {
@@ -20,6 +20,99 @@
       "environment_deployment_overlay",
       "environment_secrets_uncommitted"
     ],
+    "portfolio": {
+      "capital": {
+        "allocation_check_equity": 100000.0,
+        "family_allocations": {
+          "momentum": 0.3333333333333333,
+          "stock": 0.3333333333333333,
+          "swing": 0.3333333333333333
+        },
+        "paper_initial_equity": 30000.0,
+        "strategy_allocations": {}
+      },
+      "coordination": {
+        "chop_throttle": {
+          "enabled": false,
+          "score_threshold": 2,
+          "size_mult": 0.7,
+          "strategy": "NQDTC_v2.1"
+        },
+        "cooldown_pairs": [],
+        "direction_filter": {
+          "agree_mult": 1.25,
+          "observer": "VdubusNQ_v4",
+          "oppose_mult": 0.5,
+          "reference": "NQDTC_v2.1"
+        },
+        "directional_cap_R": 4.25,
+        "signals": [
+          {
+            "condition": "SAME_SYMBOL",
+            "target": {
+              "action": "TIGHTEN_STOP_BE",
+              "strategy": "AKC_HELIX"
+            },
+            "trigger": {
+              "event": "ENTRY_FILL",
+              "strategy": "ATRSS"
+            }
+          },
+          {
+            "condition": "SAME_SYMBOL_SAME_DIRECTION",
+            "params": {
+              "size_mult": 1.25
+            },
+            "target": {
+              "action": "SIZE_BOOST",
+              "strategy": "AKC_HELIX"
+            },
+            "trigger": {
+              "event": "POSITION_OPEN",
+              "strategy": "ATRSS"
+            }
+          }
+        ]
+      },
+      "drawdown_tiers": [
+        [
+          0.08,
+          1.0
+        ],
+        [
+          0.12,
+          0.5
+        ],
+        [
+          0.15,
+          0.25
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "risk": {
+        "account_urd_dollars": 200.0,
+        "global_standdown": false,
+        "heat_cap_R": 2.5,
+        "portfolio_daily_stop_R": 3.0,
+        "portfolio_weekly_stop_R": 5.0
+      }
+    },
+    "runtime_config_contract": {
+      "hash_verified_before": [
+        "database",
+        "ib_gateway",
+        "coordinator_start"
+      ],
+      "mounted_effective_config_path": "/app/deployments/ibkr/generated/strategies.effective.json",
+      "required_source_roles": [
+        "ibkr_strategies",
+        "ibkr_portfolio"
+      ],
+      "schema_version": "ibkr_runtime_config_contract.v1"
+    },
     "schema_version": "materialized_effective_config.v1",
     "strategies": [
       {
@@ -1996,7 +2089,7 @@
       }
     ]
   },
-  "materialized_config_hash": "245f2d8e2717586642d3c203a38bfe3ad21099a1b2a7eb78c9422468fd9f022c",
+  "materialized_config_hash": "85bcba37b3ba429511f377a2c50a2200b6017ab2fd205b783fe210ac58893bf0",
   "merge_order": [
     "strategy_defaults",
     "latest_optimized_config",
@@ -2007,80 +2100,80 @@
   "notes": [],
   "promotion_manifests": [
     {
-      "canonical_json_sha256": "af379beebec725de976e335841f891f0a9be1b6a8581ad6bba1d6ee48d0780dd",
+      "canonical_json_sha256": "9dface4e27ed9f2819e6f9e077fa350ec1bad025b66c571606a08ae58eb798ac",
       "path": "contracts/promotions/ibkr/AKC_HELIX.json",
       "promotion_state": "approved",
-      "sha256": "39d3858d5a643f8089fe52aaefd1686b3cde8bad9b43d81166264affee72e21f",
+      "sha256": "9a441cb53ddeebe619ed95a970fef613281f3c60f7091d538d438701194bc692",
       "strategy_id": "AKC_HELIX"
     },
     {
-      "canonical_json_sha256": "7d35bb12d1d0630359dbde80e883ef1fc0854baefeff530472187b152e66ea75",
+      "canonical_json_sha256": "7f5d1a3d3a7d56ddc8c42b0ff22c5ba64da719591ed846b1e35402cea7936f4c",
       "path": "contracts/promotions/ibkr/ALCB_v1.json",
       "promotion_state": "approved",
-      "sha256": "aa6b3becdc7bf5105e0d47683fa5af11a44c7569a0e668a055241803f48919f1",
+      "sha256": "aa3201b61f2576e7232db6bbfeb42cdb127ea9ddd5c81ecc1f71578eac663064",
       "strategy_id": "ALCB_v1"
     },
     {
-      "canonical_json_sha256": "57f19083936ca65061bef0bde7019618d9c61539a063aaa74a79d1c7f4b54d57",
+      "canonical_json_sha256": "97c00967591d456698baccdfe5369acf60019019988802b5833d4e43bffa4770",
       "path": "contracts/promotions/ibkr/ATRSS.json",
       "promotion_state": "approved",
-      "sha256": "285265a202d9dd6353db200c1e658013f96769a836733e12c80abc6a5b4c6960",
+      "sha256": "a44fcfdd5c6f0f796bfc12bd89ea6e97de7849fc286e8a547ab079a8f266d5ed",
       "strategy_id": "ATRSS"
     },
     {
-      "canonical_json_sha256": "5cd927185d6886a3f0463b8e86159e4cba762d194e60e19b2209a69c9eda8042",
+      "canonical_json_sha256": "e88f45544abb56658890e7471142b526d60f527d897807966942df748fe7d879",
       "path": "contracts/promotions/ibkr/DownturnDominator_v1.json",
       "promotion_state": "approved",
-      "sha256": "31d80da289dad89fe28c3e7a00271237061ca52ddb3b2e878632f6c014a74c18",
+      "sha256": "7e6baa5dd6a99a32b922be6e3e15cd6cd9adea0ec1c1b3e3493824ea5928f5b8",
       "strategy_id": "DownturnDominator_v1"
     },
     {
-      "canonical_json_sha256": "0c0f9e6c72b1502d03acb95441d2b4615c6c46db8ebc151798244e58f0df0134",
+      "canonical_json_sha256": "82510e0c66da74882b75825073c766af92f3f5a843feeaaaa96ce891eacaacbb",
       "path": "contracts/promotions/ibkr/IARIC_v1.json",
       "promotion_state": "approved",
-      "sha256": "f3dbaabd91706f6c584d1a93900d0aec1addcf684070ebe66b1a625dbe4ee8f0",
+      "sha256": "7b62aace832e60433108528f28200ff3f49ea46b4f9fd0daa1cbfdefab3a3b25",
       "strategy_id": "IARIC_v1"
     },
     {
-      "canonical_json_sha256": "af09f51a407c57c959513e2b8ee3c9449cd5a177b124b13aee66a00d76fcb9f6",
+      "canonical_json_sha256": "176a945f028ff9b0c399c3b529fafba61bff10b21727bc1d53836d978c65c287",
       "path": "contracts/promotions/ibkr/NQ_REGIME.json",
       "promotion_state": "approved",
-      "sha256": "7860c145d34cb38d39d6ad7e890584153fdf96724e24736d23a9ed8cf64ab025",
+      "sha256": "bdb2ad1c49afed64d1845f4e120a992c3b95c40bf754ab02ecb164638bebdea4",
       "strategy_id": "NQ_REGIME"
     },
     {
-      "canonical_json_sha256": "4b1e8b7e794aa4bec6f9f9443c9a37d046ebb2dd82e7c5163dfaa2bf7c6dd529",
+      "canonical_json_sha256": "a9bf4edc20b4c48aefc5230f6139a927c53a0059d51360663e146fbcdf2fad49",
       "path": "contracts/promotions/ibkr/NQDTC_v2.1.json",
       "promotion_state": "approved",
-      "sha256": "294c33d61685093368cd2f1c1dc8a0d422eb6548d433a48da991826cff6d326d",
+      "sha256": "194ba36567c9466f1390086b446a508715816ef55067d3c1f21b78d6432b3657",
       "strategy_id": "NQDTC_v2.1"
     },
     {
-      "canonical_json_sha256": "263d82085ad1a57c52ccc1f17ab865def15ed0594f65bc62fe4df7ecf0e8bfe5",
+      "canonical_json_sha256": "10d72ca81980c99d16cdb3aaaf009cd532827286eea46531f5212207578e40a8",
       "path": "contracts/promotions/ibkr/SCALP_IVB_AUCTION.json",
       "promotion_state": "disabled",
-      "sha256": "4a896d51b74c392904698bf369ffec2c3abcc598043474a653655cade219f84c",
+      "sha256": "802fa3a1f5fd93a7f33b6d1a4153e356859607733e1b6f768eac83fe86ed6543",
       "strategy_id": "SCALP_IVB_AUCTION"
     },
     {
-      "canonical_json_sha256": "cf33cf5c40785187596111c2a455b831a97c16607b13c2e1b61041420a4a5bcd",
+      "canonical_json_sha256": "9e5ee5aaa4062d928cb00cd8033634b31e0895539314cff4963098975411598a",
       "path": "contracts/promotions/ibkr/SCALP_PO3_REVERSAL.json",
       "promotion_state": "disabled",
-      "sha256": "83e5773dd24eff4365d7fae22b45833c4e9a0e29b516c4505c62d4ece2b02705",
+      "sha256": "bafb10952e00cdca4bea49bd08706882b3dd42781ae3f349e5c2cee12807e211",
       "strategy_id": "SCALP_PO3_REVERSAL"
     },
     {
-      "canonical_json_sha256": "5178594891129416dd75414b4f7992c3000a9aa278bbeb2fbd9ff098eab76caa",
+      "canonical_json_sha256": "744ed6621c6f1314d453237ae22836cb6b0234d4b5d84e00c9e3b022f53ea754",
       "path": "contracts/promotions/ibkr/TPC.json",
       "promotion_state": "approved",
-      "sha256": "bb6642a6d0a55c203936278303ba52ab06df7b500656bf5fbe01ed502fdbdda0",
+      "sha256": "6d184a5dcb692a3ca76904cacc5290ae3d01b0324e6bcd5fa254506ef7a6109f",
       "strategy_id": "TPC"
     },
     {
-      "canonical_json_sha256": "4283d6a6737f4a6d02e3643578e270024a83beeb0c321b801a55f643d3c537d8",
+      "canonical_json_sha256": "ffdacd65e5ab035e51af148ce614306c85ceb97683c9f55f9e16e4bfde5acd21",
       "path": "contracts/promotions/ibkr/VdubusNQ_v4.json",
       "promotion_state": "approved",
-      "sha256": "ae118cbf2794e08f81c89e8034c69db0da255247a58d29c09a62c91d8163951d",
+      "sha256": "58a26d8f3d8a2332305ccc4e7d33a57982968ff2d2fed03994643ea9fab5b12e",
       "strategy_id": "VdubusNQ_v4"
     }
   ],
@@ -2088,9 +2181,15 @@
   "source_files": [
     {
       "canonical_json_sha256": "",
-      "path": "bots/ibkr_trading/config/strategies.yaml",
+      "path": "trading/ibkr_trader/config/strategies.yaml",
       "role": "ibkr_strategies",
       "sha256": "12e8b04198925c6f3438f700edd0cdcdd59fd8bc5cd4a25d962a45e3f6806c2d"
+    },
+    {
+      "canonical_json_sha256": "",
+      "path": "trading/ibkr_trader/config/portfolio.yaml",
+      "role": "ibkr_portfolio",
+      "sha256": "2ceaf7a2c9ea06e077e0b665734be9749a0b0eef937336947d8db68587d058ab"
     }
   ]
 }

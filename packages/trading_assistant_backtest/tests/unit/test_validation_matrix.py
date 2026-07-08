@@ -6,15 +6,16 @@ import pytest
 
 from trading_assistant_backtest.validation.validation_matrix import (
     _approval_grade_validation_complete,
+    _bridge_artifact_path,
     _historical_walk_forward_leakage_ok,
     run_validation_matrix_audit,
 )
 from tests.paths import MONOREPO_ROOT, package_workspace
 
 AGENT_ROOT = MONOREPO_ROOT
-TRADING_REPO = AGENT_ROOT / "bots" / "ibkr_trading"
-K_STOCK_REPO = AGENT_ROOT / "bots" / "k_stock_trader"
-CRYPTO_REPO = AGENT_ROOT / "bots" / "crypto_trader"
+TRADING_REPO = AGENT_ROOT / "trading" / "ibkr_trader"
+K_STOCK_REPO = AGENT_ROOT / "trading" / "k_stock_trader"
+CRYPTO_REPO = AGENT_ROOT / "trading" / "crypto_trader"
 DATA_REPO = package_workspace("trading_assistant_data")
 
 
@@ -156,6 +157,51 @@ def test_validation_matrix_approval_ready_requires_optimizer_p6_p7() -> None:
 
     scope["optimizer_approval_readiness"]["ready"] = True
     assert _approval_grade_validation_complete([scope]) is True
+
+
+def test_validation_matrix_prefers_root_deployment_metadata_for_optimizer_context(
+    tmp_path: Path,
+) -> None:
+    agent_root = tmp_path / "repo"
+    root_contract = (
+        agent_root
+        / "contracts"
+        / "strategy_plugins"
+        / "trading_stock_family"
+        / "strategy_plugin_contract.json"
+    )
+    root_metadata = root_contract.with_name("deployment_metadata.json")
+    package_metadata = (
+        agent_root
+        / "packages"
+        / "trading_assistant_backtest"
+        / "contracts"
+        / "trading_stock_family"
+        / "deployment_metadata.json"
+    )
+    root_contract.parent.mkdir(parents=True)
+    package_metadata.parent.mkdir(parents=True)
+    root_contract.write_text("{}", encoding="utf-8")
+    root_metadata.write_text('{"source":"root"}', encoding="utf-8")
+    package_metadata.write_text('{"source":"package-fixture"}', encoding="utf-8")
+
+    selected = _bridge_artifact_path(
+        "trading_stock_family",
+        {
+            "evidence": [
+                {
+                    "relative_path": (
+                        "contracts/strategy_plugins/trading_stock_family/"
+                        "strategy_plugin_contract.json"
+                    )
+                }
+            ]
+        },
+        agent_root=agent_root,
+        artifact_name="deployment_metadata.json",
+    )
+
+    assert selected == root_metadata
 
 
 def test_validation_matrix_rejects_historical_report_with_failed_leakage_checks(

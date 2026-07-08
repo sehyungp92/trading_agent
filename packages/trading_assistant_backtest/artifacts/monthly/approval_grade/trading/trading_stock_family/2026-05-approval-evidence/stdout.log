@@ -1,0 +1,4 @@
+run_id=monthly-trading-stock-family-2026-05-approval-evidence
+mode=phased_auto
+artifact_root=C:\Users\sehyu\Documents\Other\Projects\trading_agent\packages\trading_assistant_backtest\artifacts\monthly\approval_grade\trading\trading_stock_family\2026-05-approval-evidence
+exit_code=0

@@ -140,6 +140,7 @@ class CoreHandlerSupport:
                 proposal_ledger=self._proposal_ledger,
                 approval_tracker=self._approval_tracker,
                 monthly_validation_mode=self._monthly_validation_mode,
+                monthly_approval_scope_allowlist=self._monthly_approval_scope_allowlist,
                 monthly_optimizer_sequence_enabled=self._monthly_optimizer_sequence_enabled,
                 monthly_backtest_command=list(self._monthly_backtest_command or []),
                 monthly_workflow_contract_path=self._monthly_workflow_contract_path,

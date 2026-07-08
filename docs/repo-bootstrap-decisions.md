@@ -40,7 +40,7 @@ needed by the acceptance matrix; historical source snapshots are not runtime, te
 - Live-image Python target: Python 3.12.
 - Package-local Python 3.11 compatibility may remain only where existing package metadata already
   declares it, especially crypto and assistant-backtest.
-- Root workspace members are declared as `packages/*` and `bots/*`.
+- Root workspace members are declared as `packages/*` and `trading/*`.
 - Historical source snapshots are excluded from the `uv` workspace and from committed runtime,
   test, verification, deployment, and documentation paths.
 

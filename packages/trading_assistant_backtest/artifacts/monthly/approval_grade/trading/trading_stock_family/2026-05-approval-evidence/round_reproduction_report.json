@@ -1,0 +1,40 @@
+{
+  "schema_version": "round_reproduction_report_v1",
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "scope_id": "trading_stock_family",
+  "status": "pass",
+  "round_id": "2026-05-round-0",
+  "prior_round_id": "2026-04-round-0",
+  "next_round_id": "",
+  "adopted_candidate_id": "",
+  "no_adoption_reason": "replay-backed evaluation score=0.59987566; baseline=0.59987566; delta=0.00000000; shadow_validated replay evidence retained; candidate adoption remains disabled; replay-backed evaluation score=0.52831220; baseline=0.52831220; delta=0.00000000; candidate failed purged two-fold in-sample support; candidate adoption remains disabled until bridge approval-readiness passes; two-fold in-sample replay score=0.56409393; baseline=0.56409393; delta=0.00000000",
+  "candidate_ids": [
+    "signal_quality-filter_repair-1",
+    "signal_quality-trade_management-2"
+  ],
+  "candidate_count": 2,
+  "baseline_score": 0.7502663895878636,
+  "checks": [
+    {
+      "name": "baseline_replay_frozen",
+      "status": "pass",
+      "details": "frozen baseline was written after replay-backed incumbent evaluation"
+    },
+    {
+      "name": "candidate_decisions_reproducible",
+      "status": "pass",
+      "details": "candidate ids and adoption/no-adoption decision are deterministic"
+    },
+    {
+      "name": "round_lineage_complete",
+      "status": "pass",
+      "details": "round, prior round, objective, and data checksums are retained"
+    }
+  ],
+  "evidence_paths": [
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\frozen_baseline.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\rounds_manifest.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\confirmatory_rerank.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_backtest\\artifacts\\monthly\\approval_grade\\trading\\trading_stock_family\\2026-05-approval-evidence\\candidate_results.jsonl"
+  ]
+}

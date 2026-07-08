@@ -1,0 +1,8 @@
+{
+  "schema_version": "round_n_plus_1_recommendation_v1",
+  "run_id": "monthly-trading-stock-family-2026-05-approval-evidence",
+  "status": "no_adoption",
+  "adopted_candidate_id": "",
+  "no_adoption_reason": "replay-backed evaluation score=0.59987566; baseline=0.59987566; delta=0.00000000; shadow_validated replay evidence retained; candidate adoption remains disabled; replay-backed evaluation score=0.52831220; baseline=0.52831220; delta=0.00000000; candidate failed purged two-fold in-sample support; candidate adoption remains disabled until bridge approval-readiness passes; two-fold in-sample replay score=0.56409393; baseline=0.56409393; delta=0.00000000",
+  "live_deployment_status": "not_requested"
+}

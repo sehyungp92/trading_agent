@@ -12,8 +12,8 @@
       "mismatch_count": 0,
       "notes": "live_events=2; adapter_events=2",
       "evidence_paths": [
-        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
-        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
       ]
     },
     {
@@ -23,8 +23,8 @@
       "mismatch_count": 0,
       "notes": "live_events=2; adapter_events=2",
       "evidence_paths": [
-        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
-        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
       ]
     },
     {
@@ -34,8 +34,8 @@
       "mismatch_count": 0,
       "notes": "live_events=2; adapter_events=2",
       "evidence_paths": [
-        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
-        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
       ]
     },
     {
@@ -45,8 +45,8 @@
       "mismatch_count": 0,
       "notes": "live_events=2; adapter_events=2",
       "evidence_paths": [
-        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
-        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
       ]
     },
     {
@@ -56,8 +56,8 @@
       "mismatch_count": 0,
       "notes": "live_events=2; adapter_events=2",
       "evidence_paths": [
-        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
-        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
       ]
     },
     {
@@ -67,8 +67,8 @@
       "mismatch_count": 0,
       "notes": "live_events=2; adapter_events=2",
       "evidence_paths": [
-        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
-        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
       ]
     },
     {
@@ -78,8 +78,8 @@
       "mismatch_count": 0,
       "notes": "live_events=2; adapter_events=2",
       "evidence_paths": [
-        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
-        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
       ]
     },
     {
@@ -89,16 +89,16 @@
       "mismatch_count": 0,
       "notes": "live_events=2; adapter_events=2",
       "evidence_paths": [
-        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
-        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
       ]
     }
   ],
   "status": "pass",
   "min_required_match_rate": 1.0,
   "evidence_paths": [
-    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
-    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\kalcb\\manifest.json",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader\\tests\\fixtures\\live_replay_parity\\olr\\manifest.json"
   ],
   "report_version": "decision_parity_report_v1",
   "generated_at": "2026-07-03T12:27:19.008032Z"

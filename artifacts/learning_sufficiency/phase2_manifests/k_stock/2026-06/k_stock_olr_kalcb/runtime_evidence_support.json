@@ -191,6 +191,6 @@
   "schema_version": "runtime_evidence_support_v1",
   "strategy_id": "k_stock_olr_kalcb",
   "support_source_paths": [
-    "bots/k_stock_trader/instrumentation/src/event_contract.py"
+    "trading/k_stock_trader/instrumentation/src/event_contract.py"
   ]
 }

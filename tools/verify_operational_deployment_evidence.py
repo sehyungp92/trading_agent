@@ -1,12 +1,20 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+import sys
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
 from migration_support import ROOT, file_sha256, read_json
+
+CONTRACTS_SRC = ROOT / "packages" / "trading_contracts" / "src"
+if str(CONTRACTS_SRC) not in sys.path:
+    sys.path.insert(0, str(CONTRACTS_SRC))
+
+from trading_contracts.relay_evidence import validate_relay_ingest_evidence  # noqa: E402
 
 
 BOT_BRIDGES = {
@@ -21,6 +29,11 @@ BOT_BRIDGES = {
         "crypto_breakout_v1",
     },
     "k_stock": {"k_stock_olr_kalcb"},
+}
+RELAY_BOT_IDS = {
+    "ibkr": {"ibkr", "swing_multi_01", "stock_trader", "momentum_nq_01"},
+    "crypto": {"crypto", "paper_bot_01"},
+    "k_stock": {"k_stock", "k_stock_trader"},
 }
 
 
@@ -98,9 +111,13 @@ def _record_errors(
     running_commit = str(record.get("running_commit_sha") or "")
     if running_commit != reviewed_commit:
         errors.append(f"{bot}: running_commit_sha must match reviewed_commit_sha")
+    metadata_refs = _deployment_metadata_refs(record.get("deployment_metadata"))
     errors.extend(_vps_deployment_errors(bot, record.get("vps_deployment"), plan_record))
-    errors.extend(_boolean_section_errors(bot, "sidecar_forwarding", record.get("sidecar_forwarding")))
-    errors.extend(_assistant_ingest_errors(bot, record.get("assistant_ingest")))
+    sidecar_forwarding = record.get("sidecar_forwarding")
+    errors.extend(_boolean_section_errors(bot, "sidecar_forwarding", sidecar_forwarding))
+    if bot == "crypto":
+        errors.extend(_crypto_sidecar_policy_errors(sidecar_forwarding))
+    errors.extend(_assistant_ingest_errors(bot, record.get("assistant_ingest"), metadata_refs))
     errors.extend(_metadata_errors(bot, record.get("deployment_metadata")))
     errors.extend(_monthly_shadow_errors(bot, record.get("monthly_shadow")))
     errors.extend(_rollback_smoke_errors(bot, record.get("rollback_smoke")))
@@ -149,10 +166,65 @@ def _boolean_section_errors(bot: str, section: str, value: Any) -> list[str]:
     return errors
 
 
-def _assistant_ingest_errors(bot: str, value: Any) -> list[str]:
+def _crypto_sidecar_policy_errors(value: Any) -> list[str]:
+    if not isinstance(value, dict):
+        return []
+    policy = value.get("runtime_policy") or value.get("sidecar_runtime_policy")
+    if not isinstance(policy, dict):
+        return ["crypto: sidecar_forwarding.runtime_policy missing"]
+    errors: list[str] = []
+    if not isinstance(policy.get("thresholds"), dict):
+        errors.append("crypto: sidecar_forwarding.runtime_policy.thresholds missing")
+    standdown_required = policy.get("standdown_required") is True or policy.get("ok") is False
+    incident_action = str(policy.get("incident_action") or "").strip()
+    open_position_action = str(policy.get("open_position_action") or "").strip()
+    if standdown_required:
+        if incident_action != "cancel_working_entry_orders":
+            errors.append(
+                "crypto: sidecar_forwarding.runtime_policy.incident_action must be cancel_working_entry_orders"
+            )
+        if open_position_action != "hold_existing_positions":
+            errors.append(
+                "crypto: sidecar_forwarding.runtime_policy.open_position_action must be hold_existing_positions"
+            )
+    else:
+        if not incident_action:
+            errors.append("crypto: sidecar_forwarding.runtime_policy.incident_action missing")
+        if not open_position_action:
+            errors.append("crypto: sidecar_forwarding.runtime_policy.open_position_action missing")
+    return errors
+
+
+def _assistant_ingest_errors(
+    bot: str,
+    value: Any,
+    metadata_refs: dict[str, set[str]],
+) -> list[str]:
     errors = _boolean_section_errors(bot, "assistant_ingest", value)
-    if isinstance(value, dict) and int(value.get("events_ingested") or 0) <= 0:
+    if not isinstance(value, dict):
+        return errors
+    if int(value.get("events_ingested") or 0) <= 0:
         errors.append(f"{bot}: assistant_ingest.events_ingested must be positive")
+    relay_items, relay_errors = _relay_ingest_evidence_items(bot, value)
+    errors.extend(relay_errors)
+    if relay_items and not all(metadata_refs.values()):
+        errors.append(f"{bot}: deployment metadata refs unavailable for relay evidence validation")
+    for index, evidence in enumerate(relay_items):
+        label = "relay_ingest_evidence" if len(relay_items) == 1 else f"relay_ingest_evidence[{index}]"
+        if not isinstance(evidence, dict):
+            errors.append(f"{bot}: assistant_ingest.{label} must be an object")
+            continue
+        expected_bot = _expected_relay_bot_id(bot, evidence)
+        errors.extend(
+            f"{bot}: assistant_ingest.{label}: {error}"
+            for error in validate_relay_ingest_evidence(
+                evidence,
+                expected_bot_id=expected_bot,
+                deployment_ids=metadata_refs["deployment_ids"],
+                runtime_instance_ids=metadata_refs["runtime_instance_ids"],
+                deployment_metadata_hashes=metadata_refs["hashes"],
+            )
+        )
     return errors
 
 
@@ -220,6 +292,87 @@ def _evidence_artifact_errors(bot: str, value: Any) -> list[str]:
         if expected != file_sha256(path):
             errors.append(f"{bot}: evidence artifact hash mismatch: {raw_path}")
     return errors
+
+
+def _relay_ingest_evidence_items(
+    bot: str,
+    value: dict[str, Any],
+) -> tuple[list[Any], list[str]]:
+    items: list[Any] = []
+    errors: list[str] = []
+    raw = value.get("relay_ingest_evidence")
+    if isinstance(raw, list):
+        items.extend(raw)
+    elif raw is not None:
+        items.append(raw)
+
+    raw_paths: list[Any] = []
+    if value.get("relay_ingest_evidence_path"):
+        raw_paths.append(value.get("relay_ingest_evidence_path"))
+    paths = value.get("relay_ingest_evidence_paths")
+    if isinstance(paths, list):
+        raw_paths.extend(paths)
+    for raw_path in raw_paths:
+        path = _resolve_evidence_path(str(raw_path or ""))
+        if path is None or not path.exists() or not path.is_file():
+            errors.append(f"{bot}: assistant_ingest relay evidence path missing: {raw_path}")
+            continue
+        try:
+            payload = read_json(path)
+        except Exception as exc:
+            errors.append(f"{bot}: assistant_ingest relay evidence path malformed: {raw_path}: {exc}")
+            continue
+        if isinstance(payload, list):
+            items.extend(payload)
+        else:
+            items.append(payload)
+    if not items:
+        errors.append(f"{bot}: assistant_ingest.relay_ingest_evidence missing")
+    return items, errors
+
+
+def _deployment_metadata_refs(value: Any) -> dict[str, set[str]]:
+    refs = {"deployment_ids": set(), "runtime_instance_ids": set(), "hashes": set()}
+    if not isinstance(value, dict):
+        return refs
+    reports = value.get("install_report_paths")
+    if not isinstance(reports, list):
+        return refs
+    for raw_report in reports:
+        report_path = _resolve_evidence_path(str(raw_report or ""))
+        if report_path is None or not report_path.exists() or not report_path.is_file():
+            continue
+        try:
+            report = read_json(report_path)
+        except Exception:
+            continue
+        for key in ("metadata_path", "installed_path"):
+            metadata_path = _resolve_evidence_path(str(report.get(key) or ""))
+            if metadata_path is None or not metadata_path.exists() or not metadata_path.is_file():
+                continue
+            try:
+                metadata = read_json(metadata_path)
+            except Exception:
+                continue
+            if metadata.get("deployment_id"):
+                refs["deployment_ids"].add(str(metadata["deployment_id"]))
+            if metadata.get("runtime_instance_id"):
+                refs["runtime_instance_ids"].add(str(metadata["runtime_instance_id"]))
+            refs["hashes"].add(hashlib.sha256(metadata_path.read_bytes()).hexdigest())
+    return refs
+
+
+def _resolve_evidence_path(raw_path: str) -> Path | None:
+    text = str(raw_path or "").strip()
+    if not text:
+        return None
+    path = Path(text)
+    return path if path.is_absolute() else ROOT / path
+
+
+def _expected_relay_bot_id(bot: str, evidence: dict[str, Any]) -> str:
+    evidence_bot = str(evidence.get("bot_id") or "").strip()
+    return evidence_bot if evidence_bot in RELAY_BOT_IDS.get(bot, {bot}) else bot
 
 
 def _is_full_hash(value: str) -> bool:

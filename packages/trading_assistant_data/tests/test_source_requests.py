@@ -185,7 +185,7 @@ def test_trading_stock_requirements_are_explicit_stock_family_allowlist() -> Non
 
 def test_source_requests_read_annotated_stock_universe_primary_exchanges() -> None:
     repo_root = Path(__file__).resolve().parents[1]
-    trading_root = MONOREPO_ROOT / "bots" / "ibkr_trading"
+    trading_root = MONOREPO_ROOT / "trading" / "ibkr_trader"
     if not trading_root.exists():
         pytest.skip("IBKR bot workspace is local-only and not available in CI")
     mapping = source_requests._load_trading_primary_exchange_map(repo_root)
@@ -201,7 +201,7 @@ def test_k_stock_requirements_are_explicit_olr_kalcb_universe_contract() -> None
         repo_root / "data" / "requirements" / "strategies" / "k_stock" / "portfolio.json"
     )
     universe_path = (
-        MONOREPO_ROOT / "bots" / "k_stock_trader" / "config" / "olr_kalcb"
+        MONOREPO_ROOT / "trading" / "k_stock_trader" / "config" / "olr_kalcb"
         / "olr_deployment_universe_103.yaml"
     )
     if not universe_path.exists():

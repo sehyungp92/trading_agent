@@ -18,9 +18,9 @@ INVENTORY_DOC = ROOT / "docs" / "migration_inventory.md"
 STRATEGY_CONTRACTS = ROOT / "contracts" / "strategy_plugins"
 PROMOTION_DRAFTS = ROOT / "contracts" / "promotions" / "draft"
 PORTED_SOURCE_ROOTS = {
-    "crypto_trader": ROOT / "bots" / "crypto_trader",
-    "ibkr_trading": ROOT / "bots" / "ibkr_trading",
-    "k_stock_trader": ROOT / "bots" / "k_stock_trader",
+    "crypto_trader": ROOT / "trading" / "crypto_trader",
+    "ibkr_trading": ROOT / "trading" / "ibkr_trader",
+    "k_stock_trader": ROOT / "trading" / "k_stock_trader",
     "trading_assistant": ROOT / "packages" / "trading_assistant",
     "trading_assistant_backtest": ROOT / "packages" / "trading_assistant_backtest",
     "trading_assistant_data": ROOT / "packages" / "trading_assistant_data",
@@ -227,7 +227,7 @@ def _git_capture(command: list[str]) -> str | None:
 def artifact_roots_inventory() -> list[dict[str, Any]]:
     candidates = [
         ("ibkr_backtest_baselines", BASELINES / "ibkr"),
-        ("ibkr_baseline_fixture", ROOT / "bots" / "ibkr_trading" / "tests" / "fixtures" / "backtest_baselines"),
+        ("ibkr_baseline_fixture", ROOT / "trading" / "ibkr_trader" / "tests" / "fixtures" / "backtest_baselines"),
         ("crypto_backtest_baselines", BASELINES / "crypto"),
         ("k_stock_backtest_baselines", BASELINES / "k_stock"),
         ("assistant_contracts", STRATEGY_CONTRACTS),
@@ -308,7 +308,7 @@ def key_metrics(round_record: dict[str, Any]) -> dict[str, Any]:
 
 
 def parse_ibkr_enabled_strategies() -> dict[str, dict[str, Any]]:
-    path = ROOT / "bots" / "ibkr_trading" / "config" / "strategies.yaml"
+    path = ROOT / "trading" / "ibkr_trader" / "config" / "strategies.yaml"
     if not path.exists():
         return {}
     strategies: dict[str, dict[str, Any]] = {}
@@ -341,7 +341,7 @@ def parse_scalar(value: str) -> Any:
 
 
 def parse_kalcb_alignment(source_root: Path | None = None) -> dict[str, Any]:
-    source = source_root or ROOT / "bots" / "k_stock_trader"
+    source = source_root or ROOT / "trading" / "k_stock_trader"
     live_path = source / "config" / "kalcb.yaml"
     optimizer_path = source / "config" / "optimization" / "kalcb.yaml"
     universe_path = source / "config" / "olr_kalcb" / "olr_deployment_universe_103.yaml"

@@ -199,7 +199,7 @@ jobs:
       - name: Run focused bot lineage emitter tests
         run: >
           uv run --frozen pytest -q -o addopts=
-          bots/ibkr_trading/tests/unit/test_assistant_lineage_runtime_emitters.py
+          trading/ibkr_trader/tests/unit/test_assistant_lineage_runtime_emitters.py
       - name: Verify clean phase manifest generation
         run: >
           uv run --frozen python tools/build_learning_sufficiency_manifests.py

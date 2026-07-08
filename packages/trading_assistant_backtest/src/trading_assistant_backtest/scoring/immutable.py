@@ -980,7 +980,7 @@ SCORE_PROFILES: dict[str, ScoreProfile] = {
         max_drawdown_pct=1.2,
         base_profile_id="k_stock.single",
         overlay_id="kalcb",
-        source_reference="bots/k_stock_trader/backtests/strategies/kalcb/phase_scoring.py",
+        source_reference="trading/k_stock_trader/backtests/strategies/kalcb/phase_scoring.py",
         source_round="source_only_no_output_rounds_in_checkout",
     ),
     "k_stock.olr": _profile(
@@ -1005,7 +1005,7 @@ SCORE_PROFILES: dict[str, ScoreProfile] = {
         max_drawdown_pct=18.0,
         base_profile_id="k_stock.single",
         overlay_id="olr",
-        source_reference="bots/k_stock_trader/backtests/strategies/olr/phase_scoring.py",
+        source_reference="trading/k_stock_trader/backtests/strategies/olr/phase_scoring.py",
         source_round="source_only_no_output_rounds_in_checkout",
     ),
     "k_stock.olr_kalcb": _profile(
@@ -1022,7 +1022,7 @@ SCORE_PROFILES: dict[str, ScoreProfile] = {
             _identity("selection_quality", 0.08, "selection_quality_proxy"),
         ),
         max_drawdown_pct=10.0,
-        source_reference="bots/k_stock_trader/backtests/strategies/kalcb+olr",
+        source_reference="trading/k_stock_trader/backtests/strategies/kalcb+olr",
         source_round="source_only_no_output_rounds_in_checkout",
     ),
     "k_stock.portfolio": _profile(
@@ -1045,7 +1045,7 @@ SCORE_PROFILES: dict[str, ScoreProfile] = {
             _identity("robust_balance", 0.07, "strategy_balance_proxy"),
         ),
         max_drawdown_pct=10.0,
-        source_reference="bots/k_stock_trader/backtests/strategies/portfolio_synergy/phase_scoring.py",
+        source_reference="trading/k_stock_trader/backtests/strategies/portfolio_synergy/phase_scoring.py",
         source_round="source_only_no_output_rounds_in_checkout",
     ),
 }

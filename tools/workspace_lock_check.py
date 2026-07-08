@@ -45,8 +45,8 @@ def main() -> int:
 
     workspace = pyproject.get("tool", {}).get("uv", {}).get("workspace", {})
     members = workspace.get("members", [])
-    if "packages/*" not in members or "bots/*" not in members:
-        print("FAIL tool.uv.workspace - members must include packages/* and bots/*")
+    if "packages/*" not in members or "trading/*" not in members:
+        print("FAIL tool.uv.workspace - members must include packages/* and trading/*")
         return 1
     print(f"PASS tool.uv.workspace - {', '.join(members)}")
 

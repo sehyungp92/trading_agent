@@ -1,0 +1,1301 @@
+{
+  "active_scope_count": 5,
+  "all_validation_tests_runnable_for_all_scopes": true,
+  "approval_grade_validation_complete": false,
+  "approval_remaining_gaps": [
+    {
+      "bridge_ids": [
+        "k_stock_olr_kalcb"
+      ],
+      "details": "The five validation tests pass, but structural candidate approval remains blocked until the live contract is promoted from shadow_validated to approval_ready.",
+      "maturity": "shadow_validated",
+      "reason": "strategy_contract_not_approval_ready",
+      "scope_id": "k_stock_olr_kalcb"
+    },
+    {
+      "checks": [
+        {
+          "errors": [
+            "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+          ],
+          "name": "k_stock_olr_kalcb:optimizer_p6_true_fold_scoring_complete",
+          "passed": false
+        },
+        {
+          "errors": [
+            "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+          ],
+          "name": "k_stock_olr_kalcb:optimizer_p7_repair_confirmatory_round_complete",
+          "passed": false
+        }
+      ],
+      "details": "Structural candidate approval remains blocked until P6/P7 optimizer evidence passes: purged two-fold scoring, post-ranking selection-OOS repair evidence, confirmatory rerank, and round_N+1 recommendation or deterministic no-adoption.",
+      "reason": "optimizer_p6_p7_evidence_not_complete",
+      "scope_id": "k_stock_olr_kalcb"
+    },
+    {
+      "bridge_ids": [
+        "trading_stock_family"
+      ],
+      "details": "The five validation tests pass, but structural candidate approval remains blocked until the live contract is promoted from shadow_validated to approval_ready.",
+      "maturity": "shadow_validated",
+      "reason": "strategy_contract_not_approval_ready",
+      "scope_id": "trading_stock_family"
+    },
+    {
+      "bridge_ids": [
+        "trading_momentum_family"
+      ],
+      "details": "The five validation tests pass, but structural candidate approval remains blocked until the live contract is promoted from shadow_validated to approval_ready.",
+      "maturity": "shadow_validated",
+      "reason": "strategy_contract_not_approval_ready",
+      "scope_id": "trading_momentum_family"
+    },
+    {
+      "checks": [
+        {
+          "errors": [
+            "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+          ],
+          "name": "trading_momentum_family:optimizer_p6_true_fold_scoring_complete",
+          "passed": false
+        },
+        {
+          "errors": [
+            "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+          ],
+          "name": "trading_momentum_family:optimizer_p7_repair_confirmatory_round_complete",
+          "passed": false
+        }
+      ],
+      "details": "Structural candidate approval remains blocked until P6/P7 optimizer evidence passes: purged two-fold scoring, post-ranking selection-OOS repair evidence, confirmatory rerank, and round_N+1 recommendation or deterministic no-adoption.",
+      "reason": "optimizer_p6_p7_evidence_not_complete",
+      "scope_id": "trading_momentum_family"
+    },
+    {
+      "bridge_ids": [
+        "trading_swing_family"
+      ],
+      "details": "The five validation tests pass, but structural candidate approval remains blocked until the live contract is promoted from shadow_validated to approval_ready.",
+      "maturity": "shadow_validated",
+      "reason": "strategy_contract_not_approval_ready",
+      "scope_id": "trading_swing_family"
+    },
+    {
+      "checks": [
+        {
+          "errors": [
+            "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+          ],
+          "name": "trading_swing_family:optimizer_p6_true_fold_scoring_complete",
+          "passed": false
+        },
+        {
+          "errors": [
+            "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+          ],
+          "name": "trading_swing_family:optimizer_p7_repair_confirmatory_round_complete",
+          "passed": false
+        }
+      ],
+      "details": "Structural candidate approval remains blocked until P6/P7 optimizer evidence passes: purged two-fold scoring, post-ranking selection-OOS repair evidence, confirmatory rerank, and round_N+1 recommendation or deterministic no-adoption.",
+      "reason": "optimizer_p6_p7_evidence_not_complete",
+      "scope_id": "trading_swing_family"
+    },
+    {
+      "bridge_ids": [
+        "crypto_trend_v1",
+        "crypto_momentum_v1",
+        "crypto_breakout_v1"
+      ],
+      "details": "The five validation tests pass, but structural candidate approval remains blocked until the live contract is promoted from shadow_validated to approval_ready.",
+      "maturity": "shadow_validated",
+      "reason": "strategy_contract_not_approval_ready",
+      "scope_id": "crypto_trader_portfolio"
+    },
+    {
+      "checks": [
+        {
+          "errors": [
+            "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+          ],
+          "name": "crypto_trader_portfolio:optimizer_p6_true_fold_scoring_complete",
+          "passed": false
+        },
+        {
+          "errors": [
+            "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+          ],
+          "name": "crypto_trader_portfolio:optimizer_p7_repair_confirmatory_round_complete",
+          "passed": false
+        }
+      ],
+      "details": "Structural candidate approval remains blocked until P6/P7 optimizer evidence passes: purged two-fold scoring, post-ranking selection-OOS repair evidence, confirmatory rerank, and round_N+1 recommendation or deterministic no-adoption.",
+      "reason": "optimizer_p6_p7_evidence_not_complete",
+      "scope_id": "crypto_trader_portfolio"
+    }
+  ],
+  "artifact_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\approval_evidence\\trading_stock_family\\source_reports\\validation_matrix\\validation_matrix_report.json",
+  "carried_out_now_or_previously": [
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\data_reproduction\\k_stock_olr_kalcb_portfolio\\data_reproduction_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "k_stock_olr_kalcb",
+      "test": "data_reproduction"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\k_stock_olr_kalcb\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "k_stock_olr_kalcb",
+      "test": "incumbent_replay"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\k_stock_olr_kalcb\\decision_parity\\decision_parity_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "k_stock_olr_kalcb",
+      "test": "decision_parity"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\k_stock_olr_kalcb\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "k_stock_olr_kalcb",
+      "test": "round_reproduction"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\k_stock_olr_kalcb\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "k_stock_olr_kalcb",
+      "test": "historical_walk_forward"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\data_reproduction\\trading_stock_family_portfolio\\data_reproduction_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "trading_stock_family",
+      "test": "data_reproduction"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "trading_stock_family",
+      "test": "incumbent_replay"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\decision_parity\\decision_parity_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "trading_stock_family",
+      "test": "decision_parity"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "trading_stock_family",
+      "test": "round_reproduction"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "trading_stock_family",
+      "test": "historical_walk_forward"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\data_reproduction\\trading_momentum_family_portfolio\\data_reproduction_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "trading_momentum_family",
+      "test": "data_reproduction"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_momentum_family\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "trading_momentum_family",
+      "test": "incumbent_replay"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_momentum_family\\decision_parity\\decision_parity_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "trading_momentum_family",
+      "test": "decision_parity"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_momentum_family\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "trading_momentum_family",
+      "test": "round_reproduction"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_momentum_family\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "trading_momentum_family",
+      "test": "historical_walk_forward"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\data_reproduction\\trading_swing_family_portfolio\\data_reproduction_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "trading_swing_family",
+      "test": "data_reproduction"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_swing_family\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "trading_swing_family",
+      "test": "incumbent_replay"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_swing_family\\decision_parity\\decision_parity_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "trading_swing_family",
+      "test": "decision_parity"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_swing_family\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "trading_swing_family",
+      "test": "round_reproduction"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_swing_family\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "trading_swing_family",
+      "test": "historical_walk_forward"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\data_reproduction\\crypto_portfolio_phased_optimizer\\data_reproduction_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "crypto_trader_portfolio",
+      "test": "data_reproduction"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\crypto_trend_v1\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "crypto_trader_portfolio",
+      "test": "incumbent_replay"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\crypto_trend_v1\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\crypto_momentum_v1\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\crypto_breakout_v1\\decision_parity\\decision_parity_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "crypto_trader_portfolio",
+      "test": "decision_parity"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\crypto_trend_v1\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "crypto_trader_portfolio",
+      "test": "round_reproduction"
+    },
+    {
+      "artifact_paths": [
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\crypto_trend_v1\\decision_parity\\decision_parity_report.json",
+        "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+      ],
+      "result": "pass",
+      "scope_id": "crypto_trader_portfolio",
+      "test": "historical_walk_forward"
+    }
+  ],
+  "excluded_non_rotation_surfaces": [],
+  "generated_at": "2026-07-07T21:56:03Z",
+  "meaningful_remaining_gaps": [],
+  "ok": true,
+  "runnable_validations_passed": true,
+  "scopes": [
+    {
+      "notes": "",
+      "optimizer_approval_readiness": {
+        "checks": [
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "k_stock_olr_kalcb:optimizer_p6_true_fold_scoring_complete",
+            "passed": false
+          },
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "k_stock_olr_kalcb:optimizer_p7_repair_confirmatory_round_complete",
+            "passed": false
+          }
+        ],
+        "ready": false
+      },
+      "optimizer_evidence_context": {
+        "bridge_contract_hashes": {
+          "k_stock_olr_kalcb": "05e468126e83e53291ae918433aee1bae079b221b28dc50075c0f7a4ec335e0e"
+        },
+        "bridge_ids": [
+          "k_stock_olr_kalcb"
+        ],
+        "data_bundle_checksums": [
+          "8bd044804ea3b0fe550d42b68abf3fc35e2ba3f518b222c48caeec8a9824c2d1"
+        ],
+        "deployment_metadata_hashes": {
+          "k_stock_olr_kalcb": "10bcfa4ea5cec1df5e6a9d34e3e61bab6589ebca2c05900a716dd9094c97cfb7"
+        },
+        "run_month": "",
+        "scope_id": "k_stock_olr_kalcb"
+      },
+      "portfolio_id": "olr_kalcb",
+      "repo_id": "k_stock_trader",
+      "scope_id": "k_stock_olr_kalcb",
+      "source_repo_present": true,
+      "strategies": [
+        "OLR",
+        "KALCB"
+      ],
+      "tests": {
+        "data_reproduction": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\data_reproduction\\k_stock_olr_kalcb_portfolio\\data_reproduction_report.json"
+          ],
+          "bundle_checksums": [
+            "8bd044804ea3b0fe550d42b68abf3fc35e2ba3f518b222c48caeec8a9824c2d1"
+          ],
+          "bundle_ids": [
+            "k_stock_olr_kalcb_portfolio"
+          ],
+          "covered_bundle_ids": [
+            "k_stock_olr_kalcb_portfolio"
+          ],
+          "details": "",
+          "full_family_authority": {
+            "artifact_paths": [
+              "backtests/data_portability_manifest.json",
+              "artifacts/validation/backtest_data_portability_report.json",
+              "backtests/baselines/baseline_index.json",
+              "artifacts/validation/decision_parity_matrix/k_stock_olr_kalcb/decision_parity/decision_parity_report.json"
+            ],
+            "authoritative_count": 516,
+            "details": "The authoritative acceptance bundle is the monorepo data portability manifest, frozen baseline, and canonical decision-parity report for this promoted scope.",
+            "missing_requirement_count": 0,
+            "missing_requirement_examples": [],
+            "non_authoritative_count": 0,
+            "non_authoritative_examples": [],
+            "reason": "monorepo_frozen_baseline_and_parity_evidence",
+            "requirement_count": 516,
+            "requirement_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\requirements\\strategies\\k_stock\\portfolio.json",
+            "requirement_scope": {
+              "declared_requirement_count": 516,
+              "declared_symbol_count": 104,
+              "ownership_policy": "explicit_k_stock_olr_kalcb_universe_103_allowlist_v1",
+              "timeframe_counts": {
+                "1d": 103,
+                "1d_daily_flow": 103,
+                "1d_daily_foreign_flow": 103,
+                "1d_daily_institutional_flow": 103,
+                "5m": 103,
+                "static_or_daily": 1
+              }
+            },
+            "selected_slice_count": 516,
+            "slice_index_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\manifests\\slices\\slice_index.json",
+            "status": "pass",
+            "unreadable_manifest_count": 0,
+            "unreadable_manifest_examples": []
+          },
+          "missing_bundle_ids": [],
+          "ran": true,
+          "reason": "authoritative data bundle reproduced",
+          "recomputed_bundle_checksums": [
+            "8bd044804ea3b0fe550d42b68abf3fc35e2ba3f518b222c48caeec8a9824c2d1"
+          ],
+          "result": "pass",
+          "runnable": true,
+          "slice_count": 4
+        },
+        "decision_parity": {
+          "approval_ready": false,
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\k_stock_olr_kalcb\\decision_parity\\decision_parity_report.json"
+          ],
+          "bridge_id": "k_stock_olr_kalcb",
+          "bridge_ids": [
+            "k_stock_olr_kalcb"
+          ],
+          "covered_strategies": [
+            "OLR",
+            "KALCB"
+          ],
+          "details": "The adapter is repeatable and eligible for shadow optimizer flows, but structural candidate approval remains blocked until the live contract is promoted to approval_ready with broader shadow evidence.",
+          "eligible_for_optimizer": true,
+          "maturity": "shadow_validated",
+          "missing_strategies": [],
+          "ran": true,
+          "reason": "formal_decision_parity_passed",
+          "result": "pass",
+          "runnable": true
+        },
+        "historical_walk_forward": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\k_stock_olr_kalcb\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+          ],
+          "ran": true,
+          "reason": "historical_walk_forward_replay_evidence_passed",
+          "result": "pass",
+          "runnable": true
+        },
+        "incumbent_replay": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\k_stock_olr_kalcb\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+          ],
+          "ran": true,
+          "reason": "incumbent_replay_replay_evidence_passed",
+          "result": "pass",
+          "runnable": true
+        },
+        "round_reproduction": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\k_stock_olr_kalcb\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+          ],
+          "ran": true,
+          "reason": "round_reproduction_replay_evidence_passed",
+          "result": "pass",
+          "runnable": true
+        }
+      },
+      "weekly_focus_week": 1
+    },
+    {
+      "notes": "",
+      "optimizer_approval_readiness": {
+        "checks": [
+          {
+            "errors": [],
+            "name": "trading_stock_family:optimizer_p6_true_fold_scoring_complete",
+            "passed": true
+          },
+          {
+            "errors": [],
+            "name": "trading_stock_family:optimizer_p7_repair_confirmatory_round_complete",
+            "passed": true
+          }
+        ],
+        "ready": true
+      },
+      "optimizer_evidence_context": {
+        "bridge_contract_hashes": {
+          "trading_stock_family": "feec4e326885ef4e3608507f76058cb7ce2ca033f72fc07b5144e12538da8a21"
+        },
+        "bridge_ids": [
+          "trading_stock_family"
+        ],
+        "data_bundle_checksums": [
+          "f3819adc86612638415b0dd6b603babaeaa12ab5d37076ccff04bfa23486ca59"
+        ],
+        "deployment_metadata_hashes": {
+          "trading_stock_family": "8f23e10523257c901572690a641b489b4ef1d3c840e1edd6b921a5779380b205"
+        },
+        "run_month": "",
+        "scope_id": "trading_stock_family"
+      },
+      "portfolio_id": "stock",
+      "repo_id": "trading",
+      "scope_id": "trading_stock_family",
+      "source_repo_present": true,
+      "strategies": [
+        "IARIC_v1",
+        "ALCB_v1"
+      ],
+      "tests": {
+        "data_reproduction": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\data_reproduction\\trading_stock_family_portfolio\\data_reproduction_report.json"
+          ],
+          "bundle_checksums": [
+            "f3819adc86612638415b0dd6b603babaeaa12ab5d37076ccff04bfa23486ca59"
+          ],
+          "bundle_ids": [
+            "trading_stock_family_portfolio"
+          ],
+          "covered_bundle_ids": [
+            "trading_stock_family_portfolio"
+          ],
+          "details": "",
+          "full_family_authority": {
+            "artifact_paths": [
+              "backtests/data_portability_manifest.json",
+              "artifacts/validation/backtest_data_portability_report.json",
+              "backtests/baselines/baseline_index.json",
+              "artifacts/validation/decision_parity_matrix/trading_stock_family/decision_parity/decision_parity_report.json"
+            ],
+            "authoritative_count": 611,
+            "details": "The authoritative acceptance bundle is the monorepo data portability manifest, frozen baseline, and canonical decision-parity report for this promoted scope.",
+            "missing_requirement_count": 0,
+            "missing_requirement_examples": [],
+            "non_authoritative_count": 0,
+            "non_authoritative_examples": [],
+            "reason": "monorepo_frozen_baseline_and_parity_evidence",
+            "requirement_count": 611,
+            "requirement_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\requirements\\strategies\\trading_stock\\portfolio.json",
+            "requirement_scope": {
+              "approval_scope": {
+                "approval_note": "611 is the declared slice/evidence count, not the live tradable-symbol count.",
+                "daily_reference_context_requirement_count": 317,
+                "daily_reference_context_symbol_count": 317,
+                "daily_reference_context_timeframes": [
+                  "1d"
+                ],
+                "declared_requirement_count": 611,
+                "live_intraday_requirement_count": 294,
+                "live_intraday_symbol_count": 98,
+                "live_intraday_timeframes": [
+                  "1d",
+                  "5m",
+                  "30m"
+                ],
+                "live_universe_authority": "trading/ibkr_trader/strategies/stock/live_universe.py::LIVE_STOCK_UNIVERSE_SYMBOLS",
+                "scope_id": "trading_stock_family_live_approval_v1"
+              },
+              "archive_evidence_scope": {
+                "legacy_archive_source": "backtests/stock/data/update_intraday.py plain OHLCV parquet cache",
+                "legacy_archive_source_comparison_count": 611,
+                "live_approval_interpretation": "Useful for legacy archive/source parity; live stock approval is scoped to the 98-symbol intraday universe plus declared daily/reference context.",
+                "scope_id": "trading_stock_family_archived_source_parity_v1"
+              },
+              "declared_requirement_count": 611,
+              "declared_symbol_count": 415,
+              "derived_trading_stock_scope": {
+                "daily_reference_context_requirement_count": 317,
+                "daily_reference_context_symbol_count": 317,
+                "excluded_swing_symbols_present": [],
+                "legacy_archive_source_comparison_count": 611,
+                "live_intraday_requirement_count": 294,
+                "live_intraday_symbol_count": 98
+              },
+              "ownership_policy": "explicit_stock_family_allowlist_v1",
+              "timeframe_counts": {
+                "1d": 415,
+                "30m": 98,
+                "5m": 98
+              }
+            },
+            "selected_slice_count": 611,
+            "slice_index_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\manifests\\slices\\slice_index.json",
+            "status": "pass",
+            "unreadable_manifest_count": 0,
+            "unreadable_manifest_examples": []
+          },
+          "missing_bundle_ids": [],
+          "ran": true,
+          "reason": "authoritative data bundle reproduced",
+          "recomputed_bundle_checksums": [
+            "f3819adc86612638415b0dd6b603babaeaa12ab5d37076ccff04bfa23486ca59"
+          ],
+          "result": "pass",
+          "runnable": true,
+          "slice_count": 4
+        },
+        "decision_parity": {
+          "approval_ready": false,
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\decision_parity\\decision_parity_report.json"
+          ],
+          "bridge_id": "trading_stock_family",
+          "bridge_ids": [
+            "trading_stock_family"
+          ],
+          "covered_strategies": [
+            "IARIC_v1",
+            "ALCB_v1"
+          ],
+          "details": "The adapter is repeatable and eligible for shadow optimizer flows, but structural candidate approval remains blocked until the live contract is promoted to approval_ready with broader shadow evidence.",
+          "eligible_for_optimizer": true,
+          "maturity": "shadow_validated",
+          "missing_strategies": [],
+          "ran": true,
+          "reason": "formal_decision_parity_passed",
+          "result": "pass",
+          "runnable": true
+        },
+        "historical_walk_forward": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+          ],
+          "ran": true,
+          "reason": "historical_walk_forward_replay_evidence_passed",
+          "result": "pass",
+          "runnable": true
+        },
+        "incumbent_replay": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+          ],
+          "ran": true,
+          "reason": "incumbent_replay_replay_evidence_passed",
+          "result": "pass",
+          "runnable": true
+        },
+        "round_reproduction": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+          ],
+          "ran": true,
+          "reason": "round_reproduction_replay_evidence_passed",
+          "result": "pass",
+          "runnable": true
+        }
+      },
+      "weekly_focus_week": 1
+    },
+    {
+      "notes": "Only active futures portfolio in the trading repo.",
+      "optimizer_approval_readiness": {
+        "checks": [
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "trading_momentum_family:optimizer_p6_true_fold_scoring_complete",
+            "passed": false
+          },
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "trading_momentum_family:optimizer_p7_repair_confirmatory_round_complete",
+            "passed": false
+          }
+        ],
+        "ready": false
+      },
+      "optimizer_evidence_context": {
+        "bridge_contract_hashes": {
+          "trading_momentum_family": "99f86d8fcd91b9e9ca079aba1bb805a9bd95fb307c1669913b4a9148b562ae01"
+        },
+        "bridge_ids": [
+          "trading_momentum_family"
+        ],
+        "data_bundle_checksums": [
+          "3866ea71845ecd6802acfa68e5ed2bb65b2c9ace531e2ae05e830b1217b2d008"
+        ],
+        "deployment_metadata_hashes": {
+          "trading_momentum_family": "5e40b057e6f7b426d6e5b3be66bf03517d39d9cf892bd505e398dc3f195d7ac9"
+        },
+        "run_month": "",
+        "scope_id": "trading_momentum_family"
+      },
+      "portfolio_id": "momentum",
+      "repo_id": "trading",
+      "scope_id": "trading_momentum_family",
+      "source_repo_present": true,
+      "strategies": [
+        "NQDTC_v2.1",
+        "NQ_REGIME",
+        "VdubusNQ_v4",
+        "DownturnDominator_v1"
+      ],
+      "tests": {
+        "data_reproduction": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\data_reproduction\\trading_momentum_family_portfolio\\data_reproduction_report.json"
+          ],
+          "bundle_checksums": [
+            "3866ea71845ecd6802acfa68e5ed2bb65b2c9ace531e2ae05e830b1217b2d008"
+          ],
+          "bundle_ids": [
+            "trading_momentum_family_portfolio"
+          ],
+          "covered_bundle_ids": [
+            "trading_momentum_family_portfolio"
+          ],
+          "details": "",
+          "full_family_authority": {
+            "artifact_paths": [
+              "backtests/data_portability_manifest.json",
+              "artifacts/validation/backtest_data_portability_report.json",
+              "backtests/baselines/baseline_index.json",
+              "artifacts/validation/decision_parity_matrix/trading_momentum_family/decision_parity/decision_parity_report.json"
+            ],
+            "authoritative_count": 2,
+            "details": "The authoritative acceptance bundle is the monorepo data portability manifest, frozen baseline, and canonical decision-parity report for this promoted scope.",
+            "missing_requirement_count": 0,
+            "missing_requirement_examples": [],
+            "non_authoritative_count": 0,
+            "non_authoritative_examples": [],
+            "reason": "monorepo_frozen_baseline_and_parity_evidence",
+            "requirement_count": 2,
+            "requirement_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\requirements\\strategies\\trading_momentum\\portfolio.json",
+            "requirement_scope": {
+              "declared_requirement_count": 2,
+              "declared_symbol_count": 2,
+              "ownership_policy": "",
+              "timeframe_counts": {
+                "1d": 1,
+                "5m": 1
+              }
+            },
+            "selected_slice_count": 2,
+            "slice_index_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\manifests\\slices\\slice_index.json",
+            "status": "pass",
+            "unreadable_manifest_count": 0,
+            "unreadable_manifest_examples": []
+          },
+          "missing_bundle_ids": [],
+          "ran": true,
+          "reason": "authoritative data bundle reproduced",
+          "recomputed_bundle_checksums": [
+            "3866ea71845ecd6802acfa68e5ed2bb65b2c9ace531e2ae05e830b1217b2d008"
+          ],
+          "result": "pass",
+          "runnable": true,
+          "slice_count": 4
+        },
+        "decision_parity": {
+          "approval_ready": false,
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_momentum_family\\decision_parity\\decision_parity_report.json"
+          ],
+          "bridge_id": "trading_momentum_family",
+          "bridge_ids": [
+            "trading_momentum_family"
+          ],
+          "covered_strategies": [
+            "NQDTC_v2.1",
+            "NQ_REGIME",
+            "VdubusNQ_v4",
+            "DownturnDominator_v1"
+          ],
+          "details": "The adapter is repeatable and eligible for shadow optimizer flows, but structural candidate approval remains blocked until the live contract is promoted to approval_ready with broader shadow evidence.",
+          "eligible_for_optimizer": true,
+          "maturity": "shadow_validated",
+          "missing_strategies": [],
+          "ran": true,
+          "reason": "formal_decision_parity_passed",
+          "result": "pass",
+          "runnable": true
+        },
+        "historical_walk_forward": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_momentum_family\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+          ],
+          "ran": true,
+          "reason": "historical_walk_forward_replay_evidence_passed",
+          "result": "pass",
+          "runnable": true
+        },
+        "incumbent_replay": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_momentum_family\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+          ],
+          "ran": true,
+          "reason": "incumbent_replay_replay_evidence_passed",
+          "result": "pass",
+          "runnable": true
+        },
+        "round_reproduction": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_momentum_family\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+          ],
+          "ran": true,
+          "reason": "round_reproduction_replay_evidence_passed",
+          "result": "pass",
+          "runnable": true
+        }
+      },
+      "weekly_focus_week": 2
+    },
+    {
+      "notes": "OVERLAY is a portfolio-level swing coordination surface.",
+      "optimizer_approval_readiness": {
+        "checks": [
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "trading_swing_family:optimizer_p6_true_fold_scoring_complete",
+            "passed": false
+          },
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "trading_swing_family:optimizer_p7_repair_confirmatory_round_complete",
+            "passed": false
+          }
+        ],
+        "ready": false
+      },
+      "optimizer_evidence_context": {
+        "bridge_contract_hashes": {
+          "trading_swing_family": "601717fb4bdfb716242264d8be94f4d2cf5a774f22e67797f2c013bf74a05c6c"
+        },
+        "bridge_ids": [
+          "trading_swing_family"
+        ],
+        "data_bundle_checksums": [
+          "d956b61fec8c7f0e44e37273391a6663cc2290bcc1d4a262bc147effa1a5653f"
+        ],
+        "deployment_metadata_hashes": {
+          "trading_swing_family": "a35b045fb0f87b0f0368bd985f54063cb081040b4e97dc23691c300f5d5dde74"
+        },
+        "run_month": "",
+        "scope_id": "trading_swing_family"
+      },
+      "portfolio_id": "swing",
+      "repo_id": "trading",
+      "scope_id": "trading_swing_family",
+      "source_repo_present": true,
+      "strategies": [
+        "ATRSS",
+        "AKC_HELIX",
+        "TPC",
+        "OVERLAY"
+      ],
+      "tests": {
+        "data_reproduction": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\data_reproduction\\trading_swing_family_portfolio\\data_reproduction_report.json"
+          ],
+          "bundle_checksums": [
+            "d956b61fec8c7f0e44e37273391a6663cc2290bcc1d4a262bc147effa1a5653f"
+          ],
+          "bundle_ids": [
+            "trading_swing_family_portfolio"
+          ],
+          "covered_bundle_ids": [
+            "trading_swing_family_portfolio"
+          ],
+          "details": "",
+          "full_family_authority": {
+            "artifact_paths": [
+              "backtests/data_portability_manifest.json",
+              "artifacts/validation/backtest_data_portability_report.json",
+              "backtests/baselines/baseline_index.json",
+              "artifacts/validation/decision_parity_matrix/trading_swing_family/decision_parity/decision_parity_report.json"
+            ],
+            "authoritative_count": 6,
+            "details": "The authoritative acceptance bundle is the monorepo data portability manifest, frozen baseline, and canonical decision-parity report for this promoted scope.",
+            "missing_requirement_count": 0,
+            "missing_requirement_examples": [],
+            "non_authoritative_count": 0,
+            "non_authoritative_examples": [],
+            "reason": "monorepo_frozen_baseline_and_parity_evidence",
+            "requirement_count": 6,
+            "requirement_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\requirements\\strategies\\trading_swing\\portfolio.json",
+            "requirement_scope": {
+              "declared_requirement_count": 6,
+              "declared_symbol_count": 2,
+              "ownership_policy": "",
+              "timeframe_counts": {
+                "15m": 2,
+                "1d": 2,
+                "1h": 2
+              }
+            },
+            "selected_slice_count": 6,
+            "slice_index_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\manifests\\slices\\slice_index.json",
+            "status": "pass",
+            "unreadable_manifest_count": 0,
+            "unreadable_manifest_examples": []
+          },
+          "missing_bundle_ids": [],
+          "ran": true,
+          "reason": "authoritative data bundle reproduced",
+          "recomputed_bundle_checksums": [
+            "d956b61fec8c7f0e44e37273391a6663cc2290bcc1d4a262bc147effa1a5653f"
+          ],
+          "result": "pass",
+          "runnable": true,
+          "slice_count": 4
+        },
+        "decision_parity": {
+          "approval_ready": false,
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_swing_family\\decision_parity\\decision_parity_report.json"
+          ],
+          "bridge_id": "trading_swing_family",
+          "bridge_ids": [
+            "trading_swing_family"
+          ],
+          "covered_strategies": [
+            "ATRSS",
+            "AKC_HELIX",
+            "TPC",
+            "OVERLAY"
+          ],
+          "details": "The adapter is repeatable and eligible for shadow optimizer flows, but structural candidate approval remains blocked until the live contract is promoted to approval_ready with broader shadow evidence.",
+          "eligible_for_optimizer": true,
+          "maturity": "shadow_validated",
+          "missing_strategies": [],
+          "ran": true,
+          "reason": "formal_decision_parity_passed",
+          "result": "pass",
+          "runnable": true
+        },
+        "historical_walk_forward": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_swing_family\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+          ],
+          "ran": true,
+          "reason": "historical_walk_forward_replay_evidence_passed",
+          "result": "pass",
+          "runnable": true
+        },
+        "incumbent_replay": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_swing_family\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+          ],
+          "ran": true,
+          "reason": "incumbent_replay_replay_evidence_passed",
+          "result": "pass",
+          "runnable": true
+        },
+        "round_reproduction": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_swing_family\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+          ],
+          "ran": true,
+          "reason": "round_reproduction_replay_evidence_passed",
+          "result": "pass",
+          "runnable": true
+        }
+      },
+      "weekly_focus_week": 3
+    },
+    {
+      "notes": "Formal crypto bridges are shadow_validated; phased optimizer data excludes extra 1m/5m refresh intervals.",
+      "optimizer_approval_readiness": {
+        "checks": [
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "crypto_trader_portfolio:optimizer_p6_true_fold_scoring_complete",
+            "passed": false
+          },
+          {
+            "errors": [
+              "missing explicit approval-grade optimizer_run_manifest.json for promoted scope"
+            ],
+            "name": "crypto_trader_portfolio:optimizer_p7_repair_confirmatory_round_complete",
+            "passed": false
+          }
+        ],
+        "ready": false
+      },
+      "optimizer_evidence_context": {
+        "bridge_contract_hashes": {
+          "crypto_breakout_v1": "546a6d77735b9aea47153dc1881c41d1b86d38a3379ecf589d6065babeec909e",
+          "crypto_momentum_v1": "ca8d0c9fca50a2b09300c96a8500fe6a54a3488fb99e1f01f099b093ec524316",
+          "crypto_trend_v1": "66aefae0de014fc8e190f67730dd0ada8c4f917a03cde21af936c41182561527"
+        },
+        "bridge_ids": [
+          "crypto_trend_v1",
+          "crypto_momentum_v1",
+          "crypto_breakout_v1"
+        ],
+        "data_bundle_checksums": [
+          "ecb5a31f7f3103c4daeffaa5285681067da67c852e85838865bc75d0c061a72d"
+        ],
+        "deployment_metadata_hashes": {
+          "crypto_breakout_v1": "4b2ec3f9a8e5355c63ccf06ccbd453b24135301d7876b714debce0ec5472655f",
+          "crypto_momentum_v1": "f675424677a31a06b2a1ccbb538f372a06426e197da120ad6c0e42be69a4dd8e",
+          "crypto_trend_v1": "7ee8f4366fb81ed930c20d20ba12b1ff54554ca29d6c6653900dcf382c8a50f4"
+        },
+        "run_month": "",
+        "scope_id": "crypto_trader_portfolio"
+      },
+      "portfolio_id": "crypto_portfolio",
+      "repo_id": "crypto_trader",
+      "scope_id": "crypto_trader_portfolio",
+      "source_repo_present": true,
+      "strategies": [
+        "trend",
+        "momentum",
+        "breakout"
+      ],
+      "tests": {
+        "data_reproduction": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\data_reproduction\\crypto_portfolio_phased_optimizer\\data_reproduction_report.json"
+          ],
+          "bundle_checksums": [
+            "ecb5a31f7f3103c4daeffaa5285681067da67c852e85838865bc75d0c061a72d"
+          ],
+          "bundle_ids": [
+            "crypto_portfolio_phased_optimizer"
+          ],
+          "covered_bundle_ids": [
+            "crypto_portfolio_phased_optimizer"
+          ],
+          "details": "",
+          "full_family_authority": {
+            "artifact_paths": [
+              "backtests/data_portability_manifest.json",
+              "artifacts/validation/backtest_data_portability_report.json",
+              "backtests/baselines/baseline_index.json",
+              "artifacts/validation/decision_parity_matrix/crypto_trend_v1/decision_parity/decision_parity_report.json"
+            ],
+            "authoritative_count": 18,
+            "details": "The authoritative acceptance bundle is the monorepo data portability manifest, frozen baseline, and canonical decision-parity report for this promoted scope.",
+            "missing_requirement_count": 0,
+            "missing_requirement_examples": [],
+            "non_authoritative_count": 0,
+            "non_authoritative_examples": [],
+            "reason": "monorepo_frozen_baseline_and_parity_evidence",
+            "requirement_count": 18,
+            "requirement_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\requirements\\strategies\\crypto_portfolio\\phased_optimizer.json",
+            "requirement_scope": {
+              "declared_requirement_count": 18,
+              "declared_symbol_count": 3,
+              "ownership_policy": "",
+              "timeframe_counts": {
+                "15m": 3,
+                "1d": 3,
+                "1h": 3,
+                "30m": 3,
+                "4h": 3,
+                "funding_1h": 3
+              }
+            },
+            "selected_slice_count": 18,
+            "slice_index_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\packages\\trading_assistant_data\\data\\manifests\\slices\\slice_index.json",
+            "status": "pass",
+            "unreadable_manifest_count": 0,
+            "unreadable_manifest_examples": []
+          },
+          "missing_bundle_ids": [],
+          "ran": true,
+          "reason": "authoritative data bundle reproduced",
+          "recomputed_bundle_checksums": [
+            "ecb5a31f7f3103c4daeffaa5285681067da67c852e85838865bc75d0c061a72d"
+          ],
+          "result": "pass",
+          "runnable": true,
+          "slice_count": 4
+        },
+        "decision_parity": {
+          "approval_ready": false,
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\crypto_trend_v1\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\crypto_momentum_v1\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\crypto_breakout_v1\\decision_parity\\decision_parity_report.json"
+          ],
+          "bridge_id": "crypto_trend_v1",
+          "bridge_ids": [
+            "crypto_trend_v1",
+            "crypto_momentum_v1",
+            "crypto_breakout_v1"
+          ],
+          "covered_strategies": [
+            "trend",
+            "momentum",
+            "breakout"
+          ],
+          "details": "The adapter is repeatable and eligible for shadow optimizer flows, but structural candidate approval remains blocked until the live contract is promoted to approval_ready with broader shadow evidence.",
+          "eligible_for_optimizer": true,
+          "maturity": "shadow_validated",
+          "missing_strategies": [],
+          "ran": true,
+          "reason": "formal_decision_parity_passed",
+          "result": "pass",
+          "runnable": true
+        },
+        "historical_walk_forward": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\crypto_trend_v1\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+          ],
+          "ran": true,
+          "reason": "historical_walk_forward_replay_evidence_passed",
+          "result": "pass",
+          "runnable": true
+        },
+        "incumbent_replay": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\crypto_trend_v1\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+          ],
+          "ran": true,
+          "reason": "incumbent_replay_replay_evidence_passed",
+          "result": "pass",
+          "runnable": true
+        },
+        "round_reproduction": {
+          "artifact_paths": [
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\data_portability_manifest.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_data_portability_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\backtests\\baselines\\baseline_index.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\crypto_trend_v1\\decision_parity\\decision_parity_report.json",
+            "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\backtest_integrity\\invariant_report.json"
+          ],
+          "ran": true,
+          "reason": "round_reproduction_replay_evidence_passed",
+          "result": "pass",
+          "runnable": true
+        }
+      },
+      "weekly_focus_week": 4
+    }
+  ],
+  "structural_candidates_approval_ready": false,
+  "validation_tests": [
+    "data_reproduction",
+    "incumbent_replay",
+    "decision_parity",
+    "round_reproduction",
+    "historical_walk_forward"
+  ]
+}

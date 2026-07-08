@@ -7,7 +7,7 @@
   "deployment_id": "crypto-momentum-v1-shadow-3c6441d8",
   "generated_at": "2026-05-31T12:10:00Z",
   "metadata_source": "local clean live-repo checkout shadow snapshot",
-  "repo_url": "local://bots/crypto_trader",
+  "repo_url": "local://trading/crypto_trader",
   "strategy_id": "crypto_momentum_v1",
   "strategy_plugin_contract_hash": "ca8d0c9fca50a2b09300c96a8500fe6a54a3488fb99e1f01f099b093ec524316",
   "strategy_plugin_contract_path": "strategy_plugin_contract.json",

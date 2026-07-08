@@ -1,0 +1,44 @@
+{
+  "all_failures": [
+    "Live-config promotion check failed:",
+    "ibkr:ATRSS source_live_config hash drift",
+    "ibkr:AKC_HELIX source_live_config hash drift",
+    "ibkr:TPC source_live_config hash drift",
+    "ibkr:NQDTC_v2.1 source_live_config hash drift",
+    "ibkr:NQ_REGIME source_live_config hash drift",
+    "ibkr:VdubusNQ_v4 source_live_config hash drift",
+    "ibkr:DownturnDominator_v1 source_live_config hash drift"
+  ],
+  "bot_id": "ibkr",
+  "command": [
+    "C:\\Users\\sehyu\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\tools\\verify_live_config_promotions.py",
+    "--bot",
+    "ibkr",
+    "--strict"
+  ],
+  "failures": [],
+  "observed_scoped_strategy_ids": [
+    "ALCB_v1",
+    "IARIC_v1"
+  ],
+  "ok": true,
+  "out_of_scope_failures": [
+    "ibkr:ATRSS source_live_config hash drift",
+    "ibkr:AKC_HELIX source_live_config hash drift",
+    "ibkr:TPC source_live_config hash drift",
+    "ibkr:NQDTC_v2.1 source_live_config hash drift",
+    "ibkr:NQ_REGIME source_live_config hash drift",
+    "ibkr:VdubusNQ_v4 source_live_config hash drift",
+    "ibkr:DownturnDominator_v1 source_live_config hash drift"
+  ],
+  "returncode": 1,
+  "schema_version": "live_config_promotion_verification_v1",
+  "scope_id": "trading_stock_family",
+  "scoped_strategy_ids": [
+    "IARIC_v1",
+    "ALCB_v1"
+  ],
+  "stderr": "",
+  "stdout": "FAIL ibkr:ATRSS - source_live_config hash drift\nFAIL ibkr:AKC_HELIX - source_live_config hash drift\nFAIL ibkr:TPC - source_live_config hash drift\nPASS ibkr:IARIC_v1 - promotion manifest contracts/promotions/ibkr/IARIC_v1.json\nPASS ibkr:ALCB_v1 - promotion manifest contracts/promotions/ibkr/ALCB_v1.json\nFAIL ibkr:NQDTC_v2.1 - source_live_config hash drift\nFAIL ibkr:NQ_REGIME - source_live_config hash drift\nFAIL ibkr:VdubusNQ_v4 - source_live_config hash drift\nFAIL ibkr:DownturnDominator_v1 - source_live_config hash drift\nPASS ibkr:SCALP_IVB_AUCTION - disabled strategy tagged in promotion manifest\nPASS ibkr:SCALP_PO3_REVERSAL - disabled strategy tagged in promotion manifest\nPASS effective:ibkr - artifact deployments/ibkr/generated/strategies.effective.json 6fb9ed0e5977c6d5ebd927ee4cac14046835bb2937bed41375cc2b1b25646c8c\nPASS effective:crypto - artifact deployments/crypto/generated/live_config.effective.json d4eb5fb00a9b21ddb47e9053626d1fcd9b818ef3771c58eecc493c02c098220b\nPASS effective:k_stock - artifact deployments/k_stock/generated/olr_kalcb.effective.json 43a0ce3c52efbb9af375eb893b02c558ab2391bc9c4db2624d85aaea5ad65b9e\n\nLive-config promotion check failed:\n- ibkr:ATRSS source_live_config hash drift\n- ibkr:AKC_HELIX source_live_config hash drift\n- ibkr:TPC source_live_config hash drift\n- ibkr:NQDTC_v2.1 source_live_config hash drift\n- ibkr:NQ_REGIME source_live_config hash drift\n- ibkr:VdubusNQ_v4 source_live_config hash drift\n- ibkr:DownturnDominator_v1 source_live_config hash drift\n"
+}

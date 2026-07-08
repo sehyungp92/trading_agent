@@ -27,7 +27,7 @@ BOTS = {
         "promotions": "contracts/promotions/ibkr",
         "contracts": ("trading_momentum_family", "trading_stock_family", "trading_swing_family"),
         "runtime_entrypoint": "apps.runtime.cli:main",
-        "source": "bots/ibkr_trading/libs/instrumentation/deployment_metadata.py",
+        "source": "trading/ibkr_trader/libs/instrumentation/deployment_metadata.py",
     },
     "crypto": {
         "effective": "deployments/crypto/generated/live_config.effective.json",
@@ -35,7 +35,7 @@ BOTS = {
         "promotions": "contracts/promotions/crypto",
         "contracts": ("crypto_breakout_v1", "crypto_momentum_v1", "crypto_trend_v1"),
         "runtime_entrypoint": "crypto_trader.cli:live",
-        "source": "bots/crypto_trader/src/crypto_trader/live/engine.py",
+        "source": "trading/crypto_trader/src/crypto_trader/live/engine.py",
     },
     "k_stock": {
         "effective": "deployments/k_stock/generated/olr_kalcb.effective.json",
@@ -43,7 +43,7 @@ BOTS = {
         "promotions": "contracts/promotions/k_stock",
         "contracts": ("k_stock_olr_kalcb",),
         "runtime_entrypoint": "deployment.olr_kalcb.runtime:prepare_runtime_session",
-        "source": "bots/k_stock_trader/deployment/olr_kalcb/runtime.py",
+        "source": "trading/k_stock_trader/deployment/olr_kalcb/runtime.py",
     },
 }
 
@@ -232,11 +232,11 @@ def _runtime_env(bot: str) -> dict[str, str]:
     env = os.environ.copy()
     paths = [str(path) for path in sorted((ROOT / "packages").glob("*/src")) if path.exists()]
     if bot == "ibkr":
-        paths.extend([str(ROOT / "bots" / "ibkr_trading" / "src"), str(ROOT / "bots" / "ibkr_trading")])
+        paths.extend([str(ROOT / "trading" / "ibkr_trader" / "src"), str(ROOT / "trading" / "ibkr_trader")])
     elif bot == "crypto":
-        paths.append(str(ROOT / "bots" / "crypto_trader" / "src"))
+        paths.append(str(ROOT / "trading" / "crypto_trader" / "src"))
     elif bot == "k_stock":
-        paths.extend([str(ROOT / "bots" / "k_stock_trader" / "src"), str(ROOT / "bots" / "k_stock_trader")])
+        paths.extend([str(ROOT / "trading" / "k_stock_trader" / "src"), str(ROOT / "trading" / "k_stock_trader")])
     existing = env.get("PYTHONPATH")
     env["PYTHONPATH"] = os.pathsep.join(paths + ([existing] if existing else []))
     env.setdefault("PYTHONIOENCODING", "utf-8")

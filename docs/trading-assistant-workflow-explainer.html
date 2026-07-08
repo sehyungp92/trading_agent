@@ -258,13 +258,13 @@
 
 <!-- ====================== HERO ====================== -->
 <header class="hero">
-  <div class="hero-eyebrow">Field notes &middot; 2026-05-30 &middot; refreshed 2026-07-04</div>
+  <div class="hero-eyebrow">Field notes &middot; 2026-05-30 &middot; refreshed 2026-07-08</div>
   <h1>Trading Assistant &mdash;<br/><em>workflow &amp; learning loop</em> &middot; a research note.</h1>
   <p class="sub">
     A current-state walkthrough of the <code>trading_agent</code> monorepo: how the orchestrator turns bot
     telemetry into daily, weekly, and monthly evidence; how that evidence becomes proposals, approvals, deployed
     changes, and outcomes; and how the system steers itself toward the monthly full-fidelity validation loop defined
-    in the target-state plan. Compiled <span class="mono">2026-05-30</span>; refreshed <span class="mono">2026-07-04</span>.
+    in the target-state plan. Compiled <span class="mono">2026-05-30</span>; refreshed <span class="mono">2026-07-08</span>.
   </p>
   <div class="chips">
     <span class="chip">packages/ monorepo current</span>
@@ -275,7 +275,8 @@
     <span class="chip ok">generated work log</span>
     <span class="chip ok">performance-learning projection</span>
     <span class="chip warn">monthly loop shadow-verified (default: disabled)</span>
-    <span class="chip warn">approval audit: metadata + maturity blocked</span>
+    <span class="chip ok">live/paper code gates implemented</span>
+    <span class="chip warn">deployment evidence: A3 / A4 pending</span>
     <span class="chip warn">strategy plugins: formal shadow parity across active bridges</span>
     <span class="chip ok">five validation tests pass</span>
     <span class="chip ok">P6 / P7 optimizer evidence passes</span>
@@ -315,10 +316,10 @@
     <div class="kpi"><div class="num">5</div><div class="lbl">active validation scopes</div></div>
   </div>
 
-  <p>The workspace has the <strong>right architectural boundary</strong>. Bots emit structured events &rarr; orchestrator curates evidence &rarr; deterministic detectors fire &rarr; agents synthesize &rarr; proposals are tracked, approval-gated, deployed, and outcome-measured. The current supported structure is a <code>packages/</code> monorepo with nine Python package workspaces, plus monorepo-owned <code>bots/</code>, <code>contracts/</code>, <code>deployments/</code>, <code>backtests/</code>, and validation <code>artifacts/</code>. The assistant plane still centers on <code>packages/trading_assistant</code>, <code>packages/trading_assistant_data</code>, and <code>packages/trading_assistant_backtest</code>; the wider repo adds shared contract, config, deployment, instrumentation, optimizer, and backtest libraries. The durable contract is control/data/backtest separation through frozen manifests and artifacts, not direct in-process imports or dependencies on external reference checkouts.</p>
+  <p>The workspace has the <strong>right architectural boundary</strong>. Bots emit structured events &rarr; orchestrator curates evidence &rarr; deterministic detectors fire &rarr; agents synthesize &rarr; proposals are tracked, approval-gated, deployed, and outcome-measured. The current supported structure is a <code>packages/</code> monorepo with nine Python package workspaces, plus monorepo-owned <code>trading/</code>, <code>contracts/</code>, <code>deployments/</code>, <code>backtests/</code>, and validation <code>artifacts/</code>. The assistant plane still centers on <code>packages/trading_assistant</code>, <code>packages/trading_assistant_data</code>, and <code>packages/trading_assistant_backtest</code>; the wider repo adds shared contract, config, deployment, instrumentation, optimizer, and backtest libraries. The durable contract is control/data/backtest separation through frozen manifests and artifacts, not direct in-process imports or dependencies on external reference checkouts.</p>
 
   <div class="callout warn">
-    <strong>Current state:</strong> the control-plane contracts, ledgers, gates, and monthly orchestration are substantial; historical market data and latest-round baselines are now carried in the monorepo-owned bot and backtest surfaces; the backtest runner retains phase candidates, attempt records, repair diagnostics, replay evidence, decision-parity reports, optimizer-compatibility reports, and no-drift evidence. The latest checked-in validation matrix, generated <span class="mono">2026-07-04T00:41:13Z</span>, reports <code>active_scope_count=5</code>, <code>all_validation_tests_runnable_for_all_scopes=true</code>, <code>runnable_validations_passed=true</code>, <code>approval_remaining_gaps=10</code>, <code>approval_grade_validation_complete=false</code>, and <code>structural_candidates_approval_ready=false</code>. The active scopes are k_stock OLR/KALCB, trading stock, trading momentum, trading swing, and the crypto portfolio; the <code>trading</code> surface is not futures-only, because only the momentum family trades futures. Structural approval is still blocked because every active bridge remains <code>shadow_validated</code>, not <code>approval_ready</code>, and explicit approval-grade optimizer run manifests/scheduled shadow adoption evidence are still absent. Runtime deployment metadata is now emitted from bot runtime paths and passes fail-closed metadata verification, so the remaining gap is promotion/maturity evidence, not local metadata shape.
+    <strong>Current state:</strong> the control-plane contracts, ledgers, gates, and monthly orchestration are substantial; historical market data and latest-round baselines are now carried in the monorepo-owned bot and backtest surfaces; the backtest runner retains phase candidates, attempt records, repair diagnostics, replay evidence, decision-parity reports, optimizer-compatibility reports, and no-drift evidence. The latest checked-in validation matrix, generated <span class="mono">2026-07-06T21:04:30Z</span>, reports <code>active_scope_count=5</code>, <code>all_validation_tests_runnable_for_all_scopes=true</code>, <code>runnable_validations_passed=true</code>, <code>approval_remaining_gaps=10</code>, <code>approval_grade_validation_complete=false</code>, and <code>structural_candidates_approval_ready=false</code>. The active scopes are k_stock OLR/KALCB, trading stock, trading momentum, trading swing, and the crypto portfolio; the <code>trading</code> surface is not futures-only, because only the momentum family trades futures. Structural approval is still blocked because every active bridge remains <code>shadow_validated</code>, not <code>approval_ready</code>, and explicit approval-grade optimizer run manifests/scheduled shadow adoption evidence are still absent. The live/paper code gates for relay evidence, K-stock relay probing, IBKR loaded-config equivalence, crypto sidecar incident policy, and assistant relay ingress are implemented; the remaining material blockers are deployment evidence blockers: clean runtime deployment metadata and a real <code>deployments/operational_evidence.json</code> from the VPS/local assistant deployment window.
   </div>
 
   <div class="callout">
@@ -350,8 +351,8 @@
 
   <div class="callout ok">
     <strong>What is no longer empty scaffold:</strong>
-    the crypto, k_stock, and IBKR/trading strategy adapters validate against monorepo-owned bot code under <code>bots/</code> and emit decision parity for signals, filters, entries, exits, stops, sizing, risk caps, and order intent;
-    <code>contracts/strategy_plugins/</code> now persists shadow strategy contracts and artifact-producing parity reports for crypto trend/momentum/breakout, k_stock OLR/KALCB, and the trading stock, momentum, and swing family bridges; promoted parity reports under <code>artifacts/validation/decision_parity_matrix/</code> pass all eight dimensions at the current monorepo commit; mature/approval structural paths require deployment metadata evidence in both the backtest runner and control-plane gates; runtime metadata is emitted from bot runtime entrypoints and verified by <code>tools/verify_deployment_metadata.py --bot all</code>;
+    the crypto, k_stock, and IBKR/trading strategy adapters validate against monorepo-owned bot code under <code>trading/</code> and emit decision parity for signals, filters, entries, exits, stops, sizing, risk caps, and order intent;
+    <code>contracts/strategy_plugins/</code> now persists shadow strategy contracts and artifact-producing parity reports for crypto trend/momentum/breakout, k_stock OLR/KALCB, and the trading stock, momentum, and swing family bridges; promoted parity reports under <code>artifacts/validation/decision_parity_matrix/</code> pass all eight dimensions at the current monorepo commit; mature/approval structural paths require deployment metadata evidence in both the backtest runner and control-plane gates; runtime metadata emitters and fail-closed verification are implemented, but release verification must run from a clean checkout and operational evidence must be collected from the deployed VPS/local assistant window;
     <code>auto/phase_runner.py</code> enumerates deterministic phase candidates and fails them closed when no replay-backed evaluator exists;
     <code>repair/*.py</code> now emits deterministic failure analysis, ablation, targeted, rollback, perturbation, and confirmatory artifacts instead of disappearing as empty phases;
     the monthly optimizer evidence path now emits non-empty fold candidate rows, selection-OOS evaluation, repair trigger/checkpoint, confirmatory rerank, and round_N+1 no-adoption/recommendation artifacts for the active validation lanes;
@@ -366,7 +367,7 @@
   <div class="callout crit">
     <strong>What still gates approval-ready monthly candidates:</strong>
     a single <em>approval-ready</em> strategy plugin wired to a real live strategy or portfolio surface;
-    scheduled shadow-cycle evidence using the runtime-emitted deployment metadata that now verifies for all bot families;
+    scheduled shadow-cycle evidence using clean runtime-emitted deployment metadata and operational evidence from the actual VPS/local assistant deployment window;
     broader production-derived parity fixtures and scheduled shadow-cycle evidence beyond the current formal shadow parity reports;
     an explicit contract-maturity promotion from <code>shadow_validated</code> to <code>approval_ready</code> after live-emitted metadata, fixture breadth, scheduled shadow evidence, and audit checks hold;
     and an enabled production shadow cadence before any bridge is allowed into <code>approval_gated</code> adoption.
@@ -376,7 +377,7 @@
 <!-- ====================== 02 ARCHITECTURE ====================== -->
 <section id="architecture">
   <h2><span class="pre">&sect; 02</span>Monorepo architecture</h2>
-  <p>The current structure is a <code>packages/</code> monorepo containing nine Python package workspaces plus monorepo-owned bot, contract, deployment, baseline, and validation-artifact surfaces. The assistant workflow still has three central packages: <code>packages/trading_assistant</code> for the control plane, <code>packages/trading_assistant_data</code> for data contracts and source adapters, and <code>packages/trading_assistant_backtest</code> for replay and optimizer evidence. It is not a single flattened <code>src/</code> package, and it is not direct in-process coupling between data, control, and backtest. Live/backtest parity and latest-round no-drift are proven against code and data ported into <code>bots/</code>, <code>backtests/</code>, <code>contracts/</code>, and <code>artifacts/validation/</code>.</p>
+  <p>The current structure is a <code>packages/</code> monorepo containing nine Python package workspaces plus monorepo-owned bot, contract, deployment, baseline, and validation-artifact surfaces. The assistant workflow still has three central packages: <code>packages/trading_assistant</code> for the control plane, <code>packages/trading_assistant_data</code> for data contracts and source adapters, and <code>packages/trading_assistant_backtest</code> for replay and optimizer evidence. It is not a single flattened <code>src/</code> package, and it is not direct in-process coupling between data, control, and backtest. Live/backtest parity and latest-round no-drift are proven against code and data ported into <code>trading/</code>, <code>backtests/</code>, <code>contracts/</code>, and <code>artifacts/validation/</code>.</p>
 
   <h3>Repository authority map</h3>
   <div class="figwrap">
@@ -502,9 +503,9 @@
   docs/
   artifacts/
   tools/
-  bots/
+  trading/
     crypto_trader/
-    ibkr_trading/
+    ibkr_trader/
     k_stock_trader/
   contracts/
     strategy_plugins/
@@ -534,7 +535,7 @@
     trading_backtest/</code></pre>
 
   <div class="grid cols-4">
-    <div class="card"><h4 style="color:#1e6e3e">monorepo bot surfaces</h4><p style="font-size:13px;color:var(--ink-faded)">Production source of truth is now ported under <code>bots/</code>. <code>k_stock_trader</code> runs KALCB/OLR; <code>ibkr_trading</code> has stock, momentum, and swing portfolios; <code>crypto_trader</code> owns crypto. Decides orders, emits telemetry, owns strategy code. <strong>Never receives commands from the assistant.</strong></p></div>
+    <div class="card"><h4 style="color:#1e6e3e">monorepo bot surfaces</h4><p style="font-size:13px;color:var(--ink-faded)">Production source of truth is now ported under <code>trading/</code>. <code>k_stock_trader</code> runs KALCB/OLR; <code>ibkr_trader</code> has stock, momentum, and swing portfolios; <code>crypto_trader</code> owns crypto. Decides orders, emits telemetry, owns strategy code. <strong>Never receives commands from the assistant.</strong></p></div>
     <div class="card"><h4 style="color:#2b7a8a">trading_assistant_data</h4><p style="font-size:13px;color:var(--ink-faded)">Data contracts and go-forward source adapters. These adapters must be faithful ports of the tried bot-owned download layers for decision rows, with canonical manifests and lineage added around the same outputs. The current acceptance spine uses bot-owned historical data, frozen baselines, portability manifests, and validation reports; legacy local monthly bundle smokes skip when their bundle tree is absent. <strong>No strategy decisions.</strong></p></div>
     <div class="card"><h4 style="color:#5e2750">trading_assistant</h4><p style="font-size:13px;color:var(--ink-faded)">Control plane. Curates evidence, schedules, freezes manifests, runs deterministic gates, routes approvals, owns the ledgers. <strong>No replay engines, no orders.</strong></p></div>
     <div class="card"><h4 style="color:#b8862f">trading_assistant_backtest</h4><p style="font-size:13px;color:var(--ink-faded)">Replay + optimization lab. Reads manifests, validates frozen baselines and evidence bundles, emits retained phase/repair attempts, proves parity for crypto, k_stock, and trading stock/momentum/swing bridge surfaces, and keeps approval blocked until contracts are <code>approval_ready</code>. <strong>No approvals, no orders.</strong></p></div>
@@ -562,15 +563,15 @@
     <text x="650" y="22" class="eyebrow-lbl">EVIDENCE &amp; MEMORY</text>
     <text x="940" y="22" class="eyebrow-lbl">DATA &middot; BACKTEST &middot; APPROVAL</text>
 
-    <!-- left column: bots/relay -->
+    <!-- left column: bot producers and local relay ingress -->
     <rect x="30" y="34" width="200" height="76" rx="10" class="box-card box-navy"/>
     <text x="48" y="58" class="tt-title tt-navy">Bots (VPS)</text>
     <text x="48" y="76" class="tt-sub">k_stock &mdash; crypto &mdash; trading</text>
     <text x="48" y="94" class="tt-sub">emit JSONL events + HMAC</text>
 
     <rect x="30" y="130" width="200" height="60" rx="10" class="box-card box-navy"/>
-    <text x="48" y="154" class="tt-title tt-navy">Relay VPS</text>
-    <text x="48" y="172" class="tt-sub">SQLite spool &mdash; HMAC auth</text>
+    <text x="48" y="154" class="tt-title tt-navy">Local relay ingress</text>
+    <text x="48" y="172" class="tt-sub">assistant host &mdash; HMAC auth</text>
 
     <rect x="30" y="210" width="200" height="60" rx="10" class="box-card box-navy"/>
     <text x="48" y="234" class="tt-title tt-navy">EventQueue</text>
@@ -691,7 +692,7 @@
       <path d="M940 540 C 916 520 916 500 890 490" class="flow-dotted"/>
     </g>
 
-    <text x="30" y="610" class="tt-sub">Bots and relay deposit events into the queue; the orchestrator brokers every cadence; ledgers and memory are written from the same path.</text>
+    <text x="30" y="610" class="tt-sub">Bots post events to the assistant-local relay; the local queue feeds every cadence; ledgers and memory are written from the same path.</text>
   </svg>
   </div>
 
@@ -1649,26 +1650,26 @@
       <tr><td><span class="badge ok">P8</span></td><td>model review + structural proposal layer</td><td><span class="badge ok">model review wired; structural selection gate enforced</span></td><td>keep structural adoption blocked until a candidate carries real live/backtest/config patch artifacts, passing decision parity, live metadata, and approval_ready maturity</td></tr>
       <tr><td><span class="badge warn">P9</span></td><td>monthly outcome replaces weekly authority</td><td><span class="badge warn">wired, unused by real verdicts</span></td><td>run first non-shadow monthly verdict and follow-up; keep early-warning outcomes non-final for material changes</td></tr>
       <tr><td><span class="badge warn">P10</span></td><td>operational feedback (priors &bull; search/gates)</td><td><span class="badge warn">source-class guards wired; real outcomes pending</span></td><td>keep shared source-class resolver fixtures green before tuning weights from real outcomes</td></tr>
-      <tr><td><span class="badge warn">P11</span></td><td>approval, deployment, rollback integration</td><td><span class="badge warn">runtime metadata verifies; promotion pending</span></td><td>keep runtime metadata verification green, add scheduled shadow/cutover evidence, rerun approval audit, then back-write deployment_id + commit SHA from PR merge automation</td></tr>
+      <tr><td><span class="badge warn">P11</span></td><td>approval, deployment, rollback integration</td><td><span class="badge warn">code gates implemented; deployment evidence pending</span></td><td>emit metadata from a clean release checkout, collect operational evidence from the VPS/local assistant deployment window, pass both deployment verifiers, then rerun approval audit and back-write deployment_id + commit SHA from PR merge automation</td></tr>
       <tr><td><span class="badge ok">P12</span></td><td>tests, dry-runs, migration</td><td><span class="badge ok">five validation tests pass</span></td><td>keep structural approval blocked until at least one bridge has live metadata and <code>approval_ready</code> maturity</td></tr>
     </tbody>
   </table>
 
   <h3>Critical-path next three moves</h3>
   <div class="grid cols-3">
-    <div class="card"><h4 style="color:#2b7a8a">A. schedule shadow</h4><p style="font-size:13.5px">Run the now-green deployment, validation, parity, optimizer compatibility, and backtest integrity paths on a scheduled shadow cadence using runtime-emitted metadata and production-derived fixtures.</p></div>
-    <div class="card"><h4 style="color:#b8862f">B. add approval manifests</h4><p style="font-size:13.5px">Emit explicit approval-grade optimizer run manifests for promoted scopes so P6/P7 evidence is tied to the exact data, contract, deployment metadata, and candidate context.</p></div>
-    <div class="card"><h4 style="color:#5e2750">C. promote one bridge</h4><p style="font-size:13.5px">Promote exactly one bridge from <code>shadow_validated</code> to <code>approval_ready</code> only after metadata, fixture breadth, scheduled shadow evidence, data/parity/replay, and P6/P7 evidence all hold; rerun the approval-grade audit, then move that scope to <code>approval_gated</code>.</p></div>
+    <div class="card"><h4 style="color:#2b7a8a">A. close deployment evidence</h4><p style="font-size:13.5px">Run runtime metadata from a clean release checkout, deploy one bot VPS at a time, collect relay/sidecar/assistant evidence, and make <code>tools/verify_deployment_metadata.py</code> plus <code>tools/verify_operational_deployment_evidence.py</code> pass.</p></div>
+    <div class="card"><h4 style="color:#b8862f">B. schedule shadow</h4><p style="font-size:13.5px">Run scheduled shadow cycles using installed deployment metadata, collected relay ingest evidence, production-derived fixtures, and explicit approval-grade optimizer manifests tied to the exact data and candidate context.</p></div>
+    <div class="card"><h4 style="color:#5e2750">C. promote one bridge</h4><p style="font-size:13.5px">Promote exactly one bridge from <code>shadow_validated</code> to <code>approval_ready</code> only after deployment evidence, fixture breadth, scheduled shadow evidence, data/parity/replay, and P6/P7 evidence all hold; rerun the approval-grade audit, then move that scope to <code>approval_gated</code>.</p></div>
   </div>
 
   <h3>Validation readiness ladder</h3>
-  <p>The repo has now carried out the requested validation tests against the active portfolio/strategy scopes. The latest checked-in consolidated matrix reports <code>active_scope_count=5</code>, <code>all_validation_tests_runnable_for_all_scopes=true</code>, <code>runnable_validations_passed=true</code>, and <code>approval_remaining_gaps=10</code>. Data reproduction, incumbent replay, decision parity, round reproduction, and historical walk-forward all pass for k_stock OLR/KALCB, trading stock, trading momentum, trading swing, and the crypto portfolio. The remaining gaps are approval-readiness gates, not failures of the five validation tests. These are validation, runtime-metadata, no-drift, and optimizer-equivalence evidence passes, not permission to adopt structural candidates. Structural approval still fails closed because every bridge remains <code>shadow_validated</code> and explicit approval-grade optimizer manifests/scheduled shadow promotion evidence are absent.</p>
+  <p>The repo has now carried out the requested validation tests against the active portfolio/strategy scopes. The latest checked-in consolidated matrix reports <code>active_scope_count=5</code>, <code>all_validation_tests_runnable_for_all_scopes=true</code>, <code>runnable_validations_passed=true</code>, and <code>approval_remaining_gaps=10</code>. Data reproduction, incumbent replay, decision parity, round reproduction, and historical walk-forward all pass for k_stock OLR/KALCB, trading stock, trading momentum, trading swing, and the crypto portfolio. The remaining strategy-learning gaps are approval-readiness gates, not failures of the five validation tests. The live/paper deployment gates are implemented, but release completion still requires clean runtime metadata and collected operational evidence. Structural approval still fails closed because every bridge remains <code>shadow_validated</code> and explicit approval-grade optimizer manifests/scheduled shadow promotion evidence are absent.</p>
 
   <table>
     <thead><tr><th>test</th><th>readiness</th><th>why</th><th>next action</th></tr></thead>
     <tbody>
       <tr><td>Data Reproduction Test</td><td><span class="badge ok">complete; pass</span></td><td>The checked-in matrix uses five scoped data-reproduction reports, each tied to <code>backtests/data_portability_manifest.json</code>, <code>artifacts/validation/backtest_data_portability_report.json</code>, <code>backtests/baselines/baseline_index.json</code>, and the relevant decision-parity report. The portability report verifies seven historical-data/baseline datasets.</td><td>Keep bot data directories, baseline index, portability manifest, and reproduction reports current before each monthly cycle.</td></tr>
-      <tr><td>Decision Parity Test</td><td><span class="badge ok">complete; pass</span></td><td>The checked-in parity artifacts pass artifact-producing decision parity for crypto trend/momentum/breakout with <code>4</code> evidence fixtures each, plus k_stock OLR/KALCB and trading stock/momentum/swing family bridges with <code>2</code> evidence fixtures each. Validation uses monorepo-owned <code>bots/</code> paths at the current monorepo commit. The validation test passes, but approval remains blocked until plugin maturity becomes <code>approval_ready</code>.</td><td>Use production fixtures and scheduled shadow evidence to promote one bridge only when the approval audit can turn fully green.</td></tr>
+      <tr><td>Decision Parity Test</td><td><span class="badge ok">complete; pass</span></td><td>The checked-in parity artifacts pass artifact-producing decision parity for crypto trend/momentum/breakout with <code>4</code> evidence fixtures each, plus k_stock OLR/KALCB and trading stock/momentum/swing family bridges with <code>2</code> evidence fixtures each. Validation uses monorepo-owned <code>trading/</code> paths at the current monorepo commit. The validation test passes, but approval remains blocked until plugin maturity becomes <code>approval_ready</code>.</td><td>Use production fixtures and scheduled shadow evidence to promote one bridge only when the approval audit can turn fully green.</td></tr>
       <tr><td>Incumbent Replay Test</td><td><span class="badge ok">complete; pass</span></td><td>The checked-in replay-evidence artifacts reproduce latest accepted configs within tolerance for all five active scopes.</td><td>Keep latest accepted configs and frozen diagnostics refreshed as production runs accumulate.</td></tr>
       <tr><td>Round Reproduction Test</td><td><span class="badge ok">complete; pass</span></td><td>The checked-in replay-evidence artifacts reproduce the latest phased-auto round winner/config class for all five active scopes.</td><td>Keep rerunning from frozen baselines after each approved live change.</td></tr>
       <tr><td>Historical Walk-Forward Meta-Test</td><td><span class="badge ok">complete; pass</span></td><td>The checked-in replay-evidence artifacts pass historical walk-forward for k_stock OLR/KALCB, trading stock, trading momentum, trading swing, and crypto.</td><td>Keep multi-month windows refreshed and rerun after material data, strategy, or portfolio-rule changes.</td></tr>
@@ -1708,7 +1709,7 @@
     <polygon points="820,90 830,110 810,110" fill="#7a1f2b"/>
     <text x="820" y="80" text-anchor="middle" fill="#7a1f2b" font-size="13" font-weight="700" font-family="Playfair Display" font-style="italic">WE ARE HERE</text>
 
-    <text x="620" y="240" text-anchor="middle" fill="#5a6573" font-size="12">control-plane contracts are solid; current-month authority, formal shadow parity, retained phase/repair artifacts, and replay evidence are verified</text>
+    <text x="620" y="240" text-anchor="middle" fill="#5a6573" font-size="12">control-plane contracts and code gates are solid; live/paper completion waits on clean deployment evidence</text>
   </svg>
   </div>
 
@@ -1716,14 +1717,14 @@
     <div class="card">
       <h4>What's strong today</h4>
       <ul>
-        <li>Clean monorepo boundary with contract-driven seams: nine package workspaces, monorepo-owned <code>bots/</code>, shared <code>contracts/</code>, deployment artifacts, frozen baselines, and validation evidence</li>
+        <li>Clean monorepo boundary with contract-driven seams: nine package workspaces, monorepo-owned <code>trading/</code>, shared <code>contracts/</code>, deployment artifacts, frozen baselines, and validation evidence</li>
         <li>Ledger triad (Proposal &middot; Suggestion &middot; ChangeLedger) is complete</li>
         <li>Loop-engineering substrate is in place: checked loop contracts, generated loop-run ledger/work log, source-backed performance-learning projection, artifact authority registry, independent monthly evidence verifier, and loop-focused workspace checks</li>
         <li>Daily + weekly cadences run, with proper authority limits</li>
         <li>Monthly orchestrator + <code>BacktestRunnerClient</code> + <code>MonthlyOptimizerRunner</code> validators are real implementations (off by default)</li>
         <li>Outcome priors, search-brief, model review, harness benchmark already in code</li>
         <li>Data and baseline authority: source adapters and contracts are real, while final-refactor acceptance currently proves historical-data portability through bot-owned data directories, <code>backtests/data_portability_manifest.json</code>, <code>backtests/baselines/baseline_index.json</code>, and validation reports rather than the removed local monthly bundle tree</li>
-        <li>Backtest workspace: contract loader, artifact writer, manifest loader, observability, candidate-workspace manager, deterministic planner, retained phase/repair runner, shadow monthly cycle, data-reproduction reports, parity for crypto/k_stock/trading bridges, runtime deployment metadata verification, structural selection gate, replay evidence artifacts, and a validation matrix that passes all five validation tests while blocking non-approval-ready contracts from structural approval are real</li>
+        <li>Backtest workspace: contract loader, artifact writer, manifest loader, observability, candidate-workspace manager, deterministic planner, retained phase/repair runner, shadow monthly cycle, data-reproduction reports, parity for crypto/k_stock/trading bridges, runtime deployment metadata gates, structural selection gate, replay evidence artifacts, and a validation matrix that passes all five validation tests while blocking non-approval-ready contracts from structural approval are real</li>
         <li>Optimizer evidence: latest-round no-drift and old-runner-vs-shared-adapter compatibility pass for every active scope; explicit approval-grade optimizer run manifests still need to be emitted before structural candidate adoption can be approval-ready</li>
         <li>Approval, comms, permission gates, and policy memory enforce safety</li>
         <li>The current implementation plan and migration inventory are captured in <code>docs/contract-first-python-workspace-monorepo-implementation-plan.md</code> and <code>docs/migration_inventory.md</code></li>
@@ -1732,6 +1733,7 @@
     <div class="card">
       <h4>What still needs to land</h4>
       <ul>
+        <li>Emit runtime deployment metadata from a clean release checkout and collect <code>deployments/operational_evidence.json</code> from the three VPSes plus the local assistant until both deployment verifiers pass</li>
         <li>Promote one strategy bridge from shadow validation to <code>approval_ready</code> maturity after broader fixture evidence, scheduled shadow evidence, and explicit approval-grade optimizer manifests land</li>
         <li>More production-derived replay/search evidence that scores real phase candidates and reproduces latest accepted portfolio diagnostics after live changes</li>
         <li>Broader production-derived decision-level parity fixtures beyond the current shadow fixture sets</li>
@@ -1743,15 +1745,16 @@
   </div>
 
   <div class="callout ok">
-    <strong>Bottom line:</strong> the architecture is now the monorepo form of the target-state plan. The previous big gaps are addressed at the validation-spine and loop-operating-substrate level: data portability passes for crypto, K-stock, and IBKR/trading historical data; frozen latest-round baselines reproduce without drift; old optimizer runners match the shared adapter on smoke fixtures; phase/repair artifacts have deterministic fail-closed implementations; parity passes across active bridge surfaces; incumbent replay, round reproduction, and historical walk-forward pass across active scopes; loop contracts, work-log projection, performance-learning projection, artifact authority, deployment gate, runtime deployment metadata, and independent verification are checked. Structural approval is still correctly blocked because every bridge remains <code>shadow_validated</code>, not <code>approval_ready</code>, explicit approval-grade optimizer manifests and scheduled shadow promotion evidence are still absent, and the monthly optimizer is not yet allowed to adopt candidates. The weekly learning loop should rotate through k_stock/trading-stock, trading-momentum, trading-swing, and crypto, while monthly phased-auto/OOS repair remains the authoritative optimization lane.
+    <strong>Bottom line:</strong> the architecture is now the monorepo form of the target-state plan. The previous big gaps are addressed at the validation-spine and loop-operating-substrate level: data portability passes for crypto, K-stock, and IBKR/trading historical data; frozen latest-round baselines reproduce without drift; old optimizer runners match the shared adapter on smoke fixtures; phase/repair artifacts have deterministic fail-closed implementations; parity passes across active bridge surfaces; incumbent replay, round reproduction, and historical walk-forward pass across active scopes; loop contracts, work-log projection, performance-learning projection, artifact authority, deployment gate code, relay evidence validation, crypto sidecar policy validation, K-stock relay probing, IBKR loaded-config equivalence, and assistant relay ingress are implemented. Live/paper release completion is still correctly blocked until clean runtime deployment metadata and real operational evidence from the VPS/local assistant window pass. Structural approval is also still correctly blocked because every bridge remains <code>shadow_validated</code>, not <code>approval_ready</code>, explicit approval-grade optimizer manifests and scheduled shadow promotion evidence are still absent, and the monthly optimizer is not yet allowed to adopt candidates. The weekly learning loop should rotate through k_stock/trading-stock, trading-momentum, trading-swing, and crypto, while monthly phased-auto/OOS repair remains the authoritative optimization lane.
   </div>
 </section>
 
 <div class="footer">
-  Refreshed after monorepo verification, deployment-gate verification, parity/no-drift/optimizer/backtest-integrity checks, runtime metadata verification, stale editable-path wrapper fixes, and documentation alignment on <span class="mono">2026-07-04</span><br/>
-  Compiled from current repo state at <span class="mono">2026-07-04</span> &middot; references:<br/>
+  Refreshed after monorepo verification, deployment-gate verification, parity/no-drift/optimizer/backtest-integrity checks, live/paper code-gate hardening, deployment evidence audit, and documentation alignment on <span class="mono">2026-07-08</span><br/>
+  Compiled from current repo state at <span class="mono">2026-07-08</span> &middot; references:<br/>
   <span class="mono">docs/contract-first-python-workspace-monorepo-implementation-plan.md</span> &middot;
   <span class="mono">docs/migration_inventory.md</span> &middot;
+  <span class="mono">docs/live-paper-trading-critical-audit-2026-07-08.md</span> &middot;
   <span class="mono">docs/improve-codebase-architecture-ideal-architecture.md</span> &middot;
   <span class="mono">backtests/data_portability_manifest.json</span> &middot;
   <span class="mono">backtests/baselines/baseline_index.json</span> &middot;

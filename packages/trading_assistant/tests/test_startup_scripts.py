@@ -45,10 +45,13 @@ def test_start_script_passes_uvicorn_host_to_bind_env():
 def test_relay_start_script_runs_local_relay_from_monorepo():
     source = START_RELAY_SCRIPT.read_text(encoding="utf-8")
     assert 'Import-AssistantEnvFile -EnvFile (Join-Path $ProjectRoot ".env")' in source
-    assert '"apps.relay.app:app"' in source
+    assert '"trading_assistant.relay_ingress.app:app"' in source
     assert '"--app-dir", $RelayAppDir' in source
     assert '$env:RELAY_DB_PATH' in source
-    assert 'bots\\ibkr_trading' in source
+    assert 'RELAY_NETWORK_MODE' in source
+    assert 'RELAY_HOST must not be loopback' in source
+    assert '"prod", "production"' in source
+    assert 'trading\\ibkr_trading' not in source
 
 
 def test_install_startup_registers_relay_and_orchestrator_tasks():

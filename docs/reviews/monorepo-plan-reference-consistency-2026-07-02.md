@@ -8,7 +8,7 @@ Date: 2026-07-02. Method: automated verification of the plan's per-system claims
 
 ## Verified claims by system
 
-### IBKR (`bots/ibkr_trading`)
+### IBKR (`trading/ibkr_trader`)
 - Layout `apps/`, `libs/`, `strategies/`, `backtests/`, `regime/`, `config/`, `backtests/shared/auto` — all exist.
 - Entrypoints: `apps/runtime/runtime.py` and `apps/runtime/cli.py` exist (Phase 1 check `python -m apps.runtime.cli --help` is valid).
 - Compose services exactly match the plan: postgres, ib-gateway, runtime, relay, dashboard, watchdog.
@@ -16,13 +16,13 @@ Date: 2026-07-02. Method: automated verification of the plan's per-system claims
 - Live parity tests exist: `test_swing_portfolio_synergy_live_parity.py`, `test_momentum_portfolio_synergy_live_parity.py`, `test_alcb_round2_alpha_controls.py` (plausibly the "ALCB round 2 live-default checks").
 - **All 13 rounds-table rows match**, including three rows (vdubus r3, tpc r8, stock/portfolio_synergy r3) where the manifest holds *duplicate entries per round number* (April run + May re-run). The plan consistently used the latest-timestamped entry: vdubus r3 2026-05-23 / 29 mut / 212 trades / pf 2.647; tpc r8 2026-05-23 / 96 mut / 126 trades / pf 2.441; stock/ps r3 / 8 mut / 1684 trades / pf 2.241, with `latest_round: 3` designated in the manifest.
 
-### Crypto (`bots/crypto_trader`)
+### Crypto (`trading/crypto_trader`)
 - `src/crypto_trader` layout, `cli.py`, `optimize/contracts.py` with `optimizer_contract_v1`, `phase_state`, `optimized_config` markers; `LIVE_PARITY_PROFILE` (10 files), preflight (5 files), `PhaseRunner`/`PhaseSpec` present.
 - Compose matches: postgres, trader, data-refresh, dashboard + backtest/optimize behind `tools` profile.
 - Rounds table exact: momentum r3 2026-05-26 pf 2.716/46 trades/6 mut; trend r3 2026-05-25 pf 5.928/29/2; breakout r3 2026-05-27 pf 23.330/17/5.
 - Portfolio round_3 `deployment_manifest.json` references `portfolio_rounds_manifest_path` while `output/portfolio/rounds_manifest.json` is missing — exactly the integrity blocker the plan flags. `parity_alignment.json` reports matched.
 
-### K-stock (`bots/k_stock_trader`)
+### K-stock (`trading/k_stock_trader`)
 - All five runtime modes present in `deployment/olr_kalcb/runtime.py`: artifact_only_stage1, artifact_only, dry_run, paper, live.
 - Compose: oms, pcim (profile-gated = plan's "optional PCIM research"), runtime, dashboard, postgres.
 - `k_stock_olr_kalcb_strategy_plugin_contract_v1` in `deployment/olr_kalcb/bridge_contract.py`; `live_parity_fill_timing` (36 files), `next_5m_open` (19), `resource_plan` (31), `deployment_metadata` (10); `PhaseRunner`/`PhaseSpec`/`RoundManager` in `backtests/auto/shared/`.

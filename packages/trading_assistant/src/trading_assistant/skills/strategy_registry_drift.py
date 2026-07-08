@@ -1,5 +1,5 @@
 """Drift checker — detect mismatches between data/strategy_profiles.yaml
-and the live strategy directories under bots/ibkr_trading/strategies/.
+and the live strategy directories under trading/ibkr_trader/strategies/.
 
 Surfaces three categories of drift:
   - registered_but_missing: in registry but the reference dir is empty/absent
@@ -127,7 +127,7 @@ def check_drift(
     or archived evidence roots. Defaults to the extracted IBKR bot.
     """
     if reference_roots is None:
-        reference_roots = [monorepo_root() / "bots" / "ibkr_trading"]
+        reference_roots = [monorepo_root() / "trading" / "ibkr_trader"]
 
     drift = RegistryDrift(
         checked_at=datetime.now(timezone.utc).isoformat(),

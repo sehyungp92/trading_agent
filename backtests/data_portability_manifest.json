@@ -3063,7 +3063,7 @@
           "size_bytes": 1230944
         }
       ],
-      "path": "bots/ibkr_trading/backtests/stock/data/raw",
+      "path": "trading/ibkr_trader/backtests/stock/data/raw",
       "required": true,
       "required_for": [
         "A2",
@@ -3483,7 +3483,7 @@
           "size_bytes": 447876
         }
       ],
-      "path": "bots/ibkr_trading/backtests/momentum/data/raw",
+      "path": "trading/ibkr_trader/backtests/momentum/data/raw",
       "required": true,
       "required_for": [
         "A2",
@@ -3813,7 +3813,7 @@
           "size_bytes": 447876
         }
       ],
-      "path": "bots/ibkr_trading/backtests/swing/data/raw",
+      "path": "trading/ibkr_trader/backtests/swing/data/raw",
       "required": true,
       "required_for": [
         "A2",
@@ -3853,7 +3853,7 @@
           "size_bytes": 298784
         }
       ],
-      "path": "bots/ibkr_trading/backtests/regime/data/raw",
+      "path": "trading/ibkr_trader/backtests/regime/data/raw",
       "required": true,
       "required_for": [
         "A2",
@@ -4003,7 +4003,7 @@
           "size_bytes": 381657
         }
       ],
-      "path": "bots/crypto_trader/data",
+      "path": "trading/crypto_trader/data",
       "required": true,
       "required_for": [
         "A3",
@@ -5605,7 +5605,7 @@
           "size_bytes": 7450
         }
       ],
-      "path": "bots/k_stock_trader/data/backtests/output",
+      "path": "trading/k_stock_trader/data/backtests/output",
       "required": false,
       "required_for": [
         "A5"

@@ -1,0 +1,205 @@
+{
+  "checks": [
+    {
+      "details": [
+        {
+          "item_count": 11,
+          "section": "Phase 10",
+          "unchecked_count": 8,
+          "unchecked_items": [
+            "Select one approval-ready bridge pilot.",
+            "Expand production-derived fixtures for pilot.",
+            "Run scheduled shadow cycles for pilot.",
+            "Emit approval-grade optimizer manifests for pilot.",
+            "Rerun approval audit.",
+            "Verify one bridge can reach `approval_ready`.",
+            "Verify structural adoption remains blocked before approval readiness.",
+            "Refresh performance-learning ledger from real monthly outcomes."
+          ]
+        }
+      ],
+      "name": "required_finite_checklist_sections_complete",
+      "passed": false
+    },
+    {
+      "details": {
+        "path": "artifacts/learning_sufficiency/ptg6_gate_report.json",
+        "status": "blocked"
+      },
+      "name": "ptg6_report_passed",
+      "passed": false
+    },
+    {
+      "details": {
+        "approval_blockers": [
+          "plugin_maturity_is_shadow_validated_not_approval_ready"
+        ],
+        "approval_ready": false,
+        "audit_passed": true,
+        "commit_sha": "704ec76385e9762390122e132c5740abf4d74c12",
+        "eligible_for_optimizer": true,
+        "errors": [],
+        "evidence": [
+          {
+            "exists": true,
+            "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\contracts\\strategy_plugins\\trading_stock_family\\strategy_plugin_contract.json",
+            "relative_path": "contracts/strategy_plugins/trading_stock_family/strategy_plugin_contract.json"
+          },
+          {
+            "exists": true,
+            "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\decision_parity\\decision_parity_validation_summary.json",
+            "relative_path": "artifacts/validation/decision_parity_matrix/trading_stock_family/decision_parity/decision_parity_validation_summary.json"
+          },
+          {
+            "exists": true,
+            "path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\artifacts\\validation\\decision_parity_matrix\\trading_stock_family\\decision_parity\\decision_parity_report.json",
+            "relative_path": "artifacts/validation/decision_parity_matrix/trading_stock_family/decision_parity/decision_parity_report.json"
+          }
+        ],
+        "maturity": "shadow_validated",
+        "recommended_next_step": "Keep the stock-family bridge in shadow validation while expanding fixtures beyond IARIC entry/family collision cases.",
+        "repo_id": "trading_stock_family",
+        "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\ibkr_trading",
+        "source_checkout_clean": false,
+        "status": "formal_decision_parity_passed",
+        "supported_scope": [
+          "portfolio:stock",
+          "strategy:IARIC_v1",
+          "strategy:ALCB_v1"
+        ],
+        "weekly_focus_week": 1
+      },
+      "name": "actual_structural_adoption_remains_blocked",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual_bridge_approval_ready": false,
+        "actual_bridge_maturity": "shadow_validated",
+        "actual_structural_adoption_blocked": true,
+        "fixture_scoped_approval_readiness_simulated": true,
+        "fixture_scoped_status": "evidence_complete",
+        "pilot_bridge_id": "trading_stock_family",
+        "production_blockers": [
+          "actual bridge contract remains shadow_validated, not approval_ready",
+          "live VPS deployment metadata is not promotion-grade",
+          "learning sufficiency is not learning_authoritative for the pilot bridge",
+          "no real non-fixture monthly outcome is available to update priors"
+        ],
+        "production_contract_mutated": false,
+        "production_promotion_allowed": false,
+        "promotion_conditions": {
+          "approval_grade_optimizer_manifest": true,
+          "formal_decision_parity": true,
+          "learning_sufficiency_authoritative": false,
+          "live_deployment_metadata": false,
+          "production_derived_fixture_window": true,
+          "real_non_fixture_monthly_outcome": false,
+          "scheduled_shadow_cycles": true
+        },
+        "schema_version": "ptg7_approval_ready_bridge_pilot_v1"
+      },
+      "name": "fixture_scoped_pilot_evidence_complete",
+      "passed": true
+    },
+    {
+      "details": {
+        "ledger_path": "packages/trading_assistant/memory/findings/performance_learning_ledger.jsonl",
+        "measured_monthly_count": 2,
+        "production_dod_real_outcome_passed": false,
+        "real_non_fixture_measured_monthly_count": 0,
+        "validation_messages": []
+      },
+      "name": "performance_learning_monthly_outcome_authority",
+      "passed": true
+    },
+    {
+      "details": {
+        "artifact_count": 16,
+        "artifact_paths": [
+          "artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_breakout_v1/learning_sufficiency_manifest.json",
+          "artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_momentum_v1/learning_sufficiency_manifest.json",
+          "artifacts/learning_sufficiency/phase2_manifests/crypto/2026-06/crypto_trend_v1/learning_sufficiency_manifest.json",
+          "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_momentum_family/learning_sufficiency_manifest.json",
+          "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_stock_family/learning_sufficiency_manifest.json",
+          "artifacts/learning_sufficiency/phase2_manifests/ibkr/2026-06/trading_swing_family/learning_sufficiency_manifest.json",
+          "artifacts/learning_sufficiency/phase2_manifests/k_stock/2026-06/k_stock_olr_kalcb/learning_sufficiency_manifest.json",
+          "artifacts/learning_sufficiency/ptg3_gate_report.json",
+          "artifacts/learning_sufficiency/ptg4_gate_report.json",
+          "artifacts/learning_sufficiency/ptg5_gate_report.json",
+          "artifacts/learning_sufficiency/ptg6_gate_report.json",
+          "artifacts/learning_sufficiency/ptg7_gate_report.json",
+          "artifacts/validation/approval_evidence/trading_stock_family/ptg7_pilot/approval_grade_optimizer_manifest.json",
+          "artifacts/validation/approval_evidence/trading_stock_family/ptg7_pilot/approval_ready_bridge_pilot_report.json",
+          "artifacts/validation/approval_evidence/trading_stock_family/ptg7_pilot/production_derived_fixture_window.json",
+          "artifacts/validation/approval_evidence/trading_stock_family/ptg7_pilot/scheduled_shadow_cycles.json"
+        ],
+        "failures": [],
+        "max_payload_bytes": 500000
+      },
+      "name": "ptg7_artifact_hygiene_am26",
+      "passed": true
+    }
+  ],
+  "gate": "PTG-7",
+  "generated_at": "2026-07-07T21:56:28Z",
+  "implementation_failures": [
+    {
+      "details": [
+        {
+          "item_count": 11,
+          "section": "Phase 10",
+          "unchecked_count": 8,
+          "unchecked_items": [
+            "Select one approval-ready bridge pilot.",
+            "Expand production-derived fixtures for pilot.",
+            "Run scheduled shadow cycles for pilot.",
+            "Emit approval-grade optimizer manifests for pilot.",
+            "Rerun approval audit.",
+            "Verify one bridge can reach `approval_ready`.",
+            "Verify structural adoption remains blocked before approval readiness.",
+            "Refresh performance-learning ledger from real monthly outcomes."
+          ]
+        }
+      ],
+      "name": "required_finite_checklist_sections_complete",
+      "passed": false
+    },
+    {
+      "details": {
+        "path": "artifacts/learning_sufficiency/ptg6_gate_report.json",
+        "status": "blocked"
+      },
+      "name": "ptg6_report_passed",
+      "passed": false
+    }
+  ],
+  "implementation_status": "blocked",
+  "pilot_artifacts": {
+    "approval_grade_optimizer_manifest": "artifacts/validation/approval_evidence/trading_stock_family/ptg7_pilot/approval_grade_optimizer_manifest.json",
+    "fixture_window": "artifacts/validation/approval_evidence/trading_stock_family/ptg7_pilot/production_derived_fixture_window.json",
+    "pilot_report": "artifacts/validation/approval_evidence/trading_stock_family/ptg7_pilot/approval_ready_bridge_pilot_report.json",
+    "scheduled_shadow_cycles": "artifacts/validation/approval_evidence/trading_stock_family/ptg7_pilot/scheduled_shadow_cycles.json"
+  },
+  "pilot_bridge_id": "trading_stock_family",
+  "production_blockers": [
+    "actual bridge contract remains shadow_validated, not approval_ready",
+    "live VPS deployment metadata is not promotion-grade",
+    "learning sufficiency is not learning_authoritative for the pilot bridge",
+    "no real non-fixture monthly outcome is available to update priors"
+  ],
+  "production_promotion_status": "blocked",
+  "promotion_criteria": "One bridge may reach approval_ready only after live deployment metadata, production-derived fixtures, scheduled shadow cycles, approval-grade optimizer manifests, learning sufficiency, and real monthly outcome authority pass.",
+  "required_acceptance_rows": [
+    "AM-23",
+    "AM-24",
+    "AM-25",
+    "AM-26",
+    "Definition of Done"
+  ],
+  "required_finite_checklist_sections": [
+    "Phase 10"
+  ],
+  "schema_version": "approval_ready_pilot_ptg7_gate_report_v1",
+  "status": "blocked"
+}

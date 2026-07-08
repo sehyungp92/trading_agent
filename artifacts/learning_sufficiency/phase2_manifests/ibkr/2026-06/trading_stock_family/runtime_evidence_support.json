@@ -196,6 +196,6 @@
   "schema_version": "runtime_evidence_support_v1",
   "strategy_id": "trading_stock_family",
   "support_source_paths": [
-    "bots/ibkr_trading/strategies/stock/instrumentation/src/sidecar.py"
+    "trading/ibkr_trader/strategies/stock/instrumentation/src/sidecar.py"
   ]
 }

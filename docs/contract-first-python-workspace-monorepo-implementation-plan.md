@@ -4,9 +4,9 @@
 
 This plan describes how to migrate the existing trading systems into one contract-first Python workspace monorepo with many packages and three independently deployable bot images:
 
-- IBKR bot, currently in `bots/ibkr_trading`
-- KIS/KRX bot, currently in `bots/k_stock_trader`
-- Hyperliquid crypto bot, currently in `bots/crypto_trader`
+- IBKR bot, currently in `trading/ibkr_trader`
+- KIS/KRX bot, currently in `trading/k_stock_trader`
+- Hyperliquid crypto bot, currently in `trading/crypto_trader`
 
 The trading assistant, currently in `packages/trading_assistant`, should also live in the same monorepo as first-class packages. It should not become a direct in-process dependency of the live trading runtimes. The assistant remains a control/data/backtest plane connected through versioned manifests, artifact indexes, deployment metadata, and parity reports.
 
@@ -62,10 +62,10 @@ Trading assistant:
 
 ### Corrections From Second-Pass Review
 
-The migration has created the root workspace, `packages/`, `bots/`, `contracts/`, `deployments/`, baseline artifacts, and verification tools. The implementation must still preserve the original distinction between these actions:
+The migration has created the root workspace, `packages/`, `trading/`, `contracts/`, `deployments/`, baseline artifacts, and verification tools. The implementation must still preserve the original distinction between these actions:
 
-- Adapt existing package metadata from `bots/ibkr_trading`, `bots/crypto_trader`, `packages/trading_assistant`, `packages/trading_assistant_data`, and `packages/trading_assistant_backtest`.
-- Create new package metadata for `bots/k_stock_trader`, which currently has `requirements.txt` and `pytest.ini` but no root `pyproject.toml`.
+- Adapt existing package metadata from `trading/ibkr_trader`, `trading/crypto_trader`, `packages/trading_assistant`, `packages/trading_assistant_data`, and `packages/trading_assistant_backtest`.
+- Create new package metadata for `trading/k_stock_trader`, which currently has `requirements.txt` and `pytest.ini` but no root `pyproject.toml`.
 - Move code out of `legacy source snapshots` only after baseline and import-compatibility gates are in place.
 
 Final `legacy source snapshots` policy:
@@ -116,8 +116,8 @@ trading_agent/
     trading_assistant_data/
     trading_assistant_backtest/
 
-  bots/
-    ibkr_trading/
+  trading/
+    ibkr_trader/
       src/ibkr_trading/
       config/
       tests/
@@ -175,7 +175,7 @@ Use `uv` as the workspace and lockfile authority. Do not leave this as `uv` vs c
 
 Required mechanics:
 
-- Root `pyproject.toml` declares `[tool.uv.workspace]` members for `packages/*` and `bots/*`.
+- Root `pyproject.toml` declares `[tool.uv.workspace]` members for `packages/*` and `trading/*`.
 - Every internal package has package-local metadata and explicit dependencies.
 - Root live-image target is Python 3.12.
 - Packages that currently support Python 3.11, especially crypto and assistant-backtest, may keep `requires-python >=3.11` while the root lock is resolved for the live-image Python 3.12 target.
@@ -422,7 +422,7 @@ Responsibilities remain:
 
 It should call bot strategy adapters through declared plugin contracts, not by importing arbitrary runtime modules.
 
-### `bots/ibkr_trading`
+### `trading/ibkr_trader`
 
 Owns IBKR-specific runtime behavior.
 
@@ -435,7 +435,7 @@ Responsibilities:
 - Swing, momentum, stock runtime family coordinators.
 - IBKR-specific deployment config and Dockerfile.
 
-### `bots/k_stock_trader`
+### `trading/k_stock_trader`
 
 Owns KIS/KRX-specific runtime behavior.
 
@@ -448,7 +448,7 @@ Responsibilities:
 - Resource plan and API quota enforcement.
 - KIS-specific deployment config and Dockerfile.
 
-### `bots/crypto_trader`
+### `trading/crypto_trader`
 
 Owns Hyperliquid-specific runtime behavior.
 
@@ -512,7 +512,7 @@ Add a promotion manifest as the single bridge from latest backtest config to liv
     "oos_smoke_report_path": "backtests/output/example/round_3/oos_smoke_report.json"
   },
   "live_config": {
-    "template_path": "bots/ibkr_trading/config/strategies.yaml",
+    "template_path": "trading/ibkr_trader/config/strategies.yaml",
     "generated_path": "deployments/ibkr/generated/strategies.effective.yaml",
     "generated_config_hash": "sha256:..."
   },
@@ -581,9 +581,9 @@ Crypto portfolio adoption bundle:
 
 Existing IBKR baseline fixture:
 
-- `bots/ibkr_trading/tests/fixtures/backtest_baselines/manifest.json` already defines the artifact/regeneration shape for frozen diagnostic baselines.
+- `trading/ibkr_trader/tests/fixtures/backtest_baselines/manifest.json` already defines the artifact/regeneration shape for frozen diagnostic baselines.
 - Extend that format into the root baseline index instead of inventing a second baseline manifest shape.
-- Existing helper code in `bots/ibkr_trading/backtests/shared/parity/baseline_regeneration.py` already supports sandbox regeneration, normalized hashes, metric checks, and explicit regeneration metadata.
+- Existing helper code in `trading/ibkr_trader/backtests/shared/parity/baseline_regeneration.py` already supports sandbox regeneration, normalized hashes, metric checks, and explicit regeneration metadata.
 
 ### Baseline Artifacts To Preserve
 
@@ -613,8 +613,8 @@ Latest-round no-drift is not complete unless the historical data needed to rerun
 
 Required data evidence:
 
-- IBKR raw stock, momentum, swing, and regime backtest market data under `bots/ibkr_trading/backtests/*/data/raw`, tracked through Git LFS where binary.
-- Crypto candle, funding, and asset metadata under `bots/crypto_trader/data`, tracked through Git LFS where binary.
+- IBKR raw stock, momentum, swing, and regime backtest market data under `trading/ibkr_trader/backtests/*/data/raw`, tracked through Git LFS where binary.
+- Crypto candle, funding, and asset metadata under `trading/crypto_trader/data`, tracked through Git LFS where binary.
 - K-stock accepted latest-round evidence under `backtests/baselines/k_stock`; large generated `data/backtests/output` trees are local/object-storage audit evidence only, not the source-control authority.
 - `backtests/data_portability_manifest.json`, generated and verified by `python tools/verify_backtest_data_portability.py --bot all`, with file counts, sizes, tree hashes, and per-file hashes.
 
@@ -718,9 +718,9 @@ Tasks:
 - Keep Python 3.12 as the live-image runtime target.
 - Adapt existing package metadata from IBKR, crypto, and assistant packages.
 - Create new package metadata for K-stock from `requirements.txt`, `pytest.ini`, and its runtime/test entrypoints.
-- Add package directories under `packages` and bot directories under `bots`.
+- Add package directories under `packages` and bot directories under `trading`.
 - Leave the physical assistant package move for Phase 6; in Phase 1, only adapt metadata and compatibility paths needed for import checks.
-- Move or copy bot code into `bots` with compatibility entrypoints.
+- Move or copy bot code into `trading` with compatibility entrypoints.
 - Keep old import paths working through temporary compatibility modules.
 - Keep existing configs and compose files functionally unchanged.
 
@@ -915,9 +915,9 @@ Goal: deploy each bot independently while sharing package source.
 Tasks:
 
 - Create Dockerfiles:
-  - `bots/ibkr_trading/Dockerfile`
-  - `bots/k_stock_trader/Dockerfile`
-  - `bots/crypto_trader/Dockerfile`
+  - `trading/ibkr_trader/Dockerfile`
+  - `trading/k_stock_trader/Dockerfile`
+  - `trading/crypto_trader/Dockerfile`
 - Keep separate compose stacks under `deployments`.
 - Implement or migrate `packages/trading_deployment` behavior for metadata emission, image labels, dirty-state checks, readiness gates, and fail-closed startup validation.
 - Implement or migrate `packages/trading_instrumentation` behavior for event emission, lineage propagation, structured logging helpers, and redaction using contract-owned event models.
@@ -1003,7 +1003,7 @@ Required checks:
 
 ### IBKR Bot
 
-Keep the unified runtime shell and family coordinator model. Move broker and runtime code into `bots/ibkr_trading`, while extracting reusable runtime metadata and contract validation to shared packages.
+Keep the unified runtime shell and family coordinator model. Move broker and runtime code into `trading/ibkr_trader`, while extracting reusable runtime metadata and contract validation to shared packages.
 
 Important preservation points:
 
@@ -1035,7 +1035,7 @@ The restored `data/backtests/output` baseline evidence must stay frozen before o
 
 ### Crypto Bot
 
-Keep the package shape of `src/crypto_trader` initially because it is already close to the target. Move it under `bots/crypto_trader/src/crypto_trader` with minimal import changes.
+Keep the package shape of `src/crypto_trader` initially because it is already close to the target. Move it under `trading/crypto_trader/src/crypto_trader` with minimal import changes.
 
 Important preservation points:
 
@@ -1129,7 +1129,7 @@ This rule is separate from the `legacy source snapshots` policy. Porting useful 
 | A12 | Shared contracts compatibility | all legacy artifacts | assistant contract models, crypto optimizer contracts, K-stock bridge/deployment metadata, IBKR round manifests | `packages/trading_contracts` schemas and readers | `trading-contracts validate --all-known-reference-artifacts`; `python tools/verify_dependency_boundaries.py` | existing artifacts validate unchanged or through named compatibility adapters; `trading_contracts` owns canonical models without importing `trading_assistant_backtest`; assistant/backtest packages depend on `trading_contracts`; duplicate assistant-local canonical model classes are removed or reduced to compatibility aliases with parity tests | shared package adoption |
 | A13 | Optimizer compatibility | three phased optimizer implementations | IBKR/K-stock/crypto `PhaseRunner` and plugin protocols | `packages/trading_optimizer` adapter layer plus smoke fixtures | `python tools/verify_optimizer_compatibility.py --bot all --fixture-set smoke` | legacy runner and shared adapter runner execute against the same smoke fixture inputs and produce identical cumulative mutations, gate decisions, selected candidates, and canonical round outputs; PASS evidence includes input hashes, command records, runner source hashes, output hashes, and compared payloads; latest-round no-drift and archived/frozen-output canonicalization are preflight evidence only and cannot close this gate | deleting duplicated optimizer internals |
 | A14 | Backtest integrity invariants | all promoted backtests | `docs/strategy-implementation-lessons.md`; existing artifact hygiene and parity tests; data portability manifest | shared invariant test suite plus thin-adapter audit plus `artifacts/validation/backtest_data_portability_report.json` | `python tools/run_backtest_integrity_matrix.py --promoted-only` | completed-bar, next-bar fill, broker path, MTM risk, net/gross accounting, shared-capital portfolio, diagnostics, timestamp, artifact hygiene, and stress gates pass as named hard-fail checks with per-invariant command/evidence records; validation-matrix errors are gate failures, not advisory fields; every promoted backtest is proven to be a replay/simulation adapter over the production decision core, with no separate backtest-owned decision implementation except documented transitional/non-promoted cases; data reproduction and replay evidence reports include the data portability manifest/report as hard evidence and fail closed with explicit `missing_artifact_paths` when any required artifact is absent; adapter path existence or repeated broad evidence notes do not satisfy this gate | accepting regenerated performance |
-| A15 | Deployment image build | three bots | existing compose/Dockerfiles where present | `bots/*/Dockerfile`, `deployments/*/docker-compose.yml`, `.dockerignore` or equivalent build-context rules, image dependency reports | `python tools/build_bot_image.py --bot all --emit-dependency-reports`; docker build matrix for all bot images; in-image runtime import/help/startup smoke | each image builds independently on the approved Python live-runtime base or a documented exception; image smokes run without broker secrets and do not attempt broker/exchange/KRX/IBKR authentication or emit credential/login failure output; images include only required bot/shared packages; assistant control-plane/backtest packages and package-local contract trees are absent from live bot images unless explicitly approved; nested `legacy source snapshots`, bot-local `output/`, bot-local `backtests/output/`, bot-local raw historical data, crypto historical data, and bot-local `data/backtests/output/` are excluded from image contexts; static Dockerfile/dependency-report verification or return-code-only smoke evidence is only preflight evidence and does not satisfy this gate | VPS deployment |
+| A15 | Deployment image build | three bots | existing compose/Dockerfiles where present | `trading/*/Dockerfile`, `deployments/*/docker-compose.yml`, `.dockerignore` or equivalent build-context rules, image dependency reports | `python tools/build_bot_image.py --bot all --emit-dependency-reports`; docker build matrix for all bot images; in-image runtime import/help/startup smoke | each image builds independently on the approved Python live-runtime base or a documented exception; image smokes run without broker secrets and do not attempt broker/exchange/KRX/IBKR authentication or emit credential/login failure output; images include only required bot/shared packages; assistant control-plane/backtest packages and package-local contract trees are absent from live bot images unless explicitly approved; nested `legacy source snapshots`, bot-local `output/`, bot-local `backtests/output/`, bot-local raw historical data, crypto historical data, and bot-local `data/backtests/output/` are excluded from image contexts; static Dockerfile/dependency-report verification or return-code-only smoke evidence is only preflight evidence and does not satisfy this gate | VPS deployment |
 | A16 | Deployment metadata | three bot runtimes | K-stock metadata emitter, crypto live metadata, IBKR registry artifact | normalized deployment metadata emitted by bot runtime startup paths | `python tools/verify_deployment_metadata.py --bot all` | full commit, actual clean worktree state, image version, materialized config hash, promotion hash, canonical strategy plugin contract hash, strategy version, telemetry schema, and runtime entrypoint are present in runtime-emitted metadata; PASS evidence includes each actual bot entrypoint artifact-only/dry-run/paper startup command, its return code, bounded output, normalized metadata path, and raw runtime artifact hash; the verifier rejects locally fabricated metadata, hard-coded clean-worktree assertions, artifacts produced only by `tools/generate_runtime_deployment_metadata.py`, and matrix/helper commands such as `tools/run_runtime_deployment_metadata_matrix.py` when they are the behavioral proof instead of orchestration around real bot startup commands; auto-update services such as Watchtower cannot bypass fail-closed validation | live trading enablement |
 | A17 | Final refactor acceptance | entire monorepo | all previous gates | `migration_acceptance_report.json`; `backtests/data_portability_manifest.json`; `artifacts/validation/backtest_data_portability_report.json` | `python tools/verify_refactor_acceptance.py --bot all --strict`; `python tools/verify_backtest_data_portability.py --bot all`; `python tools/run_workspace_checks.py deployment-gate`; `python -m pytest packages/trading_assistant_data/tests/test_source_layer_equivalence.py`; `python tools/check_workspace_structure.py --layout final` | latest phased auto-optimization artifacts are unchanged and their required historical data/evidence is present, hashed, and monorepo-owned; materialized live configs align with latest approved backtest configs; go-forward `trading_assistant_data` source adapters prove decision-row equivalence to bot-owned download layers for fetch, pagination, timestamp, merge, dedupe, and aggregation semantics; every acceptance matrix row A00-A17 is represented as an individual row-level PASS record with evidence paths, commands, and skip reasons, not grouped labels or omitted early bootstrap rows; final root structure includes required shared packages or the missing-package rows keep A17 red; the strict verifier reconciles required finite-checklist items with the matrix and keeps A17 red when gate-closing work remains open without an explicit non-applicability/blocker record; strict fixture gates are present in CI, run under a locked workspace environment using `uv sync --frozen --all-packages` or `uv run --frozen` instead of raw unsynced Python on clean runners, and are required before merge; A17 rejects A13 archived-output-only compatibility, A14 advisory/static invariant proof or green data/replay reports with missing required artifact paths, A15 preflight-only image evidence or broker-secret startup side effects, A16 locally generated/helper-emitted metadata or verifier output that lacks real runtime-emission command/hash evidence, no-drift evidence without a passing data portability report, and cutover records with placeholder rollback tags or missing previous compose/config/hash evidence; all relevant source assets have been ported into monorepo-owned paths with hashes/provenance; no committed runtime, test, verification, tooling, deployment metadata, contract, manifest, artifact index, acceptance report, or documentation artifact points at `legacy source snapshots`; no nested `legacy source snapshots` or unignored local runtime artifacts remain under production package paths | refactor completion |
 
@@ -1144,7 +1144,7 @@ Track this checklist directly. Do not add broad rolling tasks; split any new dis
 - [x] B5. Add bootstrap scripts for repo checks, workspace lock checks, import smoke, and affected-image detection.
 - [x] B6. Record bootstrap decisions in `docs/repo-bootstrap-decisions.md`.
 - [x] B7. Reconcile `[tool.trading_agent.required-branch-checks]`, CI workflow jobs, and `tools/check_repo_bootstrap.py` so bootstrap cannot pass with missing required checks.
-- [x] 1. Generate source inventory for `bots/ibkr_trading`, `bots/k_stock_trader`, `bots/crypto_trader`, and `packages/trading_assistant`.
+- [x] 1. Generate source inventory for `trading/ibkr_trader`, `trading/k_stock_trader`, `trading/crypto_trader`, and `packages/trading_assistant`.
 - [x] 2. Record all existing pyprojects, requirements, pytest configs, scripts, Dockerfiles, compose files, contracts, live configs, and artifact roots in the inventory.
 - [x] 3. Freeze IBKR latest non-archived round manifests and latest optimized configs into `backtests/baselines/ibkr`, using `latest_round` plus timestamp disambiguation for duplicate round numbers.
 - [x] 4. Extend the existing IBKR baseline fixture shape into the root baseline index, including `archive_path`/`cleanup_note` artifact resolution.
@@ -1155,8 +1155,8 @@ Track this checklist directly. Do not add broad rolling tasks; split any new dis
 - [x] 9. Not required: K-stock artifacts were restored, so no regenerated-artifact fallback was used.
 - [x] 10. Verify the current KALCB `frontier.size` source values are 103 in `config/kalcb.yaml`, `strategy_kalcb/config.py`, and `backtests/strategies/kalcb/phase_candidates.py`.
 - [x] 11. Create final root workspace metadata and committed `uv.lock` policy.
-- [x] 12. Adapt IBKR package metadata from `bots/ibkr_trading/pyproject.toml`.
-- [x] 13. Adapt crypto package metadata from `bots/crypto_trader/pyproject.toml`.
+- [x] 12. Adapt IBKR package metadata from `trading/ibkr_trader/pyproject.toml`.
+- [x] 13. Adapt crypto package metadata from `trading/crypto_trader/pyproject.toml`.
 - [x] 14. Move assistant package metadata from the three assistant package pyprojects without changing behavior.
 - [x] 15. Create K-stock package metadata from `requirements.txt`, `pytest.ini`, runtime entrypoints, and test layout.
 - [x] 15a. Remove assistant control-plane/backtest dependencies from live bot package metadata, or document an approved runtime-only exception with image dependency evidence.
@@ -1178,9 +1178,9 @@ Track this checklist directly. Do not add broad rolling tasks; split any new dis
 - [x] 26. Upgrade generated effective live config artifacts to include materialized runtime config values and prove they match current live behavior or approved overlays.
 - [x] 26a. Extend live-config verifiers so `--strict` requires materialized effective configs and parses KALCB `frontier.size=103` from live config, strategy default, optimizer base mutation, and deployment universe.
 - [x] 26b. Separate draft promotion generation from canonical approved promotion manifests; `--strict` must reject draft promotion states for runtime/live acceptance and config generation must not delete approved canonical manifests by copying drafts over them.
-- [x] 27. Move crypto into `bots/crypto_trader` with CLI compatibility.
-- [x] 28. Move IBKR into `bots/ibkr_trading` with runtime CLI compatibility.
-- [x] 29. Move K-stock into `bots/k_stock_trader` with runtime/session CLI compatibility.
+- [x] 27. Move crypto into `trading/crypto_trader` with CLI compatibility.
+- [x] 28. Move IBKR into `trading/ibkr_trader` with runtime CLI compatibility.
+- [x] 29. Move K-stock into `trading/k_stock_trader` with runtime/session CLI compatibility.
 - [x] 29a. Remove nested bot-local `legacy source snapshots` copies from production package paths.
 - [x] 29b. Ignore and package-exclude all bot-local generated output trees, including `output/`, `backtests/output/`, and `data/backtests/output/`; keep canonical frozen evidence under `backtests/baselines`.
 - [x] 30. Add deployment metadata validation to all three runtimes.
@@ -1209,7 +1209,7 @@ Track this checklist directly. Do not add broad rolling tasks; split any new dis
 - [x] 44. Retain only documented compatibility shims still exercised by runtime/test paths; remove them after dependency-free evidence exists, rather than removing active import surfaces prematurely.
 - [x] 45. Remove every committed dependency or path reference to `legacy source snapshots` after porting, including runtime, tests, migration/validation tools, manifests, contracts, deployment metadata, artifact indexes, acceptance reports, docs, and nested bot-local `legacy source snapshots` directories.
 - [x] 45a. Update baseline/no-drift, validation tools, data requirement manifests, tests, package-local metadata, and docs so final acceptance consumes monorepo-owned baselines/evidence with captured hashes/provenance instead of requiring or pointing at `legacy source snapshots`.
-- [x] 45b. Port and hash the historical backtest data needed to reproduce latest phased auto-optimization rounds: IBKR stock/momentum/swing/regime raw data under `bots/ibkr_trading/backtests/*/data/raw`, crypto candle/funding/asset metadata under `bots/crypto_trader/data`, K-stock accepted evidence under `backtests/baselines/k_stock`, and a verified `backtests/data_portability_manifest.json`; keep large generated output trees out of source-control authority and live Docker contexts.
+- [x] 45b. Port and hash the historical backtest data needed to reproduce latest phased auto-optimization rounds: IBKR stock/momentum/swing/regime raw data under `trading/ibkr_trader/backtests/*/data/raw`, crypto candle/funding/asset metadata under `trading/crypto_trader/data`, K-stock accepted evidence under `backtests/baselines/k_stock`, and a verified `backtests/data_portability_manifest.json`; keep large generated output trees out of source-control authority and live Docker contexts.
 - [x] 45c. Prove `trading_assistant_data` go-forward source adapters are faithful to bot-owned download layers for decision rows, including Hyperliquid duplicate/overlap precedence, IBKR bar normalization, KIS intraday parsing/aggregation, and LRS daily table export.
 - [x] 46. Produce `migration_acceptance_report.json` with explicit A00-A17 row statuses, evidence paths, commands, and skip reasons; the current report exists, but must be regenerated after A15, A16, and A17 strictness is corrected.
 - [x] 46a. Update `tools/verify_refactor_acceptance.py --bot all --strict` so it validates every acceptance matrix row as an individual A00-A17 record, runs `python tools/run_workspace_checks.py deployment-gate`, scans Python, tests, data, contract metadata, manifests, artifact indexes, deployment metadata, acceptance reports, migration/verification tooling, and docs for `legacy source snapshots` path references, rejects legacy snapshot provenance fields such as `source_repo`, `source_reference`, and `archived_source_path` when they point outside monorepo-owned artifacts, enforces zero remaining matches after porting, checks required final shared package structure, reconciles required finite-checklist items with matrix status, rejects A13 archived-output-only compatibility, A14 advisory/static invariant proof or green data/replay reports with missing required artifact paths, A15 preflight-only image evidence or broker-secret startup side effects, A16 local-generator/helper-emitted metadata or missing runtime-emission command/hash evidence, unsynced CI fixture gates, and placeholder cutover rollback records, and fails when a required row is omitted, grouped, or represented only by a smoke/static wrapper.
@@ -1329,9 +1329,9 @@ The migration is complete when:
 3. Preserve restored or superseded artifact evidence: K-stock `data/backtests/output` and crypto `output/portfolio/rounds_manifest.json`.
 4. Add `trading_contracts` by lifting assistant contract models and adding legacy artifact readers.
 5. Add promotion manifest schema and live config promotion verifier, including the KALCB `frontier.size=103` preservation check.
-6. Move crypto into `bots/crypto_trader` with minimal behavior changes and preserve portfolio round 3 deployment-manifest preflight.
-7. Move IBKR into `bots/ibkr_trading` with runtime compatibility entrypoints and preserve existing parity/baseline tests.
-8. Create K-stock package metadata, freeze restored baselines, then move K-stock into `bots/k_stock_trader`.
+6. Move crypto into `trading/crypto_trader` with minimal behavior changes and preserve portfolio round 3 deployment-manifest preflight.
+7. Move IBKR into `trading/ibkr_trader` with runtime compatibility entrypoints and preserve existing parity/baseline tests.
+8. Create K-stock package metadata, freeze restored baselines, then move K-stock into `trading/k_stock_trader`.
 9. Move assistant packages into `packages` with contract-only bot coupling and preserve `tools/run_workspace_checks.py` tiers.
 10. Extract shared optimizer kernel behind compatibility adapters only after no-drift gates are green.
 11. Add Docker build matrix, deployment metadata gates, final acceptance verifier, per-VPS compose outputs, and rollback scripts.

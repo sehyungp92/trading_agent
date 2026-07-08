@@ -196,6 +196,6 @@
   "schema_version": "runtime_evidence_support_v1",
   "strategy_id": "trading_momentum_family",
   "support_source_paths": [
-    "bots/ibkr_trading/strategies/momentum/instrumentation/src/sidecar.py"
+    "trading/ibkr_trader/strategies/momentum/instrumentation/src/sidecar.py"
   ]
 }

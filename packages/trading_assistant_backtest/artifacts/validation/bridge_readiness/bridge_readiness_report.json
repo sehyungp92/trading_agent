@@ -34,7 +34,7 @@
       "maturity": "shadow_validated",
       "recommended_next_step": "Keep crypto_trend_v1 in shadow validation until live deployment metadata and broader shadow cycles justify promotion.",
       "repo_id": "crypto_trend_v1",
-      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\crypto_trader",
+      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\crypto_trader",
       "source_checkout_clean": false,
       "status": "formal_decision_parity_missing_or_failed"
     },
@@ -70,7 +70,7 @@
       "maturity": "shadow_validated",
       "recommended_next_step": "Keep crypto_momentum_v1 in shadow validation while expanding fixtures against live runtime telemetry.",
       "repo_id": "crypto_momentum_v1",
-      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\crypto_trader",
+      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\crypto_trader",
       "source_checkout_clean": false,
       "status": "formal_decision_parity_missing_or_failed",
       "supported_scope": [
@@ -111,7 +111,7 @@
       "maturity": "shadow_validated",
       "recommended_next_step": "Keep crypto_breakout_v1 in shadow validation while expanding fixtures against live runtime telemetry.",
       "repo_id": "crypto_breakout_v1",
-      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\crypto_trader",
+      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\crypto_trader",
       "source_checkout_clean": false,
       "status": "formal_decision_parity_missing_or_failed",
       "supported_scope": [
@@ -152,7 +152,7 @@
       "maturity": "shadow_validated",
       "recommended_next_step": "Keep the stock-family bridge in shadow validation while expanding fixtures beyond IARIC entry/family collision cases.",
       "repo_id": "trading_stock_family",
-      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading",
+      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\ibkr_trading",
       "source_checkout_clean": false,
       "status": "formal_decision_parity_missing_or_failed",
       "supported_scope": [
@@ -194,7 +194,7 @@
       "maturity": "shadow_validated",
       "recommended_next_step": "Keep OLR/KALCB in shadow validation while adding runtime-session fixtures covering fills, exits, non-candidate bars, and portfolio arbitration.",
       "repo_id": "k_stock_olr_kalcb",
-      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\k_stock_trader",
+      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\k_stock_trader",
       "source_checkout_clean": false,
       "status": "formal_decision_parity_missing_or_failed",
       "supported_scope": [
@@ -236,7 +236,7 @@
       "maturity": "shadow_validated",
       "recommended_next_step": "Keep trading momentum in shadow validation while broadening fixtures beyond NQ_REGIME entry and family shared-risk cases.",
       "repo_id": "trading_momentum_family",
-      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading",
+      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\ibkr_trading",
       "source_checkout_clean": false,
       "status": "formal_decision_parity_missing_or_failed",
       "supported_scope": [
@@ -281,7 +281,7 @@
       "maturity": "shadow_validated",
       "recommended_next_step": "Keep trading swing in shadow validation while adding blocked-trade, exit, and overlay rebalance edge fixtures.",
       "repo_id": "trading_swing_family",
-      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\bots\\ibkr_trading",
+      "repo_path": "C:\\Users\\sehyu\\Documents\\Other\\Projects\\trading_agent\\trading\\ibkr_trading",
       "source_checkout_clean": false,
       "status": "formal_decision_parity_missing_or_failed",
       "supported_scope": [
